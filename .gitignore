@@ -1,0 +1,12 @@
+# Ignore everything in this folder by default
+*
+
+# But allow these specific dashboard files
+!.gitignore
+!index.html
+!LIFE_DASHBOARD.html
+!CONTENT_DASHBOARD.html
+!CANNES_DASHBOARD.html
+!MONETIZATION_PLAN.html
+!FORMAT_TEST_PLAN.html
+!Cast_Yourself_Starter.html
