@@ -100,6 +100,21 @@
   footer p{margin:.3rem 0;font-size:.78rem}
   footer a{color:var(--pop3);font-weight:700;text-decoration:underline}
 
+  /* ===== UNIFIED SITE NAV ===== */
+  nav.site-nav{position:sticky;top:0;z-index:100;background:var(--ink);border-bottom:4px solid var(--pop);padding:.55rem .8rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  nav.site-nav .brand{color:var(--pop3);text-decoration:none;font-weight:900;font-size:.92rem;letter-spacing:.04em;padding:.32rem .65rem;border-radius:.4rem;transition:background .15s;border:2px solid transparent}
+  nav.site-nav .brand:hover{background:var(--pop2);border-color:var(--pop3)}
+  nav.site-nav .selectors{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin-left:auto}
+  nav.site-nav select{background:var(--pop2);color:#fff;border:2px solid var(--pop3);border-radius:.5rem;padding:.36rem .7rem;font-weight:700;font-size:.8rem;font-family:inherit;letter-spacing:.02em;cursor:pointer}
+  nav.site-nav select:hover{background:var(--pop5)}
+  nav.site-nav select option{background:var(--ink);color:#fff;font-weight:700}
+  nav.site-nav select.section-jump{background:var(--pop4);border-color:var(--pop6)}
+  @media (max-width:640px){
+    nav.site-nav{padding:.4rem .55rem}
+    nav.site-nav .brand{font-size:.78rem;padding:.28rem .5rem}
+    nav.site-nav select{font-size:.72rem;padding:.3rem .55rem;flex:1;min-width:0}
+    nav.site-nav .selectors{width:100%;margin-left:0}
+  }
   @media (max-width:640px){
     header.hero h1{font-size:1.7rem}
     header.hero{padding:1.8rem 1rem 1.4rem}
@@ -109,6 +124,21 @@
 </style>
 </head>
 <body>
+
+<!-- ===== UNIFIED SITE NAV ===== -->
+<nav class="site-nav">
+  <a href="index.html" class="brand">⭐ BECOMING FAMOUS</a>
+  <div class="selectors">
+    <select class="page-jump" onchange="if(this.value)window.location.href=this.value">
+      <option value="" disabled selected id="page-current">📍 Home</option>
+      <option value="index.html">🏠 Home</option>
+      <option value="LIFE_DASHBOARD.html">📅 Life Dashboard</option>
+      <option value="CONTENT_DASHBOARD.html">🎬 Content Dashboard</option>
+      <option value="MONETIZATION_PLAN.html">💰 Monetization Plan</option>
+      <option value="FORMAT_TEST_PLAN.html">⚡ Format Test</option>
+    </select>
+  </div>
+</nav>
 
 <header class="hero">
   <h1>Becoming Famous</h1>
@@ -206,6 +236,24 @@
   <p>Built with Cowork · v1 · Updated <span id="footer-date">2026-04-28</span></p>
   <p>The audience is the leverage. Auditions are the use. The acting career is the long arc.</p>
 </footer>
+
+<script>
+  // Set the page selector to show current page
+  (function(){
+    var pages = {
+      'index.html': '🏠 Home',
+      '': '🏠 Home',
+      'LIFE_DASHBOARD.html': '📅 Life Dashboard',
+      'CONTENT_DASHBOARD.html': '🎬 Content Dashboard',
+      'MONETIZATION_PLAN.html': '💰 Monetization Plan',
+      'FORMAT_TEST_PLAN.html': '⚡ Format Test'
+    };
+    var path = window.location.pathname.split('/').pop() || 'index.html';
+    var label = pages[path] || pages['index.html'];
+    var el = document.getElementById('page-current');
+    if (el) el.textContent = '📍 ' + label;
+  })();
+</script>
 
 <script>
   // Calculate countdowns and dates client-side so they update automatically

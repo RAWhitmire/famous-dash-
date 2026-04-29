@@ -214,11 +214,33 @@
   footer{background:var(--ink);color:var(--bg);padding:2rem 1.2rem;text-align:center;font-size:.85rem;border-top:4px solid var(--pop)}
   footer .quote{font-style:italic;color:var(--pop3);margin:.6rem 0}
   footer a{color:var(--pop3);font-weight:900}
+  /* ===== UNIFIED SITE NAV ===== */
+  nav.site-nav{position:sticky;top:0;z-index:100;background:var(--ink);border-bottom:4px solid var(--pop);padding:.55rem .8rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  nav.site-nav .brand{color:var(--pop3);text-decoration:none;font-weight:900;font-size:.92rem;letter-spacing:.04em;padding:.32rem .65rem;border-radius:.4rem;border:2px solid transparent;transition:background .15s}
+  nav.site-nav .brand:hover{background:var(--pop2);border-color:var(--pop3)}
+  nav.site-nav .selectors{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin-left:auto}
+  nav.site-nav select{background:var(--pop2);color:#fff;border:2px solid var(--pop3);border-radius:.5rem;padding:.36rem .7rem;font-weight:700;font-size:.8rem;font-family:inherit;letter-spacing:.02em;cursor:pointer}
+  nav.site-nav select:hover{background:var(--pop5)}
+  nav.site-nav select option{background:var(--ink);color:#fff;font-weight:700}
+  nav.site-nav select.section-jump{background:var(--pop4);border-color:var(--pop6)}
+  @media (max-width:640px){
+    nav.site-nav{padding:.4rem .55rem}
+    nav.site-nav .brand{font-size:.78rem;padding:.28rem .5rem}
+    nav.site-nav select{font-size:.72rem;padding:.3rem .55rem;flex:1;min-width:0}
+    nav.site-nav .selectors{width:100%;margin-left:0}
+  }
+
+  /* ===== FOLDABLE SECTIONS ===== */
+  section[data-foldable] h2{cursor:pointer;user-select:none;transition:color .15s}
+  section[data-foldable] h2:hover{color:var(--pop2)}
+  section[data-foldable] h2 .fold-chev{display:inline-block;margin-left:.6rem;color:var(--pop2);transition:transform .2s;font-size:1rem}
+  section[data-foldable].folded > *:not(h2){display:none !important}
+  .fold-banner{background:var(--pop3);border:3px dashed var(--ink);padding:.7rem 1rem;border-radius:.5rem;margin:1rem auto;max-width:1180px;font-size:.85rem;font-weight:700;text-align:center}
+  .fold-banner button{background:var(--ink);color:var(--pop3);border:2px solid var(--ink);border-radius:.4rem;padding:.3rem .7rem;font-weight:900;cursor:pointer;font-family:inherit;margin-left:.5rem;font-size:.78rem}
+  .fold-banner button:hover{background:var(--pop2)}
+
   @media (max-width:680px){
     header.hero h1{font-size:1.6rem}
-    nav.sticky{padding:.5rem .6rem}
-    nav.sticky a{padding:.28rem .55rem;font-size:.66rem}
-    nav.sticky .live{display:none}
     section{padding:1.4rem .8rem}
     .mini-cal-grid{grid-template-columns:5rem repeat(11,minmax(6.5rem,1fr))}
   }
@@ -227,25 +249,45 @@
 </head>
 <body>
 
-<nav class="sticky">
-  <span class="brand">CONTENT · @rawhitmire / @discounttrek</span>
-  <a href="#today">Today</a>
-  <a href="#mini-cal">Mini Cal</a>
-  <a href="#calendar">Days</a>
-  <a href="#posts">Posts</a>
-  <a href="#dt" class="dt-tab">Discount Trek</a>
-  <a href="#scripts" class="scripts-tab">Scripts</a>
-  <a href="#plays" class="dt-tab">IG Plays</a>
-  <a href="#money" class="scripts-tab">Money</a>
-  <a href="#ahead" class="ahead-tab">Get Ahead</a>
-  <a href="#filming">Filming</a>
-  <a href="#kpis">KPIs</a>
-  <a href="#lead">Lead Mag</a>
-  <a href="#contingency">Contingency</a>
-  <a href="#checklist">Daily</a>
-  <a href="LIFE_DASHBOARD.html" class="cross">← Life Dashboard</a>
-  <span class="live">LIVE SPRINT</span>
+<!-- ===== UNIFIED SITE NAV ===== -->
+<nav class="site-nav">
+  <a href="index.html" class="brand">⭐ BECOMING FAMOUS</a>
+  <div class="selectors">
+    <select class="section-jump" onchange="if(this.value){location.hash=this.value;this.selectedIndex=0}">
+      <option value="" disabled selected>📑 Jump to section</option>
+      <optgroup label="Daily use">
+        <option value="today">Today</option>
+        <option value="mini-cal">Mini Calendar</option>
+        <option value="kpis">Sprint KPIs</option>
+        <option value="calendar">Detailed Calendar</option>
+        <option value="posts">Per-Post Cards</option>
+        <option value="checklist">Daily Checklist</option>
+      </optgroup>
+      <optgroup label="Reference (folded)">
+        <option value="dt">Discount Trek</option>
+        <option value="scripts">Scripts</option>
+        <option value="plays">IG Plays</option>
+        <option value="money">Money</option>
+        <option value="ahead">Get Ahead</option>
+        <option value="filming">Filming</option>
+        <option value="lead">Lead Magnet</option>
+        <option value="contingency">Contingency</option>
+      </optgroup>
+    </select>
+    <select class="page-jump" onchange="if(this.value)window.location.href=this.value">
+      <option value="" disabled selected id="page-current">📍 Content Dashboard</option>
+      <option value="index.html">🏠 Home</option>
+      <option value="LIFE_DASHBOARD.html">📅 Life Dashboard</option>
+      <option value="CONTENT_DASHBOARD.html">🎬 Content Dashboard</option>
+      <option value="MONETIZATION_PLAN.html">💰 Monetization Plan</option>
+      <option value="FORMAT_TEST_PLAN.html">⚡ Format Test</option>
+    </select>
+  </div>
 </nav>
+
+<div class="fold-banner">
+  💡 Reference sections are folded by default — click any heading to expand. <button onclick="document.querySelectorAll('section[data-foldable]').forEach(function(s){s.classList.remove('folded');s.querySelectorAll('.fold-chev').forEach(function(c){c.textContent='▲'})})">Expand all</button> <button onclick="document.querySelectorAll('section[data-foldable]').forEach(function(s){s.classList.add('folded');s.querySelectorAll('.fold-chev').forEach(function(c){c.textContent='▼'})})">Collapse all</button>
+</div>
 
 <header class="hero">
   <h1>The Content Dashboard</h1>
@@ -322,7 +364,7 @@
   <div class="post-grid" id="post-grid"></div>
 </section>
 
-<section id="dt">
+<section id="dt" data-foldable>
   <h2>Discount Trek <span class="tag">@discounttrek · TNG 1:1 sitcom</span></h2>
   <div class="lede">Building from 0 in parallel with the Cannes sprint. Salt Vampire is the sprint-window TOS-60th newsjack hero; <em>Encounter at Farpoint</em> is the post-sprint long-arc launch (Q with literal glitter). Every DT post drives back to PASSENGER on @rawhitmire.</div>
   <div class="dt-hero">
@@ -383,12 +425,12 @@
   <h3 style="margin:1.6rem 0 .5rem;color:var(--pop4);font-weight:900;text-transform:uppercase;letter-spacing:.04em">All 32 DT Posts</h3>
   <div class="post-grid" id="dt-only-grid"></div>
 </section>
-<section id="scripts">
+<section id="scripts" data-foldable>
   <h2>Priority Scripts <span class="tag pop3">6 / pipeline visible</span></h2>
   <div class="lede">The 6 main-account priority posts shown end-to-end through Hook Factory → QC → Script Writer → QC → Community Manager. Click to expand.</div>
   <div id="scripts-container"></div>
 </section>
-<section id="plays">
+<section id="plays" data-foldable>
   <h2>IG Plays · Carousels · Stories · Trial Reels <span class="tag pop2">resilience layer</span></h2>
   <div class="lede">IG is struggling. The fix isn't more reels — it's the formats reels can't reach. Carousels (highest-engagement format on IG, 1.92% avg vs 0.50% reels), daily stories (DMs = #1 algorithmic signal), and trial reels (test new formats with non-followers without burning your audience).</div>
   <div class="dt-cols">
@@ -464,7 +506,7 @@
   </div>
   <p style="margin:1.4rem 0 .5rem;font-size:.85rem;color:#5b4978;font-style:italic">Trial reel decision rule: 24hr review · if 5K+ views with 50%+ watch-through, share to followers. If not, learn and archive — no harm to existing audience.</p>
 </section>
-<section id="money">
+<section id="money" data-foldable>
   <h2>Monetization Roadmap <span class="tag pop3">$0 → real income · 6-month plan</span></h2>
   <div class="lede">You're starting from zero followers, zero revenue, zero brand deals. The sprint builds the audience; this section turns that audience into income. <b>Critical rules</b>: HR is watching the print-shop angle (no soliciting language), Polina's shadow-ban list bans "I sell" / "this costs" / "pay" phrasing in posts, all promotional links go through ONE link-in-bio hub. Don't try to sell during the sprint — lay the groundwork.</div>
   <h3 style="margin:1.4rem 0 .5rem;color:var(--pop2);font-weight:900;text-transform:uppercase;letter-spacing:.04em">Phase 0 · Sprint Foundation (Apr 30 – May 30)</h3>
@@ -507,7 +549,7 @@
   </div>
   <p style="margin:1.4rem 0 0;font-size:.9rem;color:#5b4978;font-style:italic"><b>The honest truth:</b> these numbers assume you ship the sprint cleanly AND the post-sprint funnel discipline. Most creators fail Phase 1 because they don't ship the product. The sprint window IS the audience-building investment that makes everything else possible.</p>
 </section>
-<section id="ahead">
+<section id="ahead" data-foldable>
   <h2>Get Ahead Plan <span class="tag pop5">31-day sprint · 3 phases</span></h2>
   <div class="lede">31 days of 3-per-day = 93 main posts + ~32 DT posts. The only way this is humane: front-load every batch day, build banked-content rotations, and protect the burnout edges. Cannes is the midpoint. The second prize is the finish line. Encounter at Farpoint pilot ships ~mid-June.</div>
   <h3 style="margin:1.4rem 0 .5rem;color:var(--pop5);font-weight:900;text-transform:uppercase;letter-spacing:.04em">Phase 1 · Cannes Window (Days 1–11 · Apr 30 – May 10)</h3>
@@ -537,7 +579,7 @@
     <div class="ahead-card priority"><h4>Burnout Protection <span class="when alt">non-negotiable</span></h4><ul><li>One <b>full rest evening</b> per week — no edits, no shoot, no analytics. Pick Tuesdays.</li><li><b>Saturday mornings off</b> from posting work (slot 1 from queue).</li><li>Sleep before every batch day. The mega-shoots fail if exhausted.</li><li>If you cry twice in one day: hit the B-roll bank and post voiceover-only that day. The 3/day stays sacred but the execution is flexible.</li></ul><div class="out">OUTCOME: 31 days at 3/day without breaking. The framework only counts if you're still standing on May 30.</div></div>
   </div>
 </section>
-<section id="filming">
+<section id="filming" data-foldable>
   <h2>Filming Day Shot Lists <span class="tag">2 batch · 4 light · 2 zero</span></h2>
   <div class="lede">Sun + Wed are the workhorses (per Get Ahead, Sun upgraded to mega-batch). Mon + Thu are 1–2 max. Fri + Sat are zero. For the time-block view of these days, see the <a href="LIFE_DASHBOARD.html#days" style="color:var(--pop2);font-weight:900">Life Dashboard</a>.</div>
   <div class="film-grid">
@@ -573,7 +615,7 @@
     </div>
   </div>
 </section>
-<section id="lead">
+<section id="lead" data-foldable>
   <h2>Lead Magnet · DM Loop <span class="tag">PASSENGER</span></h2>
   <div class="lead-mag">
     <h3>The Cast Yourself Starter</h3>
@@ -583,7 +625,7 @@
     <p style="font-size:.85rem;opacity:.85"><b>Where it appears:</b> every post's pinned comment · slot-1 captions · voiceover endings where natural · once per post per surface (avoid spam-detection). Same keyword on @discounttrek (no fragmentation).</p>
   </div>
 </section>
-<section id="contingency">
+<section id="contingency" data-foldable>
   <h2>Contingency Protocols <span class="tag pop">when sh*t happens</span></h2>
   <div class="ctg">
     <div class="card"><h4>1. Post under-performs first hour</h4><div class="trig">Trigger: <200 views @ 60 min on TikTok</div><p>Don't delete. DM to 5 friends to seed shares. Repost to Story "this one's my fave." Move next slot earlier. Repurpose hook tomorrow.</p></div>
@@ -1228,6 +1270,44 @@ renderScripts();
 updateToday();
 updateCountdown();
 setInterval(updateCountdown, 60000);
+</script>
+
+<script>
+  // ===== FOLDABLE SECTIONS =====
+  (function(){
+    document.querySelectorAll('section[data-foldable]').forEach(function(sec){
+      var h2 = sec.querySelector('h2');
+      if (!h2) return;
+      var chev = document.createElement('span');
+      chev.className = 'fold-chev';
+      chev.textContent = '▼';
+      h2.appendChild(chev);
+      sec.classList.add('folded');
+      h2.addEventListener('click', function(e){
+        if (e.target.tagName === 'A' || e.target.tagName === 'INPUT') return;
+        sec.classList.toggle('folded');
+        chev.textContent = sec.classList.contains('folded') ? '▼' : '▲';
+      });
+    });
+    // Auto-expand if URL hash matches
+    if (window.location.hash){
+      var target = document.querySelector(window.location.hash);
+      if (target && target.matches('section[data-foldable]')){
+        target.classList.remove('folded');
+        var chev = target.querySelector('.fold-chev');
+        if (chev) chev.textContent = '▲';
+      }
+    }
+    // Listen for hash changes (e.g. from section dropdown)
+    window.addEventListener('hashchange', function(){
+      var target = document.querySelector(window.location.hash);
+      if (target && target.matches('section[data-foldable]')){
+        target.classList.remove('folded');
+        var chev = target.querySelector('.fold-chev');
+        if (chev) chev.textContent = '▲';
+      }
+    });
+  })();
 </script>
 </body>
 </html>
