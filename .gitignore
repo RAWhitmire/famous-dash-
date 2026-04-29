@@ -1,15 +1,27 @@
 # ===========================================================
 # Becoming Famous - .gitignore
-# ONLY the site/ folder + root index.html (redirect) are
-# pushed to GitHub. Everything else (megadocs, MD reference
-# files, Python scripts, bats, source PDFs) stays local.
+# Push to GitHub: site/ folder + root HTML files (megadocs +
+# redirect). Skip: MD reference files, Python scripts, bat
+# files, source PDFs, generated PDFs.
 # ===========================================================
 
-# Ignore everything in this folder by default
+# Ignore everything by default
 *
 
-# But keep these:
+# Allow .gitignore itself
 !.gitignore
+
+# Allow root index.html (redirect to /site/)
 !index.html
+
+# Allow the entire site/ folder (the actual website)
 !site/
 !site/**
+
+# Allow megadoc HTML files at root (deep reference)
+!LIFE_DASHBOARD.html
+!CONTENT_DASHBOARD.html
+!CANNES_DASHBOARD.html
+!MONETIZATION_PLAN.html
+!FORMAT_TEST_PLAN.html
+!Cast_Yourself_Starter.html

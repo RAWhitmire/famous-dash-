@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FORMAT TEST PLAN — Sprint Lab · Find the Viral Format Fast</title>
+<style>
+  :root{
+    --bg:#fdf9ef;
+    --ink:#1a0a2e;
+    --pop:#d4af37;
+    --pop2:#5b21b6;
+    --pop3:#fde68a;
+    --pop4:#115e59;
+    --pop5:#8b5cf6;
+    --pop6:#14b8a6;
+    --soft:#ede9fe;
+    --soft-teal:#d1faf2;
+    --good:#10b981;
+    --warn:#f59e0b;
+    --bad:#ef4444;
+    --card:#ffffff;
+    --shadow:6px 6px 0 var(--ink);
+    --shadow-sm:3px 3px 0 var(--ink);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  nav.sticky{position:sticky;top:0;z-index:50;background:var(--ink);border-bottom:4px solid var(--pop6);padding:.55rem .8rem;display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
+  nav.sticky .brand{color:var(--pop3);font-weight:900;font-size:1rem;letter-spacing:.04em;margin-right:.6rem}
+  nav.sticky a{color:var(--bg);text-decoration:none;padding:.32rem .7rem;border:2px solid var(--bg);border-radius:999px;font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.04em;transition:all .15s}
+  nav.sticky a:hover{background:var(--pop6);border-color:var(--pop6);color:#fff}
+  nav.sticky a.cross{background:var(--pop5);color:#fff;border-color:var(--ink);font-weight:900}
+  header.hero{background:linear-gradient(135deg,var(--pop6) 0%,var(--pop4) 100%);color:#fff;padding:2.4rem 1.5rem 2rem;border-bottom:5px solid var(--ink);position:relative;overflow:hidden}
+  header.hero::before{content:"⚡";position:absolute;font-size:14rem;color:var(--pop3);opacity:.18;top:-2rem;right:-1rem;line-height:1}
+  header.hero h1{font-size:2.1rem;margin:0 0 .4rem;font-weight:900;letter-spacing:-.02em;text-transform:uppercase}
+  header.hero .sub{font-size:.95rem;opacity:.92;max-width:62ch}
+  header.hero .badge-row{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem}
+  header.hero .badge-row span{background:var(--pop3);color:var(--ink);padding:.5rem .9rem;border-radius:.6rem;font-weight:900;border:3px solid var(--ink);box-shadow:var(--shadow);font-size:.85rem}
+  section{padding:2rem 1.2rem;max-width:1280px;margin:0 auto}
+  section h2{font-size:1.6rem;margin:0 0 .4rem;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+  section h2 .tag{font-size:.66rem;background:var(--pop4);color:#fff;padding:.2rem .55rem;border-radius:.4rem;border:2px solid var(--ink);font-weight:900}
+  section h2 .tag.pop{background:var(--pop);color:var(--ink)}
+  section h2 .tag.pop3{background:var(--pop3);color:var(--ink)}
+  section h2 .tag.pop6{background:var(--pop6);color:#fff}
+  section .lede{margin:0 0 1.2rem;color:#5b4978;font-size:.95rem;max-width:78ch}
+
+  .method{background:linear-gradient(135deg,var(--pop3) 0%,var(--pop) 100%);border:4px solid var(--ink);border-radius:1rem;padding:1.4rem;box-shadow:var(--shadow);margin-bottom:1.6rem}
+  .method h3{margin:0 0 .8rem;font-size:1.2rem;font-weight:900;text-transform:uppercase}
+  .method ol{margin:0;padding-left:1.4rem}
+  .method li{margin-bottom:.5rem;font-weight:600;font-size:.92rem}
+  .method li b{color:var(--pop2)}
+
+  .format-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1rem;margin:1rem 0}
+  .fmt{background:var(--card);border:3px solid var(--ink);border-radius:.7rem;padding:1rem;box-shadow:var(--shadow-sm);position:relative}
+  .fmt .code{position:absolute;top:.7rem;right:.7rem;background:var(--ink);color:var(--pop3);padding:.18rem .55rem;border-radius:.3rem;font-weight:900;font-size:.7rem;letter-spacing:.06em}
+  .fmt h3{margin:0 0 .4rem;font-size:.98rem;font-weight:900;text-transform:uppercase;padding-right:3.5rem}
+  .fmt .what{font-size:.85rem;margin:.3rem 0}
+  .fmt .when{margin-top:.5rem;padding:.4rem .55rem;background:var(--soft);border-radius:.4rem;font-size:.78rem}
+  .fmt .when b{color:var(--pop2);font-size:.65rem;text-transform:uppercase;letter-spacing:.04em;display:block}
+  .fmt .ex{margin-top:.4rem;padding:.4rem .55rem;background:var(--soft-teal);border-left:3px solid var(--pop6);border-radius:.4rem;font-size:.78rem;font-style:italic}
+  .fmt .ex b{font-style:normal;color:var(--pop4);font-size:.65rem;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:.15rem}
+  .fmt.tier-a{border-color:var(--pop)}
+  .fmt.tier-a .code{background:var(--pop);color:var(--ink)}
+  .fmt.tier-b{border-color:var(--pop6)}
+  .fmt.tier-b .code{background:var(--pop6);color:#fff}
+  .fmt.tier-c{border-color:var(--pop5)}
+  .fmt.tier-c .code{background:var(--pop5);color:#fff}
+
+  .day-grid{display:grid;gap:.7rem;margin:1rem 0}
+  .day{background:var(--card);border:3px solid var(--ink);border-radius:.7rem;padding:.8rem 1rem;box-shadow:var(--shadow-sm)}
+  .day .day-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;margin-bottom:.5rem;padding-bottom:.4rem;border-bottom:2px dashed var(--ink)}
+  .day .day-head h4{margin:0;font-size:.95rem;font-weight:900;text-transform:uppercase}
+  .day .day-head .date{font-size:.75rem;color:var(--pop2);font-weight:700}
+  .day .slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.5rem}
+  .day .slot{padding:.5rem .6rem;background:var(--soft);border-radius:.4rem;border:2px solid var(--ink);font-size:.8rem}
+  .day .slot .label{font-size:.65rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;color:var(--pop2)}
+  .day .slot .post-id{font-weight:900;color:var(--ink);margin:.1rem 0}
+  .day .slot .fmt-tag{display:inline-block;background:var(--ink);color:var(--pop3);padding:.12rem .45rem;border-radius:.3rem;font-size:.65rem;font-weight:900;margin-top:.2rem}
+  .day .slot .fmt-tag.tier-a{background:var(--pop);color:var(--ink)}
+  .day .slot .fmt-tag.tier-b{background:var(--pop6);color:#fff}
+  .day .slot .fmt-tag.tier-c{background:var(--pop5);color:#fff}
+  .day .slot .note{font-size:.72rem;color:#5b4978;margin-top:.25rem;line-height:1.3}
+
+  .track-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:3px solid var(--ink);border-radius:.7rem;overflow:hidden;box-shadow:var(--shadow-sm);margin:1rem 0;font-size:.8rem}
+  .track-table thead th{background:var(--ink);color:var(--pop3);padding:.55rem .4rem;text-align:left;font-weight:900;text-transform:uppercase;font-size:.66rem;letter-spacing:.04em}
+  .track-table tbody td{padding:.4rem;border-top:1px solid #e5e1d4;vertical-align:middle}
+  .track-table tbody tr:hover{background:var(--soft)}
+  .track-table input{width:100%;padding:.25rem .35rem;border:1px solid #ccc;border-radius:.25rem;font-size:.78rem;font-family:inherit}
+  .track-table .fmt-cell{font-weight:900;background:var(--soft);font-size:.75rem}
+
+  .decision{background:var(--card);border:4px solid var(--good);border-radius:.8rem;padding:1.2rem;box-shadow:var(--shadow);margin:1.2rem 0}
+  .decision h3{margin:0 0 .6rem;font-size:1.05rem;font-weight:900;text-transform:uppercase;color:var(--good);display:flex;align-items:center;gap:.4rem}
+  .decision h3::before{content:"📊";font-size:1.2rem}
+  .decision ol{margin:0;padding-left:1.4rem;font-size:.9rem}
+  .decision li{margin-bottom:.4rem}
+  .decision .formula{background:var(--soft);border:2px dashed var(--ink);padding:.6rem .8rem;border-radius:.5rem;font-family:'Courier New',monospace;font-size:.85rem;margin:.6rem 0;font-weight:700}
+
+  footer{background:var(--ink);color:var(--pop3);padding:1.2rem;text-align:center;font-size:.75rem;border-top:4px solid var(--pop6)}
+  footer a{color:var(--pop3);font-weight:700}
+
+  /* ===== UNIFIED SITE NAV ===== */
+  nav.site-nav{position:sticky;top:0;z-index:100;background:var(--ink);border-bottom:4px solid var(--pop6);padding:.55rem .8rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  nav.site-nav .brand{color:var(--pop3);text-decoration:none;font-weight:900;font-size:.92rem;letter-spacing:.04em;padding:.32rem .65rem;border-radius:.4rem;border:2px solid transparent;transition:background .15s}
+  nav.site-nav .brand:hover{background:var(--pop2);border-color:var(--pop3)}
+  nav.site-nav .selectors{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin-left:auto}
+  nav.site-nav select{background:var(--pop2);color:#fff;border:2px solid var(--pop3);border-radius:.5rem;padding:.36rem .7rem;font-weight:700;font-size:.8rem;font-family:inherit;letter-spacing:.02em;cursor:pointer}
+  nav.site-nav select:hover{background:var(--pop5)}
+  nav.site-nav select option{background:var(--ink);color:#fff;font-weight:700}
+  nav.site-nav select.section-jump{background:var(--pop4);border-color:var(--pop6)}
+  @media (max-width:640px){
+    nav.site-nav{padding:.4rem .55rem}
+    nav.site-nav .brand{font-size:.78rem;padding:.28rem .5rem}
+    nav.site-nav select{font-size:.72rem;padding:.3rem .55rem;flex:1;min-width:0}
+    nav.site-nav .selectors{width:100%;margin-left:0}
+  }
+
+  @media (max-width:640px){
+    header.hero h1{font-size:1.5rem}
+    section{padding:1.4rem .8rem}
+    section h2{font-size:1.25rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== UNIFIED SITE NAV ===== -->
+<nav class="site-nav">
+  <a href="index.html" class="brand">⭐ BECOMING FAMOUS</a>
+  <div class="selectors">
+    <select class="section-jump" onchange="if(this.value){location.hash=this.value;this.selectedIndex=0}">
+      <option value="" disabled selected>📑 Jump to section</option>
+      <option value="method">Method</option>
+      <option value="library">15 Formats</option>
+      <option value="assignments">D1–D10 Plan</option>
+      <option value="tracker">Tracker</option>
+      <option value="decision">Decision Tree</option>
+    </select>
+    <select class="page-jump" onchange="if(this.value)window.location.href=this.value">
+      <option value="" disabled selected id="page-current">📍 Format Test</option>
+      <option value="index.html">🏠 Home</option>
+      <option value="LIFE_DASHBOARD.html">📅 Life Dashboard</option>
+      <option value="CONTENT_DASHBOARD.html">🎬 Content Dashboard</option>
+      <option value="MONETIZATION_PLAN.html">💰 Monetization Plan</option>
+      <option value="FORMAT_TEST_PLAN.html">⚡ Format Test</option>
+    </select>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>Sprint = Content Lab</h1>
+  <p class="sub">31 days, 93 main posts, 15 different formats — find the viral format fast and ride it. First 10 days = test all formats. Days 11–21 = double down on top 3. Days 22–31 = exploit + 1 new test/day. Tracking grid built in.</p>
+  <div class="badge-row">
+    <span>📅 Sprint: Apr 30 – May 30</span>
+    <span>🧪 15 formats tested</span>
+    <span>🏆 Winners locked by Day 10</span>
+  </div>
+</header>
+
+<!-- ===== METHOD ===== -->
+<section id="method">
+  <h2>The Test Method <span class="tag pop">read first</span></h2>
+  <div class="method">
+    <h3>How This Works</h3>
+    <ol>
+      <li><b>Days 1–10 (M01–M30):</b> Cover all 15 formats, each posted at least 2x. Track views, completion %, comments-per-view, saves, shares, profile visits, follows.</li>
+      <li><b>Day 10 evening:</b> Calculate <b>Format Score</b> per format (formula in Decision Tree). Identify <b>top 3 winners</b>.</li>
+      <li><b>Days 11–21 (M31–M63):</b> 70% of slots go to top 3 formats (split by performance weight). 20% to next 3 promising formats. 10% to bold new tests (e.g., "what if I dressed up", "what if I shot in a weird location").</li>
+      <li><b>Days 22–31 (M64–M93):</b> 80% to confirmed winners, 10% maintenance of mid-tier, 10% bold experiments. By here you should have a signature format.</li>
+      <li><b>Tracking</b> happens in the table at the bottom of this page — fill in numbers daily, ranking auto-derives.</li>
+      <li><b>The point:</b> at 160 followers, your bottleneck is <b>format-market fit</b>, not effort. The fastest creators don't grind harder — they find what hits and stop wasting time on what doesn't.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== FORMAT LIBRARY ===== -->
+<section id="library">
+  <h2>Master Format Library <span class="tag pop6">15 formats, 3 tiers</span></h2>
+  <p class="lede"><b>Tier A (gold)</b> = high-virality formats, lower production cost. <b>Tier B (teal)</b> = medium-virality, builds brand depth. <b>Tier C (purple)</b> = low-virality but high-value (loyalty / SEO / repeat-watch).</p>
+
+  <div class="format-grid">
+
+    <div class="fmt tier-a">
+      <span class="code">F01</span>
+      <h3>Direct Address</h3>
+      <div class="what">Face to camera, conversational. No costume, no setup. Punchy hook in first 1.5 sec. Strong opinion, story, or revelation. 15–45 sec.</div>
+      <div class="when"><b>When it works</b>Personality is the product. You commenting on something hot. Anecdotes with a punchline. Hot takes.</div>
+      <div class="ex"><b>Example</b>"I just realized something nobody talks about with [thing]…"</div>
+    </div>
+
+    <div class="fmt tier-a">
+      <span class="code">F02</span>
+      <h3>POV-Trope</h3>
+      <div class="what">"POV: you [scenario]" with you playing the audience experience. Visual + caption-driven, often no dialogue. 10–25 sec.</div>
+      <div class="when"><b>When it works</b>Universal experiences. Niche subculture inside jokes. Recognizable scenarios. Looping endings.</div>
+      <div class="ex"><b>Example</b>"POV: you're a Trekkie at a normie party trying to act normal"</div>
+    </div>
+
+    <div class="fmt tier-a">
+      <span class="code">F03</span>
+      <h3>Trend Remix</h3>
+      <div class="what">Hijack a trending sound or format. Apply YOUR twist. Original spin + recognizable framework = surface boost.</div>
+      <div class="when"><b>When it works</b>Sound has 100K–10M uses, peak velocity, audience is YOUR audience. Find via TT search → trending → filter to last 7 days.</div>
+      <div class="ex"><b>Example</b>Trending "tell me you're X without telling me" sound + "tell me you're a solo creator without telling me"</div>
+    </div>
+
+    <div class="fmt tier-a">
+      <span class="code">F04</span>
+      <h3>Storytime</h3>
+      <div class="what">Spoken anecdote, captions for retention. Strong opening hook ("the most unhinged thing happened..."). 30–60 sec. Builds parasocial bond.</div>
+      <div class="when"><b>When it works</b>True stories with a twist. Customer service nightmares. Filming mishaps. Anything self-deprecating.</div>
+      <div class="ex"><b>Example</b>"Storytime: I tried to film a Star Trek parody and the cardboard fell on me"</div>
+    </div>
+
+    <div class="fmt tier-a">
+      <span class="code">F05</span>
+      <h3>Character Monologue (DT)</h3>
+      <div class="what">In Discount Trek character. Captain Discount addressing the camera/crew. 25–50 sec. Cardboard set + costume cue. Comedy + commitment to the bit.</div>
+      <div class="when"><b>When it works</b>The bit is fully committed. Visible cardboard joins. Glitter usage. Direct breaks of the fourth wall WHILE in character.</div>
+      <div class="ex"><b>Example</b>Captain Discount logs the captain's log about "the budget cuts that have impacted phaser quality"</div>
+    </div>
+
+    <div class="fmt tier-b">
+      <span class="code">F06</span>
+      <h3>Voiceover B-Roll</h3>
+      <div class="what">Voiceover narration over visual content. You can record voice and footage separately = more polished. 25–60 sec.</div>
+      <div class="when"><b>When it works</b>Behind-the-scenes process. Building or making something. Information-dense content. Voice-first creators.</div>
+      <div class="ex"><b>Example</b>Voiceover explaining your sprint plan over footage of you setting up the cardboard bridge</div>
+    </div>
+
+    <div class="fmt tier-b">
+      <span class="code">F07</span>
+      <h3>Mockumentary</h3>
+      <div class="what">Deadpan fake-documentary style. Cuts between B-roll and "interview" shots of yourself. Documentary Now! / Garth Marenghi energy. 30–60 sec.</div>
+      <div class="when"><b>When it works</b>Self-deprecation packaged as serious. The bit benefits from production value mismatch. DT is a natural fit.</div>
+      <div class="ex"><b>Example</b>"This is the story of one woman, one room, and one cardboard bridge…"</div>
+    </div>
+
+    <div class="fmt tier-b">
+      <span class="code">F08</span>
+      <h3>Process / Time-lapse</h3>
+      <div class="what">Time-lapse of you building, drawing, prepping. 15–40 sec. Speed-up music, satisfying reveal. Low dialogue requirement.</div>
+      <div class="when"><b>When it works</b>Visible progression. Final reveal is striking. Soothing pace. Great for sleep/study audiences who lurk + return.</div>
+      <div class="ex"><b>Example</b>Drawing the DT bridge in Photoshop, time-lapse + a reveal at the end</div>
+    </div>
+
+    <div class="fmt tier-b">
+      <span class="code">F09</span>
+      <h3>Sketch / Mini-Scene</h3>
+      <div class="what">2+ characters (you in costume changes / ADR voices / split-screen). Narrative beat. 30–60 sec. Higher production but bigger payoff.</div>
+      <div class="when"><b>When it works</b>You can clear costume changes in editing. Comedic beat works on rewatch. Punchline on the back end.</div>
+      <div class="ex"><b>Example</b>Captain Discount + Salt Vampire arguing about budget through a split-screen "viewscreen"</div>
+    </div>
+
+    <div class="fmt tier-b">
+      <span class="code">F10</span>
+      <h3>Reaction / Duet</h3>
+      <div class="what">React to or duet someone else's video. Borrows their reach. Strong commentary. 15–45 sec.</div>
+      <div class="when"><b>When it works</b>Source video is in your niche, recent, getting traction. You add genuine value (insight, joke, contradiction).</div>
+      <div class="ex"><b>Example</b>Duet a Trek take video adding the DT take. Or react to "things I learned in 6 years of acting" videos.</div>
+    </div>
+
+    <div class="fmt tier-c">
+      <span class="code">F11</span>
+      <h3>Tutorial / How-To</h3>
+      <div class="what">Explain how you did something. Steps with text overlays. 30–60 sec. Saves > views (high algorithmic signal).</div>
+      <div class="when"><b>When it works</b>You're teaching something only you can teach. "How to film a parody on no budget", "How to draw a Star Trek bridge in Photoshop in 30 min".</div>
+      <div class="ex"><b>Example</b>"How to make a cardboard ENTERPRISE bridge for under $20"</div>
+    </div>
+
+    <div class="fmt tier-c">
+      <span class="code">F12</span>
+      <h3>Day-in-the-Life Mini-Vlog</h3>
+      <div class="what">Slice of life. Multiple cuts through your day. 30–60 sec. Higher production but builds parasocial bond hard.</div>
+      <div class="when"><b>When it works</b>You're showing the LIFE behind the content (the print shop, the editing, the grind). Posts as parasocial fuel.</div>
+      <div class="ex"><b>Example</b>"Day in the life of a print shop employee who's secretly a content creator"</div>
+    </div>
+
+    <div class="fmt tier-c">
+      <span class="code">F13</span>
+      <h3>Q&A / Audience Question</h3>
+      <div class="what">Answer a comment or DM on camera. Reply directly with text overlay. 15–40 sec. Direct community signal.</div>
+      <div class="when"><b>When it works</b>You actually have audience questions (or fake one in early days). Reply-to-comment feature on TT amplifies these.</div>
+      <div class="ex"><b>Example</b>"Reply to @username asking how I have time to make all this content"</div>
+    </div>
+
+    <div class="fmt tier-c">
+      <span class="code">F14</span>
+      <h3>Carousel / Photo Dump</h3>
+      <div class="what">Slideshow of photos with text overlays. Music underneath. 8–20 sec. TT loves these for completion rate.</div>
+      <div class="when"><b>When it works</b>Visual narrative. Before/after. Behind-the-scenes stills. Lookbook style. Easy to make on low-energy days.</div>
+      <div class="ex"><b>Example</b>"Things in my room that prove I'm becoming Discount Trek" — 8 photos with captions</div>
+    </div>
+
+    <div class="fmt tier-c">
+      <span class="code">F15</span>
+      <h3>Green Screen Explainer</h3>
+      <div class="what">Chroma background, you commenting over visual. Often used for reactions to articles, posts, news. 20–45 sec.</div>
+      <div class="when"><b>When it works</b>You need to point at / annotate something visual. News reactions. Article walkthroughs. Trek anniversary-related newsjacks.</div>
+      <div class="ex"><b>Example</b>Green screen over the latest TOS 60th announcement, you commenting</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SPRINT ASSIGNMENTS ===== -->
+<section id="assignments">
+  <h2>Day 1–10 Pre-Assignments <span class="tag pop6">M01–M30 + DT</span></h2>
+  <p class="lede">Each main slot tagged with a format code. Goal: every format gets ≥2 reps in first 10 days. After Day 10, weight the rest of the sprint toward winners.</p>
+
+  <div class="day-grid">
+
+    <div class="day">
+      <div class="day-head"><h4>Day 1 · LAUNCH</h4><span class="date">Thu 4/30</span></div>
+      <div class="slots">
+        <div class="slot"><div class="label">M01 · Slot 1</div><div class="post-id">Sprint launch announcement</div><span class="fmt-tag tier-a">F01 Direct Address</span><div class="note">Highest stakes — face-to-camera explaining the 31-day mission.</div></div>
+        <div class="slot"><div class="label">M02 · Slot 2</div><div class="post-id">First DT teaser</div><span class="fmt-tag tier-a">F05 Character Monologue</span><div class="note">Captain Discount introduces the bit. Cardboard ENT bridge background.</div></div>
+        <div class="slot"><div class="label">M03 · Slot 3</div><div class="post-id">Behind the sprint scene</div><span class="fmt-tag tier-b">F08 Process</span><div class="note">Time-lapse of you setting up filming gear.</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><h4>Day 2 · HERO</h4><span class="date">Fri 5/1</span></div>
+      <div class="slots">
+        <div class="slot"><div class="label">M04 · Slot 1</div><div class="post-id">Hero hook video</div><span class="fmt-tag tier-a">F03 Trend Remix</span><div class="note">Find a trending sound, apply your spin. Highest reach potential.</div></div>
+        <div class="slot"><div class="label">M05 · Slot 2</div><div class="post-id">DT bridge tour</div><span class="fmt-tag tier-b">F06 Voiceover B-Roll</span><div class="note">Walkthrough the cardboard bridge with deadpan narration.</div></div>
+        <div class="slot"><div class="label">M06 · Slot 3</div><div class="post-id">Why I'm doing this</div><span class="fmt-tag tier-a">F04 Storytime</span><div class="note">Why I quit normal content to do this insane sprint — vulnerability hook.</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><h4>Day 3</h4><span class="date">Sat 5/2</span></div>
+      <div class="slots">
+        <div class="slot"><div class="label">M07 · Slot 1</div><div class="post-id">POV: solo creator life</div><span class="fmt-tag tier-a">F02 POV-Trope</span><div class="note">"POV: you're a solo creator at 11pm trying to film slot 3"</div></div>
+        <div class="slot"><div class="label">M08 · Slot 2</div><div class="post-id">DT mockumentary intro</div><span class="fmt-tag tier-b">F07 Mockumentary</span><div class="note">"This is the story of one woman..." Garth Marenghi energy.</div></div>
+        <div class="slot"><div class="label">M09 · Slot 3</div><div class="post-id">Apartment lookbook</div><span class="fmt-tag tier-c">F14 Carousel</span><div class="note">Photos of room prop chaos with captions. Low-energy filler.</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><h4>Day 4 · BATCH ★</h4><span class="date">Sun 5/3</span></div>
+      <div class="slots">
+        <div class="slot"><div class="label">M10 · Slot 1</div><div class="post-id">Sketch: phaser malfunction</div><span class="fmt-tag tier-b">F09 Sketch</span><div class="note">DT sketch with split-screen / costume change. Bigger production.</div></div>
+        <div class="slot"><div class="label">M11 · Slot 2</div><div class="post-id">How to draw a bridge</div><span class="fmt-tag tier-c">F11 Tutorial</span><div class="note">"How to draw a Star Trek bridge in Photoshop in 30 min" — saves bait.</div></div>
+        <div class="slot"><div class="label">M12 · Slot 3</div><div class="post-id">Trek news reaction</div><span class="fmt-tag tier-c">F15 Green Screen</span><div class="note">Whatever's hot in Trek news that day. Newsjack.</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><h4>Day 5 · LIGHT ☆</h4><span class="date">Mon 5/4</span></div>
+      <div class="slots">
+        <div class="slot"><div class="label">M13 · Slot 1</div><div class="post-id">Direct address #2</div><span class="fmt-tag tier-a">F01 Direct Address</span><div class="note">Hot take on something timely. Test if first did well.</div></div>
+        <div class="slot"><div class="label">M14 · Slot 2</div><div class="post-id">Print shop day-in-life</div><span class="fmt-tag tier-c">F12 Day-in-the-Life</span><div class="note">"Day in the life of a print shop employee who's becoming Discount Trek."</div></div>
+        <div class="slot"><div class="label">M15 · Slot 3</div><div class="post-id">Trend remix #2</div><span class="fmt-tag tier-a">F03 Trend Remix</span><div class="note">Different sound than M04. Volume-test this format.</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><h4>Day 6</h4><span class="date">Tue 5/5</span></div>
+      <div class="slots">
+        <div class="slot"><div class="label">M16 · Slot 1</div><div class="post-id">DT character #2</div><span class="fmt-tag tier-a">F05 Character Monologue</span><div class="note">Different scenario — Captain Discount on a different "log entry".</div></div>
+        <div class="slot"><div class="label">M17 · Slot 2</div><div class="post-id">Storytime: filming disaster</div><span class="fmt-tag tier-a">F04 Storytime</span><div class="note">Real or embellished — the more chaotic the better.</div></div>
+        <div class="slot"><div class="label">M18 · Slot 3</div><div class="post-id">Reply to comment Q&A</div><span class="fmt-tag tier-c">F13 Q&A</span><div class="note">Pick your best comment so far, reply on camera. If no comments, fake one ("@anon asks…").</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><h4>Day 7 · BATCH ★</h4><span class="date">Wed 5/6</span></div>
+      <div class="slots">
+        <div class="slot"><div class="label">M19 · Slot 1</div><div class="post-id">POV: trekkie at party</div><span class="fmt-tag tier-a">F02 POV-Trope</span><div class="note">"POV: you're a Trek nerd at a normie party trying to act normal"</div></div>
+        <div class="slot"><div class="label">M20 · Slot 2</div><div class="post-id">Voiceover prop tour</div><span class="fmt-tag tier-b">F06 Voiceover B-Roll</span><div class="note">Apartment prop tour with deadpan voiceover.</div></div>
+        <div class="slot"><div class="label">M21 · Slot 3</div><div class="post-id">Reaction/duet</div><span class="fmt-tag tier-b">F10 Reaction/Duet</span><div class="note">Find a Trek video in your niche, duet with DT take.</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><h4>Day 8 · LIGHT ☆</h4><span class="date">Thu 5/7</span></div>
+      <div class="slots">
+        <div class="slot"><div class="label">M22 · Slot 1</div><div class="post-id">Direct address #3</div><span class="fmt-tag tier-a">F01 Direct Address</span><div class="note">Third rep — getting reliable data on this format now.</div></div>
+        <div class="slot"><div class="label">M23 · Slot 2</div><div class="post-id">Mockumentary #2</div><span class="fmt-tag tier-b">F07 Mockumentary</span><div class="note">Different angle — "the day she ran out of cardboard..."</div></div>
+        <div class="slot"><div class="label">M24 · Slot 3</div><div class="post-id">Process: glitter Q</div><span class="fmt-tag tier-b">F08 Process</span><div class="note">Time-lapse making a glitter Q snap reveal.</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><h4>Day 9 · NO FILM ✗</h4><span class="date">Fri 5/8</span></div>
+      <div class="slots">
+        <div class="slot"><div class="label">M25 · Slot 1</div><div class="post-id">Carousel: prop closet</div><span class="fmt-tag tier-c">F14 Carousel</span><div class="note">Photo-only day. Prop closet tour with snarky captions.</div></div>
+        <div class="slot"><div class="label">M26 · Slot 2</div><div class="post-id">Sketch from batch day</div><span class="fmt-tag tier-b">F09 Sketch</span><div class="note">Use sketch filmed during Sun batch day.</div></div>
+        <div class="slot"><div class="label">M27 · Slot 3</div><div class="post-id">Tutorial: editing speed</div><span class="fmt-tag tier-c">F11 Tutorial</span><div class="note">"How I edit 3 vids in 90 minutes" — saves bait.</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><h4>Day 10 · NO FILM ✗</h4><span class="date">Sat 5/9</span></div>
+      <div class="slots">
+        <div class="slot"><div class="label">M28 · Slot 1</div><div class="post-id">Trend remix #3</div><span class="fmt-tag tier-a">F03 Trend Remix</span><div class="note">Final test of trend remix format. Cumulative data.</div></div>
+        <div class="slot"><div class="label">M29 · Slot 2</div><div class="post-id">Q&A from audience</div><span class="fmt-tag tier-c">F13 Q&A</span><div class="note">By Day 10 you should have real comments to reply to.</div></div>
+        <div class="slot"><div class="label">M30 · Slot 3</div><div class="post-id">Day 10 retrospective</div><span class="fmt-tag tier-a">F01 Direct Address</span><div class="note">Direct address looking back — natural sprint-narrative beat.</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="lede" style="margin-top:1.4rem"><b>Coverage check (Days 1–10):</b> F01 ×4 · F02 ×2 · F03 ×3 · F04 ×2 · F05 ×2 · F06 ×2 · F07 ×2 · F08 ×2 · F09 ×2 · F10 ×1 · F11 ×2 · F12 ×1 · F13 ×2 · F14 ×2 · F15 ×1. Tier A formats (highest virality candidates) get more reps for reliability.</p>
+</section>
+
+<!-- ===== TRACKER ===== -->
+<section id="tracker">
+  <h2>Performance Tracker <span class="tag">fill in daily</span></h2>
+  <p class="lede">Log per-format averages. Numbers go in as raw counts; Format Score = (Views × Completion%) + (Comments × 50) + (Saves × 100) + (Shares × 75) + (Follows from post × 200). Weight emphasizes the high-signal interactions over raw views.</p>
+
+  <table class="track-table">
+    <thead>
+      <tr>
+        <th>Format</th>
+        <th>Reps</th>
+        <th>Avg views</th>
+        <th>Avg completion %</th>
+        <th>Avg comments</th>
+        <th>Avg saves</th>
+        <th>Avg shares</th>
+        <th>Avg follows</th>
+        <th>Format Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="fmt-cell">F01 Direct Address</td><td><input type="number" placeholder="4" /></td><td><input type="number" placeholder="0" /></td><td><input type="number" placeholder="0" /></td><td><input type="number" placeholder="0" /></td><td><input type="number" placeholder="0" /></td><td><input type="number" placeholder="0" /></td><td><input type="number" placeholder="0" /></td><td><input type="number" placeholder="auto" /></td></tr>
+      <tr><td class="fmt-cell">F02 POV-Trope</td><td><input type="number" placeholder="2" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F03 Trend Remix</td><td><input type="number" placeholder="3" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F04 Storytime</td><td><input type="number" placeholder="2" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F05 Character Monologue</td><td><input type="number" placeholder="2" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F06 Voiceover B-Roll</td><td><input type="number" placeholder="2" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F07 Mockumentary</td><td><input type="number" placeholder="2" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F08 Process</td><td><input type="number" placeholder="2" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F09 Sketch</td><td><input type="number" placeholder="2" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F10 Reaction/Duet</td><td><input type="number" placeholder="1" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F11 Tutorial</td><td><input type="number" placeholder="2" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F12 Day-in-the-Life</td><td><input type="number" placeholder="1" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F13 Q&A</td><td><input type="number" placeholder="2" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F14 Carousel</td><td><input type="number" placeholder="2" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+      <tr><td class="fmt-cell">F15 Green Screen</td><td><input type="number" placeholder="1" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===== DECISION TREE ===== -->
+<section id="decision">
+  <h2>Day 10 Decision Tree <span class="tag pop">do this on May 9 evening</span></h2>
+  <div class="decision">
+    <h3>How to call the winners</h3>
+    <ol>
+      <li><b>Calculate Format Score per format.</b> Use this formula:
+        <div class="formula">Score = (Avg Views × Avg Completion%) + (Comments × 50) + (Saves × 100) + (Shares × 75) + (Follows × 200)</div>
+        Why this weighting: completion% is the strongest algorithmic signal; saves, shares, and follows are higher-value than raw views; comments matter but are noisier.
+      </li>
+      <li><b>Rank all 15 formats by Score.</b></li>
+      <li><b>Top 3 formats = winners.</b> These get 70% of remaining slots (Days 11–31).</li>
+      <li><b>Formats 4–6 = secondary.</b> 20% of slots — keep alive in case Format 1 plateaus.</li>
+      <li><b>Bottom 9 formats = drop or experiment.</b> 10% of slots reserved for new bold tests + occasional revisits.</li>
+      <li><b>Re-evaluate at Day 21.</b> Sometimes a format that ranked #4 on Day 10 ramps to #1 by Day 21 with continued reps. Don't lock too rigidly.</li>
+      <li><b>If two formats are within 15% of each other</b> on Format Score, treat as tied and rotate equally.</li>
+      <li><b>Watch for "saves spike" formats.</b> A format with low views but very high saves often ramps into the algorithm later — keep these in the rotation even if they look mid-tier on raw score.</li>
+    </ol>
+  </div>
+
+  <p class="lede"><b>What to do at Day 21</b> (May 20, halfway-ish): If your top format has plateaued (no growth in views/follows over the last 5 reps), it's saturated for current audience size. Either: (a) hold steady — that audience just isn't bigger yet, (b) push harder into the secondary set to find your next breakout, or (c) try a bold experiment (location change, costume reveal, collab attempt). The sprint is a lab — don't get superstitious about a winning format that's stopped working.</p>
+</section>
+
+<footer>
+  Built 2026-04-28 · Sprint launches Apr 30 · 15 formats × 3 tiers · Day 10 decision = May 9 evening · Cross-link: <a href="LIFE_DASHBOARD.html">Life</a> · <a href="CONTENT_DASHBOARD.html">Content</a> · <a href="MONETIZATION_PLAN.html">Money</a>
+</footer>
+
+</body>
+</html>

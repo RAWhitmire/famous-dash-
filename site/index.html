@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Becoming Famous · Hub</title>
-<link rel="stylesheet" href="styles.css?v=3" />
+<link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
 
@@ -94,12 +94,15 @@
   <!-- THIS WEEK -->
   <div class="section-label mt-2">This Week</div>
   <div class="card">
-    <ul style="margin:0;padding:0;list-style:none">
-      <li style="padding:.55rem .8rem;margin-bottom:.4rem;background:var(--pop3);border:2px solid var(--ink);border-radius:.5rem;font-size:.9rem"><span class="tag pop2" style="margin-right:.5rem">Tue</span><b>Edit 3 vids</b> for tomorrow's posts · push site rebuild</li>
-      <li style="padding:.55rem .8rem;margin-bottom:.4rem;background:var(--soft);border:2px solid var(--ink);border-radius:.5rem;font-size:.9rem"><span class="tag" style="margin-right:.5rem">Wed</span><b>Day off</b> · Post 3 vids · UGC platform signup (Insense, Influee)</li>
-      <li style="padding:.55rem .8rem;margin-bottom:.4rem;background:var(--soft);border:2px solid var(--ink);border-radius:.5rem;font-size:.9rem"><span class="tag" style="margin-right:.5rem">Thu</span>Print shop · scout trends for sprint launch</li>
-      <li style="padding:.55rem .8rem;margin-bottom:0;background:var(--pop);border:2px solid var(--ink);border-radius:.5rem;font-size:.9rem"><span class="tag pop2" style="margin-right:.5rem">Thu 4/30</span><b>SPRINT LAUNCH</b> · M01–M03 + DT-01 · formats: F01 + F05 + F08</li>
-    </ul>
+    <div class="week-strip" id="week-strip">
+      <div class="week-day" data-day="2"><span class="day-tag">Tue 4/28</span><span class="day-action"><b>Edit 3 vids</b> · push site rebuild</span></div>
+      <div class="week-day" data-day="3"><span class="day-tag">Wed 4/29</span><span class="day-action"><b>Day off</b> · Post 3 vids · UGC signups</span></div>
+      <div class="week-day urgent" data-day="4"><span class="day-tag">Thu 4/30</span><span class="day-action"><b>SPRINT LAUNCH</b> · M01–M03 + DT-01</span></div>
+      <div class="week-day" data-day="5"><span class="day-tag">Fri 5/1</span><span class="day-action">Print shop · M04–M06 batch</span></div>
+      <div class="week-day" data-day="6"><span class="day-tag">Sat 5/2</span><span class="day-action">Print shop · M07 hero · ⭐ T-1 to Cannes setup</span></div>
+      <div class="week-day" data-day="0"><span class="day-tag">Sun 5/3</span><span class="day-action">Day off · M08–M09 + DT-02 sketch prep</span></div>
+      <div class="week-day" data-day="1"><span class="day-tag">Mon 5/4</span><span class="day-action">Print shop · M10 hero · trend scout</span></div>
+    </div>
   </div>
 
   <!-- LIVE NUMBERS -->
@@ -114,11 +117,11 @@
 </main>
 
 <footer>
-  <p>Built with Cowork · Updated <span id="footer-date">2026-04-28</span></p>
+  <p>Built with Cowork · Updated <span id="footer-date">—</span></p>
   <p>The audience is the leverage. Auditions are the use. The acting career is the long arc.</p>
 </footer>
 
-<script src="nav.js?v=3"></script>
+<script src="nav.js?v=4"></script>
 <script>
   // Load shared data + populate live numbers + countdowns
   (function(){
@@ -185,6 +188,15 @@
       document.getElementById('live-dt').textContent = data.live.dt_tt_followers.toLocaleString();
 
       document.getElementById('footer-date').textContent = data._meta.updated;
+
+      // Highlight today in the week strip
+      var dayNow = today.getDay();
+      var weekDays = document.querySelectorAll('#week-strip .week-day');
+      weekDays.forEach(function(el){
+        if (parseInt(el.getAttribute('data-day'),10) === dayNow) {
+          el.classList.add('is-today');
+        }
+      });
     }).catch(function(err){
       console.error('Failed to load data.json:', err);
     });

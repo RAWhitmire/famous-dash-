@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>The Cast Yourself Starter — Script Shift</title>
+<style>
+  @page{size:letter portrait;margin:.5in}
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{
+    margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+    color:#1a0f2e;background:#fff8f0;line-height:1.35;
+  }
+  .page{
+    max-width:7.5in;margin:0 auto;padding:.4in;background:#fff8f0;
+    min-height:10in;position:relative;
+  }
+  .header{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    border-bottom:4px solid #1a0f2e;padding-bottom:.4rem;margin-bottom:.6rem;
+  }
+  .header .title{
+    font-size:2rem;font-weight:900;letter-spacing:-.02em;line-height:1;
+    color:#1a0f2e;text-transform:uppercase;
+  }
+  .header .title .small{display:block;font-size:.7rem;color:#7c3aed;letter-spacing:.16em;font-weight:700;margin-bottom:.15rem}
+  .header .brand{
+    font-size:.78rem;font-weight:900;letter-spacing:.1em;color:#ff3d7f;text-transform:uppercase;
+  }
+  .header .brand small{display:block;color:#1a0f2e;font-weight:600;letter-spacing:0;margin-top:.1rem;text-transform:none;font-size:.7rem}
+  .intro{
+    font-size:.85rem;color:#1a0f2e;background:#fde7f3;border-left:5px solid #ff3d7f;
+    padding:.5rem .7rem;margin:0 0 .7rem;border-radius:.3rem;
+  }
+  .intro b{color:#7c3aed}
+
+  .step{
+    background:#fff;border:3px solid #1a0f2e;border-radius:.5rem;padding:.5rem .7rem;
+    margin-bottom:.5rem;position:relative;
+    box-shadow:4px 4px 0 #1a0f2e;
+  }
+  .step .num{
+    position:absolute;top:-.55rem;left:.5rem;background:#fbbf24;color:#1a0f2e;
+    border:3px solid #1a0f2e;border-radius:.3rem;padding:.1rem .4rem;
+    font-weight:900;font-size:.7rem;letter-spacing:.06em;
+  }
+  .step h3{
+    margin:.1rem 0 .15rem;font-size:.95rem;font-weight:900;text-transform:uppercase;
+    letter-spacing:-.01em;
+  }
+  .step .prompt{font-size:.78rem;color:#5b4978;font-style:italic;margin-bottom:.35rem}
+  .lines{display:flex;flex-direction:column;gap:.35rem}
+  .line{
+    height:1.1rem;border-bottom:1.5px solid #1a0f2e;width:100%;
+  }
+  .step.reframe{background:#fbbf24}
+  .step.reframe .box{
+    border:3px dashed #1a0f2e;border-radius:.4rem;padding:.5rem .6rem;
+    background:#fff;font-size:1.05rem;font-weight:900;text-align:center;
+    margin-top:.2rem;
+  }
+  .step.reframe .box .pre{display:block;font-size:.65rem;color:#7c3aed;font-weight:700;letter-spacing:.1em;margin-bottom:.2rem;text-transform:uppercase}
+
+  .footer{
+    margin-top:.7rem;padding-top:.5rem;border-top:3px solid #1a0f2e;
+    display:flex;justify-content:space-between;align-items:center;gap:.6rem;
+  }
+  .footer .quote{
+    font-size:.95rem;font-weight:900;color:#1a0f2e;font-style:italic;line-height:1.15;
+    flex:1;
+  }
+  .footer .quote .by{display:block;font-style:normal;font-size:.7rem;color:#7c3aed;font-weight:800;letter-spacing:.08em;margin-top:.15rem;text-transform:uppercase}
+  .footer .stars{font-size:1.4rem;color:#10d9c4;line-height:1;letter-spacing:.1em}
+
+  .keyword{
+    display:inline-block;background:#1a0f2e;color:#fbbf24;
+    padding:.25rem .55rem;border-radius:.3rem;font-weight:900;letter-spacing:.1em;font-size:.85rem;
+  }
+
+  .topbar{
+    position:absolute;top:0;left:0;right:0;height:.4in;
+    background:linear-gradient(90deg,#ff3d7f 0%,#7c3aed 50%,#fbbf24 100%);
+  }
+  .corner{position:absolute;font-size:6rem;line-height:1;color:#10d9c4;opacity:.13;font-weight:900}
+  .corner.tl{top:.4in;left:.1in;font-size:5rem}
+  .corner.br{bottom:.4in;right:.2in;font-size:5rem}
+
+  /* PRINT BUTTON (hidden when printing) */
+  .printbtn{
+    position:fixed;top:1rem;right:1rem;background:#ff3d7f;color:#fff;border:3px solid #1a0f2e;
+    border-radius:.5rem;padding:.5rem 1rem;font-weight:900;letter-spacing:.04em;
+    cursor:pointer;font-size:.85rem;text-transform:uppercase;z-index:100;
+    box-shadow:4px 4px 0 #1a0f2e;font-family:inherit;
+  }
+  @media print{.printbtn{display:none}}
+</style>
+</head>
+<body>
+
+<button class="printbtn" onclick="window.print()">⬇ Save as PDF</button>
+
+<div class="page">
+  <div class="topbar"></div>
+
+  <div class="corner tl">★</div>
+  <div class="corner br">★</div>
+
+  <div class="header">
+    <div class="title">
+      <span class="small">SCRIPT SHIFT // FIELD STARTER</span>
+      The Cast Yourself Starter
+    </div>
+    <div class="brand">RAQUEL · @rawhitmire<small>script shift / 1-page reframe worksheet</small></div>
+  </div>
+
+  <div class="intro">
+    You don't find the life that's yours. You <b>discover it by motion.</b> This page is the first move. Five steps, seven minutes, one Tuesday. Print it. Fill it out. Pin it where you can see it. Then take the rep on page 4.
+  </div>
+
+  <div class="step">
+    <span class="num">01</span>
+    <h3>The scene you're in</h3>
+    <div class="prompt">Where the camera is pointed in your life right now. Be specific. Use names if you need to.</div>
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="num">02</span>
+    <h3>The role you've been playing</h3>
+    <div class="prompt">What's the script you've been reading from? "Practical daughter." "Reliable one." "Future-X if I'm being good." Name it.</div>
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="step reframe">
+    <span class="num">03</span>
+    <h3>The first reframe</h3>
+    <div class="prompt">Say it once. Out loud. Then write it.</div>
+    <div class="box">
+      <span class="pre">starting today —</span>
+      I am no longer available for that role.
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="num">04</span>
+    <h3>The first rep</h3>
+    <div class="prompt">Not a Monday plan. A Tuesday move. The smallest possible thing that makes the new direction real this week.</div>
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="num">05</span>
+    <h3>The line you take with you</h3>
+    <div class="prompt">Pick one. Repeat it when the old role tries to come back.</div>
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="quote">
+      "You don't find your purpose. You discover it by motion."
+      <span class="by">— Raquel · 2:15 AM, the night this line was written</span>
+    </div>
+    <div class="stars">★ ★ ★</div>
+  </div>
+
+  <div style="margin-top:.5rem;font-size:.7rem;color:#5b4978;text-align:center;border-top:1px dashed #1a0f2e;padding-top:.4rem">
+    More Script Shift on TikTok · Instagram · YouTube → <b style="color:#ff3d7f">@rawhitmire</b> · DM me <span class="keyword">PASSENGER</span> if you want this whenever you need it.
+  </div>
+</div>
+
+<script>
+// Optional: add a print event listener for analytics if needed.
+</script>
+</body>
+</html>

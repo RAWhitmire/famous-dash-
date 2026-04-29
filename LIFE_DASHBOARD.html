@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LIFE DASHBOARD — @rawhitmire (time + meals + body)</title>
+<style>
+  :root{
+    --bg:#fdf9ef;
+    --ink:#1a0a2e;
+    --pop:#d4af37;
+    --pop2:#5b21b6;
+    --pop3:#fde68a;
+    --pop4:#115e59;
+    --pop5:#8b5cf6;
+    --pop6:#14b8a6;
+    --soft:#ede9fe;
+    --soft-teal:#d1faf2;
+    --line:#1a0a2e;
+    --good:#10b981;
+    --warn:#f59e0b;
+    --bad:#ef4444;
+    --card:#ffffff;
+    --shadow:6px 6px 0 var(--ink);
+    --shadow-sm:3px 3px 0 var(--ink);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.4}
+
+  /* === STICKY NAV === */
+  nav.sticky{
+    position:sticky;top:0;z-index:50;background:var(--ink);border-bottom:4px solid var(--pop5);
+    padding:.55rem .8rem;display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;
+  }
+  nav.sticky .brand{color:var(--pop3);font-weight:900;font-size:1rem;letter-spacing:.04em;margin-right:.6rem}
+  nav.sticky a{
+    color:var(--bg);text-decoration:none;padding:.32rem .7rem;border:2px solid var(--bg);border-radius:999px;
+    font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.04em;transition:all .15s;
+  }
+  nav.sticky a:hover{background:var(--pop5);border-color:var(--pop5);color:#fff}
+  nav.sticky a.cross{background:var(--pop);color:var(--ink);border-color:var(--ink);font-weight:900}
+  nav.sticky a.cross:hover{background:var(--pop2);color:#fff;border-color:var(--ink)}
+  nav.sticky .live{margin-left:auto;color:var(--pop5);font-weight:900;font-size:.78rem;display:flex;align-items:center;gap:.4rem}
+  nav.sticky .live::before{content:"●";color:var(--pop5);animation:blink 1.2s infinite}
+  @keyframes blink{50%{opacity:.3}}
+
+  /* === HERO === */
+  header.hero{
+    background:linear-gradient(135deg,var(--pop5) 0%,var(--pop2) 100%);
+    color:#fff;padding:2.4rem 1.5rem 2rem;border-bottom:5px solid var(--ink);
+    position:relative;overflow:hidden;
+  }
+  header.hero::before{content:"☾";position:absolute;font-size:14rem;color:var(--pop3);opacity:.18;top:-3rem;right:-1rem;line-height:1}
+  header.hero h1{font-size:2.1rem;margin:0 0 .4rem;font-weight:900;letter-spacing:-.02em;text-transform:uppercase}
+  header.hero .sub{font-size:.95rem;opacity:.92;max-width:62ch}
+  header.hero .pair{display:inline-block;margin-top:.9rem;background:var(--pop3);color:var(--ink);padding:.45rem .9rem;border-radius:.6rem;font-weight:900;border:3px solid var(--ink);box-shadow:var(--shadow);font-size:.85rem;text-decoration:none}
+  header.hero .pair:hover{background:#fff}
+
+  /* === SECTION === */
+  section{padding:2rem 1.2rem;max-width:1280px;margin:0 auto}
+  section h2{font-size:1.7rem;margin:0 0 .4rem;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+  section h2 .tag{font-size:.66rem;background:var(--pop5);color:#fff;padding:.2rem .55rem;border-radius:.4rem;border:2px solid var(--ink);font-weight:900}
+  section .lede{margin:0 0 1.2rem;color:#5b4978;font-size:.92rem;max-width:78ch}
+
+  /* === TODAY PANEL === */
+  .today-panel{
+    background:linear-gradient(135deg,var(--pop3) 0%,var(--pop5) 100%);
+    border:4px solid var(--ink);border-radius:1rem;padding:1rem 1.2rem;
+    box-shadow:var(--shadow);margin-bottom:1.2rem;
+  }
+  .today-panel h3{margin:0 0 .4rem;font-size:1.1rem;font-weight:900;text-transform:uppercase}
+  .today-panel .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.6rem;margin-top:.7rem}
+  .today-panel .item{background:#fff;padding:.5rem .7rem;border:2px solid var(--ink);border-radius:.5rem;font-weight:700;font-size:.85rem}
+  .today-panel .item small{display:block;font-size:.65rem;font-weight:800;color:var(--pop2);text-transform:uppercase;letter-spacing:.04em}
+  .today-panel .item a{color:var(--pop4);font-weight:900;text-decoration:underline}
+
+  /* === DAY-BY-DAY TIME GRID === */
+  .day-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:.9rem;margin-top:1rem}
+  .lifeday{
+    background:var(--card);border:3px solid var(--ink);border-radius:.8rem;padding:.9rem;
+    box-shadow:var(--shadow);
+  }
+  .lifeday.batch{background:linear-gradient(180deg,#fff 0%,var(--soft) 100%)}
+  .lifeday.cannes{background:var(--pop3)}
+  .lifeday.prize{background:var(--pop3)}
+  .lifeday.bridge{background:linear-gradient(180deg,#fff 0%,var(--pop3) 100%)}
+  .lifeday h3{font-size:1rem;font-weight:900;margin:0 0 .4rem;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.3rem}
+  .lifeday h3 .d{font-size:.66rem;font-weight:800;color:var(--pop2);background:var(--soft);padding:.15rem .45rem;border-radius:.3rem}
+  .lifeday h3 .badge{font-size:.62rem;background:var(--pop2);color:#fff;padding:.15rem .5rem;border-radius:.4rem;font-weight:900}
+  .lifeday h3 .badge.batch{background:var(--pop2)}
+  .lifeday h3 .badge.light{background:var(--pop5)}
+  .lifeday h3 .badge.nofilm{background:#9ca3af}
+  .lifeday h3 .badge.cannes{background:var(--pop);color:#fff}
+  .lifeday h3 .badge.prize{background:var(--pop);color:#fff}
+  .lifeday h3 .badge.bridge{background:var(--pop4);color:#fff}
+  .lifeday h3 .badge.off{background:var(--pop6);color:#fff}
+  .lifeday h3 .badge.shop{background:var(--ink);color:var(--pop3)}
+  .lifeday .blocks{list-style:none;padding:0;margin:.4rem 0 0;font-size:.82rem}
+  .lifeday .blocks li{padding:.25rem 0;display:flex;gap:.5rem;line-height:1.35;border-bottom:1px dashed #e5e7eb}
+  .lifeday .blocks li:last-child{border-bottom:none}
+  .lifeday .blocks .t{flex:0 0 4.6rem;font-weight:900;font-size:.72rem;color:var(--pop2);font-family:'Courier New',monospace}
+  .lifeday .blocks .desc{flex:1}
+  .lifeday .blocks .desc .kind{font-weight:800;color:var(--ink)}
+  .lifeday .blocks .desc .note{color:#5b4978;font-size:.74rem;font-style:italic}
+  .lifeday .blocks .desc a.xlink{
+    display:inline-block;margin-left:.3rem;font-size:.68rem;font-weight:800;text-decoration:none;
+    background:var(--pop3);color:var(--ink);padding:.1rem .4rem;border-radius:.3rem;border:1.5px solid var(--ink);
+  }
+  .lifeday .blocks .desc a.xlink:hover{background:var(--pop);color:#fff}
+  .lifeday .blocks li.film .t{color:var(--pop)}
+  .lifeday .blocks li.edit .t{color:var(--pop2)}
+  .lifeday .blocks li.post .t{color:var(--pop4)}
+  .lifeday .blocks li.shop .t{color:var(--ink)}
+  .lifeday .blocks li.meal .t{color:var(--good)}
+  .lifeday .blocks li.sleep .t{color:#6b7280}
+  .lifeday .blocks li.acting .t{color:var(--pop5)}
+
+  /* === WEEKLY RHYTHM cards === */
+  .ahead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+  .ahead-card{background:var(--card);border:3px solid var(--ink);border-radius:.8rem;padding:1rem;box-shadow:var(--shadow)}
+  .ahead-card.priority{background:var(--pop5);color:#fff}
+  .ahead-card.priority h4{color:#fff !important}
+  .ahead-card h4{margin:0 0 .4rem;color:var(--pop5);font-weight:900;text-transform:uppercase;font-size:.85rem;letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center}
+  .ahead-card h4 .when{font-size:.65rem;background:var(--ink);color:var(--pop3);padding:.2rem .5rem;border-radius:.3rem}
+  .ahead-card h4 .when.alt{background:#fff;color:var(--ink)}
+  .ahead-card ul{margin:.5rem 0 0 .9rem;padding:0;font-size:.85rem}
+  .ahead-card .out{margin-top:.5rem;padding:.4rem .6rem;background:var(--soft);border-radius:.4rem;font-size:.78rem;font-weight:700;color:var(--ink)}
+  .ahead-card.priority .out{background:rgba(255,255,255,.25);color:#fff}
+
+  /* === MEAL PLAN === */
+  .meal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1rem;margin:1rem 0}
+  .meal-tier{background:var(--card);border:3px solid var(--ink);border-radius:.8rem;padding:1rem;box-shadow:var(--shadow)}
+  .meal-tier.t1{background:linear-gradient(180deg,#fff 0%,var(--soft-teal) 100%)}
+  .meal-tier.t2{background:linear-gradient(180deg,#fff 0%,var(--soft) 100%)}
+  .meal-tier.t3{background:linear-gradient(180deg,#fff 0%,var(--pop3) 100%)}
+  .meal-tier h4{margin:0 0 .3rem;color:var(--pop2);font-weight:900;text-transform:uppercase;font-size:.85rem;letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center;gap:.4rem}
+  .meal-tier h4 .label{font-size:.62rem;background:var(--ink);color:var(--pop3);padding:.18rem .5rem;border-radius:.3rem}
+  .meal-tier .frame{font-size:.83rem;color:#5b4978;margin:.2rem 0 .6rem;font-style:italic}
+  .meal-tier ul{margin:.4rem 0 0 .9rem;padding:0;font-size:.84rem}
+  .meal-tier ul li{margin:.25rem 0}
+  .meal-tier .tbd{
+    background:#fff;border:2px dashed var(--pop2);border-radius:.5rem;padding:.5rem .7rem;
+    font-size:.78rem;color:var(--pop2);font-weight:700;font-style:italic;margin-top:.5rem;
+  }
+  .meal-tier .tbd b{color:var(--ink);font-style:normal}
+  .meal-tier .invest{margin-top:.5rem;background:var(--soft);border-radius:.4rem;padding:.4rem .6rem;font-size:.75rem;font-weight:700;color:var(--pop2)}
+
+  /* === GENERIC CONTAINERS === */
+  .dt-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0}
+  .dt-col{background:var(--card);border:3px solid var(--ink);border-radius:.8rem;padding:1rem;box-shadow:var(--shadow)}
+  .dt-col h4{margin:0 0 .4rem;color:var(--pop5);font-weight:900;text-transform:uppercase;font-size:.85rem;letter-spacing:.04em}
+  .dt-col h4.gold{color:var(--pop)}
+  .dt-col h4.warn{color:var(--bad)}
+  .dt-col ul{margin:.4rem 0 0 .9rem;padding:0;font-size:.82rem}
+  .dt-col ul li{margin:.2rem 0}
+  .dt-col .invest{margin-top:.4rem;background:var(--soft);border-radius:.4rem;padding:.4rem .6rem;font-size:.75rem;font-weight:700;color:var(--pop2)}
+
+  .dt-tactics{background:#fff;border:3px solid var(--ink);border-radius:.8rem;padding:1rem;box-shadow:var(--shadow);margin:1rem 0}
+  .dt-tactics .tactic{display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem;padding:.5rem 0;border-bottom:1px dashed #ccc;font-size:.85rem}
+  .dt-tactics .tactic:last-child{border-bottom:none}
+  .dt-tactics .tactic .left{flex:1}
+  .dt-tactics .tactic .right{flex-shrink:0;font-size:.7rem;font-weight:800;color:var(--pop2);background:var(--pop3);padding:.2rem .55rem;border-radius:.3rem;border:2px solid var(--ink)}
+  .dt-tactics .tactic .left b{color:var(--pop5)}
+
+  /* === CHECKLIST === */
+  .checklist{background:var(--soft);border:3px solid var(--ink);border-radius:.8rem;padding:1rem;box-shadow:var(--shadow)}
+  .checklist label{display:flex;align-items:center;gap:.5rem;padding:.4rem 0;font-size:.9rem;font-weight:700;cursor:pointer}
+  .checklist input{width:1.2rem;height:1.2rem;accent-color:var(--pop5)}
+
+  /* === FOOTER === */
+  footer{background:var(--ink);color:var(--bg);padding:2rem 1.2rem;text-align:center;font-size:.85rem;border-top:4px solid var(--pop5)}
+  footer .quote{font-style:italic;color:var(--pop3);margin:.6rem 0}
+  footer a{color:var(--pop3);font-weight:900}
+
+  /* RESPONSIVE */
+  @media (max-width:680px){
+    header.hero h1{font-size:1.55rem}
+    nav.sticky{padding:.5rem .6rem}
+    nav.sticky a{padding:.28rem .55rem;font-size:.66rem}
+    nav.sticky .live{display:none}
+    section{padding:1.4rem .8rem}
+  }
+
+  /* ===== UNIFIED SITE NAV ===== */
+  nav.site-nav{position:sticky;top:0;z-index:100;background:var(--ink);border-bottom:4px solid var(--pop);padding:.55rem .8rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  nav.site-nav .brand{color:var(--pop3);text-decoration:none;font-weight:900;font-size:.92rem;letter-spacing:.04em;padding:.32rem .65rem;border-radius:.4rem;border:2px solid transparent;transition:background .15s}
+  nav.site-nav .brand:hover{background:var(--pop2);border-color:var(--pop3)}
+  nav.site-nav .selectors{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin-left:auto}
+  nav.site-nav select{background:var(--pop2);color:#fff;border:2px solid var(--pop3);border-radius:.5rem;padding:.36rem .7rem;font-weight:700;font-size:.8rem;font-family:inherit;letter-spacing:.02em;cursor:pointer}
+  nav.site-nav select:hover{background:var(--pop5)}
+  nav.site-nav select option{background:var(--ink);color:#fff;font-weight:700}
+  nav.site-nav select.section-jump{background:var(--pop4);border-color:var(--pop6)}
+  @media (max-width:640px){
+    nav.site-nav{padding:.4rem .55rem}
+    nav.site-nav .brand{font-size:.78rem;padding:.28rem .5rem}
+    nav.site-nav select{font-size:.72rem;padding:.3rem .55rem;flex:1;min-width:0}
+    nav.site-nav .selectors{width:100%;margin-left:0}
+  }
+
+  /* anchor offset */
+  section[id]{scroll-margin-top:5rem}
+</style>
+</head>
+<body>
+
+<!-- ===== UNIFIED SITE NAV ===== -->
+<nav class="site-nav">
+  <a href="index.html" class="brand">⭐ BECOMING FAMOUS</a>
+  <div class="selectors">
+    <select class="section-jump" onchange="if(this.value){location.hash=this.value;this.selectedIndex=0}">
+      <option value="" disabled selected>📑 Jump to section</option>
+      <option value="today">Today</option>
+      <option value="days">Time Blocks</option>
+      <option value="rhythm">Weekly Rhythm</option>
+      <option value="meals">Meals</option>
+      <option value="sleep">Sleep</option>
+      <option value="chores">Chores</option>
+      <option value="acting">Acting</option>
+      <option value="daily">Daily Checklist</option>
+    </select>
+    <select class="page-jump" onchange="if(this.value)window.location.href=this.value">
+      <option value="" disabled selected id="page-current">📍 Life Dashboard</option>
+      <option value="index.html">🏠 Home</option>
+      <option value="LIFE_DASHBOARD.html">📅 Life Dashboard</option>
+      <option value="CONTENT_DASHBOARD.html">🎬 Content Dashboard</option>
+      <option value="MONETIZATION_PLAN.html">💰 Monetization Plan</option>
+      <option value="FORMAT_TEST_PLAN.html">⚡ Format Test</option>
+    </select>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <h1>The Life Dashboard</h1>
+  <div class="sub">Owns the time. Every day for the 31-day Cannes sprint laid out as time blocks — wake / work / film / edit / post / meal / sleep. When a block has content production attached, it links to the Content Dashboard's matching plan. This side is the boundary that keeps the framework from eating the real life.</div>
+  <a class="pair" href="CONTENT_DASHBOARD.html">Paired with → Content Dashboard (substance)</a>
+</header>
+
+<!-- ===== TODAY ===== -->
+<section id="today">
+  <h2>Today <span class="tag" id="today-date">—</span></h2>
+  <div class="lede">High-level day-shape. Use this every morning before the slot 1 post fires. For the post substance, jump to the Content Dashboard.</div>
+  <div class="today-panel">
+    <h3 id="today-headline">—</h3>
+    <p id="today-sub" style="margin:.2rem 0;font-size:.9rem">—</p>
+    <div class="grid">
+      <div class="item"><small>☀️ Wake target</small><span id="today-wake">—</span></div>
+      <div class="item"><small>💼 Print shop</small><span id="today-shop">—</span></div>
+      <div class="item"><small>🎬 Filming window</small><span id="today-film">—</span></div>
+      <div class="item"><small>✂️ Editing window</small><span id="today-edit">—</span></div>
+      <div class="item"><small>📲 Posts ship at</small><span id="today-posts">—</span></div>
+      <div class="item"><small>🍱 Meal plan</small><span id="today-meal">—</span></div>
+      <div class="item"><small>🧺 Today's chore</small><span id="today-chore">—</span></div>
+      <div class="item"><small>🛌 Sleep target tonight</small><span id="today-sleep">—</span></div>
+      <div class="item"><small>🎭 Acting practice</small><span id="today-acting">—</span></div>
+      <div class="item"><small>📺 Days to Cannes</small><span id="today-cannes">—</span></div>
+      <div class="item"><small>🏆 Days to Prize</small><span id="today-prize">—</span></div>
+      <div class="item"><small>📅 Next BATCH day</small><span id="today-nextbatch">—</span></div>
+      <div class="item"><small>🔗 Today's content slate</small><span id="today-content">—</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIME BLOCKS PER DAY ===== -->
+<section id="days">
+  <h2>Day-by-Day Time Blocks <span class="tag">31 days · life owns the time</span></h2>
+  <div class="lede">Every day in the sprint with its time blocks. Filming / editing / posting blocks link to the corresponding day on the <a href="CONTENT_DASHBOARD.html#calendar" style="color:var(--pop2);font-weight:900">Content Dashboard</a> — that's where the WHAT lives (which video, which platform, which hook). This side just says WHEN.</div>
+  <div class="day-grid" id="day-grid"></div>
+</section>
+
+<!-- ===== WEEKLY RHYTHM ===== -->
+<section id="rhythm">
+  <h2>Weekly Rhythm <span class="tag">the standing pattern</span></h2>
+  <div class="lede">Real schedule: print shop Mon/Tue/Thu/Fri 10–6 + Sat 9–5. Wed + Sun OFF. 1hr commute each way + 20 min get-ready. The day-by-day grid above is this rhythm specialized for each sprint day.</div>
+  <div class="ahead-grid">
+    <div class="ahead-card">
+      <h4>Mon · Tue · Thu · Fri <span class="when">PRINT SHOP 10–6</span></h4>
+      <ul>
+        <li><b>7:00 AM</b> wake · 7:00–7:20 ready · slot 1 queued post fires</li>
+        <li><b>7:20–7:30</b> quick breakfast (Tier 1 default — see meal plan)</li>
+        <li><b>8:40 AM</b> leave home · 9:40 arrive · 10–6 work</li>
+        <li><b>~1 PM lunch break</b> at print shop — slot 2 ships, eat (Tier 1 grab-and-go)</li>
+        <li><b>6 PM leave · 7 PM home</b></li>
+        <li><b>7:00–7:30</b> dinner (Tier 1 / 3)</li>
+        <li><b>7:30–10:00</b> edit / community / DT bandwidth · slot 3 ships</li>
+        <li><b>10–11</b> wind down · 11 PM sleep target (8 hr in bed)</li>
+      </ul>
+    </div>
+    <div class="ahead-card priority">
+      <h4>Tuesday <span class="when alt">REST evening</span></h4>
+      <ul>
+        <li>Same work timeline as other shop days</li>
+        <li><b>Eve:</b> 🛌 NO EDIT NIGHT · slot 3 ships from queue (pre-edited Mon) · early sleep 10:30 PM</li>
+        <li>Recovery valve. Skip it and the wheels come off by week 3.</li>
+      </ul>
+      <div class="out">If Tuesday rest falls 2 weeks in a row, pause filming the next day, queue-only.</div>
+    </div>
+    <div class="ahead-card priority">
+      <h4>Wed OFF <span class="when alt">★ PRIMARY BATCH</span></h4>
+      <ul>
+        <li><b>8:00 AM</b> wake (sleep in 1 hr) · big breakfast (Tier 1)</li>
+        <li><b>9:00–12:00</b> film Block A warm-up + Block B peak</li>
+        <li><b>12:00–1:00</b> real lunch break — proper food, not snacks</li>
+        <li><b>1:00–4:00</b> Block B finish + Block C cool-down + DT block</li>
+        <li><b>4:00–6:00</b> review takes · start edits · slot 2 ships</li>
+        <li><b>6:00–7:00</b> dinner</li>
+        <li><b>7:00–9:30</b> edit · queue tomorrow · slot 3 ships · DT bandwidth</li>
+        <li><b>10:30 PM</b> sleep · earlier than weekday — recover before 4-day work block</li>
+      </ul>
+      <div class="out">THE day. 10–14 main + 4 DT in one shoot. Friday-night → Sunday-evening = 4 days off from filming.</div>
+    </div>
+    <div class="ahead-card">
+      <h4>Saturday <span class="when">PRINT SHOP 9–5</span></h4>
+      <ul>
+        <li><b>7:00 AM</b> wake (1 hr earlier than weekdays) · 7:20 ready</li>
+        <li><b>7:40 AM</b> leave · 8:40 arrive · 9–5 work</li>
+        <li><b>~12:30 lunch break</b> — slot 2 ships</li>
+        <li><b>5 PM leave · 6 PM home</b></li>
+        <li><b>6–7</b> dinner · 7–9 light edit + slot 3 from queue · 🎉 Friday/Sat treat night allowed</li>
+        <li><b>10–11</b> wind down · 11 PM sleep</li>
+      </ul>
+    </div>
+    <div class="ahead-card priority">
+      <h4>Sun OFF <span class="when alt">RECOVERY · OPTIONAL BATCH-COOK</span></h4>
+      <ul>
+        <li><b>8:00 AM</b> wake · slow morning · slot 1 ships from queue</li>
+        <li><b>8:00–9:00</b> breakfast · start laundry load 1 · email/comment sweep</li>
+        <li><b>9:00–10:30</b> groceries OR delivery (Tier 1 staples) — see meal plan</li>
+        <li><b>10:30–12:30</b> 🍱 OPTIONAL Tier 2 batch-cook block — only if you feel like it; skip without guilt</li>
+        <li><b>12:30–1:30</b> lunch + slot 2 ships</li>
+        <li><b>1:30–3:30</b> rotating chore (chore wheel below) + laundry continues</li>
+        <li><b>3:30–5:00</b> light filming if needed · voiceovers · B-roll bank</li>
+        <li><b>5:00–6:00</b> 15-min acting practice restart (one monologue, one sides read)</li>
+        <li><b>6:00–7:00</b> dinner</li>
+        <li><b>7:00–9:00</b> queue Mon-Wed posts · DT bandwidth block</li>
+        <li><b>9:00–10:00</b> slot 3 ships · wind down · 11 PM sleep before 4-day work block</li>
+      </ul>
+      <div class="out">Sunday is recovery + life maintenance. Don't let filming creep here unless it's voiceover-only.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEALS ===== -->
+<section id="meals">
+  <h2>Meal Plan <span class="tag">three tiers · pick what fits</span></h2>
+  <div class="lede">You're a picky eater. Cooking is exhausting. Aunt-cooked dinners stopped or repeated. So we lead with bought / prepared food. Cooking is OPTIONAL, batch-only, and never the default. Specific food lists are pending — we're gathering your real preferences first.</div>
+
+  <div class="meal-grid">
+    <div class="meal-tier t1">
+      <h4>Tier 1 · Default — Buy It <span class="label">EVERY DAY</span></h4>
+      <div class="frame">Prepared, deli, takeout, grocery hot bar, frozen-meal-you-actually-like. The default. Not a splurge — the system.</div>
+      <ul>
+        <li><b>Weekday lunches:</b> grab-and-go at the print shop or near it</li>
+        <li><b>Dinners:</b> grocery rotisserie / deli prepared / trusted takeout in rotation</li>
+        <li><b>Breakfasts:</b> minimal-effort grab items on the way out</li>
+        <li><b>Treat night (Fri/Sat):</b> the nice meal you actually want</li>
+      </ul>
+      <div class="tbd"><b>[TBD — pending preference list]</b><br>Fill in once Raquel's preferences are gathered: which delis, which deli orders (e.g. BLT yes / tuna no), which grocery prepared items, which frozen meals, which takeout spots in rotation, which breakfast items.</div>
+      <div class="invest">Money frame: prepared food IS the system. Smart store choices (rotisserie + grocery prepared ≈ $10/meal) beat delivery (≈ $18/meal). Treat night stays budgeted.</div>
+    </div>
+
+    <div class="meal-tier t2">
+      <h4>Tier 2 · Optional Batch-Cook <span class="label">SUN OR WED · IF YOU FEEL LIKE IT</span></h4>
+      <div class="frame">ONE pot of ONE thing that covers 4–6 meals. No assembly. No rotation. No "5 different lunches." If you're not in the mood, skip the week — Tier 1 covers you.</div>
+      <ul>
+        <li>One single-pot or single-tray dish, made in ~60–90 min</li>
+        <li>Eat from it 4–6 times across the week</li>
+        <li>Freeze half if you can't face it again by mid-week</li>
+        <li>Skipping it is allowed and expected</li>
+      </ul>
+      <div class="tbd"><b>[TBD — pending preference list]</b><br>Fill in once Raquel's preferences are gathered: which 2–4 batch-cook recipes she'd actually eat 4–6 times in a row without burning out (e.g. specific chili / soup / pasta bake / sheet pan she's confirmed she likes).</div>
+      <div class="invest">Rule: if it isn't a thing she's already happy to eat repeatedly, it doesn't go on the list. No experiments.</div>
+    </div>
+
+    <div class="meal-tier t3">
+      <h4>Tier 3 · Zero-Effort Fallbacks <span class="label">LOW-ENERGY DAYS</span></h4>
+      <div class="frame">Legitimate options for tired days. Not failure. Listed explicitly so they stop counting as "I gave up."</div>
+      <ul>
+        <li>Cereal for dinner</li>
+        <li>Peanut butter sandwich / toast</li>
+        <li>Cheese + crackers + fruit</li>
+        <li>Frozen pizza</li>
+        <li>Whatever is in the fridge, no plan</li>
+      </ul>
+      <div class="tbd"><b>[TBD — pending preference list]</b><br>Fill in once Raquel's preferences are gathered: which exact zero-effort items she actually has on hand and likes. E.g. preferred cereal, sandwich bread + spread, frozen pizza brand, snack-plate components.</div>
+      <div class="invest">Keep 3–5 of these stocked at all times. They are the safety net the takeout-budget runs through when low energy hits.</div>
+    </div>
+  </div>
+
+  <div class="dt-tactics">
+    <div class="tactic">
+      <div class="left"><b>Why this looks different from before:</b> the prior plan asked for Sunday 2-hour prep, 5 rotating lunches, 2–3 dinner bases, breakfast prep, snack station. That's a from-scratch cook routine. You don't enjoy it and won't sustain it. The new plan inverts: bought food is the default; cooking is optional.</div>
+      <div class="right">why</div>
+    </div>
+    <div class="tactic">
+      <div class="left"><b>Aunt-fatigue insight:</b> repeated dinners caused food burnout. Translation: rotation matters more than scratch-cooking. Tier 1 rotation across 3–4 trusted prepared options beats one batch you eat 5 nights in a row.</div>
+      <div class="right">rotation</div>
+    </div>
+    <div class="tactic">
+      <div class="left"><b>What we'll do next:</b> a separate convo gathers your real food preferences (deli order specifics, grocery items you'll actually eat, batch dishes you'd repeat without resentment, fallback staples). Once we have the list, the [TBD] blocks above get filled in and this becomes a real shopping/order list.</div>
+      <div class="right">next</div>
+    </div>
+    <div class="tactic">
+      <div class="left"><b>Wednesday batch-day rule:</b> on a 10–14 video shoot day, the lunch break gets a real meal — Tier 1, proper food, not snacks. The body cannot do that volume on a sugar bowl alone.</div>
+      <div class="right">batch day</div>
+    </div>
+  </div>
+
+  <h3 style="margin:1.4rem 0 .5rem;color:var(--pop5);font-weight:900;text-transform:uppercase;letter-spacing:.04em">Hydration + Caffeine</h3>
+  <div class="dt-cols">
+    <div class="dt-col">
+      <h4 class="warn">Water</h4>
+      <ul>
+        <li>Bottle at print shop · refill 2x there + 1x home</li>
+        <li>Wed batch day: third refill mid-afternoon</li>
+        <li>2 AM editing nights: water + herbal tea ONLY</li>
+      </ul>
+    </div>
+    <div class="dt-col">
+      <h4 class="gold">Caffeine</h4>
+      <ul>
+        <li>Last cup by 2 PM (3 PM on Wed BATCH only)</li>
+        <li>No caffeine after dinner — interferes with the 11 PM sleep target</li>
+        <li>If you NEED a late-night cup, it's a signal you're under-slept, not under-caffeinated</li>
+      </ul>
+    </div>
+    <div class="dt-col">
+      <h4>Sugar bowl on the desk</h4>
+      <ul>
+        <li>Canon. Keep it.</li>
+        <li>Not dinner. Not lunch.</li>
+        <li>Refill weekly during the Sunday slow morning</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLEEP ===== -->
+<section id="sleep">
+  <h2>Sleep Reset <span class="tag">fixing the oversleep cycle</span></h2>
+  <div class="lede">Currently sleeping 2 AM → 7-8 AM (5-6 hr). That's an oversleep-cycle setup. Target: 11 PM → 7 AM = 8 hr.</div>
+  <div class="dt-tactics">
+    <div class="tactic">
+      <div class="left"><b>Diagnosis:</b> sleep debt accumulates when you bank under 7 hr for 4+ nights. Body clock breaks. Mornings get harder, not easier — that's the oversleep loop starting.</div>
+      <div class="right">diagnosis</div>
+    </div>
+    <div class="tactic">
+      <div class="left"><b>Target:</b> bed 11 PM, wake 7 AM = 8 hr in bed. Wed/Sun off days: 8 AM wake = 9 hr if 11 PM bedtime.</div>
+      <div class="right">target</div>
+    </div>
+    <div class="tactic">
+      <div class="left"><b>Transition plan:</b> shift bedtime back by 30 min every 2 nights. Tonight 1:30 AM → next 1 AM → next 12:30 → ... → 11 PM by night 6. Don't try to fix in one night. Phase shift.</div>
+      <div class="right">transition</div>
+    </div>
+    <div class="tactic">
+      <div class="left"><b>Hard rule:</b> 1 AM is the latest cap on weeknights during the sprint. The 2:15 AM edits are bonus content, not the operating system.</div>
+      <div class="right">cap</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHORES ===== -->
+<section id="chores">
+  <h2>Sunday Chore Wheel <span class="tag">4-week rotation</span></h2>
+  <div class="lede">Daily 5-min litterbox scoop happens every morning regardless. Sunday rotates the deeper jobs.</div>
+  <div class="dt-cols">
+    <div class="dt-col">
+      <h4>Week 1</h4>
+      <ul>
+        <li>Laundry (always)</li>
+        <li><b>Sheets washed</b></li>
+        <li><b>Litterbox deep clean</b></li>
+        <li>Quick bathroom wipe-down (5 min)</li>
+      </ul>
+    </div>
+    <div class="dt-col">
+      <h4>Week 2</h4>
+      <ul>
+        <li>Laundry (always)</li>
+        <li><b>Bathroom deep clean</b></li>
+        <li>Quick litter scoop (already daily)</li>
+        <li>Room organization 30 min — ONE corner / surface</li>
+      </ul>
+    </div>
+    <div class="dt-col">
+      <h4>Week 3</h4>
+      <ul>
+        <li>Laundry (always)</li>
+        <li><b>Sheets washed</b></li>
+        <li><b>Litterbox deep clean</b></li>
+        <li>Quick bathroom wipe-down (5 min)</li>
+      </ul>
+    </div>
+    <div class="dt-col">
+      <h4>Week 4</h4>
+      <ul>
+        <li>Laundry (always)</li>
+        <li><b>Bathroom deep clean</b></li>
+        <li>Optional Tier 2 batch-cook (cook double for the freeze stash)</li>
+        <li>Room organization 30 min</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACTING PRACTICE ===== -->
+<section id="acting">
+  <h2>Acting Practice Restart <span class="tag">gently · 1 hour weekly to start</span></h2>
+  <div class="lede">Acting career = the long arc. Without practice the brand thesis cracks. Restart small. Build over weeks, not days.</div>
+  <div class="dt-cols">
+    <div class="dt-col">
+      <h4 class="gold">Sun 5–6 PM · 1 hour weekly</h4>
+      <ul>
+        <li>One monologue work-through (15 min) — pick one, stick with it for the month</li>
+        <li>One sides cold-read (15 min)</li>
+        <li>15 min: voice / breath / warm-up</li>
+        <li>15 min: notes / what felt off / journal one line</li>
+      </ul>
+      <div class="invest">First Sunday: just 30 min. Build to 1 hour over 3 weeks.</div>
+    </div>
+    <div class="dt-col">
+      <h4>When sides arrive (reactive)</h4>
+      <ul>
+        <li>Self-tape day = whichever evening fits before deadline</li>
+        <li>Print shop day eves: tape after dinner, 2 takes, send</li>
+        <li>Wed/Sun: more thorough — full coverage, multiple takes</li>
+      </ul>
+      <div class="invest">No fixed schedule. The body cooperates when sides come.</div>
+    </div>
+    <div class="dt-col">
+      <h4>Why this matters</h4>
+      <ul>
+        <li>Acting career = Arc 2 long arc</li>
+        <li>Practice content travels — Sarah audience loves "restart your thing" beats</li>
+        <li>Even 30 min/wk keeps the muscle alive</li>
+        <li>"Big sad" about no practice → flip into "the restart is the post"</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DAILY CHECKLIST (LIFE SIDE) ===== -->
+<section id="daily">
+  <h2>Daily Checklist <span class="tag">life side · body + boundaries</span></h2>
+  <div class="lede">Body checks. Content side has its own checklist on the <a href="CONTENT_DASHBOARD.html#checklist" style="color:var(--pop5);font-weight:900">Content Dashboard</a>.</div>
+  <div class="checklist">
+    <label><input type="checkbox" /> 🛌 In bed by 11 PM (1 AM hard cap)</label>
+    <label><input type="checkbox" /> ☀️ Out of bed within 10 min of alarm</label>
+    <label><input type="checkbox" /> 🍱 Ate Tier 1 / 2 / 3 — not "I forgot"</label>
+    <label><input type="checkbox" /> 💧 Water bottle refilled at least twice</label>
+    <label><input type="checkbox" /> ☕ Last caffeine before 2 PM</label>
+    <label><input type="checkbox" /> 🧺 5-min litter scoop done</label>
+    <label><input type="checkbox" /> 🚶 Got outside / off the couch for ≥10 min</label>
+    <label><input type="checkbox" /> 🛁 Showered (or non-negotiable wipe-down)</label>
+    <label><input type="checkbox" /> 🎭 Acting practice block (Sun) OR sides reactive (when needed)</label>
+    <label><input type="checkbox" /> 📵 Phone away from bed at sleep time</label>
+    <label><input type="checkbox" /> ❤️ Checked in with one person (text counts)</label>
+  </div>
+</section>
+
+<footer>
+  <div>The Life Dashboard</div>
+  <div class="quote">"Owns the time. Tuesday looks like Tuesday either way."</div>
+  <div>For the substance — what's filming, what's posting, which hook, which platform — see <a href="CONTENT_DASHBOARD.html">Content Dashboard →</a></div>
+</footer>
+
+<script>
+// ============= DATA — same DAYS table as Content Dashboard =============
+const DAYS = [
+  // Phase 1
+  {date:"Thu 4/30", n:1, phase:1, badge:"LAUNCH", badgeCls:""},
+  {date:"Fri 5/1", n:2, phase:1, badge:"HERO", badgeCls:""},
+  {date:"Sat 5/2", n:3, phase:1, badge:"", badgeCls:""},
+  {date:"Sun 5/3", n:4, phase:1, badge:"BATCH ★", badgeCls:"batch"},
+  {date:"Mon 5/4", n:5, phase:1, badge:"LIGHT ☆", badgeCls:"light"},
+  {date:"Tue 5/5", n:6, phase:1, badge:"", badgeCls:""},
+  {date:"Wed 5/6", n:7, phase:1, badge:"BATCH ★", badgeCls:"batch"},
+  {date:"Thu 5/7", n:8, phase:1, badge:"LIGHT ☆", badgeCls:"light"},
+  {date:"Fri 5/8", n:9, phase:1, badge:"NO FILM ✗", badgeCls:"nofilm"},
+  {date:"Sat 5/9", n:10, phase:1, badge:"NO FILM ✗", badgeCls:"nofilm"},
+  {date:"Sun 5/10", n:11, phase:1, badge:"CANNES ★", badgeCls:"cannes"},
+  // Phase 2
+  {date:"Mon 5/11", n:12, phase:2, badge:"RESULT", badgeCls:""},
+  {date:"Tue 5/12", n:13, phase:2, badge:"", badgeCls:""},
+  {date:"Wed 5/13", n:14, phase:2, badge:"BRIDGE ★", badgeCls:"bridge"},
+  {date:"Thu 5/14", n:15, phase:2, badge:"LIGHT ☆", badgeCls:"light"},
+  {date:"Fri 5/15", n:16, phase:2, badge:"NO FILM ✗", badgeCls:"nofilm"},
+  {date:"Sat 5/16", n:17, phase:2, badge:"NO FILM ✗", badgeCls:"nofilm"},
+  {date:"Sun 5/17", n:18, phase:2, badge:"LIGHT ☆", badgeCls:"light"},
+  {date:"Mon 5/18", n:19, phase:2, badge:"LIGHT ☆", badgeCls:"light"},
+  {date:"Tue 5/19", n:20, phase:2, badge:"", badgeCls:""},
+  {date:"Wed 5/20", n:21, phase:2, badge:"BATCH ★", badgeCls:"batch"},
+  // Phase 3
+  {date:"Thu 5/21", n:22, phase:3, badge:"LIGHT ☆", badgeCls:"light"},
+  {date:"Fri 5/22", n:23, phase:3, badge:"NO FILM ✗", badgeCls:"nofilm"},
+  {date:"Sat 5/23", n:24, phase:3, badge:"NO FILM ✗", badgeCls:"nofilm"},
+  {date:"Sun 5/24", n:25, phase:3, badge:"LIGHT ☆", badgeCls:"light"},
+  {date:"Mon 5/25", n:26, phase:3, badge:"LIGHT ☆", badgeCls:"light"},
+  {date:"Tue 5/26", n:27, phase:3, badge:"", badgeCls:""},
+  {date:"Wed 5/27", n:28, phase:3, badge:"BATCH ★", badgeCls:"batch"},
+  {date:"Thu 5/28", n:29, phase:3, badge:"LIGHT ☆", badgeCls:"light"},
+  {date:"Fri 5/29", n:30, phase:3, badge:"NO FILM ✗", badgeCls:"nofilm"},
+  {date:"Sat 5/30", n:31, phase:3, badge:"PRIZE ★", badgeCls:"prize"}
+];
+
+// helper: day-of-week 0=Sun, 1=Mon, ... derived from date label
+function dowFromLabel(lbl){
+  const m = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  return m[lbl.slice(0,3)] ?? -1;
+}
+
+// Build the time-block list for a given day based on its day-of-week + filming type.
+// Filming/editing/posting blocks include cross-link to Content Dashboard for that day.
+function blocksForDay(day){
+  const dow = dowFromLabel(day.date);
+  const isBatch = day.badgeCls === "batch";
+  const isLight = day.badgeCls === "light";
+  const isNoFilm = day.badgeCls === "nofilm";
+  const isCannes = day.badgeCls === "cannes";
+  const isPrize = day.badgeCls === "prize";
+  const isBridge = day.badgeCls === "bridge";
+
+  const xLink = `<a class="xlink" href="CONTENT_DASHBOARD.html#day-${day.n}">→ Content slate (Day ${day.n})</a>`;
+
+  const out = [];
+
+  if(dow === 3){
+    // Wednesday OFF (or Wed batch)
+    out.push({t:"8:00 AM", k:"sleep", kind:"Wake (sleep-in)", note:"+1 hr vs weekday"});
+    out.push({t:"8:00–8:45", k:"meal", kind:"Big breakfast (Tier 1)", note:"set up for filming volume"});
+    if(isBatch){
+      out.push({t:"9:00–12:00", k:"film", kind:"★ FILM Block A + B", note:"warm-up (4) + peak (4–6)", x:xLink});
+      out.push({t:"12:00–1:00", k:"meal", kind:"Real lunch", note:"proper food, not snacks"});
+      out.push({t:"1:00–4:00", k:"film", kind:"★ FILM Block B + C + DT", note:"finish (2–4) + cool-down (4) + DT block", x:xLink});
+      out.push({t:"4:00–6:00", k:"edit", kind:"Review takes / start edits", note:"slot 2 ships at ~5 PM", x:xLink});
+      out.push({t:"6:00–7:00", k:"meal", kind:"Dinner"});
+      out.push({t:"7:00–9:30", k:"edit", kind:"Edit + queue tomorrow", note:"slot 3 ships · DT bandwidth", x:xLink});
+      out.push({t:"10:30 PM", k:"sleep", kind:"Sleep target", note:"earlier than weekday — recover before 4-day work block"});
+    } else if(isBridge){
+      out.push({t:"9:00–11:00", k:"film", kind:"BRIDGE filming · M40 hero", note:"the Arc 1 → Arc 2 post", x:xLink});
+      out.push({t:"11:00–1:00", k:"film", kind:"M41 + M42 + DT-19 (bridge slate)", x:xLink});
+      out.push({t:"1:00–2:00", k:"meal", kind:"Lunch"});
+      out.push({t:"2:00–5:00", k:"edit", kind:"Edit M40 hero · queue Thu-Fri", x:xLink});
+      out.push({t:"5:00–6:00", k:"acting", kind:"Acting practice (restart day)", note:"M41 callback — ritual matters"});
+      out.push({t:"6:00–7:00", k:"meal", kind:"Dinner"});
+      out.push({t:"7:00–9:30", k:"edit", kind:"Edit · slot 3 ships", x:xLink});
+      out.push({t:"10:30 PM", k:"sleep", kind:"Sleep target"});
+    } else {
+      // Wed light
+      out.push({t:"9:00–11:00", k:"edit", kind:"Edit catch-up + post-only morning", x:xLink});
+      out.push({t:"11:00–12:30", k:"film", kind:"Light filming if needed", note:"voiceovers · pickups", x:xLink});
+      out.push({t:"12:30–1:30", k:"meal", kind:"Lunch · slot 2 ships"});
+      out.push({t:"1:30–4:00", k:"edit", kind:"Edit · DT bandwidth · storyboards", x:xLink});
+      out.push({t:"4:00–5:00", k:"acting", kind:"Acting practice / sides if active"});
+      out.push({t:"5:00–6:00", k:"meal", kind:"Dinner"});
+      out.push({t:"6:00–9:30", k:"edit", kind:"Edit · queue · slot 3 ships", x:xLink});
+      out.push({t:"10:30 PM", k:"sleep", kind:"Sleep target"});
+    }
+  } else if(dow === 0){
+    // Sunday OFF
+    out.push({t:"8:00 AM", k:"sleep", kind:"Wake · slow morning", note:"slot 1 ships from queue"});
+    out.push({t:"8:00–9:00", k:"meal", kind:"Breakfast", note:"start laundry · email/comment sweep"});
+    out.push({t:"9:00–10:30", k:"meal", kind:"Groceries / delivery (Tier 1)"});
+    out.push({t:"10:30–12:30", k:"meal", kind:"OPTIONAL Tier 2 batch-cook", note:"skip without guilt"});
+    out.push({t:"12:30–1:30", k:"meal", kind:"Lunch · slot 2 ships", x:xLink});
+    out.push({t:"1:30–3:30", k:"shop", kind:"Sunday chore (rotating wheel)", note:"laundry continues"});
+    if(isCannes){
+      out.push({t:"3:30–5:00", k:"post", kind:"CANNES DAY post-only window", note:"M31/M32/M33 + DT-16 from queue", x:xLink});
+    } else if(isLight){
+      out.push({t:"3:30–5:00", k:"film", kind:"Light filming · voiceovers · B-roll", x:xLink});
+    } else {
+      out.push({t:"3:30–5:00", k:"edit", kind:"Edit catch-up · B-roll bank", x:xLink});
+    }
+    out.push({t:"5:00–6:00", k:"acting", kind:"Acting practice block", note:"15-min monologue + 15-min sides + warm-up"});
+    out.push({t:"6:00–7:00", k:"meal", kind:"Dinner"});
+    out.push({t:"7:00–9:00", k:"post", kind:"Queue Mon–Wed posts · DT bandwidth", x:xLink});
+    out.push({t:"9:00–10:00", k:"post", kind:"Slot 3 ships · wind down", x:xLink});
+    out.push({t:"11:00 PM", k:"sleep", kind:"Sleep target", note:"before 4-day work block"});
+  } else if(dow === 6){
+    // Saturday — print shop 9-5
+    out.push({t:"7:00 AM", k:"sleep", kind:"Wake (1 hr earlier)"});
+    out.push({t:"7:00–7:20", k:"meal", kind:"Quick breakfast (Tier 1)"});
+    out.push({t:"7:40 AM", k:"shop", kind:"Leave home · 8:40 arrive"});
+    out.push({t:"9:00–5:00", k:"shop", kind:"PRINT SHOP 9–5"});
+    out.push({t:"~12:30", k:"meal", kind:"Lunch break · slot 2 ships", x:xLink});
+    out.push({t:"5:00 PM", k:"shop", kind:"Leave shop · 6 PM home"});
+    if(isPrize){
+      out.push({t:"6:00–7:00", k:"meal", kind:"PRIZE NIGHT dinner", note:"treat night — May 30 is the day"});
+      out.push({t:"7:00–9:00", k:"post", kind:"PRIZE day final-post window", note:"M91/M92/M93 + DT-32 ship from queue", x:xLink});
+    } else {
+      out.push({t:"6:00–7:00", k:"meal", kind:"Dinner · 🎉 treat night allowed"});
+      if(isNoFilm){
+        out.push({t:"7:00–9:00", k:"edit", kind:"Light edit + slot 3 from queue", x:xLink});
+      } else {
+        out.push({t:"7:00–9:00", k:"edit", kind:"Edit + slot 3 ships", x:xLink});
+      }
+    }
+    out.push({t:"10:00–11:00", k:"sleep", kind:"Wind down · 11 PM sleep"});
+  } else if(dow === 2){
+    // Tuesday — print shop + REST evening
+    out.push({t:"7:00 AM", k:"sleep", kind:"Wake"});
+    out.push({t:"7:00–7:30", k:"meal", kind:"Ready + breakfast (Tier 1)"});
+    out.push({t:"7:00–7:30", k:"post", kind:"Slot 1 queued post fires", x:xLink});
+    out.push({t:"8:40 AM", k:"shop", kind:"Leave · 9:40 arrive"});
+    out.push({t:"10:00–6:00", k:"shop", kind:"PRINT SHOP 10–6"});
+    out.push({t:"~1:00 PM", k:"meal", kind:"Lunch break · slot 2 ships", x:xLink});
+    out.push({t:"6:00 PM", k:"shop", kind:"Leave · 7 PM home"});
+    out.push({t:"7:00–7:30", k:"meal", kind:"Dinner (Tier 1 / 3)"});
+    out.push({t:"7:30–9:30", k:"post", kind:"🛌 NO EDIT NIGHT · slot 3 ships from queue", note:"this is the recovery valve", x:xLink});
+    out.push({t:"10:30 PM", k:"sleep", kind:"Early sleep · 8.5 hr in bed"});
+  } else {
+    // Mon, Thu, Fri — print shop 10-6
+    out.push({t:"7:00 AM", k:"sleep", kind:"Wake"});
+    out.push({t:"7:00–7:30", k:"meal", kind:"Ready + breakfast (Tier 1)"});
+    out.push({t:"7:00–7:30", k:"post", kind:"Slot 1 queued post fires", x:xLink});
+    out.push({t:"8:40 AM", k:"shop", kind:"Leave · 9:40 arrive"});
+    out.push({t:"10:00–6:00", k:"shop", kind:"PRINT SHOP 10–6"});
+    out.push({t:"~1:00 PM", k:"meal", kind:"Lunch break · slot 2 ships", x:xLink});
+    out.push({t:"6:00 PM", k:"shop", kind:"Leave · 7 PM home"});
+    out.push({t:"7:00–7:30", k:"meal", kind:"Dinner (Tier 1 / 3)"});
+    if(isLight){
+      out.push({t:"7:30–9:00", k:"film", kind:"☆ LIGHT filming · 1–2 max", note:"pickups / single-setup beats", x:xLink});
+      out.push({t:"9:00–10:00", k:"edit", kind:"Edit · slot 3 ships · DT bandwidth", x:xLink});
+    } else if(isNoFilm){
+      out.push({t:"7:30–10:00", k:"edit", kind:"✗ NO FILM · edit + queue work", note:"work the queue forward", x:xLink});
+      out.push({t:"9:00–10:00", k:"post", kind:"Slot 3 ships from queue", x:xLink});
+    } else {
+      out.push({t:"7:30–10:00", k:"edit", kind:"Edit / community / DT bandwidth", x:xLink});
+      out.push({t:"9:00–10:00", k:"post", kind:"Slot 3 ships", x:xLink});
+    }
+    out.push({t:"10:00–11:00", k:"sleep", kind:"Wind down · 11 PM sleep"});
+  }
+
+  return out;
+}
+
+// Render the day grid
+function renderDays(){
+  const grid = document.getElementById('day-grid');
+  if(!grid) return;
+  grid.innerHTML = DAYS.map(day => {
+    const blocks = blocksForDay(day);
+    const blocksHtml = blocks.map(b => {
+      const xlinkHtml = b.x ? b.x : "";
+      const noteHtml = b.note ? `<div class="note">${b.note}</div>` : "";
+      return `<li class="${b.k}">
+        <span class="t">${b.t}</span>
+        <span class="desc">
+          <span class="kind">${b.kind}</span> ${xlinkHtml}
+          ${noteHtml}
+        </span>
+      </li>`;
+    }).join("");
+    const badgeCls = day.badgeCls || (dowFromLabel(day.date)===0 ? "off" : (dowFromLabel(day.date)===3 ? "off" : "shop"));
+    const badgeText = day.badge || (dowFromLabel(day.date)===0 ? "SUN OFF" : (dowFromLabel(day.date)===3 ? "WED OFF" : "SHOP"));
+    const dayClass = day.badgeCls === "cannes" ? "cannes" : (day.badgeCls === "prize" ? "prize" : (day.badgeCls === "bridge" ? "bridge" : (day.badgeCls === "batch" ? "batch" : "")));
+    return `<article class="lifeday ${dayClass}" id="life-day-${day.n}">
+      <h3>
+        <span>${day.date}</span>
+        <span class="d">Day ${day.n}</span>
+        <span class="badge ${badgeCls}">${badgeText}</span>
+      </h3>
+      <ul class="blocks">${blocksHtml}</ul>
+    </article>`;
+  }).join("");
+}
+
+// === TODAY PANEL ===
+function todayLifeData(){
+  const today = new Date();
+  const sprintStart = new Date(2026,3,30); // April 30, 2026
+  const dayDiff = Math.floor((today - sprintStart) / 86400000);
+  let day = null;
+  if(dayDiff >= 0 && dayDiff < DAYS.length) day = DAYS[dayDiff];
+
+  const dowMap = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const todayLabel = today.toLocaleDateString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric'});
+  document.getElementById('today-date').textContent = todayLabel;
+
+  if(!day){
+    document.getElementById('today-headline').textContent = "Outside the 31-day sprint window";
+    document.getElementById('today-sub').textContent = "Sprint window: Apr 30 → May 30, 2026.";
+    return;
+  }
+
+  document.getElementById('today-headline').textContent = `Day ${day.n} · ${day.date} · ${day.badge || (dowFromLabel(day.date)===0?'SUN OFF':(dowFromLabel(day.date)===3?'WED OFF':'PRINT SHOP'))}`;
+  document.getElementById('today-sub').textContent = "Time-block view below. For what's actually filming/posting today, click through to the Content Dashboard.";
+
+  const dow = dowFromLabel(day.date);
+  // Wake
+  if(dow === 0 || dow === 3) document.getElementById('today-wake').textContent = "8:00 AM (sleep-in)";
+  else if(dow === 6) document.getElementById('today-wake').textContent = "7:00 AM (Sat early)";
+  else document.getElementById('today-wake').textContent = "7:00 AM";
+  // Shop
+  if(dow >= 1 && dow <= 5 && dow !== 3) document.getElementById('today-shop').textContent = "10 AM – 6 PM";
+  else if(dow === 6) document.getElementById('today-shop').textContent = "9 AM – 5 PM";
+  else document.getElementById('today-shop').textContent = "OFF";
+  // Filming
+  if(day.badgeCls === "batch") document.getElementById('today-film').textContent = "★ BIG BATCH 9 AM – 4 PM (10–14 main + 4 DT)";
+  else if(day.badgeCls === "light") document.getElementById('today-film').textContent = "☆ LIGHT 7:30–9 PM (1–2 max)";
+  else if(day.badgeCls === "nofilm") document.getElementById('today-film').textContent = "✗ NO FILM (queue work)";
+  else if(day.badgeCls === "cannes") document.getElementById('today-film').textContent = "🎬 CANNES — post-only";
+  else if(day.badgeCls === "prize") document.getElementById('today-film').textContent = "🏆 PRIZE — post-only";
+  else if(day.badgeCls === "bridge") document.getElementById('today-film').textContent = "🌉 BRIDGE — light film + pilot prep";
+  else document.getElementById('today-film').textContent = "Light evening pickups";
+  // Editing
+  if(day.badgeCls === "batch") document.getElementById('today-edit').textContent = "4–6 PM + 7–9:30 PM";
+  else if(dow === 2) document.getElementById('today-edit').textContent = "🛌 NO EDIT NIGHT (rest)";
+  else if(dow === 0 || dow === 3) document.getElementById('today-edit').textContent = "Day-block flexible";
+  else document.getElementById('today-edit').textContent = "7:30–10 PM";
+  // Posts ship at
+  document.getElementById('today-posts').textContent = "Slot 1 ~7 AM · Slot 2 ~1 PM · Slot 3 ~9 PM";
+  // Meals
+  if(dow === 0) document.getElementById('today-meal').textContent = "Tier 1 + optional Tier 2 batch-cook";
+  else if(day.badgeCls === "batch") document.getElementById('today-meal').textContent = "Tier 1 — proper lunch on batch day";
+  else document.getElementById('today-meal').textContent = "Tier 1 default · Tier 3 if low energy";
+  // Chore
+  const weekIdx = Math.floor((day.n - 1) / 7) % 4;
+  const choreMap = ["Sheets + litterbox deep clean", "Bathroom deep clean + room org", "Sheets + litterbox deep clean", "Bathroom + (optional) batch-cook + room org"];
+  document.getElementById('today-chore').textContent = (dow === 0) ? choreMap[weekIdx] : "Daily 5-min litter scoop";
+  // Sleep
+  if(dow === 2) document.getElementById('today-sleep').textContent = "10:30 PM (rest night)";
+  else if(dow === 3) document.getElementById('today-sleep').textContent = "10:30 PM (post-batch recovery)";
+  else document.getElementById('today-sleep').textContent = "11:00 PM (8 hr in bed)";
+  // Acting
+  if(dow === 0) document.getElementById('today-acting').textContent = "5–6 PM weekly block";
+  else document.getElementById('today-acting').textContent = "Reactive only (when sides arrive)";
+  // Days to milestones
+  const cannesDate = new Date(2026,4,10); // May 10
+  const prizeDate = new Date(2026,4,30); // May 30
+  document.getElementById('today-cannes').textContent = Math.max(0, Math.ceil((cannesDate - today)/86400000)) + " days";
+  document.getElementById('today-prize').textContent = Math.max(0, Math.ceil((prizeDate - today)/86400000)) + " days";
+  // Next batch day
+  const upcoming = DAYS.filter(d => d.n > day.n && d.badgeCls === "batch");
+  document.getElementById('today-nextbatch').textContent = upcoming.length ? `${upcoming[0].date} (Day ${upcoming[0].n})` : "—";
+  // Content link
+  document.getElementById('today-content').innerHTML = `<a href="CONTENT_DASHBOARD.html#day-${day.n}">→ Day ${day.n} content slate</a>`;
+}
+
+// init
+renderDays();
+todayLifeData();
+</script>
+</body>
+</html>
