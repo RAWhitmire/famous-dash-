@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Content · Per-Post Cards</title>
-<link rel="stylesheet" href="../styles.css?v=8" />
+<link rel="stylesheet" href="../styles.css?v=9" />
 </head>
 <body>
 
@@ -12,17 +12,23 @@
 
 <header class="hero content">
   <h1>Per-Post Production Cards</h1>
-  <div class="sub">All 125 cards (93 main + 32 DT). Hooks, scripts, visual cues, CTAs, KPIs. Fully detailed cards live in the original megadoc — this page indexes them.</div>
+  <div class="sub">Sprint card index. The current source-of-truth is <a href="phase-1-scripts.html" style="color:var(--accent)"><b>Phase 1 Scripts</b></a> — that page has the full beat-by-beat scripts with stacked hooks, CTAs, and Week-1 no-DT compliance.</div>
 </header>
 
 <main>
-  <div class="card lift" style="background:var(--pop3)">
-    <h3>Architecture note</h3>
-    <p style="font-size:var(--text-sm);margin:.3rem 0">The detailed 125-card production grid lives in the original CONTENT_DASHBOARD megadoc (filterable, complete with hooks/scripts/CTAs). It's still there as the reference document.</p>
-    <p style="font-size:var(--text-sm);margin:.3rem 0;font-weight:700">For now, jump there for the deep cards. Tomorrow I can split the cards into focused per-day pages here if you want — let me know.</p>
+  <div class="card lift" style="background:var(--accent);border-color:var(--ink)">
+    <h3 style="color:var(--ink)">→ Live source: Phase 1 Scripts</h3>
+    <p style="font-size:var(--text-sm);margin:.3rem 0;color:var(--ink)"><b>The megadoc (CONTENT_DASHBOARD.html) is now stale.</b> It still contains old "quit at 23," DT-in-week-1, and "follow if that hit" defaults. Do not film from it.</p>
+    <p style="font-size:var(--text-sm);margin:.3rem 0;color:var(--ink)">Filming source = Phase 1 Scripts. That page has: 4-stack hooks per beat, no DT in Week 1, no work refs anywhere, varied CTAs, "came back at 23" framing.</p>
     <p style="margin:.6rem 0">
-      <a class="btn gold" href="../../CONTENT_DASHBOARD.html#posts">→ Full 125-card grid (megadoc)</a>
+      <a class="btn ghost" style="background:var(--ink);color:var(--accent);border-color:var(--ink)" href="phase-1-scripts.html">→ Phase 1 Scripts (LIVE source)</a>
     </p>
+  </div>
+
+  <div class="card mt-2" style="background:var(--tint-purple);border-left:3px solid var(--accent-2)">
+    <h3>Week 1 visual rule (Days 1-4)</h3>
+    <p style="font-size:var(--text-sm);margin:.3rem 0">Zero DT B-roll. No cardboard, comm badges, faux-uniforms, bridge sketches, Captain props — even passively in the background. Allowed visual anchors Days 1-4: notebook, sticky-note wall, glitter (general), sugar bowl, kettle, hot glue (as craft tool only).</p>
+    <p style="font-size:var(--text-sm);margin:.3rem 0">DT props can re-enter frame from <b>Day 5 (Mon May 4)</b>.</p>
   </div>
 
   <div class="section-label mt-2">Card structure (what each post specifies)</div>
@@ -65,6 +71,6 @@
 </main>
 
 <footer><p>Cards are the substance. Schedule is the shape. <a href="calendar.html">→ Calendar</a> · <a href="../../CONTENT_DASHBOARD.html#posts">→ Megadoc grid</a></p></footer>
-<script src="../nav.js?v=8"></script>
+<script src="../nav.js?v=9"></script>
 </body>
 </html>

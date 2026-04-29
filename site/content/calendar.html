@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Content · Sprint Calendar</title>
-<link rel="stylesheet" href="../styles.css?v=8" />
+<link rel="stylesheet" href="../styles.css?v=9" />
 <style>
   .cal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.5rem;margin:1rem 0}
   .cal-day{background:var(--card);border:2px solid var(--ink);border-radius:.5rem;padding:.6rem;font-size:var(--text-xs);box-shadow:var(--shadow-sm);transition:all .15s}
@@ -35,7 +35,7 @@
 
 <header class="hero content">
   <h1>31-Day Sprint Calendar</h1>
-  <div class="sub">All 93 main posts + 32 Discount Trek posts laid out by day. ★ = batch · ☆ = light · ✗ = no filming. Cannes May 10 = midpoint. Prize May 30 = finale.</div>
+  <div class="sub">All main-account posts + DT posts by day. ★ = batch · ☆ = light · ✗ = no filming. Week 1 (Days 1-4) = main account ONLY, zero DT mentions or B-roll. DT enters Day 5 (Mon 5/4). Cannes May 10. Prize May 30.</div>
 </header>
 
 <main class="wide">
@@ -43,11 +43,11 @@
   <div class="phase-block p1">
     <h3>Phase 1 · Cannes Push (Apr 30 → May 10)</h3>
     <div class="cal-grid">
-      <div class="cal-day"><div class="date-line">Thu 4/30 <span class="badge">LAUNCH</span></div><div class="posts">M01 · M02 · M03</div><div class="dt">DT-01 · DT-02</div></div>
-      <div class="cal-day"><div class="date-line">Fri 5/1 <span class="badge">HERO</span></div><div class="posts">M04 · M05 · M06</div><div class="dt">DT-03 · DT-04</div></div>
-      <div class="cal-day"><div class="date-line">Sat 5/2</div><div class="posts">M07 · M08 · M09</div><div class="dt">DT-05</div></div>
-      <div class="cal-day batch"><div class="date-line">Sun 5/3 <span class="badge">BATCH ★</span></div><div class="posts">M10 · M11 · M12</div><div class="dt">DT-06 · DT-07</div></div>
-      <div class="cal-day light"><div class="date-line">Mon 5/4 <span class="badge">LIGHT ☆</span></div><div class="posts">M13 · M14 · M15</div><div class="dt">DT-08</div></div>
+      <div class="cal-day"><div class="date-line">Thu 4/30 <span class="badge">LAUNCH</span></div><div class="posts">M01 hero · M02 · M03 · M03b · M03c</div><div class="dt" style="color:#9ca3af">DT dark · setup only</div></div>
+      <div class="cal-day"><div class="date-line">Fri 5/1 <span class="badge">HERO</span></div><div class="posts">M04 hero · M05 · M06 · M06b · M06c</div><div class="dt" style="color:#9ca3af">DT dark · setup only</div></div>
+      <div class="cal-day"><div class="date-line">Sat 5/2</div><div class="posts">M07 hero · M08 · M09</div><div class="dt" style="color:#9ca3af">DT dark · setup only</div></div>
+      <div class="cal-day batch"><div class="date-line">Sun 5/3 <span class="badge">BATCH ★</span></div><div class="posts">M10 hero · M11 · M12</div><div class="dt">DT dark · setup only</div></div>
+      <div class="cal-day light"><div class="date-line">Mon 5/4 <span class="badge">LIGHT ☆ · DT GO-LIVE</span></div><div class="posts">M13 · M14 · M15 (Trek refs OK from today)</div><div class="dt">DT-01 · DT-02 (first DT posts)</div></div>
       <div class="cal-day"><div class="date-line">Tue 5/5</div><div class="posts">M16 · M17 · M18</div><div class="dt">DT-09 · DT-10</div></div>
       <div class="cal-day batch"><div class="date-line">Wed 5/6 <span class="badge">BATCH ★</span></div><div class="posts">M19 · M20 · M21</div><div class="dt">DT-11 · DT-12</div></div>
       <div class="cal-day light"><div class="date-line">Thu 5/7 <span class="badge">LIGHT ☆</span></div><div class="posts">M22 · M23 · M24</div><div class="dt">DT-13</div></div>
@@ -98,10 +98,16 @@
     </div>
   </div>
 
+  <div class="card mt-2" style="background:var(--tint-purple);border-left:3px solid var(--accent-2)">
+    <h3>Week 1 rule: no DT anywhere</h3>
+    <p style="font-size:var(--text-sm);margin:.4rem 0">Days 1-4 (Apr 30 - May 3) main-account videos contain ZERO Star Trek / Discount Trek / cardboard / comm-badge / Captain references — including B-roll. DT props/build cannot appear in any frame, even passively in the background. The audience meets DT for the first time on <b>Day 5 (Mon 5/4)</b>, when both the main account starts teasing it AND the DT account itself goes live.</p>
+    <p style="font-size:var(--text-sm);margin:.4rem 0"><b>Week 1 visual anchors that ARE allowed:</b> notebook, sticky-note wall, glitter (general), sugar bowl (general), kettle, hot glue (as craft tool only — no Trek props in the same frame), laptop, phone screen.</p>
+  </div>
+
   <p class="muted center mt-2" style="font-size:var(--text-xs)">Per-post production cards (hooks, scripts, KPIs) → <a href="posts.html">Posts page</a></p>
 </main>
 
 <footer><p>3 main posts/day · zero tolerance · 31 days · Polina picks one.</p></footer>
-<script src="../nav.js?v=8"></script>
+<script src="../nav.js?v=9"></script>
 </body>
 </html>
