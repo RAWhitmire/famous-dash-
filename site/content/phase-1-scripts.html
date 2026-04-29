@@ -29,8 +29,17 @@
   .beat.climax{background:var(--soft-teal);border-color:var(--pop6);border-width:3px}
   .beat.loop{background:#fee2e2;border-color:var(--bad)}
   .beat .time{font-weight:900;color:var(--pop2);min-width:2.7rem;font-size:.66rem;background:#fff;padding:.12rem .25rem;border-radius:.25rem;text-align:center;align-self:start;border:1.5px solid var(--ink)}
-  .beat .what{line-height:1.35}
-  .beat .what b{color:var(--pop2);text-transform:uppercase;letter-spacing:.04em;font-size:.6rem;display:block;margin-bottom:.1rem}
+  .beat .what{line-height:1.45}
+  .beat .what > b{color:var(--ink-muted);text-transform:uppercase;letter-spacing:.06em;font-size:.65rem;display:block;margin-bottom:.3rem;font-weight:700}
+  .beat .stack-line{display:flex;gap:.4rem;padding:.2rem 0;font-size:.92em;line-height:1.45}
+  .beat .stack-line .stack-key{flex-shrink:0;color:var(--accent-2);font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;min-width:5.2rem;line-height:1.6;font-style:normal}
+  .beat .stack-line .stack-val{color:var(--ink)}
+  .beat.hook .stack-line .stack-key{color:var(--accent)}
+  .beat.climax .stack-line .stack-key{color:var(--accent)}
+  @media (min-width:769px){
+    .beat .stack-line{font-size:1em;padding:.25rem 0}
+    .beat .stack-line .stack-key{min-width:6.5rem;font-size:.78rem}
+  }
   .deliv{display:grid;gap:.3rem;margin-top:.4rem}
   .deliv-row{padding:.4rem .55rem;border-radius:.35rem;border:2px solid var(--ink);font-size:var(--text-sm)}
   .deliv-row b{color:var(--pop2);text-transform:uppercase;letter-spacing:.04em;font-size:.6rem;display:block;margin-bottom:.15rem;font-weight:900}
@@ -103,21 +112,21 @@
   <a href="#M01" class="hero">M01 ⭐</a>
   <a href="#M02">M02</a>
   <a href="#M03">M03</a>
-  <a href="#DT-01" class="dt">DT-01</a>
+  <a href="#M03b">M03b</a>
+  <a href="#M03c">M03c</a>
   <a href="#M04" class="hero">M04 ⭐</a>
   <a href="#M05">M05</a>
   <a href="#M06">M06</a>
+  <a href="#M06b">M06b</a>
+  <a href="#M06c">M06c</a>
   <a href="#M07" class="hero">M07 ⭐</a>
   <a href="#M08">M08</a>
   <a href="#M09">M09</a>
-  <a href="#DT-02" class="dt">DT-02</a>
   <a href="#M10" class="hero">M10 ⭐</a>
   <a href="#M11">M11</a>
   <a href="#M12">M12</a>
   <a href="#M13">M13</a>
   <a href="#M15">M15</a>
-  <a href="#DT-03" class="dt">DT-03</a>
-  <a href="#DT-04" class="dt">DT-04</a>
   <a href="#M16">M16</a>
   <a href="#M17">M17</a>
   <a href="#M18">M18</a>
@@ -132,7 +141,6 @@
   <a href="#M28">M28</a>
   <a href="#M29">M29</a>
   <a href="#M30">M30</a>
-  <a href="#DT-05" class="dt">DT-05 ⭐</a>
   <a href="#M31">M31</a>
   <a href="#M32">M32</a>
   <a href="#M33">M33</a>
@@ -148,8 +156,8 @@
     <li><b>In-video CTA</b> now its own row in deliverables — CTA01–05 per Production Playbook</li>
     <li><b>H16 age-frame hook</b> applied where the topic fits naturally</li>
     <li><b>Captions cleaner</b> — "follow if [X] hit" conditional-casual energy throughout, no manufactured "lmao"</li>
-    <li><b>DT account rephased</b> — Days 1-4 = build content, Day 5 = first full sketch (see <a href="posting-strategy.html">Posting Strategy</a>)</li>
-    <li><b>Format diversity intentional</b> — see Format Coverage Matrix below; Days 1-5 cover 8 different formats so we get real test data</li>
+    <li><b>Week 1 = main account ONLY</b> — @discounttrek stays in setup mode, no posts to that account till Day 5+ when first sketch is filmable. Main account M03 still teases the parody build (it's a topic, not a posted video on the DT handle).</li>
+    <li><b>Format diversity intentional</b> — see Format Coverage Matrix below; Week 1 covers 7 different formats so we get real test data</li>
   </ul>
 </div>
 
@@ -163,21 +171,21 @@
   </thead>
   <tbody>
     <tr><td><b>F01 · Direct Address</b></td><td>A</td><td class="highlight">2</td><td>M01 (age-9 launch · H16), M07 (T-1 hero)</td><td>+1 rep planned</td></tr>
-    <tr><td><b>F02 · POV-Trope</b></td><td>A</td><td>0</td><td>—</td><td>2 reps planned (Days 6-7)</td></tr>
+    <tr><td><b>F02 · POV-Trope</b></td><td>A</td><td class="highlight">2</td><td>M03c (11 PM solo POV), M06c (caught-myself POV)</td><td>+1 rep planned</td></tr>
     <tr><td><b>F03 · Trend Remix</b></td><td>A</td><td class="highlight">1</td><td>M08 (ad paradox · trend-coded)</td><td>+2 reps if trends fit</td></tr>
-    <tr><td><b>F04 · Storytime</b></td><td>A</td><td class="highlight">2</td><td>M02 (family), DT-05 (thrift)</td><td>+1 rep planned</td></tr>
-    <tr><td><b>F05 · DT Character</b></td><td>A</td><td>0</td><td>—</td><td>Day 5 first sketch + Days 6-11 reactions</td></tr>
-    <tr><td><b>F06 · Voiceover B-Roll</b></td><td>B</td><td class="highlight">2</td><td>M09 (2:15 AM), DT-01 (anticipation)</td><td>+1 rep planned</td></tr>
+    <tr><td><b>F04 · Storytime</b></td><td>A</td><td class="highlight">2</td><td>M02 (family), M04 (Polina hero)</td><td>+1 rep planned</td></tr>
+    <tr><td><b>F05 · DT Character</b></td><td>A</td><td>0</td><td>—</td><td>Day 5+ first sketch (DT account launches Day 5)</td></tr>
+    <tr><td><b>F06 · Voiceover B-Roll</b></td><td>B</td><td class="highlight">2</td><td>M09 (2:15 AM), M03b (held together with hot glue)</td><td>+1 rep planned</td></tr>
     <tr><td><b>F07 · Mockumentary</b></td><td>B</td><td>0</td><td>—</td><td>2 reps planned</td></tr>
-    <tr><td><b>F08 · Process</b></td><td>B</td><td class="highlight">4</td><td>M03 (DT teaser), M05 (14 videos), DT-02 (Photoshop), DT-04 (cardboard)</td><td>0 (saturated; deprioritize)</td></tr>
-    <tr><td><b>F09 · Sketch</b></td><td>B</td><td>0</td><td>—</td><td>2 reps planned (post-prop)</td></tr>
+    <tr><td><b>F08 · Process</b></td><td>B</td><td class="highlight">2</td><td>M03 (DT teaser/build), M05 (14 videos)</td><td>+1 rep planned</td></tr>
+    <tr><td><b>F09 · Sketch</b></td><td>B</td><td>0</td><td>—</td><td>2 reps planned (post-prop, Day 5+)</td></tr>
     <tr><td><b>F10 · Reaction/Duet</b></td><td>B</td><td>0</td><td>—</td><td>1 rep planned</td></tr>
-    <tr><td><b>F11 · Tutorial</b></td><td>C</td><td class="highlight">1</td><td>DT-03 (storyboard explainer)</td><td>+1 rep planned</td></tr>
+    <tr><td><b>F11 · Tutorial</b></td><td>C</td><td class="highlight">1</td><td>M06b (how-to-batch-14 tutorial)</td><td>+1 rep planned</td></tr>
     <tr><td><b>F12 · Day-in-Life</b></td><td>C</td><td class="highlight">1</td><td>M06 (print shop split)</td><td>+1 rep planned</td></tr>
     <tr><td><b>F13 · Q&A / Reply</b></td><td>C</td><td>0</td><td>— (need real comments first)</td><td>1 rep planned (Day 8+)</td></tr>
     <tr><td><b>F14 · Carousel</b></td><td>C</td><td>0</td><td>—</td><td>1 rep planned</td></tr>
     <tr><td><b>F15 · Green Screen</b></td><td>C</td><td>0</td><td>—</td><td>1 rep planned (Trek-news beat)</td></tr>
-    <tr class="target"><td colspan="3"><b>Days 1-5 total: 13 videos covering 7 formats</b></td><td colspan="2">7/15 formats tested in first half of Phase 1 — Days 6-11 fill the remaining 8 untested formats. Day 10 = decision night for top 3 winners (Format Score per <a href="../formats/decision.html">Decision Tree</a>).</td></tr>
+    <tr class="target"><td colspan="3"><b>Week 1 (Days 1-5) total: 13 main-account videos covering 7 formats</b></td><td colspan="2">7/15 formats tested in Week 1 — Week 2+ fills remaining 8 untested formats and DT account goes live Day 5+. Day 10 = decision night for top 3 winners (Format Score per <a href="../formats/decision.html">Decision Tree</a>).</td></tr>
   </tbody>
 </table>
 
@@ -214,10 +222,17 @@
   </div>
 
   <div class="card">
-    <h3 style="margin:0 0 .3rem;font-size:.92rem">DT-01 · F06 Voiceover B-Roll + H03 Embarrassing Admission</h3>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> "Day 1 of building an entire Star Trek parody in my room, while my family is somewhere in this house. We have, currently, glitter."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "This is embarrassing because I'm 23 — but I'm building a Star Trek parody alone in my room, and the glitter has officially arrived."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "Day 1. Set: doesn't exist. Costume: doesn't exist. Glitter: confirmed in jar."</p>
+    <h3 style="margin:0 0 .3rem;font-size:.92rem">M03b · F06 Voiceover B-Roll + H14 Spiritually Held Together</h3>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> "There is a very specific kind of 23 — technically functional, spiritually held together with hot glue and unresolved casting ambition."</p>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "There is a very specific kind of 23 that no one warned me about. The kind held together with hot glue and a refusal to wait for permission."</p>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "There is a very specific kind of evening where you realize you've been spiritually held together by hot glue and one good idea, and you are no longer alarmed by it."</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 .3rem;font-size:.92rem">M03c · F02 POV-Trope + H05 Sarah-coded POV</h3>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> "POV: you're 23 in your room at 11 PM making something no one asked you to make and you've stopped being weird about it."</p>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "POV: it's 11 PM, no one asked, and you're three hours into something you cannot stop doing."</p>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "POV: you finally stopped apologizing — even internally — for the project no one assigned you."</p>
   </div>
 
   <div class="card">
@@ -297,59 +312,25 @@
     <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "Every important thing I've done started with a thought I tried to dismiss. Here's the pattern."</p>
   </div>
 
-  <div class="card" style="background:var(--soft-teal)">
-    <h3 style="margin:0 0 .3rem;font-size:.92rem">DT-02 · F08 Process + H09 Object Hook (combined build)</h3>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> [time-lapse start] "Day 3 of building Discount Trek alone in my room."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "Day 3. Currently in inventory: a half-painted comm badge, fabric that doesn't quite match, and a Photoshop file labeled CHAOS."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "This is what 'making a Star Trek parody alone' actually looks like at Day 3."</p>
+  <div class="card">
+    <h3 style="margin:0 0 .3rem;font-size:.92rem">M06b · F11 Tutorial + H10 Math Hook</h3>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> "How to film 14 videos in one evening: 1 phone, 1 room, 4 setups, 0 editing software open at the start."</p>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "Tutorial: 14 videos in 5.5 hours. Receipt at 0:18. The math is, unfortunately, mathing."</p>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "How a print-shop salary funds 14 videos in one night with one phone. The math is at 0:18."</p>
   </div>
 
-  <div class="card" style="background:var(--soft-teal)">
-    <h3 style="margin:0 0 .3rem;font-size:.92rem">DT-03 · F11 Tutorial + H09 Object Hook (storyboards)</h3>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> [storyboard pages] "What Discount Trek actually is. Drawn over storyboards because the bridge isn't done yet."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "Tutorial: how to make a Star Trek parody when the bridge is still 30% rendered."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "Honest tutorial: 'Discount Trek' is currently a sticky note pinned next to a Photoshop file. Here's the show."</p>
-  </div>
-
-  <div class="card" style="background:var(--soft-teal)">
-    <h3 style="margin:0 0 .3rem;font-size:.92rem">DT-04 · F08 Process + H09 Object Hook (cardboard build)</h3>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> [knife on cardboard] "Tonight's task: make a Star Trek comm badge out of a cereal box."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "Day 2 of making props. The seams are visible. That's not a bug."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "Comm badge v1. Will be replaced by v3. Comm badge v3 will also have visible seams."</p>
-  </div>
-
-  <div class="card" style="background:var(--soft-teal)">
-    <h3 style="margin:0 0 .3rem;font-size:.92rem">DT-05 · F04 Storytime + H07 Cold-open (thrift quest)</h3>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> "The most unhinged thing I did today: walk into a thrift store and ask for 'sci-fi'-coded red fabric."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "Storytime: I asked a thrift store employee where the 'Star Trek section' was. He thought I was joking. I was not."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "The most chaotic thrift quest of my life. The mission: build a faux-uniform by Saturday night."</p>
-  </div>
-
-  <div class="card" style="background:var(--soft-teal)">
-    <h3 style="margin:0 0 .3rem;font-size:.92rem">DT-06 · F09 Sketch + H09 Object Hook (Q-snap test)</h3>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> "Take 27 of the glitter snap. Captain has filed a complaint."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "Multi-character sketch: the entire Discount Trek crew weighs in on take 27 of the Q-snap."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "Practical FX is, unfortunately, practical. Take 27. The crew has opinions."</p>
-  </div>
-
-  <div class="card" style="background:var(--soft-teal)">
-    <h3 style="margin:0 0 .3rem;font-size:.92rem">DT-07 · F12 Day-in-Life + H03 Embarrassing Admission (uniform reveal)</h3>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> "This is embarrassing because I literally hack-sewed it Saturday night — but the uniform is, technically, complete."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "Day-in-life: how a thrift run, two YouTube tutorials, and a refusal to wait become a Starfleet uniform."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "The faux-uniform is acquired. It is, technically, screen-inaccurate. That is the entire point."</p>
-  </div>
-
-  <div class="card" style="background:var(--soft-teal);border-color:var(--pop)">
-    <h3 style="margin:0 0 .3rem;font-size:.92rem">DT-08 · F05 DT Character + H09 Object Hook ⭐ FIRST FULL SKETCH</h3>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> "Captain's log, stardate 240504.1. The Man Trap. But I forgot to buy salt."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "Captain's log: stardate Monday. The salt situation has compromised the mission."</p>
-    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "Captain's personal log: I forgot to buy salt and Number One has filed a complaint."</p>
+  <div class="card">
+    <h3 style="margin:0 0 .3rem;font-size:.92rem">M06c · F02 POV-Trope + H06 Caught-Myself</h3>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> "POV: you caught yourself almost dimming for someone who watched the video and didn't say anything. Then you didn't dim."</p>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "POV: a person you wanted approval from saw the video and stayed quiet. You almost edited yourself smaller. You did not."</p>
+    <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "POV: silence from someone you used to perform for. You finally let it just be silence."</p>
   </div>
 
 </div>
 
 <!-- ============ DAY 1 ============ -->
-<div class="day-header"><span>Day 1 · Thu Apr 30 · LAUNCH</span><span class="badge">M01–M03 + DT-01 + DT-02</span></div>
+<div class="day-header"><span>Day 1 · Thu Apr 30 · LAUNCH</span><span class="badge">M01 · M02 · M03 · M03b · M03c (main account only — DT setup mode)</span></div>
+<p class="muted" style="font-size:var(--text-sm);background:var(--tint-purple);padding:var(--space-3) var(--space-4);border-radius:var(--r-md);border-left:3px solid var(--accent-2);margin:0 0 var(--space-4)"><b>Week 1 = main account only.</b> @discounttrek stays dark while we build props/storyboards. Main account M03 still teases the parody as a topic — that's the crossover. First @discounttrek post is Day 5 once a sketch is filmable.</p>
 
 <div class="vid">
   <div class="id-strip">
@@ -362,12 +343,42 @@
   <h3>"What did you want to be at age 9? I'll go first."</h3>
   <div class="arc-line"><b>Emotional arc</b>Open with the proven age-frame hook. Universal entry point that triggers the audience to mentally answer before continuing. Then bridge into Raquel's specific story (actress → quit → un-quit) and end with the same question turned back to them.</div>
   <div class="beats">
-    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>[Tight on face, sugar bowl in left of frame] "What did you want to be at age 9? Have you done it?"</div></div>
-    <div class="beat rehook"><div class="time">3–8s</div><div class="what"><b>Rehook 1 · Going-first</b>Slight pause. "I'll go first. Actress. I quit at 23. Un-quit two months ago. Currently building a Star Trek parody out of cardboard."</div></div>
-    <div class="beat rehook"><div class="time">8–18s</div><div class="what"><b>Rehook 2 · The trail</b>Quick cut montage: 9-year-old photo (or stand-in image) → drama school → corporate job desk → laptop closing → cardboard prop being made. Voiceover: "Between 9 and 23 I traded the role I was born for to play a more reasonable character. Then my body refused. Took 18 months to figure out why."</div></div>
-    <div class="beat rehook3"><div class="time">18–28s</div><div class="what"><b>Rehook 3 · Specific receipt (NEW)</b>Cut to a sticky note that says "Cannes May 10" pinned next to a Photoshop bridge composite on the wall. "Here's the receipt: I'm running for an actor's prize on May 10. Not because I'm ready. Because I am no longer available for the role of 'someone who almost did it.'"</div></div>
-    <div class="beat climax"><div class="time">28–40s</div><div class="what"><b>Climax · The reframe</b>Back to face, slight smile: "If your 9-year-old self would not recognize who you became — that's not a personality trait. That's a swap you didn't audition for."</div></div>
-    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA</b>"Tell me what your 9-year-old wanted. Comment yours. follow if that hit."</div></div>
+    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · 4 types stacked: verbal + visual + on-screen text + audio</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"What did you want to be at age 9? Have you done it?"</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Tight on face, direct eye contact, sugar bowl visible left of frame, slight head-tilt on the word "9"</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Text overlay drops in on beat: <b>"AGE 9 — ROLE CALL"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Half-beat silence after "9" — sound drops out for one breath, then snaps back in. Pattern interrupt = stops the scroll.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">3–8s</div><div class="what"><b>Rehook 1 · NEW type: pattern-interrupt cut + receipt-style verbal</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"I'll go first. Actress. Quit at 23. Un-quit two months ago. Currently building a Star Trek parody out of cardboard."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Hard cut to slightly-different angle (10° turn) — viewer's eye refocuses. Hands enter frame holding cardboard comm badge mid-sentence.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Four-line list pops one item per phrase: <b>"ACTRESS / QUIT 23 / UN-QUIT / CARDBOARD"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Each word lands with a percussive 0.4s overlay reveal — viewer can't blink past it.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">8–18s</div><div class="what"><b>Rehook 2 · NEW type: time-traveling montage + audio cue</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Between 9 and 23 I traded the role I was born for to play a more reasonable character. Then my body refused. Took 18 months to figure out why."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Quick-cut montage at 0.6s per shot: 9-yr-old stand-in photo → drama school exterior → corporate desk → laptop snapping closed → cardboard prop in progress. Each cut on a verbal beat.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Year-stamp overlays at each cut: <b>"AGE 9 / 18 / 21 / 23 / NOW"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Underbed track drops one octave on "Then my body refused" — emotional shift the viewer FEELS.</span></div>
+    </div></div>
+    <div class="beat rehook3"><div class="time">18–28s</div><div class="what"><b>Rehook 3 · NEW type: object as receipt + zoom-punch</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Here's the receipt: I'm running for an actor's prize on May 10. Not because I'm ready. Because I am no longer available for the role of 'someone who almost did it.'"</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut to wide of wall — sticky note "CANNES MAY 10" pinned next to half-finished Photoshop bridge composite. Slow zoom-punch (0-3% over 4s) into the sticky note for unconscious tension.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Date overlay flashes: <b>"MAY 10 · 12 DAYS"</b> — adds urgency without VO mentioning it.</span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Whisper-thin sound effect on the word "receipt" — almost-paper-tear. Subliminal.</span></div>
+    </div></div>
+    <div class="beat climax"><div class="time">28–40s</div><div class="what"><b>Climax · NEW type: direct-address reframe + slow push-in</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"If your 9-year-old self would not recognize who you became — that's not a personality trait. That's a swap you didn't audition for."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Back to face, slow push-in (camera fakes ~2% over 12s by re-framing in edit). Slight knowing smile on the word "audition."</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Single-line lower-third lands: <b>"DID NOT AUDITION FOR THIS"</b> — signature phrase, brand asset.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music swells half-step on "swap." Optional vocal sigh after "audition" — humanizes the punchline.</span></div>
+    </div></div>
+    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA · NEW type: question-back + visual callback</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Tell me what your 9-year-old wanted. Comment yours. Follow if that hit."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut back to original tight face shot from the hook (visual rhyme — closes the loop). Sugar bowl re-enters frame.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Final overlay: <b>"AGE 9 — YOUR TURN ↓"</b> with arrow pointing at comments.</span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Last frame holds 0.3s longer than feels natural — primes a re-watch.</span></div>
+    </div></div>
   </div>
   <div class="deliv">
     <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Tell me what your 9-year-old wanted. Comment yours. follow if that hit."</div>
@@ -388,12 +399,42 @@
   <h3>"Mom asked about plan B four minutes after liking my video."</h3>
   <div class="arc-line"><b>Emotional arc</b>The "they don't know how to root for me yet but they're trying" tension. Universal family-pressure resonance. Lands without a villain.</div>
   <div class="beats">
-    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>[Phone close-up, group chat thread] Two messages stacked from "Mom" — top: "How's the backup plan going?" Bottom: 💜 reaction on a TikTok link. "These are 4 minutes apart. From the same person. Today."</div></div>
-    <div class="beat rehook"><div class="time">3–8s</div><div class="what"><b>Rehook 1 · Pivot to face</b>Slight head tilt at camera. "She doesn't know which version of me to root for yet. Honestly fair, neither do I half the time."</div></div>
-    <div class="beat rehook"><div class="time">8–18s</div><div class="what"><b>Rehook 2 · The frame</b>Voiceover over phone scroll: "She's not the obstacle. The obstacle is that we're both reading from a script our parents inherited. The 'plan B' question is the most loyal thing she knows how to do."</div></div>
-    <div class="beat rehook3"><div class="time">18–28s</div><div class="what"><b>Rehook 3 · The receipt (NEW)</b>Cut to her writing in a notebook — list visible: "Things I'm picking even though they're inconvenient." Item 4 underlined: "telling Mom plan B IS the plan A on Friday." "I'm picking. Plan A. The plan B will fund it until it doesn't have to. I'm telling her this Friday."</div></div>
-    <div class="beat climax"><div class="time">28–40s</div><div class="what"><b>Climax · The land</b>Back to face. "You can love them AND refuse to keep performing the role they're rooting for. Both true. I am no longer available for the role of 'reasonable only child with a stable plan.' I did not audition for that one."</div></div>
-    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA</b>Cut to phone — new "💜 your video. Funny." Back to face: "Save this if your family loves you AND loves who they assumed you'd become."</div></div>
+    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · 4 types stacked: receipt visual + verbal + on-screen + audio</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"These are 4 minutes apart. From the same person. Today."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Phone close-up. Two stacked messages from "Mom": top — "How's the backup plan going?" Bottom — 💜 reaction on a TikTok link. Real screenshot, no fakery.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Timestamps highlighted in red: <b>"3:42 PM"</b> and <b>"3:46 PM"</b> — circle drops over them.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Soft phone-notification chime on the second timestamp reveal — sensory pattern interrupt.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">3–8s</div><div class="what"><b>Rehook 1 · NEW type: face cut + self-aware verbal</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"She doesn't know which version of me to root for yet. Honestly fair — neither do I, half the time."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Hard cut from phone to face, slight head tilt, micro-shrug on "honestly fair" — visual humility lands the line.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Two-version split caption: <b>"VERSION A: actress · VERSION B: stable plan"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Cut on the inhale before "honestly fair" — viewer leans in for the confession.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">8–18s</div><div class="what"><b>Rehook 2 · NEW type: reframe the villain + b-roll over VO</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"She's not the obstacle. The obstacle is that we're both reading from a script our parents inherited. The 'plan B' question is the most loyal thing she knows how to do."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">B-roll: scroll through the chat history slowly. Family photos visible in background. Hand-on-coffee-mug warmth, not coldness.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Word swap animation: <b>"OBSTACLE"</b> crosses out → <b>"INHERITED SCRIPT"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music drops out completely under "the most loyal thing she knows how to do." Silence is the rehook.</span></div>
+    </div></div>
+    <div class="beat rehook3"><div class="time">18–28s</div><div class="what"><b>Rehook 3 · NEW type: handwritten artifact + commitment device</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"I'm picking. Plan A. The plan B will fund it until it doesn't have to. I'm telling her this Friday."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut to notebook — list "Things I'm picking even though they're inconvenient." Pen mid-stroke underlining item 4: <b>"Telling Mom plan B IS the plan A on Friday."</b></span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Date countdown in corner: <b>"FRIDAY · 3 DAYS"</b> — accountability stake.</span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Pen scratch sound is real diegetic audio — ASMR-adjacent, holds attention through the longest beat.</span></div>
+    </div></div>
+    <div class="beat climax"><div class="time">28–40s</div><div class="what"><b>Climax · NEW type: signature phrase land + slight smile</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"You can love them AND refuse to keep performing the role they're rooting for. Both true. I am no longer available for the role of 'reasonable only child with a stable plan.' I did not audition for that one."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Back to face, soft natural light, slight smile on "audition for that one" — warmth, not anger.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Lower-third drops: <b>"I DID NOT AUDITION FOR THIS"</b> — brand-asset phrase.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Underscore swells gently on "Both true." — emotional permission, not victory.</span></div>
+    </div></div>
+    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA · NEW type: callback to opening visual + invitation</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Save this if your family loves you AND loves who they assumed you'd become."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut to phone — new notification rolls in: <b>"💜 your video. Funny."</b> from Mom. Then back to face, eyebrow raise, half-smile.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Save-icon animation pulses next to <b>"SAVE FOR LATER ↑"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Final phone notification chime echoes the opening hook — auditory loop closure.</span></div>
+    </div></div>
   </div>
   <div class="deliv">
     <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Save this if your family loves you AND loves who they assumed you'd become."</div>
@@ -414,12 +455,42 @@
   <h3>"I built a Star Trek parody out of cardboard. It's also a personal essay."</h3>
   <div class="arc-line"><b>Emotional arc</b>Confident, dry, slightly unhinged. Setting up DT account discoverability. Add Rehook 3 = the "why this is also therapy" reveal that crosses brand pillars 1+3.</div>
   <div class="beats">
-    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>[Comm badge on cardboard, foil glint, slow rotation] "This is either personal development or a cry for help. Possibly both."</div></div>
-    <div class="beat rehook"><div class="time">3–8s</div><div class="what"><b>Rehook 1 · Reveal</b>Pull back to reveal more props — drawn 2D bridge, glitter jar, faux-uniform on a chair. "I built a Star Trek parody. In my room. Out of cardboard."</div></div>
-    <div class="beat rehook"><div class="time">8–18s</div><div class="what"><b>Rehook 2 · The reason</b>Direct address: "Some people make vision boards. I apparently make an entire zero-budget sci-fi parody because I have unresolved casting ambition that didn't have anywhere else to go."</div></div>
-    <div class="beat rehook3"><div class="time">18–28s</div><div class="what"><b>Rehook 3 · The shift (NEW)</b>Slow zoom on the cardboard bridge composite. "It started as a joke. I am no longer in a position to claim this is a joke. The cardboard is making several points. I am, unfortunately, listening."</div></div>
-    <div class="beat climax"><div class="time">28–40s</div><div class="what"><b>Climax · The drop</b>Cut to faux-uniform Raquel, salt shaker held to camera, deadpan: "Captain's log, stardate Thursday: I forgot to buy salt." Cut to logo: "FIRST SKETCH 8 PM TONIGHT. @discounttrek"</div></div>
-    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA</b>Bridge background, glitter falls in slow-mo. "Make it so. follow if that hit."</div></div>
+    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · 4 types stacked: object as argument + verbal + on-screen + audio</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"This is either personal development or a cry for help. Possibly both."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Extreme close-up — cardboard comm badge slowly rotating, gold foil catching light. Hands are visible but face is not yet — withholds reveal.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Title card overlays: <b>"EXHIBIT A"</b> in serif type — gives it museum-of-personal-essay energy.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Foil rustle is real diegetic sound. Tiny glitter-sparkle SFX on the word "help" — undercuts seriousness immediately.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">3–8s</div><div class="what"><b>Rehook 1 · NEW type: reveal pull-back + prop inventory</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"I built a Star Trek parody. In my room. Out of cardboard."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Camera pulls back to reveal the full desk — drawn 2D bridge composite, glitter jar, faux-uniform on chair, sketches taped to wall.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Inventory tags drop on each prop as it enters frame: <b>"BRIDGE / GLITTER / UNIFORM / CARDBOARD"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Each cut lands on a verbal beat — "In · my · room · out · of · cardboard" — micro-percussion drives momentum.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">8–18s</div><div class="what"><b>Rehook 2 · NEW type: direct-address diagnosis + face cut</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Some people make vision boards. I apparently make an entire zero-budget sci-fi parody because I have unresolved casting ambition that didn't have anywhere else to go."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Face cut. Glitter still falling slowly in background (in-camera, not VFX). Direct eye contact through the line.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Underline animation pulses on <b>"unresolved casting ambition"</b> — names what people feel but won't say.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music notch lower under "unresolved" — sincerity sneaks in under the joke.</span></div>
+    </div></div>
+    <div class="beat rehook3"><div class="time">18–28s</div><div class="what"><b>Rehook 3 · NEW type: zoom-punch + tone shift to confession</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"It started as a joke. I am no longer in a position to claim this is a joke. The cardboard is making several points. I am, unfortunately, listening."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Slow zoom-punch (3% over 5s) into the cardboard bridge composite. Camera angle shifts from playful to almost devotional.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Pull-quote drops: <b>"THE CARDBOARD IS MAKING SEVERAL POINTS"</b> — saved as quote-card asset.</span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Half-beat pause after "joke" — viewer's brain registers tonal shift before cognitive content.</span></div>
+    </div></div>
+    <div class="beat climax"><div class="time">28–40s</div><div class="what"><b>Climax · NEW type: character reveal + crossover hook</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Captain's log, stardate Thursday. I forgot to buy salt." (deadpan, fully in character)</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Hard cut: faux-uniform Raquel, salt shaker held to camera at 3/4 angle, full TNG-Captain posture. The bit lands.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">DT logo card slams in: <b>"FIRST SKETCH 8 PM TONIGHT — @discounttrek"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Bosun whistle SFX (or low brass stinger) on the cut — Trek fans recognize, civilians register "official."</span></div>
+    </div></div>
+    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA · NEW type: catchphrase land + slow-mo close</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Make it so. Follow if that hit."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Bridge background, glitter falling in slow-mo at 0.5x. Hand reaches up to pluck a single glitter flake out of the air.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Final card: <b>"@discounttrek · 8 PM"</b> + arrow to follow button.</span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Loop visual = glitter flake mid-air freezes — re-watchers see it land on the comm badge from the opening shot.</span></div>
+    </div></div>
   </div>
   <div class="deliv">
     <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Make it so. follow if that hit."</div>
@@ -429,62 +500,122 @@
   </div>
 </div>
 
-<div class="vid dt">
+<div class="vid">
   <div class="id-strip">
-    <span class="pill id">DT-01 · Day 1</span>
-    <span class="pill fmt">F06 Voiceover B-Roll · H03 Embarrassing Admission</span>
-    <span class="pill arc">ANTICIPATION + DECLARATION</span>
-    <span class="pill pillar">Pillar 3</span>
+    <span class="pill id">M03b · Slot 4</span>
+    <span class="pill fmt">F06 Voiceover B-Roll · H14 Spiritually Held Together</span>
+    <span class="pill arc">SOFT BURNOUT REFRAME</span>
+    <span class="pill pillar">Pillar 4+5</span>
     <span class="pill length">~45s</span>
   </div>
-  <h3>"Day 1 of making a Star Trek parody alone in my room."</h3>
-  <div class="arc-line"><b>Emotional arc</b>Build-in-public anticipation. Audience invests in WATCHING the show come together. No props yet — empty desk, sticky notes, Photoshop layer 1, glitter jar in frame. The build is the show.</div>
+  <h3>"There is a very specific kind of 23 — held together with hot glue and unresolved casting ambition."</h3>
+  <div class="arc-line"><b>Emotional arc</b>Voiceover over slow desk-pan B-roll. The "I'm fine, I just live like this" beat. Frames chaos as evidence of a working life, not a failing one. No DT-account post — this is a main-account VO over Raquel's actual desk.</div>
   <div class="beats">
-    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>[Wide shot of empty desk — sugar bowl, glitter jar, blank cardboard sheets, one storyboard sketch] Voiceover: "Day 1 of building an entire Star Trek parody in my room, while my family is somewhere in this house. We have, currently, glitter."</div></div>
-    <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · The inventory</b>Slow pan across desk. Voiceover names items: "Glitter, check. Sugar bowl, check. Cardboard, uncut, check. Faux uniform — does not yet exist. Bridge composite — currently a blank Photoshop file. Cast — me, also me, and additionally me."</div></div>
-    <div class="beat rehook"><div class="time">10–20s</div><div class="what"><b>Rehook 2 · The reveal</b>Cut to a single sticky note pinned on the wall. Hand-written: "FIRST SKETCH — MONDAY." Voiceover: "The first sketch drops in 5 days. The set, costume, and props don't exist yet. We are, unfortunately, building the airplane while flying it."</div></div>
-    <div class="beat rehook3"><div class="time">20–30s</div><div class="what"><b>Rehook 3 · The bit (NEW)</b>Cut to her actually starting — pencil hits paper, first curve of bridge sketch begins. Voiceover deadpan: "Captain's log, stardate Thursday. The Discount Trek production has not yet begun production. We are aware. The crew is, statistically, optimistic."</div></div>
-    <div class="beat climax"><div class="time">30–40s</div><div class="what"><b>Climax · The promise</b>Wide shot returns. Sticky note in focus. "Follow this account if you want to watch a Star Trek parody come together in real time. Salt Vampire sketch drops Monday. The cardboard situation will be resolved by then. Probably."</div></div>
-    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA</b>"Make it so. follow if you also build airplanes mid-flight."</div></div>
+    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · 4 types stacked: signature-phrase verbal + B-roll visual + on-screen + audio</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"There is a very specific kind of 23 that no one warned me about."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Slow B-roll pan across desk: hot glue gun mid-cool, scattered sticky notes, ring light, half-eaten Celsius, sugar bowl, glitter dusted on surface. Hands move into frame on "23."</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Title overlay drops in: <b>"23 · A FIELD GUIDE"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music sits at low murmur. Diegetic hot-glue-gun click hits on the word "23" — pattern interrupt that names the chaos.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · NEW type: list reveal + named-object cuts</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Technically functional. Spiritually held together with hot glue, one Celsius, and unresolved casting ambition."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Hard cuts to each named object — hot glue gun (close), Celsius can (close), notebook open to a list titled "things I keep almost not doing." 0.5s per cut.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Pop-in tags: <b>"HOT GLUE / CELSIUS / CASTING AMBITION"</b> — last one stays on screen 0.4s longer.</span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Cuts on the list rhythm: "tech-ni-cally · spir-it-u-ally · held-to-geth-er." Micro-percussion = scroll-stop.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">10–20s</div><div class="what"><b>Rehook 2 · NEW type: face cut + reframe</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Some of you think this is a problem. I want to gently introduce a different theory: this IS the working version. I have been waiting for the version where I'm fine. The version is this one. With the hot glue."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">First face cut of the video — soft natural light, slight tired-but-content smile. The smile is the rehook.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Word swap: <b>"PROBLEM"</b> crosses out → <b>"WORKING VERSION"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music notch quieter under "I have been waiting for the version where I'm fine." Sincerity sneaks in.</span></div>
+    </div></div>
+    <div class="beat rehook3"><div class="time">20–30s</div><div class="what"><b>Rehook 3 · NEW type: actual-life receipt + slow zoom</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Here is the receipt: I made 14 videos last night. I run a print shop till 6. I am building something inadvisable in my room. None of this is happening because I'm fine. All of it is happening because I stopped waiting to be."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut to wide of the desk with all artifacts visible: video files on laptop, print shop work apron on chair, cardboard prop in progress. Slow zoom (0-2% over 8s).</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Counter-style stat block: <b>"14 vids / 36 hrs print shop / 1 prop in progress / 0 days fine"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Final stat <b>"0 DAYS FINE"</b> snap-flashes 3 frames longer — the joke lands by sitting there.</span></div>
+    </div></div>
+    <div class="beat climax"><div class="time">30–40s</div><div class="what"><b>Climax · NEW type: direct-address absolution + signature phrase</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"You are not held together with tape. You are held together with the fact that you keep showing up. That is, technically, structural. I did not audition for the role of someone who waited to feel ready."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Back to face. Slight smile holds. Hot glue gun visible in soft focus behind her.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Lower-third lands: <b>"I DID NOT AUDITION FOR THIS"</b> — brand-asset phrase.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Underscore swells half-step on "structural." Optional vocal sigh after — earned exhale.</span></div>
+    </div></div>
+    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA · NEW type: callback to opening visual</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Save this for the next time you mistake your working version for a problem. Follow if that hit."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut back to the desk pan from the hook — but the hot glue gun is now in her hand, mid-use. Visible motion = the working version is still working.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Final overlay: <b>"23 · STILL HERE ↑"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Last frame: glue thread between gun-tip and prop. Held 0.4s longer. Re-watcher catches the rhyme.</span></div>
+    </div></div>
   </div>
   <div class="deliv">
-    <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Make it so. follow if you also build airplanes mid-flight."</div>
-    <div class="deliv-row cap"><b>📲 Caption</b>Day 1 of building a Star Trek parody alone. Sketch drops Monday. We have glitter. ✨</div>
-    <div class="deliv-row cmt"><b>💬 First comment (pin)</b>Watch the show come together in real time. First sketch Monday 5/4 at 5pm. Bring snacks.</div>
-    <div class="deliv-row tags"><b>🏷 Hashtags</b>#startrek60 #DIYfilmmaking #soloMaker #behindthescenes #fyp</div>
+    <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Save this for the next time you mistake your working version for a problem. Follow if that hit."</div>
+    <div class="deliv-row cap"><b>📲 Caption</b>23 · a field guide. The version where you're fine is this one. With the hot glue.</div>
+    <div class="deliv-row cmt"><b>💬 First comment (pin)</b>If you've been waiting for the version of yourself that's "fine" — DM me PASSENGER. The worksheet has the prompt that broke this open for me. 📩</div>
+    <div class="deliv-row tags"><b>🏷 Hashtags</b>#scriptshift #adhdcreator #functionalburnout #castyourself #fyp</div>
   </div>
 </div>
 
-<div class="vid dt">
+<div class="vid">
   <div class="id-strip">
-    <span class="pill id">DT-02 · Day 1</span>
-    <span class="pill fmt">F08 Process · H09 Object Hook</span>
-    <span class="pill arc">PROCESS REVEAL → MEANING</span>
-    <span class="pill pillar">Pillar 3</span>
+    <span class="pill id">M03c · Slot 5</span>
+    <span class="pill fmt">F02 POV-Trope · H05 Sarah-coded POV</span>
+    <span class="pill arc">SOLITUDE AS PERMISSION</span>
+    <span class="pill pillar">Pillar 1+4</span>
     <span class="pill length">~45s</span>
   </div>
-  <h3>"I'm drawing the bridge. The whole show fits on a desk."</h3>
-  <div class="arc-line"><b>Emotional arc</b>Time-lapse with deadpan voiceover. Demystifies the production while preserving the bit. Rehook 3 = the "studio fits on a desk" reframe.</div>
+  <h3>"POV: 11 PM, no one asked, you've stopped being weird about it."</h3>
+  <div class="arc-line"><b>Emotional arc</b>Quiet POV-trope video that lands as permission, not loneliness. The "no one assigned this and you do it anyway" beat. Single take, candid energy.</div>
   <div class="beats">
-    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>Pencil hitting paper, extreme close-up. First curve forms. "This is the bridge. I'm drawing it."</div></div>
-    <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · Time-lapse</b>20-sec time-lapse of bridge composite forming. Photoshop layers stacking. Voiceover: "30 seconds in real life. 6 hours in production. Layer 47 is labeled CHAOS."</div></div>
-    <div class="beat rehook"><div class="time">10–20s</div><div class="what"><b>Rehook 2 · The reveal</b>Cut to faux-uniform Raquel standing in front of the finished composite. "Then I'm putting myself in front of it. That's the show."</div></div>
-    <div class="beat rehook3"><div class="time">20–30s</div><div class="what"><b>Rehook 3 · The reframe (NEW)</b>Wide shot — the desk, the cardboard, the laptop, the sugar bowl. "Some of you have been waiting for the studio. Unfortunately the studio fits on a desk. I am unfortunately the entire production company. Including HR."</div></div>
-    <div class="beat climax"><div class="time">30–40s</div><div class="what"><b>Climax · The land</b>Back to bridge composite, glitter falls. "If you have a project that 'requires a studio' — your studio is wherever you start. Mine has a sugar bowl in it."</div></div>
-    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA</b>Cut to pencil tip on paper. "Make it so. follow for the build."</div></div>
+    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · 4 types stacked: POV-trope verbal + candid visual + on-screen + audio</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"POV: you're 23, in your room at 11 PM, making something no one asked you to make — and you've stopped being weird about it."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Single static shot, slight remove (camera 6 ft away). She's mid-task — sketching, gluing, or arranging — not posing. Lamp light, not ring light. Looks unscripted.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Caption-style POV text drops in word-by-word as VO lands: <b>"POV: 23 · 11 PM · NO ONE ASKED"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Soft ambient — clock tick or laptop fan only. No music. The quiet IS the hook.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · NEW type: micro-action close-up</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Three hours in. You haven't checked your phone. You're not performing. You're just… doing it."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Hand close-ups of the actual work — pencil sketching, fingers flicking glitter, sticky note being pinned. ASMR-adjacent. Hands tell the story.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Time-stamp ticks up in corner: <b>"11:14 PM"</b> → <b>"11:47 PM"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">"Just · doing · it" → three quick hand-action cuts on each word.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">10–20s</div><div class="what"><b>Rehook 2 · NEW type: face cut + diagnostic</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"There used to be a voice that said 'this is weird, you should be in bed.' That voice is gone. Or — you stopped feeding it. Same outcome."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">First face cut — slightly tired, slightly amused. Looking off-camera, not at viewer. Emphasizes "candid POV."</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Crossed-out text effect: <s><b>"SHOULD BE IN BED"</b></s> → <b>"DOING IT ANYWAY"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music finally fades in here — slow, warm. Reward for the viewer who's still watching at 0:15.</span></div>
+    </div></div>
+    <div class="beat rehook3"><div class="time">20–30s</div><div class="what"><b>Rehook 3 · NEW type: wide pull-back + reframe</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Most of you assume the people who 'just do the thing' have something you don't. Permission. Time. Confidence. They don't. They just stopped waiting for it. The waiting was the bottleneck."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Camera slowly pulls back — reveals the whole desk, the messy floor, the half-eaten meal, the laundry in the corner. The "real life" frame.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">List drops one item at a time: <b>"NOT permission / NOT time / NOT confidence / JUST · STOPPED · WAITING"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Wide-shot reveal at 0:24 = visual pattern interrupt. Viewer thought this was a tight intimate POV — turns out it's a whole life.</span></div>
+    </div></div>
+    <div class="beat climax"><div class="time">30–40s</div><div class="what"><b>Climax · NEW type: direct address (only at the end) + signature land</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"If you've been waiting until 'no one is around' to make the thing — the night you stop is the night the rest starts. I am no longer available for the role of 'someone who needed to feel ready first.' I did not audition for that one."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Hard cut to direct address — first time in the video. Eye contact. The shift in form IS the climax.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Lower-third locks in: <b>"I DID NOT AUDITION FOR THIS"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music swells half-step on "the night you stop is the night the rest starts."</span></div>
+    </div></div>
+    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA · NEW type: callback to opening composition</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Comment what you're doing alone right now that you've stopped being weird about. Follow if that hit."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut back to the original wide POV shot — but now there's visibly more progress on whatever she was making. 45 seconds = visible result.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Final overlay: <b>"YOU + 11 PM + NO ONE ASKED ↓"</b> with arrow at comments.</span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Last frame: she looks up at the lens once. 0.4s. Pulls re-watch.</span></div>
+    </div></div>
   </div>
   <div class="deliv">
-    <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Make it so. follow for the build."</div>
-    <div class="deliv-row cap"><b>📲 Caption</b>The studio fits on a desk. Layer 47 is labeled CHAOS. ✨</div>
-    <div class="deliv-row cmt"><b>💬 First comment (pin)</b>If you've been waiting for the studio — DM me PASSENGER. The worksheet has the prompt that flipped this one for me.</div>
-    <div class="deliv-row tags"><b>🏷 Hashtags</b>#DIYfilmmaking #soloMaker #behindthescenes #startrek60 #fyp</div>
+    <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Comment what you're doing alone right now that you've stopped being weird about. Follow if that hit."</div>
+    <div class="deliv-row cap"><b>📲 Caption</b>POV: 11 PM. No one asked. You're doing it anyway. The waiting was the bottleneck.</div>
+    <div class="deliv-row cmt"><b>💬 First comment (pin)</b>If you've been waiting for the version of you who feels ready — DM me PASSENGER. The worksheet has the prompt that flipped this for me. 📩</div>
+    <div class="deliv-row tags"><b>🏷 Hashtags</b>#scriptshift #adhdcreator #pov #castyourself #fyp</div>
   </div>
 </div>
 
 <!-- ============ DAY 2 ============ -->
-<div class="day-header"><span>Day 2 · Fri May 1 · HERO</span><span class="badge">M04 (Polina) + M05 + M06 + DT-03 + DT-04</span></div>
+<div class="day-header"><span>Day 2 · Fri May 1 · HERO</span><span class="badge">M04 (Polina hero) · M05 · M06 · M06b · M06c</span></div>
 
-<p class="muted" style="font-size:var(--text-sm);background:var(--soft);padding:.5rem .7rem;border-radius:.4rem;border-left:3px solid var(--pop2)">M04 Polina HERO is in <a href="polina-arc.html">Polina Arc</a>. <b>Note: Polina arc videos still need to be extended to 45s + Rehook 3 in next pass.</b></p>
+<p class="muted" style="font-size:var(--text-sm);background:var(--tint-purple);padding:var(--space-3) var(--space-4);border-radius:var(--r-md);border-left:3px solid var(--accent-2);margin:0 0 var(--space-4)">M04 Polina HERO lives in <a href="polina-arc.html">Polina Arc</a>. <b>Polina arc videos still need to be retrofitted to 45s + Rehook 3 + 4-stack hook in next pass.</b></p>
 
 <div class="vid">
   <div class="id-strip">
@@ -497,12 +628,42 @@
   <h3>"I filmed 14 videos in one evening. By video three I stopped feeling weird."</h3>
   <div class="arc-line"><b>Emotional arc</b>The "waiting to feel ready" trap dissolved by sheer volume. Lands as permission to start. Rehook 3 = the math/data of what the volume produced.</div>
   <div class="beats">
-    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>[Mid-action — laptop screen showing 14 video files in a row, time-stamped within 4 hours] "I filmed 14 videos in one evening. By video three I stopped feeling weird about it."</div></div>
-    <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · Montage</b>4-setup montage cuts, 0.4 sec each — sugar bowl, ring light, faux-uniform, cardboard. Voiceover: "Same room. Different angle. Different prop. Same person. Increasingly less weird."</div></div>
-    <div class="beat rehook"><div class="time">10–18s</div><div class="what"><b>Rehook 2 · The diagnostic</b>Face. "I had been waiting to feel comfortable enough to start. The version of comfortable I was waiting for was just reps. There was no other version."</div></div>
-    <div class="beat rehook3"><div class="time">18–28s</div><div class="what"><b>Rehook 3 · Specific receipt (NEW)</b>Cut to actual screen of edited videos in CapCut, time stamps visible: 6:14 PM → 11:48 PM. "Five and a half hours. 14 videos. The first 3 were genuinely bad. Videos 4 through 14 are the ones I'm posting this month. The good ones live on the other side of the embarrassing ones."</div></div>
-    <div class="beat climax"><div class="time">28–40s</div><div class="what"><b>Climax · The reframe</b>"You are not waiting for confidence. You are waiting for evidence. You only get evidence by doing the embarrassing thing 14 times in a row. Some of you are not lazy. You are still trying to skip videos 1 through 3."</div></div>
-    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA</b>Cut to laptop closing. "Tomorrow we do 17. follow if that hit."</div></div>
+    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · 4 types stacked: receipt-screen visual + math verbal + on-screen + audio</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"I filmed 14 videos in one evening. By video three I stopped feeling weird about it."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Mid-action laptop screen showing 14 video files lined up in a folder. Filenames visible: vid_01, vid_02, vid_03... timestamps span 4 hours.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Big number drops: <b>"14 VIDEOS · 1 EVENING"</b> with subtle counting-up animation.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Camera-shutter SFX 14 times in 1 second on the count-up — visceral receipt of volume.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · NEW type: percussive same-room montage</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Same room. Different angle. Different prop. Same person. Increasingly less weird."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">4 setup cuts at 0.4s each — sugar bowl angle, ring light angle, faux-uniform angle, cardboard angle. Same room, four costumes/setups.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Setup tag flashes on each cut: <b>"SETUP 01 / 02 / 03 / 04"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Cuts on the verbal beat — "Same · room · different · angle" — micro-percussion drives momentum without music.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">10–18s</div><div class="what"><b>Rehook 2 · NEW type: direct-address diagnostic</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"I had been waiting to feel comfortable enough to start. The version of comfortable I was waiting for was just reps. There was no other version."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Face cut, soft natural light. Slow micro-zoom. The line lands on direct eye contact.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Word swap: <b>"COMFORTABLE"</b> crosses out → <b>"REPS"</b> replaces it.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music notch quieter under "There was no other version." — sincerity sneaks in.</span></div>
+    </div></div>
+    <div class="beat rehook3"><div class="time">18–28s</div><div class="what"><b>Rehook 3 · NEW type: actual-screen receipt + timestamps</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Five and a half hours. 14 videos. The first 3 were genuinely bad. Videos 4 through 14 are the ones I'm posting this month. The good ones live on the other side of the embarrassing ones."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut to actual CapCut timeline. Timestamps visible: 6:14 PM → 11:48 PM. Cursor scrubs from vid_01 to vid_14.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Vids 1-3 get red strikethrough. Vids 4-14 get gold checkmarks: <b>"❌ 1-3 · ✅ 4-14"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Showing the actual file list = receipt the algorithm and the audience both reward.</span></div>
+    </div></div>
+    <div class="beat climax"><div class="time">28–40s</div><div class="what"><b>Climax · NEW type: reframe-as-accusation + slow push-in</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"You are not waiting for confidence. You are waiting for evidence. You only get evidence by doing the embarrassing thing 14 times in a row. Some of you are not lazy. You are still trying to skip videos 1 through 3."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Back to face. Slight push-in. Eye contact stays through the whole accusation.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Pull-quote drops: <b>"NOT LAZY · STILL TRYING TO SKIP 1-3"</b> — comment-bait line.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music drops out completely on "Some of you are not lazy." Silence is the indictment.</span></div>
+    </div></div>
+    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA · NEW type: number escalation + laptop close</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Tomorrow we do 17. Follow if that hit."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut to laptop slowly closing. Last frame: thin sliver of the file folder still visible.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Final card: <b>"DAY 2 GOAL: 17"</b> — escalation primes a re-check tomorrow.</span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Laptop click sound + 0.4s held silence after — viewer's hand reaches for follow.</span></div>
+    </div></div>
   </div>
   <div class="deliv">
     <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Tomorrow we do 17. follow if that hit."</div>
@@ -538,61 +699,122 @@
   </div>
 </div>
 
-<div class="vid dt">
+<div class="vid">
   <div class="id-strip">
-    <span class="pill id">DT-03 · Day 2</span>
-    <span class="pill fmt">F11 Tutorial · H09 Object Hook</span>
-    <span class="pill arc">EXPLAINER WITH STORYBOARDS (TUTORIAL FORMAT)</span>
-    <span class="pill pillar">Pillar 3</span>
+    <span class="pill id">M06b · Slot 4</span>
+    <span class="pill fmt">F11 Tutorial · H10 Math Hook</span>
+    <span class="pill arc">VOLUME AS PROCESS (TUTORIAL)</span>
+    <span class="pill pillar">Pillar 2+4</span>
     <span class="pill length">~45s</span>
   </div>
-  <h3>"What Discount Trek actually is — drawn over storyboards because the set isn't done."</h3>
-  <div class="arc-line"><b>Emotional arc</b>Channel explainer using PRE-PRODUCTION artifacts (storyboards, sketches, sticky notes) instead of finished bridge. Establishes the brand AND keeps it honest about being mid-build. Audience trusts you more for not pretending it's done.</div>
+  <h3>"How to film 14 videos in one evening: 1 phone, 1 room, 4 setups."</h3>
+  <div class="arc-line"><b>Emotional arc</b>Direct tutorial — solves a real reader question implicit in M05's volume reveal. Demystifies "I filmed 14 videos." Honest receipt-driven. Ends as permission slip: this is replicable.</div>
   <div class="beats">
-    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>[Hand laying down 3 storyboard pages on the desk] Voiceover: "What Discount Trek actually is. Drawn over storyboards because the bridge isn't done yet."</div></div>
-    <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · The breakdown</b>Pencil pointing at first storyboard. Voiceover: "TNG. 1:1. Sitcom-style. Drawn 2D bridge — currently 30% rendered. Real glitter — confirmed in jar. Visible cardboard joins — the visibility is the point."</div></div>
-    <div class="beat rehook"><div class="time">10–20s</div><div class="what"><b>Rehook 2 · The cast list</b>Cut to a sticky note: "CAST — Captain (me), Number One (me, mustache), Counselor Troi (me, different posture), Worf (me, growling), Q (me + glitter)." Voiceover: "One actress. One uniform that doesn't exist yet. Eight characters. The math is mathing."</div></div>
-    <div class="beat rehook3"><div class="time">20–30s</div><div class="what"><b>Rehook 3 · The taglines (NEW)</b>Tagline cards drop one at a time, separate cuts: "SOLO." "DRAWN." "GLITTERED." "FULLY UNHINGED." Each on a new sticky note. Final card: "FIRST SKETCH MONDAY 5PM."</div></div>
-    <div class="beat climax"><div class="time">30–40s</div><div class="what"><b>Climax · The mission</b>Direct address: "If you're a Trek fan waiting for parody that actually loves the source material — make it so. If you're not a Trek fan — also make it so. The bit is for everyone with $12 and a refusal to wait for permission."</div></div>
-    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA</b>Snap-cut to glitter jar lid being opened. "Make it so. follow if that hit."</div></div>
+    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · 4 types stacked: tutorial title verbal + receipt visual + on-screen + audio</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"How to film 14 videos in one evening. One phone. One room. Four setups. Receipt at 0:18."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Phone propped on a tripod, file folder visible on the laptop screen behind — the same 14 video files from M05. Lock-frame composition. Looks like a real setup.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Tutorial-style title card: <b>"BATCH FILM 14 · A 5.5-HOUR HOW-TO"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Phone-tap SFX on each "one" in the VO ("one · phone · one · room") — micro-percussion locks attention.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · NEW type: numbered list visual + actual setups</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Step one: pick four setups in one room. Mine were — desk-front, sugar-bowl close-up, ring-light face cam, cardboard B-roll."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Four 0.6s cuts to each named setup, exactly as they were filmed. Real shots. Same room, different angles.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Numbered tags drop with each cut: <b>"01 DESK / 02 SUGAR / 03 FACE / 04 CARDBOARD"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Cuts hit on "desk-front · sugar-bowl · ring-light · cardboard" — verbal/visual sync.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">10–20s</div><div class="what"><b>Rehook 2 · NEW type: time-blocking diagram + face cut</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Step two: don't open editing software till hour 4. The mistake everyone makes is editing while filming. You will lose the night. Film all 14 in raw form first. Edit nothing. Reset only the prop, not the take."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut to face — direct address. Then cut to a hand-drawn timeline on paper: 6:14 PM filming → 10:30 PM editing block. The line between them is highlighted.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Word swap: <b>"FILM + EDIT"</b> crosses out → <b>"FILM, THEN EDIT"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Pencil-on-paper SFX as the line is drawn — diegetic anchor.</span></div>
+    </div></div>
+    <div class="beat rehook3"><div class="time">20–30s</div><div class="what"><b>Rehook 3 · NEW type: actual file list as receipt</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Receipt. Here's the actual file list with timestamps. Videos 1 through 3 are unusable — that's the embarrassment tax. Videos 4 through 14 are this month's content. Pay the tax. Get the volume."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut to actual screen recording of the video folder. Filenames + timestamps fully visible. Cursor scrubs through.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Vids 1-3: <b>"❌ EMBARRASSMENT TAX"</b>. Vids 4-14: <b>"✅ THIS MONTH'S CONTENT"</b>.</span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Showing the literal screen recording = receipt-style trust signal. Algorithm + audience both reward.</span></div>
+    </div></div>
+    <div class="beat climax"><div class="time">30–40s</div><div class="what"><b>Climax · NEW type: direct-address permission slip</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"You don't need a content schedule. You need one Tuesday night, four setups, and a refusal to open CapCut till hour four. The volume is the strategy. Reps are the only path to the version of you that can do this without thinking."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Back to face. Slow push-in. Soft warm light.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Pull-quote drops: <b>"VOLUME IS THE STRATEGY"</b> — saved as quote-card asset.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music swells half-step on "the volume is the strategy."</span></div>
+    </div></div>
+    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA · NEW type: callback to opener composition</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Save this for Tuesday night. Follow if that hit."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut back to the phone-on-tripod opener — but the file folder count has gone up. From 14 → 17. Visible escalation.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Final card: <b>"NEXT TUESDAY: 17 ↑"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Number escalation = re-check next week. Series potential.</span></div>
+    </div></div>
   </div>
   <div class="deliv">
-    <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Make it so. follow if that hit."</div>
-    <div class="deliv-row cap"><b>📲 Caption</b>SOLO · DRAWN · GLITTERED · FULLY UNHINGED. Sketch drops Monday. ✨</div>
-    <div class="deliv-row cmt"><b>💬 First comment (pin)</b>Send to your friend who quotes "Make it so." We're building this for them.</div>
-    <div class="deliv-row tags"><b>🏷 Hashtags</b>#startrek60 #LLAP #startrekparody #trekfan #fyp</div>
+    <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Save this for Tuesday night. Follow if that hit."</div>
+    <div class="deliv-row cap"><b>📲 Caption</b>14 videos · 5.5 hours · 1 phone · 1 room. The volume is the strategy. Tutorial at 0:03 👇</div>
+    <div class="deliv-row cmt"><b>💬 First comment (pin)</b>If you've been waiting for the "right" content schedule — DM me PASSENGER. The worksheet has the volume-vs-perfection prompt. 📩</div>
+    <div class="deliv-row tags"><b>🏷 Hashtags</b>#contentstrategy #adhdcreator #batchfilm #behindthescenes #fyp</div>
   </div>
 </div>
 
 
-<div class="vid dt">
+<div class="vid">
   <div class="id-strip">
-    <span class="pill id">DT-04 · Day 2</span>
-    <span class="pill fmt">F08 Process · H09 Object Hook</span>
-    <span class="pill arc">PROCESS · BUILDING THE PROP</span>
-    <span class="pill pillar">Pillar 3</span>
+    <span class="pill id">M06c · Slot 5</span>
+    <span class="pill fmt">F02 POV-Trope · H06 Caught-Myself</span>
+    <span class="pill arc">RESISTING THE DIM</span>
+    <span class="pill pillar">Pillar 1+5</span>
     <span class="pill length">~45s</span>
   </div>
-  <h3>"Cutting cardboard for a comm badge that does not need to be screen-accurate."</h3>
-  <div class="arc-line"><b>Emotional arc</b>Pure process video. Time-lapse of cardboard prop being made. Lands as "the studio is wherever you start." Builds anticipation for sketch drop Monday.</div>
+  <h3>"POV: someone watched it and didn't say anything. You almost dimmed. You didn't."</h3>
+  <div class="arc-line"><b>Emotional arc</b>The "sat with the silence and didn't shrink" beat. Lands as universal — everyone has someone whose silence means more than strangers' applause. Quiet, internal energy. No villain.</div>
   <div class="beats">
-    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>[Extreme close-up — X-Acto knife on cardboard, first cut starts] Voiceover: "Tonight's task: make a Star Trek comm badge out of a cereal box."</div></div>
-    <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · Time-lapse</b>20-sec time-lapse: cutting cardboard arrowhead, gluing oval base, painting gold and silver. Voiceover: "30 seconds of footage. 90 minutes of real life. The seams are visible. That's not a bug. That's the brand."</div></div>
-    <div class="beat rehook"><div class="time">10–20s</div><div class="what"><b>Rehook 2 · The reveal</b>Hold finished prop up to camera. Slight imperfections visible. "Comm badge v1. Will be replaced by v3 within a week. Comm badge v3 will also have visible seams. The visibility is the point."</div></div>
-    <div class="beat rehook3"><div class="time">20–30s</div><div class="what"><b>Rehook 3 · The reframe (NEW)</b>Cut to wide shot of desk — cardboard scraps everywhere, hot glue gun, and the finished badge sitting next to the storyboard sketches. Voiceover: "Some of you have been waiting until you can afford 'real' props. This is what waiting costs you. The ENTIRE Star Trek franchise started with painted cardboard. We are honoring tradition."</div></div>
-    <div class="beat climax"><div class="time">30–40s</div><div class="what"><b>Climax · The land</b>Back to badge. "Day 2 of building. 3 days till the first sketch drops. The cardboard is, unfortunately, where the show actually lives. Not in some imagined version where I have a soundstage."</div></div>
-    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA</b>Cut to next cardboard piece, X-Acto poised. "Make it so. Imperfectly. follow for the build."</div></div>
+    <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · 4 types stacked: POV verbal + phone-screen visual + on-screen + audio</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"POV: someone you used to perform for watched the video — and didn't say anything."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Phone screen close-up, view-counter visible, timestamp showing video was watched. No reply, no like, no message. Cursor hovers over a contact name (blurred).</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Caption locks in: <b>"VIEWED · NO REPLY"</b> highlighted in red.</span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">No music. Just ambient room tone. The silence is the hook.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · NEW type: face cut + caught-myself confession</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"And you — for about 4 seconds — almost edited yourself smaller."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Hard cut to face. Eyes move down (the "small-me reflex"). Then a slight reset — chin lifts.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Word swap: <b>"ALMOST DIMMED"</b> → <b>"DIDN'T"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">"For about 4 seconds" — count "1, 2, 3, 4" appears as ticking on-screen text. Pattern interrupt = visceral.</span></div>
+    </div></div>
+    <div class="beat rehook"><div class="time">10–20s</div><div class="what"><b>Rehook 2 · NEW type: direct-address diagnostic</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"There is a particular dimming reflex that activates when someone you wanted approval from is conspicuously quiet. The reflex says: maybe make less of it. Maybe pre-apologize for next time. Maybe explain in the comments. Maybe just don't post the next one."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">B-roll of the action she almost stopped — pencil hovering over notebook, finger hovering over delete button on draft, glitter jar mid-pour stopping. Each at the moment of "almost."</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">List drops: <b>"MAKE LESS / PRE-APOLOGIZE / EXPLAIN / DON'T POST"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music starts under "There is a particular dimming reflex" — slow swell, like recognition.</span></div>
+    </div></div>
+    <div class="beat rehook3"><div class="time">20–30s</div><div class="what"><b>Rehook 3 · NEW type: receipt of the actual choice</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Here's what happened instead. I posted the next one. I did not explain. I did not edit anything smaller. The silence stayed silent. The work stayed the work. Both true. Neither needed the other to be okay."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Quick montage: the "next one" being filmed. Phone going on do-not-disturb. Notebook being closed without a re-read.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Two-column layout drops: <b>"SILENCE: stays silent / WORK: stays work"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Both columns have a green checkmark. No villain framing. Just a fact.</span></div>
+    </div></div>
+    <div class="beat climax"><div class="time">30–40s</div><div class="what"><b>Climax · NEW type: signature land + reframe</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"You will not always get the response you wanted from the person you wanted it from. That cannot be the bottleneck. I am no longer available for the role of 'someone who needed the right people to clap first.' I did not audition for that one."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Back to face. Slight smile. Eye contact stays through the line.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Lower-third drops: <b>"I DID NOT AUDITION FOR THIS"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Audio cue</span><span class="stack-val">Music holds steady — no crescendo, just companionship. Earned, not performed.</span></div>
+    </div></div>
+    <div class="beat loop"><div class="time">40–45s</div><div class="what"><b>Loop hook + CTA · NEW type: phone callback + invitation</b>
+      <div class="stack-line"><span class="stack-key">VO</span><span class="stack-val">"Save this if you've been almost dimming for someone whose silence is louder than they meant."</span></div>
+      <div class="stack-line"><span class="stack-key">Visual</span><span class="stack-val">Cut back to the phone screen from the hook — but now the view counter has gone up. Different watcher, different number. The work kept going.</span></div>
+      <div class="stack-line"><span class="stack-key">On-screen</span><span class="stack-val">Save-icon pulses next to: <b>"FOR THE NEXT 4-SECOND DIM ↑"</b></span></div>
+      <div class="stack-line"><span class="stack-key">Pattern</span><span class="stack-val">Last frame: phone goes face-down on the desk. 0.4s held. The choice.</span></div>
+    </div></div>
   </div>
   <div class="deliv">
-    <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Make it so. Imperfectly. follow for the build."</div>
-    <div class="deliv-row cap"><b>📲 Caption</b>Comm badge v1. The visibility is the point. 🛸</div>
-    <div class="deliv-row cmt"><b>💬 First comment (pin)</b>If you've been waiting until you can afford the "real" version of your thing — DM me PASSENGER. The worksheet has the prompt that flipped this for me.</div>
-    <div class="deliv-row tags"><b>🏷 Hashtags</b>#DIYfilmmaking #soloMaker #behindthescenes #startrek60 #fyp</div>
+    <div class="deliv-row cta"><b>📣 In-video CTA (final beat)</b>"Save this if you've been almost dimming for someone whose silence is louder than they meant."</div>
+    <div class="deliv-row cap"><b>📲 Caption</b>The silence stayed silent. The work stayed the work. Both true.</div>
+    <div class="deliv-row cmt"><b>💬 First comment (pin)</b>If a specific person's silence keeps trying to edit your output — DM me PASSENGER. The worksheet has the prompt that broke this open for me. 📩</div>
+    <div class="deliv-row tags"><b>🏷 Hashtags</b>#scriptshift #pov #castyourself #onthispage #fyp</div>
   </div>
 </div>
 
 <!-- ============ DAY 3 ============ -->
-<div class="day-header"><span>Day 3 · Sat May 2</span><span class="badge">M07 + M08 + M09 + DT-05</span></div>
+<div class="day-header"><span>Day 3 · Sat May 2</span><span class="badge">M07 hero · M08 · M09 (main account only)</span></div>
+<p class="muted" style="font-size:var(--text-sm);background:var(--tint-purple);padding:var(--space-3) var(--space-4);border-radius:var(--r-md);border-left:3px solid var(--accent-2);margin:0 0 var(--space-4)"><b>Week 1 = no DT posts.</b> DT-05 (thrift quest) script preserved below for Week 2 reference — do not post to @discounttrek this week.</p>
 
 <div class="vid hero">
   <div class="id-strip">
@@ -699,7 +921,8 @@
 </div>
 
 <!-- ============ DAY 4 ============ -->
-<div class="day-header"><span>Day 4 · Sun May 3 · ★ BATCH</span><span class="badge">M10 + M11 + M12 + DT-06 + DT-07</span></div>
+<div class="day-header"><span>Day 4 · Sun May 3 · ★ BATCH</span><span class="badge">M10 hero · M11 · M12 (main account only)</span></div>
+<p class="muted" style="font-size:var(--text-sm);background:var(--tint-purple);padding:var(--space-3) var(--space-4);border-radius:var(--r-md);border-left:3px solid var(--accent-2);margin:0 0 var(--space-4)"><b>Week 1 = no DT posts.</b> DT-06 + DT-07 scripts preserved below for Week 2 reference — do not post to @discounttrek this week.</p>
 
 <div class="vid hero">
   <div class="id-strip">
@@ -832,7 +1055,8 @@
 </div>
 
 <!-- ============ DAY 5 ============ -->
-<div class="day-header"><span>Day 5 · Mon May 4 · ★ FIRST FULL SKETCH</span><span class="badge">M13 + M15 + DT-08 (Salt Vampire sketch drops Slot 3)</span></div>
+<div class="day-header"><span>Day 5 · Mon May 4</span><span class="badge">M13 · M15 (main account only — DT first sketch pushed to Day 10)</span></div>
+<p class="muted" style="font-size:var(--text-sm);background:var(--tint-purple);padding:var(--space-3) var(--space-4);border-radius:var(--r-md);border-left:3px solid var(--accent-2);margin:0 0 var(--space-4)"><b>Week 1 = no DT posts.</b> DT-08 (FIRST FULL SKETCH — Salt Vampire) pushed to Day 10 (Sat May 9) — see Day 10 banner below. DT account stays in setup mode all of Week 1.</p>
 
 <p class="muted" style="font-size:var(--text-sm);background:var(--soft);padding:.5rem .7rem;border-radius:.4rem;border-left:3px solid var(--pop2)">M14 (Polina arc · "Still Applying the Note") fires at Slot 1. Already scripted in <a href="polina-arc.html">Polina Arc</a> — needs same 45s retrofit treatment in next session.</p>
 
