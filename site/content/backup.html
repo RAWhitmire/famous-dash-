@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Content · Backup Bank</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="content" data-page="🎬 Backup Bank"></div>
+
+<header class="hero content">
+  <h1>Backup Content Bank</h1>
+  <div class="sub">Pre-filmed videos ready to deploy on bad days, sick days, or when an idea bombs and you need a replacement fast. The insurance policy.</div>
+</header>
+
+<main>
+  <div class="card lift" style="background:var(--bad);color:#fff">
+    <h2 class="page-h" style="color:#fff">⚠ Why this exists</h2>
+    <p style="font-size:var(--text-md);margin:.4rem 0">Zero-tolerance posting means you cannot skip a slot. But life will try to make you skip — sick day, family emergency, mental health crash, equipment failure, wifi outage, an idea that absolutely won't work.</p>
+    <p style="font-size:var(--text-md);margin:.4rem 0;font-weight:700">The Backup Bank is your safety net. Filmed in advance, edited in advance, ready to ship in 60 seconds.</p>
+  </div>
+
+  <div class="section-label mt-2">Target backup state</div>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Minimum</h3>
+      <h2 class="page-h" style="color:var(--bad)">3 videos</h2>
+      <p style="font-size:var(--text-sm);margin:.3rem 0">Bare minimum. Covers one bad day. Refill within 48 hrs of using.</p>
+    </div>
+    <div class="card" style="background:var(--pop3)">
+      <h3>Healthy</h3>
+      <h2 class="page-h" style="color:var(--pop2)">5–7 videos</h2>
+      <p style="font-size:var(--text-sm);margin:.3rem 0">Standard goal. Covers 2–3 bad days. Sustainable to maintain.</p>
+    </div>
+    <div class="card" style="background:var(--soft-teal)">
+      <h3>Comfortable</h3>
+      <h2 class="page-h" style="color:var(--good)">10+ videos</h2>
+      <p style="font-size:var(--text-sm);margin:.3rem 0">Sick week recovery covered. Quit-print-shop confidence builder.</p>
+    </div>
+  </div>
+
+  <div class="section-label mt-2">What goes in the bank</div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>✅ Good backup candidates</h3>
+      <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem">
+        <li><b>Evergreen content</b> — not tied to a specific date or trend</li>
+        <li><b>Direct address takes</b> — easy to film 3 in 30 min, edit individually</li>
+        <li><b>Process / time-lapse</b> — captured naturally, narration added later</li>
+        <li><b>DT character pieces</b> — set up cardboard once, film 4 monologues</li>
+        <li><b>Carousels</b> — photos taken anytime, captions whenever</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🚫 Bad backup candidates</h3>
+      <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem">
+        <li><b>Trend remixes</b> — sound expires; backup goes stale fast</li>
+        <li><b>News reactions</b> — newsjacks need same-day relevance</li>
+        <li><b>Reply-to-comment</b> — context-dependent on recent post</li>
+        <li><b>Sprint-narrative posts</b> — "Day X retrospective" only works that day</li>
+        <li><b>Holiday/event-specific</b> — Cannes posts for May 10 only</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label mt-2">Active Bank</div>
+  <table class="tbl">
+    <thead><tr><th>Title</th><th>Format</th><th>Length</th><th>Filed</th><th>Status</th></tr></thead>
+    <tbody id="backup-body">
+      <tr><td colspan="5" class="muted center" style="padding:1rem"><i>Bank is empty. Build during pre-sprint days (Apr 28–29) and Wed batch days. Aim for 5 by Day 7 of sprint.</i></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label mt-2">Refill protocol</div>
+  <div class="card">
+    <p style="font-size:var(--text-sm);margin:.3rem 0"><b>When you USE a backup, refill within 48 hours.</b> Otherwise the bank silently empties and you discover it's gone on the next bad day.</p>
+    <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem">
+      <li><b>Wednesday batch days:</b> always include 2–3 backup-bank-quality videos in the shoot</li>
+      <li><b>Sunday filming block (3:30–5 PM):</b> refill the bank if it's below 5</li>
+      <li><b>"No idea" days:</b> instead of forcing a fresh post, film 2–3 backups for the bank — same effort, more leverage</li>
+    </ul>
+  </div>
+</main>
+
+<footer><p>5 backup videos = 5 nights you sleep instead of panic-filming.</p></footer>
+<script src="../nav.js"></script>
+<script>
+fetch('../data.json').then(function(r){return r.json()}).then(function(data){
+  if (data && data.backups && data.backups.length > 0){
+    document.getElementById('backup-body').innerHTML = data.backups.map(function(b){
+      return '<tr><td><b>'+(b.title||'—')+'</b></td><td>'+(b.format||'')+'</td><td>'+(b.length||'')+'</td><td>'+(b.filed||'')+'</td><td>'+(b.used?'<span class="pill paid">used</span>':'<span class="pill signed">ready</span>')+'</td></tr>';
+    }).join('');
+  }
+}).catch(function(){});
+</script>
+</body>
+</html>

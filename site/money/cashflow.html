@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Money · Cash Flow</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="money" data-page="💰 Cash Flow"></div>
+
+<header class="hero money">
+  <h1>Cash Flow Tracker</h1>
+  <div class="sub">Actual income vs base case projection. Variance = ahead of plan or behind. Updated when you tell me a real number in chat.</div>
+</header>
+
+<main>
+  <div class="card lift">
+    <h2 class="page-h">Monthly Actuals vs Projected</h2>
+    <table class="tbl">
+      <thead>
+        <tr><th>Month</th><th>Projected (base)</th><th>Actual</th><th>Variance</th><th>Status</th></tr>
+      </thead>
+      <tbody id="cashflow-body">
+        <tr><td>May 2026</td><td>$50–$200</td><td id="a-may">—</td><td id="v-may">—</td><td id="s-may"><span class="pill cold">pre-sprint</span></td></tr>
+        <tr><td>Jun 2026</td><td>$200–$500</td><td id="a-jun">—</td><td id="v-jun">—</td><td id="s-jun">—</td></tr>
+        <tr><td>Jul 2026</td><td>$500–$1,000</td><td id="a-jul">—</td><td id="v-jul">—</td><td id="s-jul">—</td></tr>
+        <tr><td>Aug 2026</td><td>$900–$1,600</td><td id="a-aug">—</td><td id="v-aug">—</td><td id="s-aug">—</td></tr>
+        <tr><td>Sep 2026</td><td>$1,300–$2,200</td><td id="a-sep">—</td><td id="v-sep">—</td><td id="s-sep">—</td></tr>
+        <tr><td>Oct 2026</td><td>$1,800–$2,800</td><td id="a-oct">—</td><td id="v-oct">—</td><td id="s-oct">—</td></tr>
+        <tr><td>Nov 2026 🎯</td><td class="highlight">$2,400–$3,400</td><td id="a-nov">—</td><td id="v-nov">—</td><td id="s-nov">—</td></tr>
+        <tr><td>Dec 2026</td><td>$2,900–$4,100</td><td id="a-dec">—</td><td id="v-dec">—</td><td id="s-dec">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-label mt-2">Cumulative running total</div>
+  <div class="grid-3">
+    <div class="card subtle">
+      <div class="label">Cumulative actual</div>
+      <h3 id="cum-actual">$0</h3>
+      <p class="muted" style="font-size:var(--text-xs);margin:0">May 1 → today</p>
+    </div>
+    <div class="card subtle">
+      <div class="label">Cumulative projected (base mid)</div>
+      <h3 id="cum-projected">$0</h3>
+      <p class="muted" style="font-size:var(--text-xs);margin:0">If you'd hit base case exactly</p>
+    </div>
+    <div class="card subtle">
+      <div class="label">Variance</div>
+      <h3 id="cum-variance">—</h3>
+      <p class="muted" style="font-size:var(--text-xs);margin:0">Above 0 = ahead of plan</p>
+    </div>
+  </div>
+
+  <div class="section-label mt-2">How to use this</div>
+  <div class="card" style="background:var(--soft)">
+    <ul style="font-size:var(--text-sm);margin:.4rem 0;padding-left:1.1rem">
+      <li><b>End of each month:</b> tell me your gross income — "May actual = $185". I commit to data.json and this page reflects it.</li>
+      <li><b>Variance signals:</b> 2+ months below base low band = recalibrate (more outreach, more streams). 2+ months above base high band = consider quitting earlier.</li>
+      <li><b>The quit decision uses Months 6+7 (Oct/Nov)</b> — you need to see actuals there before making the call.</li>
+      <li><b>Don't measure week-by-week.</b> Brand income is lumpy. Monthly is the right cadence.</li>
+    </ul>
+  </div>
+</main>
+
+<footer><p>Tell me actuals monthly. I update the file. Live numbers everywhere.</p></footer>
+<script src="../nav.js"></script>
+<script>
+fetch('../data.json').then(function(r){return r.json()}).then(function(data){
+  if (!data.income_actuals) return;
+  var months = ['may','jun','jul','aug','sep','oct','nov','dec'];
+  var projectedMid = [125, 350, 750, 1250, 1750, 2300, 2900, 3500]; // base case mid-point
+  var actualSum = 0, projectedSum = 0;
+  months.forEach(function(m, i){
+    var key = m + '_2026';
+    var actual = data.income_actuals[key];
+    if (actual !== undefined && actual > 0) {
+      document.getElementById('a-' + m).textContent = '$' + actual.toLocaleString();
+      var variance = actual - projectedMid[i];
+      var vEl = document.getElementById('v-' + m);
+      vEl.textContent = (variance >= 0 ? '+' : '') + '$' + variance.toLocaleString();
+      vEl.style.color = variance >= 0 ? 'var(--good)' : 'var(--bad)';
+      vEl.style.fontWeight = '900';
+      var sEl = document.getElementById('s-' + m);
+      sEl.innerHTML = variance >= 0 ? '<span class="pill paid">ahead</span>' : '<span class="pill urgent">behind</span>';
+      actualSum += actual;
+      projectedSum += projectedMid[i];
+    }
+  });
+  if (actualSum > 0) {
+    document.getElementById('cum-actual').textContent = '$' + actualSum.toLocaleString();
+    document.getElementById('cum-projected').textContent = '$' + projectedSum.toLocaleString();
+    var totalVar = actualSum - projectedSum;
+    var cv = document.getElementById('cum-variance');
+    cv.textContent = (totalVar >= 0 ? '+' : '') + '$' + totalVar.toLocaleString();
+    cv.style.color = totalVar >= 0 ? 'var(--good)' : 'var(--bad)';
+  }
+}).catch(function(){});
+</script>
+</body>
+</html>

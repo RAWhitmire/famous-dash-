@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Money · Brand Pipeline</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="money" data-page="💰 Brand Pipeline"></div>
+
+<header class="hero money">
+  <h1>Brand Outreach Pipeline</h1>
+  <div class="sub">Every pitch tracked: cold → replied → negotiating → signed → shipped → paid. Replaces a spreadsheet. Cross-device synced via data.json.</div>
+</header>
+
+<main>
+  <div class="card lift" style="background:var(--pop3)">
+    <h3>The pipeline rules</h3>
+    <ol style="margin:.4rem 0;padding-left:1.4rem;font-size:var(--text-sm)">
+      <li><b>10 cold pitches/week minimum</b> once you hit Month 3. Most will ghost. That's normal.</li>
+      <li><b>Follow up once at Day 7</b>, once at Day 14. If nothing → mark dead, move on.</li>
+      <li><b>Never undercharge.</b> Starting rate after 5K followers: $300/TT, $400/IG Reel. Up 25% for usage rights, 50% for exclusivity.</li>
+      <li><b>Track the dead pitches.</b> Patterns emerge — which industries respond, which don't.</li>
+      <li><b>Inbound &gt; outbound</b> is the goal by Month 6. Pitch hard early to seed inbound later.</li>
+    </ol>
+  </div>
+
+  <div class="section-label mt-2">Status legend</div>
+  <div class="card" style="display:flex;flex-wrap:wrap;gap:.5rem">
+    <span class="pill cold">Cold pitched</span>
+    <span class="pill warm">Replied</span>
+    <span class="pill hot">Negotiating</span>
+    <span class="pill signed">Signed</span>
+    <span class="pill paid">Paid</span>
+    <span class="pill dead">Dead</span>
+  </div>
+
+  <div class="section-label mt-2">Active Pipeline</div>
+  <p class="lede">Empty for now — populate as you pitch. Tell me a brand + status in chat, I'll commit to data.json. Pre-Month 3, focus on the sprint; aggressive outreach starts in Month 3.</p>
+
+  <table class="tbl">
+    <thead>
+      <tr><th>Brand</th><th>Status</th><th>Rate</th><th>Deliverable</th><th>Pitched</th><th>Last touch</th><th>Notes</th></tr>
+    </thead>
+    <tbody id="pipeline-body">
+      <tr><td colspan="7" class="muted center" style="padding:1rem"><i>No active pitches yet. Aggressive outreach starts Month 3 (Jul). Pre-sprint = focus on content.</i></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label mt-2">Outreach Templates</div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Cold pitch template (TT/IG)</h3>
+      <pre style="font-size:var(--text-xs);background:var(--soft);padding:.7rem;border-radius:.4rem;white-space:pre-wrap">Hi [name],
+
+I'm Raquel — solo creator on TikTok (@rawhitmire) building a parody Star Trek bit (@discounttrek) that's hitting nerd + DIY communities hard.
+
+Saw [specific thing about their brand] and I think there's a fit for [specific angle]. I'm currently pitching brands at [rate] per TT video / [rate] per IG Reel.
+
+Quick stats: [followers] / [avg views] / [audience demo].
+
+Open to a quick call this week?
+
+—Raquel
+[media kit link]</pre>
+    </div>
+    <div class="card">
+      <h3>Day 7 follow-up</h3>
+      <pre style="font-size:var(--text-xs);background:var(--soft);padding:.7rem;border-radius:.4rem;white-space:pre-wrap">Hey [name] — circling back on this. Booked [X new collabs] this week so my June calendar is filling up.
+
+If [their brand] is a fit, I have 2 slots open. If not now, no worries — keep me in mind for later.
+
+—R</pre>
+    </div>
+  </div>
+
+  <div class="card mt-2" style="background:var(--soft)">
+    <h3>Where to find brands</h3>
+    <ul style="font-size:var(--text-sm);margin:.4rem 0;padding-left:1.1rem">
+      <li><b>Aspire</b> · <b>Mavrck</b> · <b>Whalar</b> — apply to brand campaigns directly</li>
+      <li><b>Insense</b> · <b>Influee</b> · <b>JoinBrands</b> — UGC-focused, easier to land first deals</li>
+      <li><b>Cold pitch nerd brands directly:</b> Loot Crate–type, ThinkGeek-equivalents, indie comic shops, Star Trek merch makers, prop companies, glitter / makeup brands tied to the aesthetic</li>
+      <li><b>Inbound:</b> media kit linked in TT bio + IG bio + email signature</li>
+    </ul>
+  </div>
+</main>
+
+<footer><p>10 cold pitches/week from Month 3. Most will ghost. The 1 that hits pays for the 9.</p></footer>
+<script src="../nav.js"></script>
+<script>
+// Render pipeline from data.json
+fetch('../data.json').then(function(r){return r.json()}).then(function(data){
+  if (!data.brand_pipeline || data.brand_pipeline.length === 0) return;
+  var tbody = document.getElementById('pipeline-body');
+  tbody.innerHTML = data.brand_pipeline.map(function(p){
+    return '<tr>' +
+      '<td><b>' + (p.brand||'—') + '</b></td>' +
+      '<td><span class="pill ' + (p.status||'cold') + '">' + (p.status||'cold').replace(/_/g,' ') + '</span></td>' +
+      '<td>' + (p.rate||'—') + '</td>' +
+      '<td>' + (p.deliverable||'—') + '</td>' +
+      '<td>' + (p.pitched||'—') + '</td>' +
+      '<td>' + (p.last_touch||'—') + '</td>' +
+      '<td>' + (p.notes||'') + '</td>' +
+    '</tr>';
+  }).join('');
+}).catch(function(){});
+</script>
+</body>
+</html>

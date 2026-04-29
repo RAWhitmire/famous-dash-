@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Becoming Famous · Hub</title>
+<link rel="stylesheet" href="styles.css?v=3" />
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="home" data-page="🏠 Home"></div>
+
+<header class="hero">
+  <h1>Becoming Famous</h1>
+  <div class="sub">@rawhitmire · @discounttrek · solo creator on the path to full-time. The audience is the leverage. Auditions are the use. The acting career is the long arc.</div>
+  <div class="badges">
+    <span class="urgent" id="cannes-cd">— days to Cannes</span>
+    <span id="prize-cd">— days to Prize</span>
+    <span id="sprint-cd">— days to sprint launch</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- TODAY QUICK VIEW -->
+  <div class="card lift">
+    <div class="label">Today</div>
+    <h2 class="page-h flex between">
+      <span><span id="today-day">—</span> <span class="tag pop3" id="today-date">—</span></span>
+    </h2>
+    <p class="muted mt-0" id="today-focus" style="margin:.2rem 0 .8rem;font-weight:700;color:var(--pop4)">—</p>
+    <div class="grid-quick">
+      <div class="quick-item"><small>Print shop</small><b id="today-shop">—</b></div>
+      <div class="quick-item"><small>Posts to ship</small><b id="today-posts">—</b></div>
+      <div class="quick-item"><small>Tonight's job</small><b id="today-tonight">—</b></div>
+      <div class="quick-item"><small>Top format</small><b id="today-format">TBD (test phase)</b></div>
+    </div>
+  </div>
+
+  <!-- DASHBOARDS -->
+  <div class="section-label">Dashboards</div>
+  <div class="dash-grid">
+    <a href="long-arc.html" class="dash acting">
+      <span class="arrow">→</span>
+      <div class="icon">⭐</div>
+      <h3>The Long Arc</h3>
+      <p>The north star. Why we're doing all this. Re-read on hard days.</p>
+      <span class="badge">Vision</span>
+    </a>
+    <a href="life/index.html" class="dash life">
+      <span class="arrow">→</span>
+      <div class="icon">📅</div>
+      <h3>Life</h3>
+      <p>Today + time blocks, weekly rhythm, meals, sleep, chores, acting practice.</p>
+      <span class="badge">Owns the time</span>
+    </a>
+    <a href="content/index.html" class="dash content">
+      <span class="arrow">→</span>
+      <div class="icon">🎬</div>
+      <h3>Content</h3>
+      <p>Sprint plan · 93+32 posts · calendar · DT strategy · scripts · idea bank · trends · analytics.</p>
+      <span class="badge">Owns the substance</span>
+    </a>
+    <a href="money/index.html" class="dash money">
+      <span class="arrow">→</span>
+      <div class="icon">💰</div>
+      <h3>Money</h3>
+      <p>9 streams · $2,400/mo quit-line · brand pipeline · cash flow · tax · DT IP.</p>
+      <span class="badge">Path to quit</span>
+    </a>
+    <a href="formats/index.html" class="dash format">
+      <span class="arrow">→</span>
+      <div class="icon">⚡</div>
+      <h3>Format Test</h3>
+      <p>15 formats · D1–D10 sprint plan · tracker · Day 10 decision tree.</p>
+      <span class="badge">Find the viral format</span>
+    </a>
+  </div>
+
+  <!-- SPRINT PROGRESS -->
+  <div class="card mt-2">
+    <div class="label">31-Day Sprint</div>
+    <h3 id="sprint-label">— · Apr 30 → May 30</h3>
+    <div class="progress">
+      <div class="fill" id="sprint-fill"></div>
+      <div class="label" id="sprint-pct-label">—</div>
+    </div>
+    <p class="flex between mt-2" style="font-size:var(--text-sm);color:#5b4978">
+      <span><b id="sprint-day">Day —</b> of 31</span>
+      <span id="sprint-phase">Phase —</span>
+    </p>
+  </div>
+
+  <!-- THIS WEEK -->
+  <div class="section-label mt-2">This Week</div>
+  <div class="card">
+    <ul style="margin:0;padding:0;list-style:none">
+      <li style="padding:.55rem .8rem;margin-bottom:.4rem;background:var(--pop3);border:2px solid var(--ink);border-radius:.5rem;font-size:.9rem"><span class="tag pop2" style="margin-right:.5rem">Tue</span><b>Edit 3 vids</b> for tomorrow's posts · push site rebuild</li>
+      <li style="padding:.55rem .8rem;margin-bottom:.4rem;background:var(--soft);border:2px solid var(--ink);border-radius:.5rem;font-size:.9rem"><span class="tag" style="margin-right:.5rem">Wed</span><b>Day off</b> · Post 3 vids · UGC platform signup (Insense, Influee)</li>
+      <li style="padding:.55rem .8rem;margin-bottom:.4rem;background:var(--soft);border:2px solid var(--ink);border-radius:.5rem;font-size:.9rem"><span class="tag" style="margin-right:.5rem">Thu</span>Print shop · scout trends for sprint launch</li>
+      <li style="padding:.55rem .8rem;margin-bottom:0;background:var(--pop);border:2px solid var(--ink);border-radius:.5rem;font-size:.9rem"><span class="tag pop2" style="margin-right:.5rem">Thu 4/30</span><b>SPRINT LAUNCH</b> · M01–M03 + DT-01 · formats: F01 + F05 + F08</li>
+    </ul>
+  </div>
+
+  <!-- LIVE NUMBERS -->
+  <div class="section-label mt-2">Live Numbers <span class="tag pop3" style="margin-left:.5rem;font-size:.6rem">cross-device sync</span></div>
+  <div class="grid-3">
+    <div class="card subtle"><div class="label">@rawhitmire TT</div><h3 id="live-tt">—</h3><p class="muted" style="font-size:var(--text-xs);margin:0">Goal: 10K by Month 4</p></div>
+    <div class="card subtle"><div class="label">@rawhitmire IG</div><h3 id="live-ig">—</h3><p class="muted" style="font-size:var(--text-xs);margin:0">Cross-post for now</p></div>
+    <div class="card subtle"><div class="label">@rawhitmire YT</div><h3 id="live-yt">—</h3><p class="muted" style="font-size:var(--text-xs);margin:0">Phase 2 channel</p></div>
+    <div class="card subtle"><div class="label">@discounttrek</div><h3 id="live-dt">—</h3><p class="muted" style="font-size:var(--text-xs);margin:0">Building from 0</p></div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Built with Cowork · Updated <span id="footer-date">2026-04-28</span></p>
+  <p>The audience is the leverage. Auditions are the use. The acting career is the long arc.</p>
+</footer>
+
+<script src="nav.js?v=3"></script>
+<script>
+  // Load shared data + populate live numbers + countdowns
+  (function(){
+    var today = new Date();
+    today.setHours(0,0,0,0);
+    var msDay = 24 * 60 * 60 * 1000;
+    function days(d){ return Math.round((d - today) / msDay); }
+    var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    fetch('data.json').then(function(r){return r.json()}).then(function(data){
+      var sprint = data.sprint;
+      var sprintStart = new Date(sprint.start + 'T00:00:00');
+      var sprintEnd = new Date(sprint.end + 'T00:00:00');
+      var cannes = new Date(sprint.cannes + 'T00:00:00');
+      var prize = new Date(sprint.prize + 'T00:00:00');
+
+      document.getElementById('cannes-cd').textContent = Math.max(0,days(cannes)) + ' days to Cannes';
+      document.getElementById('prize-cd').textContent = Math.max(0,days(prize)) + ' days to Prize';
+      var sprintDays = days(sprintStart);
+      document.getElementById('sprint-cd').textContent = sprintDays > 0 ? (sprintDays + ' days to sprint launch') : ('Sprint Day ' + (Math.abs(sprintDays) + 1));
+
+      document.getElementById('today-day').textContent = dayNames[today.getDay()];
+      document.getElementById('today-date').textContent = monthNames[today.getMonth()] + ' ' + today.getDate();
+
+      // Today focus by day-of-week
+      var dow = today.getDay();
+      var inSprint = today >= sprintStart && today <= sprintEnd;
+      var focus = '—', shop = '—', posts = '—', tonight = '—';
+      if (!inSprint && today < sprintStart) {
+        if (dow === 2) { focus = 'PREP MODE · Edit 3 vids · Push site rebuild'; shop = '10am – 6pm'; posts = '3 (tomorrow)'; tonight = 'Edit · push'; }
+        else if (dow === 3) { focus = 'OFF DAY · Post 3 vids · UGC signups'; shop = 'OFF'; posts = '3 today'; tonight = 'Post · scout'; }
+        else if (dow === 4 || dow === 5 || dow === 1) { focus = 'PRE-SPRINT · Build buffer'; shop = '10am – 6pm'; posts = '1–2'; tonight = 'Buffer film'; }
+        else if (dow === 6) { focus = 'PRE-SPRINT · Print shop early'; shop = '9am – 5pm'; posts = '1'; tonight = 'Sketch batch'; }
+        else { focus = 'OFF DAY · Sprint prep'; shop = 'OFF'; posts = '1 (light)'; tonight = 'Rest · prep'; }
+      } else if (inSprint) {
+        focus = 'SPRINT MODE · 3 main + 1 DT'; posts = '3 main + 1 DT';
+        shop = (dow === 0 || dow === 3) ? 'OFF' : (dow === 6 ? '9am – 5pm' : '10am – 6pm');
+        tonight = (dow === 0 || dow === 3) ? 'Batch film + edit' : 'Edit + queue tomorrow';
+      }
+      document.getElementById('today-focus').textContent = focus;
+      document.getElementById('today-shop').textContent = shop;
+      document.getElementById('today-posts').textContent = posts;
+      document.getElementById('today-tonight').textContent = tonight;
+
+      // Sprint progress
+      var totalDays = Math.round((sprintEnd - sprintStart) / msDay);
+      var elapsed = Math.round((today - sprintStart) / msDay);
+      var pct = inSprint ? Math.max(0, Math.min(100, Math.round(elapsed / totalDays * 100))) : (today < sprintStart ? 0 : 100);
+      document.getElementById('sprint-fill').style.width = pct + '%';
+      document.getElementById('sprint-pct-label').textContent = pct + '%';
+      document.getElementById('sprint-day').textContent = inSprint ? ('Day ' + (elapsed + 1)) : (today < sprintStart ? 'Pre-sprint' : 'Complete');
+      var phase = '';
+      if (today < sprintStart) { phase = 'Phase 0 · Prep'; document.getElementById('sprint-label').textContent = 'PRE-SPRINT · launches Apr 30'; }
+      else if (elapsed < sprint.phase1Days) phase = 'Phase 1 · Cannes (test all formats)';
+      else if (elapsed < sprint.phase1Days + sprint.phase2Days) phase = 'Phase 2 · Bridge (double down)';
+      else phase = 'Phase 3 · Prize (exploit)';
+      document.getElementById('sprint-phase').textContent = phase;
+
+      // Live numbers
+      document.getElementById('live-tt').textContent = data.live.tt_followers.toLocaleString();
+      document.getElementById('live-ig').textContent = data.live.ig_followers.toLocaleString();
+      document.getElementById('live-yt').textContent = data.live.yt_followers.toLocaleString();
+      document.getElementById('live-dt').textContent = data.live.dt_tt_followers.toLocaleString();
+
+      document.getElementById('footer-date').textContent = data._meta.updated;
+    }).catch(function(err){
+      console.error('Failed to load data.json:', err);
+    });
+  })();
+</script>
+
+</body>
+</html>

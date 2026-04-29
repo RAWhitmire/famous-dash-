@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Production Playbook · Open Before Filming</title>
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  .formula{background:var(--card);border:3px solid var(--ink);border-radius:.7rem;padding:1rem;box-shadow:var(--shadow-sm);margin-bottom:.9rem}
+  .formula h3{margin:0 0 .35rem;font-size:.95rem;font-weight:900;text-transform:uppercase;display:flex;align-items:center;gap:.4rem}
+  .formula .tag-pillar{font-size:.62rem;background:var(--pop2);color:#fff;padding:.15rem .4rem;border-radius:.25rem}
+  .formula .pattern{background:var(--soft);padding:.5rem .65rem;border-radius:.4rem;font-family:monospace;font-size:var(--text-sm);font-weight:700;margin:.4rem 0}
+  .formula .examples{font-size:var(--text-sm);font-style:italic;color:var(--pop4)}
+  .formula .examples b{color:var(--pop4);font-style:normal;font-size:.65rem;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:.15rem}
+  .formula .examples p{margin:.2rem 0;background:var(--soft-teal);padding:.4rem .6rem;border-radius:.3rem;border-left:3px solid var(--pop6)}
+  .beats-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem;margin:.5rem 0}
+  .beats-strip .b{padding:.45rem;background:var(--card);border:2px solid var(--ink);border-radius:.4rem;text-align:center;font-size:.72rem}
+  .beats-strip .b b{display:block;color:var(--pop2);font-size:.62rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.2rem}
+  .beats-strip .b.hook{background:var(--pop3)}
+  .beats-strip .b.rehook{background:var(--soft-teal)}
+  .beats-strip .b.climax{background:var(--soft);border-width:3px;border-color:var(--pop2)}
+  .beats-strip .b.loop{background:#fee2e2;border-color:var(--bad)}
+  @media (max-width:640px){.beats-strip{grid-template-columns:repeat(2,1fr)}}
+  .quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.7rem}
+</style>
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="content" data-page="🎬 Production Playbook"></div>
+
+<header class="hero content">
+  <h1>Production Playbook</h1>
+  <div class="sub">Open this before every filming session. Hook formulas in voice. Caption templates. First-comment templates with PASSENGER ask. Hashtag stacks. Retention reminders. Compact and scannable on phone.</div>
+</header>
+
+<main>
+
+<!-- ===== RETENTION BEATS ===== -->
+<div class="section-label">The 6 retention beats · target ~45s · every video, no exceptions</div>
+<div class="beats-strip" style="grid-template-columns:repeat(6,1fr)">
+  <div class="b hook"><b>0–3s</b>HOOK<br><small>visual + curiosity</small></div>
+  <div class="b rehook"><b>3–8s</b>REHOOK 1<br><small>face cut / VO</small></div>
+  <div class="b rehook"><b>8–18s</b>REHOOK 2<br><small>twist / stakes</small></div>
+  <div class="b rehook"><b>18–28s</b>REHOOK 3<br><small>second twist / receipt</small></div>
+  <div class="b climax"><b>28–40s</b>CLIMAX<br><small>artifact / payoff</small></div>
+  <div class="b loop"><b>40–45s</b>LOOP<br><small>cliffhanger or callback</small></div>
+</div>
+<p class="muted center" style="font-size:var(--text-xs)"><b>Length rule:</b> ~45s target. Live data confirms 45s outperforms 30s for this account. Target: 70% completion = ~31s avg watch time.</p>
+<div class="card" style="background:var(--pop3);margin-top:.5rem">
+  <h3 style="margin:0 0 .3rem;font-size:.85rem">Why 6 beats, not 5?</h3>
+  <p style="font-size:var(--text-sm);margin:.2rem 0">At ~45s the algorithm is hunting for retention dropoff at 18–22s — that's where viewers who didn't get hooked twice would normally bail. <b>Rehook 3 (the new beat at 18–28s)</b> is a "second twist" or specific receipt that resets attention before climax. Without it, the middle of long videos sags. Add it on every video over 30s.</p>
+</div>
+
+<!-- ===== HOOK FORMULAS ===== -->
+<div class="section-label mt-2">Hook Formulas (in voice)</div>
+<p class="lede">15 hook patterns Raquel can mix-and-match. Each tagged with which pillar it fits + 3 voice-locked examples. <b>Rule:</b> first 1.5 seconds = visual motion + specific claim + pattern interrupt all firing. NO "hey guys" warmups.</p>
+
+<div class="quick-grid">
+
+  <div class="formula">
+    <h3>H01 · The Diagnostic <span class="tag-pillar">P1 P4</span></h3>
+    <div class="pattern">"You're not [common label]. You're [accurate reframe]."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"You're not lazy. You're trying to force yourself to stay in a life your body already rejected."</p>
+      <p>"You're not behind. You're auditioning for a role that wasn't written for you."</p>
+      <p>"You're not burned out from doing too much. You're burned out from performing a life you never chose."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H02 · The Casual Confession <span class="tag-pillar">P1 P5</span></h3>
+    <div class="pattern">"Unfortunately, [casually-dropped dramatic truth]."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"Unfortunately, my coping mechanism developed comedic timing."</p>
+      <p>"Unfortunately, I cannot perform discipline for a life that isn't mine."</p>
+      <p>"Unfortunately, I figured out the role I was cast in. So now I am quitting."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H03 · The Embarrassing Admission <span class="tag-pillar">P1 P5</span></h3>
+    <div class="pattern">"This is embarrassing because [specific reason], but [admission]."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"This is embarrassing because I'm 30 — but I just figured out I've been people-pleasing my own family for decades."</p>
+      <p>"This is embarrassing because I literally went to drama school — but I was performing in real life and didn't notice."</p>
+      <p>"This is embarrassing because I am an actress — but I forgot I had wants of my own for, like, 8 years."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H04 · The Receipt <span class="tag-pillar">P2 P3 P4</span></h3>
+    <div class="pattern">"[Number] [things] in [time]. Here's what changed."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"31 days. 93 posts. Zero skipped. Here's what stopped feeling weird at video 3."</p>
+      <p>"4 hooks since Polina said mine was generic. Rate them."</p>
+      <p>"6 weeks of posting cardboard Star Trek. Here's what I learned the algorithm doesn't reward."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H05 · POV Trope (Sarah-coded) <span class="tag-pillar">P1 P4</span></h3>
+    <div class="pattern">"POV: you [Sarah-specific scenario]"</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"POV: you're 31, technically functioning, and your body just told you no."</p>
+      <p>"POV: you said you'd start the creative thing 'when life calmed down' five years ago."</p>
+      <p>"POV: you're at the print shop wondering why you have 47 tabs open in your head."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H06 · The Caught-Myself <span class="tag-pillar">P1 P4 P5</span></h3>
+    <div class="pattern">"I caught myself [doing the thing] today. [The implication]."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"I caught myself apologizing for taking up space. In my own apartment. To my cat."</p>
+      <p>"I caught myself rewriting a customer's headline at the print shop. I'm Polina now. Unfortunately."</p>
+      <p>"I caught myself organizing snacks for a meeting that was rescheduled. The role is so deep I'm casting myself in it."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H07 · Storytime cold-open <span class="tag-pillar">P1 P3 P5</span></h3>
+    <div class="pattern">"The most [unhinged/embarrassing/specific] thing happened [today/at the print shop/last night]."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"The most unhinged thing happened today. I tried to film a Star Trek parody and the cardboard fell on me."</p>
+      <p>"The most embarrassing thing happened. I cried in the print shop bathroom because someone said my hook was generic."</p>
+      <p>"Storytime: how a single comment made me delete and recut a video at 1 AM."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H08 · Contrarian receipt <span class="tag-pillar">P1 P2</span></h3>
+    <div class="pattern">"I did [the thing everyone says works]. [Counter-intuitive result]."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"I applied a Cannes selector's note for 3 weeks. Views went UP. Engagement DROPPED."</p>
+      <p>"I tried to be discipline-coded for a year. Got more done. Felt worse. Stopped."</p>
+      <p>"I quit acting for my parents. Got a real job. Body refused. Full revolt at 2:15 AM."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H09 · Object Hook <span class="tag-pillar">P3 P5</span></h3>
+    <div class="pattern">"[Specific object close-up + non-sequitur claim]."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>[Sugar bowl close-up] "I am building my dream life with cardboard, spite, and a suspicious amount of Star Trek knowledge."</p>
+      <p>[Phaser hot-glue close-up] "This is either a prop or a personal essay. Possibly both."</p>
+      <p>[Glitter falling close-up] "I fear the cardboard spaceship is making several points."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H10 · The Math Hook <span class="tag-pillar">P1 P4</span></h3>
+    <div class="pattern">"The math is mathing: [specific equation]."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"The math is mathing: 8 years of saying yes to roles I didn't audition for = 1 night of crying about cardboard."</p>
+      <p>"The math is mathing: 47 tabs open in my head + zero water consumed + 'why am I tired' is a complete formula."</p>
+      <p>"The math is mathing: I quit acting for $19/hour. The trade was bad. I am unquitting."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H11 · Direct Address Diagnosis <span class="tag-pillar">P1 P4</span></h3>
+    <div class="pattern">"Some of you are not [problem]. You are [accurate reframe]."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"Some of you are not lost. You are still following directions from people who never knew where you were going."</p>
+      <p>"Some of you are not unmotivated. You are exhausted from performing a life you didn't audition for."</p>
+      <p>"Some of you are not procrastinating. You are refusing to start something your body knows isn't yours."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H12 · The "Wait" Cold Open <span class="tag-pillar">P1 P5</span></h3>
+    <div class="pattern">[Mid-sentence/mid-action close-up] "Wait." [Cut to context]</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>[Mid-printer counter at print shop] "Wait. I just talked to a customer the way Polina talked to me. About a yoga flyer."</p>
+      <p>[Mid-laundry fold] "Wait. I'm folding my Starfleet uniform. Out of the dryer. Like that's a normal Wednesday."</p>
+      <p>[Mid-coffee pour] "Wait. Did I just describe my life as a 'role I'm finishing out'? In therapy I don't go to?"</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H13 · The "I did not audition for this" <span class="tag-pillar">P1 P2 (signature)</span></h3>
+    <div class="pattern">"I am no longer available for [role/script/dynamic]. I did not audition for this."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"I am no longer available for the role of 'reasonable older sister.' I did not audition for this."</p>
+      <p>"I am no longer available for jobs that require me to flatten my voice. I did not audition for this."</p>
+      <p>"I am no longer available for relationships that need me to be 30% smaller. I did not audition for this."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H14 · The "Spiritually held together" <span class="tag-pillar">P4 P5 (signature)</span></h3>
+    <div class="pattern">"There is a very specific kind of [thing] that happens when [Sarah-specific situation]."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"There is a very specific kind of burnout that happens when you are technically functioning but spiritually held together with tape and a Celsius."</p>
+      <p>"There is a very specific kind of grief that happens when you realize you've been performing a version of yourself for 8 years."</p>
+      <p>"There is a very specific kind of rage that happens when you fold a uniform you bought for a job that didn't deserve you."</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <h3>H15 · Object-as-Argument <span class="tag-pillar">P3 P5</span></h3>
+    <div class="pattern">"This [object] is either [thing] or [thing]. Possibly both."</div>
+    <div class="examples">
+      <b>Examples:</b>
+      <p>"This cardboard ENT-D bridge is either personal development or a cry for help. Possibly both."</p>
+      <p>"This sugar bowl is either a snack or a personality. The math says yes."</p>
+      <p>"This Starfleet uniform is either a costume or a confession. I refuse to clarify."</p>
+    </div>
+  </div>
+
+  <div class="formula" style="border-color:var(--good);background:linear-gradient(180deg,#dcfce7 0%,var(--card) 30%)">
+    <h3>H16 · Age-Frame Self-Reflection ⭐ <span class="tag-pillar">P1 P2 (proven)</span></h3>
+    <div class="pattern">"What did you want to be at age [6/9/12]? Have you done it?"</div>
+    <div class="examples">
+      <b>Why this works (live data):</b>
+      <p style="background:var(--pop3);padding:.5rem;border-radius:.3rem;font-style:normal;color:var(--ink)">⭐ <b>PROVEN.</b> The age-9 video is generating organic comments from viewers sharing their own answers + whether they followed through. Comment section becomes the content. Forces a mental pause at second 3 (audience answers in their head before continuing) = retention spike. Self-segments the audience: Sarahs stay because they haven't done it; people who did stay because they're proud. Both engage.</p>
+      <b>Examples:</b>
+      <p>"What did you want to be at 9? Have you done it? I'll go first — actress. I quit at 23. I un-quit last month."</p>
+      <p>"At age 6 you knew. At age 12 you started doubting. By 18 you'd traded it for 'sense.' What was yours?"</p>
+      <p>"Tell me what your 9-year-old self called her dream. Tell me if you've kept your word to her."</p>
+      <p>"What was your dream at age 9 that you swapped for 'a real job'? Mine wanted to perform. I named the swap last week."</p>
+    </div>
+    <div class="examples" style="background:var(--soft);padding:.5rem;border-radius:.3rem;margin-top:.4rem">
+      <b style="color:var(--pop2)">SERIES POTENTIAL · don't burn it on one video:</b>
+      <p>· "Age 6 vs age 9 vs age 12 — when did you swap?"<br>· "What did your dream cost when you swapped?"<br>· "POV: your 9-year-old self watches you on a Tuesday"<br>· "Reply to the comments from the age-9 video"<br>· Carousel of audience answers from comment section<br>· Variant ages by audience cohort (age 6 for younger viewers, age 16 for late-bloomers)</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== CAPTION TEMPLATES ===== -->
+<div class="section-label mt-2">Caption Templates (the second hook)</div>
+<p class="lede">1–2 sentences max. Tease the ending. Don't spoil. Voice-locked. End with one emoji max (or none).</p>
+
+<div class="quick-grid">
+  <div class="formula">
+    <h3>C01 · The Curiosity Tease</h3>
+    <div class="pattern">"[Specific claim]. Wait for [specific moment in the video]."</div>
+    <div class="examples">
+      <p>"This is rude but accurate. Wait for second 22, you'll know."</p>
+      <p>"I caught myself becoming the thing I was hurt by. Stay for the side-by-side."</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>C02 · The Half-Confession</h3>
+    <div class="pattern">"[Half a truth] — I'll tell you the rest in [where the rest is]."</div>
+    <div class="examples">
+      <p>"I cried in the print shop bathroom and never told the person who made me cry. Until now."</p>
+      <p>"31 days of sprint and the most embarrassing thing I figured out is in the last 3 seconds."</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>C03 · The Question</h3>
+    <div class="pattern">"[Provocative question]. Tell me yours in the comments."</div>
+    <div class="examples">
+      <p>"What's the role you've been performing that you never auditioned for? I'll go first 👇"</p>
+      <p>"What's the most ridiculous thing you've made for the joy of it? Mine is currently in frame."</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>C04 · The Diagnosis</h3>
+    <div class="pattern">"[Diagnostic line that matches the hook style]."</div>
+    <div class="examples">
+      <p>"The role you're exhausted from playing might not even be yours."</p>
+      <p>"I fear the cardboard spaceship is making several points."</p>
+      <p>"This is either personal development or a cry for help. Possibly both."</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>C05 · The Object-Caption (works with H09 + H15)</h3>
+    <div class="pattern">"[Object reference] + [implication]."</div>
+    <div class="examples">
+      <p>"The sugar bowl is canon. So is the existential crisis."</p>
+      <p>"Cardboard, spite, and a suspicious amount of Star Trek knowledge. The plot."</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CTA TEMPLATES ===== -->
+<div class="section-label mt-2">CTA Patterns (in voice · in the video itself)</div>
+<p class="lede">The line at the end of the video — separate from caption + comment. Voice-locked, low-pressure, NEVER "follow for more content!" energy. <b>Live-data note:</b> a minimal "follow if that hit" outperformed studio-quality CTAs because it sounds like the way she'd actually say it. Tone over polish.</p>
+
+<div class="quick-grid">
+  <div class="formula" style="border-color:var(--good)">
+    <h3>CTA01 · Conditional Casual ⭐ (proven)</h3>
+    <div class="pattern">"[action] if [thing] hit"</div>
+    <div class="examples">
+      <p>"follow if that hit"</p>
+      <p>"save if you needed this"</p>
+      <p>"comment yours, I read every one"</p>
+      <p>"share if your 9-year-old self approves"</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>CTA02 · The Permission</h3>
+    <div class="pattern">"[action] if [specific scenario]. or don't. either is correct."</div>
+    <div class="examples">
+      <p>"save if you tried to quit yours. or don't. either is correct."</p>
+      <p>"follow if you're also still in the lab. no pressure. I'll be here."</p>
+      <p>"comment what your 9-year-old wanted. or don't say it out loud yet. I get it."</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>CTA03 · The Going-First</h3>
+    <div class="pattern">"I'll go first — [her answer]. Tell me yours."</div>
+    <div class="examples">
+      <p>"I wanted to be an actress. I'll go first. Tell me yours 👇"</p>
+      <p>"I quit. I un-quit. Comment your version."</p>
+      <p>"My role I didn't audition for: 'reasonable older sister.' What's yours?"</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>CTA04 · The Witness Invite</h3>
+    <div class="pattern">"[action] this for [the person you used to be]."</div>
+    <div class="examples">
+      <p>"save this for your 9-year-old self."</p>
+      <p>"send this to whoever needs it. that includes past you."</p>
+      <p>"pin this for the next time you forget."</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>CTA05 · The 47-Tabs (ND-coded)</h3>
+    <div class="pattern">"[ADHD-honest invite that's not productivity-coded]"</div>
+    <div class="examples">
+      <p>"I will be here in 47 tabs if you want to talk about it"</p>
+      <p>"comment now or in 6 months when you remember. either works."</p>
+      <p>"save this in the same place as the other things you mean to come back to. that drawer."</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FIRST-COMMENT TEMPLATES ===== -->
+<div class="section-label mt-2">First-Comment Templates (PASSENGER bridge)</div>
+<p class="lede"><b>Pin within 60 seconds of posting.</b> The bridge from the video moment to the lead magnet. Not a sales pitch — a continuation of the moment. Skip on hero/vulnerability posts where the ask would feel transactional.</p>
+
+<div class="quick-grid">
+  <div class="formula">
+    <h3>FC01 · Direct (default)</h3>
+    <div class="pattern">"DM me PASSENGER for the worksheet that names the role you've been performing. 📩"</div>
+    <div class="examples">
+      <b>When to use:</b><p>Most Script Shift videos. Default unless something else fits better.</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>FC02 · Soft tie-in</h3>
+    <div class="pattern">"If this video named something out loud — DM me PASSENGER. I'll send you the 5 questions I used to figure out which role wasn't mine."</div>
+    <div class="examples">
+      <b>When to use:</b><p>Vulnerable posts where "send me the worksheet" would feel pushy. The "if this hit" framing makes it feel earned.</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>FC03 · Specific question hook</h3>
+    <div class="pattern">"If you're stuck on [specific question from worksheet] — DM me PASSENGER. The worksheet has the prompts that broke that one open for me."</div>
+    <div class="examples">
+      <b>When to use:</b><p>When the video naturally led to one of the 5 reframe questions. E.g., "What did it cost you?" video → comment about cost question.</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>FC04 · DT crossover</h3>
+    <div class="pattern">"DM me PASSENGER if you want the worksheet. Yes, even though I'm in a Starfleet uniform. Especially because I'm in a Starfleet uniform."</div>
+    <div class="examples">
+      <b>When to use:</b><p>DT crossover posts on @rawhitmire. Self-aware tone bridges the parody back to the brand.</p>
+    </div>
+  </div>
+  <div class="formula">
+    <h3>FC05 · Skip the ask</h3>
+    <div class="pattern">[No first comment OR a non-sales comment that responds to the moment]</div>
+    <div class="examples">
+      <b>When to use:</b><p>Hero vulnerability posts (e.g., "Polina, if you're watching"). Posts that close arcs. Tone is everything — when the ask would cheapen the moment, skip it. Quality of the moment > a few extra DMs.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HASHTAG STACKS ===== -->
+<div class="section-label mt-2">Hashtag Stacks (max 5, rotate)</div>
+<p class="lede">Pick 3 pillar-specific + 2 evergreen per post. Don't repeat the exact same 5 across the day. Track which combos drive Discover-tab traffic.</p>
+
+<div class="grid-3">
+  <div class="card subtle">
+    <div class="label">P1 · Script Shift</div>
+    <p style="font-size:var(--text-sm)">#identityshift · #scriptshift · #lifescript · #burnoutrecovery · #notlazy · #waitingtobechosen · #performinglife</p>
+  </div>
+  <div class="card subtle">
+    <div class="label">P2 · Acting / Visibility</div>
+    <p style="font-size:var(--text-sm)">#actorlife · #castyourself · #soloperformer · #independentactor · #cannes · #becomeknown</p>
+  </div>
+  <div class="card subtle">
+    <div class="label">P3 · Discount Trek</div>
+    <p style="font-size:var(--text-sm)">#startrek60 · #startrekparody · #LLAP · #soloMaker · #DIYfilmmaking · #trekfan · #parody</p>
+  </div>
+  <div class="card subtle">
+    <div class="label">P4 · ND Chaos</div>
+    <p style="font-size:var(--text-sm)">#adhdwomen · #neurodivergent · #functionalburnout · #adhdcreator · #latediagnosed · #audhd</p>
+  </div>
+  <div class="card subtle">
+    <div class="label">P5 · Humor</div>
+    <p style="font-size:var(--text-sm)">#deeplyunserious · #chaoticbutstrategic · #personalessay · #onthispage · #unhinged · #comedybit</p>
+  </div>
+  <div class="card subtle">
+    <div class="label">Evergreen (use 2 always)</div>
+    <p style="font-size:var(--text-sm)">#creatorlife · #behindthescenes · #onthispage · #fyp · #relatable · #realtalk</p>
+  </div>
+</div>
+
+<!-- ===== LIVE WINS — ACTUAL DATA FROM POSTING ===== -->
+<div class="section-label mt-2">⭐ Live wins · what's actually working (update as data comes in)</div>
+<div class="card lift" style="background:linear-gradient(135deg,#dcfce7 0%,var(--soft-teal) 100%);border-color:var(--good)">
+  <h2 class="page-h" style="color:var(--good)">Case Study #1 · The Age-9 Video</h2>
+  <p style="font-size:var(--text-md);margin:.4rem 0"><b>What happened:</b> Posted a video asking what the audience wanted to be at age 9. CTA was "follow if that hit lmao." Comments organically filled with viewers sharing their own age-9 dreams + whether they've done it or not.</p>
+  <p style="font-size:var(--text-md);margin:.4rem 0"><b>Why it worked:</b></p>
+  <ol style="font-size:var(--text-sm);padding-left:1.4rem">
+    <li><b>Universal hook</b> — every viewer has an answer to "what did you want to be at 9?" Forces mental engagement at second 3 = retention spike.</li>
+    <li><b>Self-segments the audience perfectly</b> — Sarahs (haven't done it) feel seen and stay; people who DID it feel proud and stay. Both groups engage.</li>
+    <li><b>Lower-stakes vulnerability</b> — easier to share "I wanted to be a vet" than "I'm performing a life I didn't choose." Same content, less guarded entry.</li>
+    <li><b>Comment section becomes the content</b> — every reply is a mini-story. Other viewers stay to read replies. Algorithm reads engagement-on-engagement as a strong signal.</li>
+    <li><b>Voice-perfect CTA</b> — "follow if that hit" is exactly how Raquel would say it out loud. Lowercase, conditional, low-pressure. NOT "follow for more content!" energy.</li>
+  </ol>
+  <p style="font-size:var(--text-md);margin:.4rem 0"><b>Pattern extracted:</b> H16 (Age-Frame Self-Reflection) + CTA01 (Self-Aware Casual). Don't burn this on one video — it's an entire <b>series potential</b> spanning ages 6, 9, 12, 16, 18 + reply-to-comments + "swap moment" + audience-reply carousels.</p>
+  <p style="font-size:var(--text-md);margin:.4rem 0"><b>What to copy from this win:</b> the "follow if [X] hit" conditional CTA pattern across other videos · the "what did you want at age N + have you done it" frame for any retrospective post · CTAs that sound like the way she'd actually say it on the phone, NOT studio-polished asks.</p>
+</div>
+
+<!-- ===== TRENDS LIVE ===== -->
+<div class="section-label mt-2">2026 trends that fit this brand (use sparingly · once per peak)</div>
+<div class="grid-3">
+  <div class="card" style="border-color:var(--good)">
+    <h3>"Because My Life Didn't End"</h3>
+    <p style="font-size:var(--text-sm)">Resilience after challenges. Direct fit for Script Shift. Use once per phase.</p>
+    <p class="muted" style="font-size:var(--text-xs)">Spin: "Because my life didn't end at 22, 25, 28 — I was just done auditioning for it."</p>
+  </div>
+  <div class="card" style="border-color:var(--good)">
+    <h3>"Reset Moment / I Celebrate Me"</h3>
+    <p style="font-size:var(--text-sm)">Personal reset narratives. Phase 2 / Phase 3 fit. Tied to second-prize milestone.</p>
+    <p class="muted" style="font-size:var(--text-xs)">Spin: "31 days ago I named what I was already doing. This is the reset."</p>
+  </div>
+  <div class="card" style="border-color:var(--good)">
+    <h3>"Ins and Outs"</h3>
+    <p style="font-size:var(--text-sm)">Universal format. Quick to make. Carousel or rapid-cut. Phase 2 fit.</p>
+    <p class="muted" style="font-size:var(--text-xs)">Spin: "OUT: jobs that require me to flatten my voice. IN: cardboard with strong opinions."</p>
+  </div>
+</div>
+
+<!-- ===== PRE-FILMING CHECKLIST ===== -->
+<div class="section-label mt-2">Pre-Filming Checklist (quick scan)</div>
+<div class="card lift" style="background:var(--pop3)">
+  <ul style="font-size:var(--text-sm);margin:.4rem 0;padding-left:1.4rem">
+    <li>☐ <b>Length target ~45s</b> (data-confirmed sweet spot for this account)</li>
+    <li>☐ Sugar bowl in frame (or other primary visual anchor)</li>
+    <li>☐ Hook is one of H01–H16 (or a deliberate variant)</li>
+    <li>☐ Rehook 1 at ~5s identified (face cut, VO, B-roll, text overlay change)</li>
+    <li>☐ Rehook 2 at ~15s identified (twist, stakes, escalation)</li>
+    <li>☐ <b>Rehook 3 at ~22s identified</b> (NEW — second twist, specific receipt, counter-move)</li>
+    <li>☐ Climax artifact at ~30s (the receipt, side-by-side, payoff visible)</li>
+    <li>☐ Loop hook in final 2–5s (cliffhanger, callback, ironic smile)</li>
+    <li>☐ In-video CTA drafted (CTA01–CTA05, voice-locked, "follow if that hit" conditional-casual energy)</li>
+    <li>☐ Caption drafted (C01–C05 template)</li>
+    <li>☐ First comment drafted (FC01–FC05 template, OR skip if hero/vulnerability)</li>
+    <li>☐ Hashtag stack picked (3 pillar + 2 evergreen, fresh combo)</li>
+    <li>☐ Voice Compliance Checklist passed (see <a href="../foundation.html">Foundation</a>)</li>
+  </ul>
+</div>
+
+</main>
+
+<footer>
+  <p>Open before every filming session. Update as new hooks/captions/comments prove out.</p>
+</footer>
+<script src="../nav.js"></script>
+</body>
+</html>

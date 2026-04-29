@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Content · Today + KPIs</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="content" data-page="🎬 Content — Today"></div>
+
+<header class="hero content">
+  <h1>Content · Today</h1>
+  <div class="sub">Owns the substance. Today's slate + sprint KPIs. For time blocks, see Life. For the format calls, see Formats.</div>
+</header>
+
+<main>
+
+  <div class="card lift">
+    <div class="label">Today's Slate</div>
+    <h2 class="page-h flex between">
+      <span><span id="today-day">—</span> <span class="tag pop3" id="today-date">—</span></span>
+    </h2>
+    <p style="margin:.2rem 0 .8rem;font-weight:700;color:var(--pop4);font-size:1.05rem" id="today-headline">—</p>
+    <div class="grid-quick">
+      <div class="quick-item"><small>☀️ Slot 1 (AM)</small><b id="slot-1">—</b></div>
+      <div class="quick-item"><small>🌞 Slot 2 (Mid)</small><b id="slot-2">—</b></div>
+      <div class="quick-item"><small>🌙 Slot 3 (PM)</small><b id="slot-3">—</b></div>
+      <div class="quick-item"><small>🌟 Discount Trek</small><b id="slot-dt">—</b></div>
+      <div class="quick-item"><small>🎬 Filming status</small><b id="film-status">—</b></div>
+      <div class="quick-item"><small>📺 Days to Cannes</small><b id="cannes-days">—</b></div>
+    </div>
+  </div>
+
+  <div class="section-label mt-2">Sprint KPIs <span class="tag" style="margin-left:.5rem">live · cross-device</span></div>
+  <div class="grid-3">
+    <div class="card subtle"><div class="label">Posts shipped (main)</div><h3 id="kpi-shipped">— / 93</h3><p class="muted" style="font-size:var(--text-xs);margin:0">Zero-tolerance · 31 days</p></div>
+    <div class="card subtle"><div class="label">DT posts shipped</div><h3 id="kpi-dt-shipped">— / 32</h3><p class="muted" style="font-size:var(--text-xs);margin:0">DT track</p></div>
+    <div class="card subtle"><div class="label">Cumulative views</div><h3 id="kpi-views">—</h3><p class="muted" style="font-size:var(--text-xs);margin:0">Floor 100K · Target 500K+</p></div>
+    <div class="card subtle"><div class="label">Followers gained</div><h3 id="kpi-follow">—</h3><p class="muted" style="font-size:var(--text-xs);margin:0">Floor 200 · Target 1K+</p></div>
+    <div class="card subtle"><div class="label">Viral videos (>10K)</div><h3 id="kpi-viral">—</h3><p class="muted" style="font-size:var(--text-xs);margin:0">Floor 3 · Target 8+</p></div>
+    <div class="card subtle"><div class="label">PASSENGER DMs</div><h3 id="kpi-dms">—</h3><p class="muted" style="font-size:var(--text-xs);margin:0">Floor 100 · Target 500+</p></div>
+  </div>
+
+  <div class="section-label mt-2">Daily Checklist <span class="tag pop3" style="margin-left:.5rem">content side</span></div>
+  <div class="card">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.4rem">
+      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 📲 Slot 1 fired before 9 AM</label>
+      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 🌞 Slot 2 fired at lunch</label>
+      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 🌙 Slot 3 fired before 10 PM</label>
+      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 🌟 DT post if scheduled</label>
+      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 💬 Replied to 5+ comments</label>
+      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 🎬 Tomorrow's slot 1 queued</label>
+      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 📊 Logged yesterday's view counts</label>
+    </div>
+  </div>
+
+  <div class="section-label mt-2">Quick Jumps</div>
+  <div class="subnav-grid">
+    <a class="subnav" href="calendar.html"><h4>Sprint Calendar</h4><p>Full 31-day grid · M01–M93 + DT-01–DT-32</p></a>
+    <a class="subnav" href="posts.html"><h4>Per-Post Cards</h4><p>All 125 production cards · hooks, scripts, KPIs</p></a>
+    <a class="subnav" href="ahead.html"><h4>Get Ahead Plan</h4><p>How to bank buffer · daily/weekly leverage</p></a>
+    <a class="subnav" href="ideas.html"><h4>Idea Bank</h4><p>Hooks not yet used · feeds future content</p></a>
+    <a class="subnav" href="trends.html"><h4>Trend Log</h4><p>Trending sounds + expiry dates</p></a>
+    <a class="subnav" href="backup.html"><h4>Backup Bank</h4><p>Pre-filmed videos for bad days</p></a>
+    <a class="subnav" href="analytics.html"><h4>Analytics</h4><p>Week-over-week tracker</p></a>
+    <a class="subnav" href="dt.html"><h4>Discount Trek</h4><p>Brand · audience · growth playbook</p></a>
+    <a class="subnav" href="scripts.html"><h4>Scripts</h4><p>Pre-written hook + script library</p></a>
+    <a class="subnav" href="ig-plays.html"><h4>IG Plays</h4><p>Instagram-specific tactics</p></a>
+    <a class="subnav" href="filming.html"><h4>Filming Days</h4><p>Wed batch + light + zero shot lists</p></a>
+    <a class="subnav" href="contingency.html"><h4>Contingency</h4><p>If things break · zero-tolerance recovery</p></a>
+  </div>
+</main>
+
+<footer><p>Owns the substance. Tuesday looks like Tuesday — but the slate doesn't.</p></footer>
+<script src="../nav.js"></script>
+<script>
+fetch('../data.json').then(function(r){return r.json()}).then(function(data){
+  var today = new Date(); today.setHours(0,0,0,0);
+  var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('today-day').textContent = dayNames[today.getDay()];
+  document.getElementById('today-date').textContent = monthNames[today.getMonth()] + ' ' + today.getDate();
+
+  var sprintStart = new Date(data.sprint.start + 'T00:00:00');
+  var cannes = new Date(data.sprint.cannes + 'T00:00:00');
+  var msDay = 24*60*60*1000;
+
+  if (today < sprintStart) {
+    document.getElementById('today-headline').textContent = 'PRE-SPRINT · Sprint launches ' + data.sprint.start + ' · ' + Math.round((sprintStart-today)/msDay) + ' days out';
+    document.getElementById('slot-1').textContent = 'Build buffer';
+    document.getElementById('slot-2').textContent = 'Trend scout';
+    document.getElementById('slot-3').textContent = 'Test format';
+    document.getElementById('slot-dt').textContent = 'Pre-launch teaser';
+    document.getElementById('film-status').textContent = 'Pre-sprint film banking';
+  } else {
+    var dayN = Math.round((today-sprintStart)/msDay) + 1;
+    document.getElementById('today-headline').textContent = 'SPRINT DAY ' + dayN + ' · 3 main + 1 DT';
+    document.getElementById('slot-1').textContent = 'M' + String((dayN-1)*3+1).padStart(2,'0');
+    document.getElementById('slot-2').textContent = 'M' + String((dayN-1)*3+2).padStart(2,'0');
+    document.getElementById('slot-3').textContent = 'M' + String((dayN-1)*3+3).padStart(2,'0');
+    document.getElementById('slot-dt').textContent = 'See calendar';
+    document.getElementById('film-status').textContent = 'See calendar';
+  }
+  document.getElementById('cannes-days').textContent = Math.max(0, Math.round((cannes-today)/msDay)) + ' days';
+
+  // KPIs from data.json
+  document.getElementById('kpi-shipped').textContent = data.live.posts_shipped_main + ' / 93';
+  document.getElementById('kpi-dt-shipped').textContent = data.live.posts_shipped_dt + ' / 32';
+  document.getElementById('kpi-views').textContent = data.live.cumulative_views.toLocaleString();
+  document.getElementById('kpi-follow').textContent = (data.live.tt_followers - data.baselines.tt_followers_start).toLocaleString();
+  document.getElementById('kpi-viral').textContent = data.live.viral_count;
+  document.getElementById('kpi-dms').textContent = data.live.passenger_dms;
+}).catch(function(){});
+</script>
+</body>
+</html>

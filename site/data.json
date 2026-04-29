@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "version": 1,
+    "updated": "2026-04-28",
+    "comment": "Single source of truth for cross-device persistent metrics. Pages fetch this on load. Updates flow: Raquel tells Claude in chat -> Claude commits update -> live on every device."
+  },
+
+  "sprint": {
+    "start": "2026-04-30",
+    "end": "2026-05-30",
+    "cannes": "2026-05-10",
+    "prize": "2026-05-30",
+    "phase1Days": 10,
+    "phase2Days": 11,
+    "phase3Days": 10
+  },
+
+  "baselines": {
+    "tt_followers_start": 160,
+    "ig_followers_start": 209,
+    "yt_followers_start": 90,
+    "dt_tt_followers_start": 0,
+    "print_shop_takehome_weekly": 600,
+    "print_shop_takehome_monthly": 2600,
+    "survival_floor_monthly": 2165,
+    "healthcare_runway_months": 24
+  },
+
+  "live": {
+    "tt_followers": 160,
+    "ig_followers": 209,
+    "yt_followers": 90,
+    "dt_tt_followers": 0,
+    "posts_shipped_main": 0,
+    "posts_shipped_dt": 0,
+    "cumulative_views": 0,
+    "viral_count": 0,
+    "passenger_dms": 0,
+    "profile_visits": 0
+  },
+
+  "income_actuals": {
+    "may_2026": 0,
+    "jun_2026": 0,
+    "jul_2026": 0,
+    "aug_2026": 0,
+    "sep_2026": 0,
+    "oct_2026": 0,
+    "nov_2026": 0,
+    "dec_2026": 0
+  },
+
+  "brand_pipeline": [],
+  "audition_log": [],
+  "ideas": [],
+  "trends": [],
+  "backups": [],
+  "wins": []
+}

@@ -1,12 +1,15 @@
+# ===========================================================
+# Becoming Famous - .gitignore
+# ONLY the site/ folder + root index.html (redirect) are
+# pushed to GitHub. Everything else (megadocs, MD reference
+# files, Python scripts, bats, source PDFs) stays local.
+# ===========================================================
+
 # Ignore everything in this folder by default
 *
 
-# But allow these specific dashboard files
+# But keep these:
 !.gitignore
 !index.html
-!LIFE_DASHBOARD.html
-!CONTENT_DASHBOARD.html
-!CANNES_DASHBOARD.html
-!MONETIZATION_PLAN.html
-!FORMAT_TEST_PLAN.html
-!Cast_Yourself_Starter.html
+!site/
+!site/**

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Content · Idea Bank</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="content" data-page="🎬 Idea Bank"></div>
+
+<header class="hero content">
+  <h1>Idea Bank</h1>
+  <div class="sub">Quick-capture for hooks, premises, and concepts. The well of "what to film when I have time but no idea." Cross-device synced — tell me an idea in chat, I commit it.</div>
+</header>
+
+<main>
+  <div class="card lift" style="background:var(--pop3)">
+    <h3>How to use this</h3>
+    <ol style="margin:.4rem 0;padding-left:1.4rem;font-size:var(--text-sm)">
+      <li><b>When inspiration hits at the print shop or in the shower</b> — don't trust your memory. Tell me in chat: "Idea: [the thing]". I commit to data.json.</li>
+      <li><b>When you're stuck</b> on a "no idea" day, this is page #1 to open. Pick something. Film it.</li>
+      <li><b>Categorized by format type</b> so you can grab one matching today's slot type.</li>
+      <li><b>Once filmed, mark it used</b> — moves to archive. Track which ideas became which posts.</li>
+    </ol>
+  </div>
+
+  <div class="section-label mt-2">Active Ideas</div>
+  <p class="lede">Empty — start building it. The bank gets useful around 15–20 ideas.</p>
+
+  <div class="grid-2" id="ideas-grid">
+    <div class="card" style="border-style:dashed;text-align:center;padding:2rem 1rem">
+      <p class="muted">No ideas logged yet. Tell Claude in chat: <i>"Add to idea bank: [your idea] · format type: [F01/F02/etc] · note: [why]"</i></p>
+    </div>
+  </div>
+
+  <div class="section-label mt-2">Hook starter library</div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Direct Address (F01) hooks</h3>
+      <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem">
+        <li>"I just realized [thing] and now I can't unsee it"</li>
+        <li>"The thing nobody warns you about [topic]"</li>
+        <li>"I got a comment that ruined my day in the best way"</li>
+        <li>"This is going to sound unhinged but..."</li>
+        <li>"Brutal honest take time:"</li>
+        <li>"The reason I [unusual choice] is going to disappoint everyone"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>POV (F02) starters</h3>
+      <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem">
+        <li>"POV: you tell normies you're filming a Star Trek parody"</li>
+        <li>"POV: the cardboard fell mid-take and you have to keep going"</li>
+        <li>"POV: your cat walks into the shot and improves it"</li>
+        <li>"POV: you're 4 hours into editing and the algorithm doesn't care"</li>
+        <li>"POV: a Trek fan sees Discount Trek for the first time"</li>
+        <li>"POV: you discover your own format works"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Storytime (F04) starters</h3>
+      <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem">
+        <li>"The most unhinged thing happened at the print shop today..."</li>
+        <li>"I tried to [film a scene] and [chaotic thing] happened"</li>
+        <li>"A creator I admire commented on my video and I had a 4-hour spiral"</li>
+        <li>"Tell me why I almost canceled the whole sprint over [small thing]"</li>
+        <li>"The first time I tried to film Discount Trek..."</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>DT Character (F05) angles</h3>
+      <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem">
+        <li>Captain Discount logs about budget cuts on the Discount Enterprise</li>
+        <li>Captain Discount complains about prop quality (visible cardboard)</li>
+        <li>Salt Vampire has performance review concerns</li>
+        <li>Q makes a glitter mess, has to clean it (in glitter)</li>
+        <li>Captain reads aloud increasingly absurd "ship's log" entries</li>
+        <li>Bridge tour: "And this is where the cardboard meets the duct tape..."</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label mt-2">Trigger prompts (when stuck)</div>
+  <div class="card">
+    <p style="font-size:var(--text-sm);margin:.3rem 0;font-weight:700">Pick any prompt. Riff for 60 seconds. Film. Edit later.</p>
+    <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem;columns:2;column-gap:1.5rem">
+      <li>"Something I'm bad at"</li>
+      <li>"A weird thing in my apartment"</li>
+      <li>"The dumbest reason I almost gave up today"</li>
+      <li>"What happens at the print shop"</li>
+      <li>"A Trek take I'm tired of"</li>
+      <li>"The cheapest prop I've ever made"</li>
+      <li>"A comment I keep thinking about"</li>
+      <li>"Why I do the things I do"</li>
+      <li>"What my cat thinks of all this"</li>
+      <li>"The exact moment I knew this was the bit"</li>
+    </ul>
+  </div>
+</main>
+
+<footer><p>Ideas captured = ideas survived. Don't trust your memory.</p></footer>
+<script src="../nav.js"></script>
+<script>
+fetch('../data.json').then(function(r){return r.json()}).then(function(data){
+  if (data && data.ideas && data.ideas.length > 0){
+    var grid = document.getElementById('ideas-grid');
+    grid.innerHTML = data.ideas.map(function(i){
+      return '<div class="card"><div class="label">'+(i.format||'')+' · '+(i.added||'')+'</div><h3>'+(i.title||'—')+'</h3><p style="font-size:var(--text-sm);margin:.3rem 0">'+(i.note||'')+'</p>'+(i.used?'<span class="pill paid">used</span>':'<span class="pill warm">active</span>')+'</div>';
+    }).join('');
+  }
+}).catch(function(){});
+</script>
+</body>
+</html>

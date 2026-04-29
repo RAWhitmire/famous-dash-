@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Content · The Polina Arc (rebuild)</title>
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  .stage{background:var(--card);border:3px solid var(--ink);border-radius:.7rem;padding:1.2rem;box-shadow:var(--shadow);margin-bottom:1.4rem;position:relative;padding-left:5.5rem}
+  .stage .num{position:absolute;left:.8rem;top:1rem;width:3.8rem;height:3.8rem;background:var(--ink);color:var(--pop3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.05rem;border:3px solid var(--pop)}
+  .stage h2{margin:0 0 .4rem;font-size:1.15rem;font-weight:900;text-transform:uppercase}
+  .stage .lede{margin:0 0 .8rem;color:#5b4978;font-size:var(--text-sm)}
+  .vid{background:var(--card);border:3px solid var(--ink);border-radius:.7rem;padding:1.1rem;box-shadow:var(--shadow);margin-bottom:1.2rem;position:relative}
+  .vid.hero{border-color:var(--pop);background:linear-gradient(180deg,var(--pop3) 0%,var(--card) 50%)}
+  .vid.hero::before{content:"⭐ HERO";position:absolute;top:-.7rem;right:.8rem;background:var(--pop);color:var(--ink);padding:.2rem .55rem;border:2px solid var(--ink);border-radius:.35rem;font-size:.62rem;font-weight:900;letter-spacing:.06em}
+  .vid h3{margin:0 0 .3rem;font-size:1.05rem;font-weight:900;text-transform:uppercase}
+  .vid .id-strip{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.6rem}
+  .vid .id-strip .pill{background:var(--ink);color:var(--pop3);padding:.18rem .5rem;border-radius:.3rem;border:none}
+  .vid .id-strip .pill.fmt{background:var(--pop4);color:#fff}
+  .vid .id-strip .pill.arc{background:var(--pop2);color:#fff}
+  .vid .arc-line{padding:.5rem .7rem;background:var(--soft);border-left:4px solid var(--pop2);border-radius:.4rem;margin-bottom:.6rem;font-size:var(--text-sm);font-style:italic}
+  .vid .arc-line b{color:var(--pop2);text-transform:uppercase;letter-spacing:.04em;font-size:.65rem;font-style:normal;display:block;margin-bottom:.15rem}
+  .beats{display:grid;gap:.5rem}
+  .beat{display:grid;grid-template-columns:auto 1fr;gap:.7rem;padding:.5rem .65rem;background:var(--soft);border:2px solid var(--ink);border-radius:.4rem;font-size:var(--text-sm)}
+  .beat.hook{background:var(--pop3);border-color:var(--ink);border-width:3px}
+  .beat.rehook{background:#dcfce7;border-color:var(--good)}
+  .beat.climax{background:var(--soft-teal);border-color:var(--pop6);border-width:3px}
+  .beat.loop{background:#fee2e2;border-color:var(--bad)}
+  .beat .time{font-weight:900;color:var(--pop2);min-width:3rem;font-size:var(--text-xs);background:#fff;padding:.18rem .35rem;border-radius:.3rem;text-align:center;align-self:start;border:1.5px solid var(--ink)}
+  .beat .what{line-height:1.4}
+  .beat .what b{color:var(--pop2);text-transform:uppercase;letter-spacing:.04em;font-size:.65rem;display:block;margin-bottom:.15rem}
+  .qc{padding:.55rem .7rem;background:#dcfce7;border:2px solid var(--good);border-radius:.4rem;margin-top:.6rem;font-size:var(--text-xs)}
+  .qc b{color:var(--good);text-transform:uppercase;letter-spacing:.04em;font-size:.62rem;display:block;margin-bottom:.2rem}
+  .caption-row{margin-top:.6rem;padding:.55rem .7rem;background:var(--pop3);border:2px solid var(--ink);border-radius:.4rem;font-size:var(--text-sm);font-weight:700}
+  .caption-row b{color:var(--pop2);text-transform:uppercase;letter-spacing:.04em;font-size:.62rem;display:block;margin-bottom:.15rem}
+  .diagnosis{background:#fee2e2;border:3px solid var(--bad);border-radius:.7rem;padding:1rem 1.2rem;margin-bottom:1rem}
+  .diagnosis h3{margin:0 0 .4rem;color:var(--bad);font-weight:900;text-transform:uppercase;font-size:1rem}
+  .diagnosis ol{margin:.4rem 0;padding-left:1.4rem;font-size:var(--text-sm)}
+  .principle{padding:.6rem .8rem;background:var(--soft-teal);border-left:4px solid var(--pop6);border-radius:.4rem;margin:.4rem 0;font-size:var(--text-sm)}
+  .principle b{color:var(--pop4);text-transform:uppercase;letter-spacing:.04em;font-size:.65rem;display:block;margin-bottom:.15rem}
+  @media (max-width:640px){.stage{padding-left:1.1rem}.stage .num{position:static;margin-bottom:.4rem;width:2.6rem;height:2.6rem}}
+</style>
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="content" data-page="🎬 Polina Arc Rebuild"></div>
+
+<header class="hero content">
+  <h1>The Polina Arc · Full Rebuild</h1>
+  <div class="sub">Originals were weak — flat, narrated, no emotional variety, no rehooks. This rebuild ships through the full pipeline: trend research → diagnosis → strategy → ideation → hooks → scripts → QC. 6 new videos that replace M04 / M14 / M27 / M55 / M77 / M92.</div>
+</header>
+
+<main>
+
+<!-- ===== STAGE 1: TREND RESEARCH ===== -->
+<div class="stage">
+  <div class="num">01</div>
+  <h2>Trend Research · 2026</h2>
+  <p class="lede">What the algorithm is rewarding right now — direct from current creator-economy reporting.</p>
+  <ul style="font-size:var(--text-sm);margin:.4rem 0;padding-left:1.1rem">
+    <li><b>70% completion rate</b> is the new viral threshold (up from 50% in 2024). Sub-30s videos need 50%+ avg watch time minimum.</li>
+    <li><b>Steepest drop-off = first 3 seconds.</b> The hook is everything. Visual motion + curiosity gap + pattern interrupt all firing simultaneously.</li>
+    <li><b>Pattern interrupts every 3–5 seconds</b> — text overlays, cuts, camera angle shifts, B-roll inserts. Static talking heads die.</li>
+    <li><b>Mid-video rehooks at 15s and 30s</b> reset attention. Without them, drop-off accelerates after 12s.</li>
+    <li><b>Last 2 seconds should drive rewatch</b> — loop ending, cliffhanger, or pattern that makes people watch again to "get" it.</li>
+    <li><b>Watch time + saves &gt; likes</b> for algorithmic distribution. Saves are the strongest single signal.</li>
+    <li><b>2026 audience preference: unfiltered, vulnerable, BTS</b> over polished/curated. Realism beats romanticism.</li>
+    <li><b>Best-performing arc:</b> problem → journey → solution in &lt;30s. Micro-narratives crush macro-narratives.</li>
+    <li><b>"Unexpected Response" trend</b> (Charli XCX Boom Clap) is hot — text flip from setup to a surprising reply. Universal-feeling micro-moments outperform big-stakes content.</li>
+  </ul>
+</div>
+
+<!-- ===== STAGE 2: DIAGNOSIS OF ORIGINALS ===== -->
+<div class="stage">
+  <div class="num">02</div>
+  <h2>Diagnosis · Why the Originals Were Weak</h2>
+  <div class="diagnosis">
+    <h3>10 problems across M04 / M14 / M27 / M55 / M77 / M92</h3>
+    <ol>
+      <li><b>Telling, not showing.</b> "I'm still applying the note" instead of seeing the application.</li>
+      <li><b>No emotional arc per video.</b> They're flat. No problem→journey→solution within each one.</li>
+      <li><b>No rehook at 15s/30s.</b> ~30s of monotone narration = drop-off after second 12.</li>
+      <li><b>Captions described, didn't tease.</b> "Three before/after hooks" isn't visceral.</li>
+      <li><b>Polina is undefined.</b> Viewers don't know who she is, what's at stake, why her opinion matters.</li>
+      <li><b>No pattern interrupts.</b> Same shot type, same energy, same vibe across the arc.</li>
+      <li><b>The "heart react" visual is buried.</b> Should be the hook — was the mid-video moment.</li>
+      <li><b>Context-dependent.</b> Viewer needed to have seen M04 to understand M14, M27, M55. Each video should stand alone.</li>
+      <li><b>Rational instead of emotional.</b> No fear, no rage, no triumph, no exhaustion. Just "applying notes" repeatedly.</li>
+      <li><b>Repetitive structure.</b> "X days ago Polina said something. I'm still applying it." 6 times in a row.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ===== STAGE 3: STRATEGIC FRAMING ===== -->
+<div class="stage">
+  <div class="num">03</div>
+  <h2>Strategic Framing · The Rebuild</h2>
+  <p class="lede">Six core principles the rebuilt arc follows — every video must satisfy all six.</p>
+  <div class="principle"><b>Principle 1 · Episodic but standalone</b>Each video plays cleanly to a first-time viewer. No "remember when Polina..." — assume they don't. Open with stakes that reset.</div>
+  <div class="principle"><b>Principle 2 · Emotionally varied</b>Each video has its own emotional center: shock, fear, growth, vindication, setback, vulnerability, gratitude. No two videos hit the same note.</div>
+  <div class="principle"><b>Principle 3 · Show, don't narrate</b>Visible artifacts in every video — phone screens, analytics, before/after, drafts. The "applying" must be physical, not described.</div>
+  <div class="principle"><b>Principle 4 · Polina as character</b>She's a phone screen, but she has weight. Her message in a specific font/timestamp. Her heart-react animating. She's a presence, not a name.</div>
+  <div class="principle"><b>Principle 5 · Format-varied</b>Six different formats across six videos: F04 Storytime, F03 Trend Remix, F04 Storytime, F11 Tutorial, F04+F09 Sketch hybrid, F01 Direct Address. Different shapes = different audiences.</div>
+  <div class="principle"><b>Principle 6 · Rehook structure baked in</b>Every video has hook (0-3s) + rehook 1 (5-15s) + rehook 2 (15-25s) + climax (25-40s) + loop hook (final 2s). 70% completion is the gate.</div>
+</div>
+
+<!-- ===== STAGE 4-6: THE 6 NEW VIDEOS ===== -->
+<div class="stage">
+  <div class="num">04</div>
+  <h2>Ideation + Hooks + Scripts + QC · 6 New Videos</h2>
+  <p class="lede">Each video shown with: arc · format · beat-by-beat script with timing · caption · QC checklist.</p>
+
+  <!-- M04 NEW -->
+  <div class="vid hero">
+    <div class="id-strip">
+      <span class="pill">M04 (replaces original M04)</span>
+      <span class="pill arc">SHOCK → FEAR → ACTION</span>
+      <span class="pill fmt">F04 Storytime</span>
+    </div>
+    <h3>"She Typed 3 Words. 68 of Us Watched."</h3>
+    <div class="arc-line"><b>Emotional arc</b>Universal phone-screen panic → realization of public stakes → real-time response. Shock at 0:00, fear at 0:08, action at 0:25.</div>
+    <div class="beats">
+      <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>Phone close-up. Group chat thread visible. We see "Polina" typing dots animating. <b>No verbal.</b> Three words appear: "Your hook is generic." Pattern interrupt: 67 other typing-bubbles flash up simultaneously around the message.</div></div>
+      <div class="beat rehook"><div class="time">3–8s</div><div class="what"><b>Rehook 1 · Stakes flash</b>Cut to face — caught off guard mid-bite of dinner. Voiceover: "Polina is the Cannes selector. 68 of us were in the chat reading hooks tonight. Mine just got pulverized in front of all of them."</div></div>
+      <div class="beat rehook"><div class="time">8–18s</div><div class="what"><b>Rehook 2 · The clock</b>Cut back to phone. Three reactions are appearing in real time: 🔥 from one competitor, 👀 from another, silence from most. Voiceover: "I had three minutes to reply or look like I couldn't take it. Three minutes is not enough time to figure out who you want to be."</div></div>
+      <div class="beat climax"><div class="time">18–32s</div><div class="what"><b>Climax · The reply</b>Cut to Raquel typing — fast. We see the new hook line forming on screen: <i>"Same hook. Different verb. 'I sprinted out of acting' instead of 'I tried to leave acting.'"</i> She hits send. The heart react from Polina animates in. Cut to Raquel's face — slight smile, eyes watering.</div></div>
+      <div class="beat loop"><div class="time">32–40s</div><div class="what"><b>Loop hook</b>Cut to next morning. New video on her phone screen. Same hook applied to a totally different topic. "She didn't ask me to apply it everywhere. I did anyway." → cut to black. (Sets up M14.)</div></div>
+    </div>
+    <div class="caption-row"><b>📲 Caption (tease)</b>Polina is a Cannes selector. She typed three words to 68 of us. I had three minutes to reply. Watch what I sent back at second 32. 💔→🩷</div>
+    <div class="qc"><b>QC checklist</b>✅ Hook visual + curiosity in 0-3s · ✅ Rehook 1 at 5-8s (face cut + voiceover) · ✅ Rehook 2 at 15-18s (real-time reactions) · ✅ Climax artifact (the actual reply on screen) · ✅ Loop hook drives rewatch + sets up next video · ✅ 40s total = needs 28s avg watch (70%) — achievable with this density · ✅ Saves bait (the "same hook different verb" lesson is screenshot-able)</div>
+  </div>
+
+  <!-- M14 NEW -->
+  <div class="vid">
+    <div class="id-strip">
+      <span class="pill">M14 (replaces original M14)</span>
+      <span class="pill arc">EFFORT → GROWTH → UNCERTAINTY</span>
+      <span class="pill fmt">F03 Trend Remix · "show your work"</span>
+    </div>
+    <h3>"4 Hooks Since Polina. Rate Them."</h3>
+    <div class="arc-line"><b>Emotional arc</b>Visible labor: not just claiming growth, displaying it. Audience becomes the judge. Ends on uncertainty inviting comments.</div>
+    <div class="beats">
+      <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>Title card snap: "4 hooks since Polina said mine was generic." Trending sound: "show your work" remix. v1 hook flashes on screen with view count: 480 views.</div></div>
+      <div class="beat rehook"><div class="time">3–10s</div><div class="what"><b>Rehook 1 · Show v2</b>v2 flashes on screen: 1.2K views. Pattern interrupt: red "STILL GENERIC" stamp animates over it.</div></div>
+      <div class="beat rehook"><div class="time">10–20s</div><div class="what"><b>Rehook 2 · Show v3</b>v3 hook on screen: 3.8K views. Green "GETTING THERE" stamp.</div></div>
+      <div class="beat climax"><div class="time">20–32s</div><div class="what"><b>Climax · v4</b>v4 hook on screen: paused at "going up tonight." Direct address: "Watching her note in real time. Tell me which one you'd save."</div></div>
+      <div class="beat loop"><div class="time">32–35s</div><div class="what"><b>Loop hook</b>Cut to a fifth hook draft scrolling past — purposely hidden. "v5 is the one she'd hate. Comment which one I should send."</div></div>
+    </div>
+    <div class="caption-row"><b>📲 Caption (tease)</b>v1 was generic. v4 is going up tonight. v5 would make her quit me. Tell me which one to send 👀</div>
+    <div class="qc"><b>QC checklist</b>✅ Trend remix uses recognizable framework (show your work) · ✅ Hook in 0-3s with labeled v1 · ✅ Rehook every 7-10s with new hook + new stamp · ✅ Audience invitation (rate them) drives comments · ✅ Climax = visible pause moment · ✅ Loop hook teases v5 you didn't show · ✅ 35s total = high density, 50% avg watch achievable · ✅ Saves bait (the v1→v4 progression is reference-worthy)</div>
+  </div>
+
+  <!-- M27 NEW -->
+  <div class="vid">
+    <div class="id-strip">
+      <span class="pill">M27 (replaces original M27)</span>
+      <span class="pill arc">CONFUSION → REALIZATION → VINDICATION</span>
+      <span class="pill fmt">F04 Storytime · plot-twist structure</span>
+    </div>
+    <h3>"I Became Polina At The Print Shop Today."</h3>
+    <div class="arc-line"><b>Emotional arc</b>Universal "you've become the thing you feared" reveal. Confusion at 0:03, realization at 0:18, vindication at 0:30.</div>
+    <div class="beats">
+      <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>Tight on Raquel mid-sentence at the print shop counter. Eyes flick. "Wait." Pattern interrupt: hard cut to print-shop counter B-roll.</div></div>
+      <div class="beat rehook"><div class="time">3–12s</div><div class="what"><b>Rehook 1 · The story sets up</b>"Customer drops off a flyer. Says 'fix the headline, it's boring.' I read the headline. Open my mouth to suggest something."</div></div>
+      <div class="beat rehook"><div class="time">12–22s</div><div class="what"><b>Rehook 2 · The realization</b>Cut to Raquel's face — wide eyes. "I just told a stranger her headline was generic. About a fucking flyer for a yoga studio. I'm Polina now."</div></div>
+      <div class="beat climax"><div class="time">22–35s</div><div class="what"><b>Climax · Side by side</b>Cut to Raquel back home, holding her old M01 hook script next to the customer's flyer. Both have red marks on them. Voiceover: "Eight days ago I was generic. Today I made someone else generic. The note metastasized."</div></div>
+      <div class="beat loop"><div class="time">35–38s</div><div class="what"><b>Loop hook</b>"Now I'm a Polina to everyone. The yoga studio is going to be fine." Cut to black on a smile.</div></div>
+    </div>
+    <div class="caption-row"><b>📲 Caption (tease)</b>Customer asked me to fix her flyer. I caught myself doing exactly what Polina did to me. To a stranger. About yoga. Wait for the side-by-side at second 22. 🪞</div>
+    <div class="qc"><b>QC checklist</b>✅ Story arc full (problem → realization → vindication) · ✅ "Wait" cliffhanger hook in 0-3s · ✅ Rehook 1 = setup tension · ✅ Rehook 2 = the twist (becoming Polina) · ✅ Climax artifact (side-by-side red marks) · ✅ Loop hook = irony + smile · ✅ 38s = 27s avg watch achievable · ✅ Universal feeling (becoming what you feared) drives shares</div>
+  </div>
+
+  <!-- M55 NEW -->
+  <div class="vid">
+    <div class="id-strip">
+      <span class="pill">M55 (replaces original M55)</span>
+      <span class="pill arc">CONFIDENCE → SETBACK → COUNTER-INTUITIVE INSIGHT</span>
+      <span class="pill fmt">F11 Tutorial · contrarian receipt</span>
+    </div>
+    <h3>"3 Weeks Of Polina's Note. Views Up. Engagement Down."</h3>
+    <div class="arc-line"><b>Emotional arc</b>Bold contrarian claim → data drop → unexpected lesson. Inverts the "applied feedback wins" trope.</div>
+    <div class="beats">
+      <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>Direct address. "I applied Polina's note for 3 weeks. View counts went UP. Engagement DROPPED." Hard text overlay flashing both numbers.</div></div>
+      <div class="beat rehook"><div class="time">3–12s</div><div class="what"><b>Rehook 1 · Data drop</b>Cut to phone analytics screen. Views graph climbing. Comments graph dropping. Side-by-side. "Same content. Sharper hooks. Worse community."</div></div>
+      <div class="beat rehook"><div class="time">12–22s</div><div class="what"><b>Rehook 2 · The why</b>Cut to face. "Sharp hooks make people watch. They don't make people FEEL anything. Polina's note made me transactional."</div></div>
+      <div class="beat climax"><div class="time">22–35s</div><div class="what"><b>Climax · The counter-move</b>"Day 22. I'm bringing the messy back. Watch what I post tonight." Cut to a screen recording of her drafting a hook with "this is going to be embarrassing" instead of polished.</div></div>
+      <div class="beat loop"><div class="time">35–38s</div><div class="what"><b>Loop hook</b>"The third hook I'm posting tonight is the one she'd hate. I'm posting it anyway." Cut to black.</div></div>
+    </div>
+    <div class="caption-row"><b>📲 Caption (tease)</b>Sharper hooks. More views. Less feeling. The note worked AND broke me. Watch the post she'd hate at second 35. 📈📉</div>
+    <div class="qc"><b>QC checklist</b>✅ Counter-intuitive hook in 0-3s (contrarian = scroll-stop) · ✅ Data visible (analytics screenshot) · ✅ Rehook 1 = the conflict · ✅ Rehook 2 = the why · ✅ Climax = action (posting tonight) · ✅ Loop hook = teasing the next post · ✅ 38s = strong saves potential (the "sharp ≠ feeling" insight is screenshot-worthy) · ✅ Polina shows up by name AND as a force without needing prior context</div>
+  </div>
+
+  <!-- M77 NEW -->
+  <div class="vid">
+    <div class="id-strip">
+      <span class="pill">M77 (replaces original M77)</span>
+      <span class="pill arc">ANTICIPATION → ACTION → SUSPENSE</span>
+      <span class="pill fmt">F04 Storytime + F09 Sketch elements</span>
+    </div>
+    <h3>"I Sent Polina The Receipt."</h3>
+    <div class="arc-line"><b>Emotional arc</b>Anticipation → vulnerability of sending → suspense of waiting. Cliffhanger ending sets up final video.</div>
+    <div class="beats">
+      <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>Phone in hand, finger HOVERING over Send button. "Today I sent Polina the proof of 27 days of work."</div></div>
+      <div class="beat rehook"><div class="time">3–13s</div><div class="what"><b>Rehook 1 · The message</b>Cut to draft on screen. Multiple paragraphs visible. We can read parts: "Hi Polina. 27 days ago you told me my hook was generic. Here are 14 hooks since. Here's what I learned about myself."</div></div>
+      <div class="beat rehook"><div class="time">13–22s</div><div class="what"><b>Rehook 2 · The doubt</b>Cut to Raquel's face — finger still hovering. "I almost didn't send it. The note was free. The receipt is choosing to be seen on purpose."</div></div>
+      <div class="beat climax"><div class="time">22–32s</div><div class="what"><b>Climax · The send</b>Slow-mo finger pressing Send. The whoosh sound. Cut to her staring at the phone. Three typing dots appear. Then disappear. Then appear again.</div></div>
+      <div class="beat loop"><div class="time">32–35s</div><div class="what"><b>Loop hook</b>Black frame. White text: "She replied. Pinned it. Watch the next video."</div></div>
+    </div>
+    <div class="caption-row"><b>📲 Caption (tease)</b>27 days ago Polina pulverized me. Today I sent her the receipt. The typing dots came back twice. Wait for second 32. 📱</div>
+    <div class="qc"><b>QC checklist</b>✅ Suspense hook in 0-3s (finger hovering) · ✅ Rehook 1 = readable artifact (the message) · ✅ Rehook 2 = vulnerability beat · ✅ Climax = visible action + visceral typing-dots reveal · ✅ Loop hook = explicit cliffhanger setting up M92 · ✅ 35s = high suspense, watch-through likely · ✅ Saves bait (the "choosing to be seen" line is quotable) · ✅ Sets up M92 with the "she replied" tease</div>
+  </div>
+
+  <!-- M92 NEW -->
+  <div class="vid hero">
+    <div class="id-strip">
+      <span class="pill">M92 (replaces original M92)</span>
+      <span class="pill arc">GRATITUDE → VULNERABILITY → INVITATION</span>
+      <span class="pill fmt">F01 Direct Address · soft-eye-contact intimate</span>
+    </div>
+    <h3>"Polina, If You're Watching."</h3>
+    <div class="arc-line"><b>Emotional arc</b>Direct address with intimate energy. Different vibe than the rest of the arc — quiet, slow, eye contact held. The closing beat of the entire 31-day sprint.</div>
+    <div class="beats">
+      <div class="beat hook"><div class="time">0:00–3s</div><div class="what"><b>Hook · Visual</b>Direct to camera. Soft window light. Different energy from every other video. "Polina, if you're watching." Hold eye contact. Don't blink.</div></div>
+      <div class="beat rehook"><div class="time">3–12s</div><div class="what"><b>Rehook 1 · The admission</b>Slight pause. "31 days ago you sent a message that pulverized me in front of 68 people. I cried in the print shop bathroom that afternoon. I never told you."</div></div>
+      <div class="beat rehook"><div class="time">12–22s</div><div class="what"><b>Rehook 2 · The reframe</b>"It was the best thing anyone has done for my career. Not because the note was right — because I had to find out if I could take it. I could."</div></div>
+      <div class="beat climax"><div class="time">22–35s</div><div class="what"><b>Climax · The thanks</b>"The next 31 days are because of yours. I'm doing them whether or not Cannes happens. Whether or not anyone watches. The note is the gift."</div></div>
+      <div class="beat loop"><div class="time">35–38s</div><div class="what"><b>Loop hook</b>"Pinned this video for whoever needs it." Slight smile. Hold. Cut.</div></div>
+    </div>
+    <div class="caption-row"><b>📲 Caption (tease)</b>Polina, if you're watching. I cried in the print shop bathroom that afternoon and I never told you. Pin this for whoever needs it. 🤍</div>
+    <div class="qc"><b>QC checklist</b>✅ Pattern interrupt = SOFT energy hook (different from sprint's hard energy) · ✅ Direct address with held eye contact = intimate retention pull · ✅ Rehook 1 = vulnerability admission (print shop bathroom) · ✅ Rehook 2 = reframe (note isn't gift, taking it is) · ✅ Climax = forward-looking gratitude · ✅ Loop hook = pinned-video suggestion = drives saves · ✅ 38s = strong watch-through (intimate content holds) · ✅ Closes the arc emotionally (connects to M04's heart-react)</div>
+  </div>
+
+</div>
+
+<!-- ===== STAGE 5: ARC OVERVIEW ===== -->
+<div class="stage">
+  <div class="num">05</div>
+  <h2>The 6-Video Arc · Emotional Map</h2>
+  <p class="lede">Each video hits a different emotional note. Together they form a complete narrative without requiring viewers to watch all 6 — but rewarding those who do with a compounding payoff.</p>
+  <div class="grid-2">
+    <div class="card"><h3>M04 → Shock + Action</h3><p style="font-size:var(--text-sm)">Day 2 of sprint. The pulverization itself, in real time. Establishes Polina, stakes, response.</p></div>
+    <div class="card"><h3>M14 → Effort + Uncertainty</h3><p style="font-size:var(--text-sm)">Day 5. Audience-as-judge. Show your work. Invites comments + saves.</p></div>
+    <div class="card"><h3>M27 → Realization + Vindication</h3><p style="font-size:var(--text-sm)">Day 9. The "I became Polina" plot twist. Universal feeling drives shares.</p></div>
+    <div class="card"><h3>M55 → Setback + Insight</h3><p style="font-size:var(--text-sm)">Day 19. Counter-intuitive reveal. Sharper ≠ better. Bringing messy back.</p></div>
+    <div class="card"><h3>M77 → Anticipation + Cliffhanger</h3><p style="font-size:var(--text-sm)">Day 26. Sending the receipt. Sets up M92's payoff.</p></div>
+    <div class="card"><h3>M92 → Gratitude + Vulnerability</h3><p style="font-size:var(--text-sm)">Day 31. The closing letter. Different energy. Pinned forever.</p></div>
+  </div>
+</div>
+
+<!-- ===== STAGE 6: FINAL QC ===== -->
+<div class="stage">
+  <div class="num">06</div>
+  <h2>Final QC · Retention Audit</h2>
+  <p class="lede">Every video tested against the 70% completion gate.</p>
+  <table class="tbl">
+    <thead>
+      <tr><th>Video</th><th>Length</th><th>Hooks</th><th>Rehooks</th><th>Climax</th><th>Loop</th><th>Pass</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>M04</b></td><td>40s</td><td>0:00 phone+typing</td><td>0:08 / 0:18</td><td>0:25 reply send</td><td>0:32 next-day tease</td><td>✅</td></tr>
+      <tr><td><b>M14</b></td><td>35s</td><td>0:00 v1 reveal</td><td>0:10 v2 / 0:20 v3</td><td>0:30 v4 paused</td><td>0:32 v5 hidden</td><td>✅</td></tr>
+      <tr><td><b>M27</b></td><td>38s</td><td>0:00 'wait' moment</td><td>0:08 setup / 0:18 twist</td><td>0:28 side-by-side</td><td>0:35 ironic smile</td><td>✅</td></tr>
+      <tr><td><b>M55</b></td><td>38s</td><td>0:00 contrarian claim</td><td>0:10 data / 0:18 why</td><td>0:30 counter-move</td><td>0:35 next-post tease</td><td>✅</td></tr>
+      <tr><td><b>M77</b></td><td>35s</td><td>0:00 finger hovering</td><td>0:08 message / 0:18 doubt</td><td>0:25 send + dots</td><td>0:32 'she replied'</td><td>✅</td></tr>
+      <tr><td><b>M92</b></td><td>38s</td><td>0:00 soft direct</td><td>0:08 admission / 0:18 reframe</td><td>0:28 thanks</td><td>0:35 pinned</td><td>✅</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card lift mt-2" style="background:var(--ink);color:var(--pop3)">
+    <h3 style="color:var(--pop3)">What's left to decide</h3>
+    <ol style="font-size:var(--text-sm);padding-left:1.4rem">
+      <li><b>Is "Polina" her real name + story</b>, or are we using her as a composite character? (Affects how careful we need to be with screenshots.)</li>
+      <li><b>The print-shop-bathroom-cry detail in M92</b> — is it true and you're comfortable saying it on camera, or do we soften?</li>
+      <li><b>M27's print-shop yoga flyer story</b> — true, embellished, or fully invented for the bit?</li>
+      <li><b>Bring the messy back angle in M55</b> — are you actually willing to post a "she'd hate this" post for the bit, or is it framing only?</li>
+    </ol>
+    <p style="font-size:var(--text-sm);margin-top:.5rem">All four can be true OR framed creatively. Your call. Tell me which and I'll update the megadoc + commit to data.json.</p>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <p>Trend research → Diagnosis → Strategy → Ideation → Hooks → Scripts → QC. Each stage shown.</p>
+  <p>Updated megadoc rolls live once you sign off on the four open questions above.</p>
+</footer>
+
+<script src="../nav.js"></script>
+</body>
+</html>
