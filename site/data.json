@@ -1,7 +1,7 @@
 {
   "_meta": {
     "version": 1,
-    "updated": "2026-04-28",
+    "updated": "2026-04-29",
     "comment": "Single source of truth for cross-device persistent metrics. Pages fetch this on load. Updates flow: Raquel tells Claude in chat -> Claude commits update -> live on every device."
   },
 
@@ -52,7 +52,15 @@
 
   "brand_pipeline": [],
   "audition_log": [],
-  "ideas": [],
+  "ideas": [
+    {
+      "format": "F01",
+      "added": "2026-04-29",
+      "title": "I can't function if I'm not making something",
+      "note": "<b>Thesis:</b> Creating isn't a hobby for her — it's regulation. When she stops making, the upset has nowhere to go and everything gets louder. The video probes the WHY: what changes between 'consuming' and 'creating,' between writing in a journal and performing for a camera.<br><br><b>Angles (pick one or stack):</b><br>1) Consume vs create — scrolling for hours makes everything heavier; making one mediocre video makes it lift. Why?<br>2) Perform vs journal — writing it down doesn't move it. She specifically needs the camera, the take, the watching it back. The performance is the load-bearing part.<br>3) The outlet question — what does an unprocessed feeling actually do when it has nowhere to land? Apparently it just sits on you until you put it somewhere.<br><br><b>Hook lines:</b><br>· I figured out why I was miserable for months. It's embarrassing.<br>· Apparently I have to be performing or I fall apart. Cool, normal discovery to make at 23.<br>· I can't function if I'm not making something. Let me explain why.<br>· Stuck and upset for months. Started filming again. Mood: completely different. We're going to figure out why on camera.<br><br><b>Why it hooks wide:</b> 'I'm only okay when I'm making something' is a feeling a lot of people half-have but can't name — taps the consume-vs-create exhaustion without sounding like a productivity sermon.",
+      "used": false
+    }
+  ],
   "trends": [],
   "backups": [],
   "wins": []
