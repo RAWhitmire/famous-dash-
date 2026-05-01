@@ -40,27 +40,12 @@
       {label:'Chores', url:'life/chores.html'},
       {label:'Acting Practice', url:'life/acting.html'}
     ]},
-    {key:'content', label:'Strategy', url:'content/index.html', depth:0, color:'pop6', children:[
-      {label:'📍 Today + KPIs', url:'content/index.html'},
-      {label:'— Filming —', url:'content/phase-1-scripts.html'},
-      {label:'📄 Filming Materials Index', url:'content/phase-1-scripts.html'},
-      {label:'— Scheduling —', url:'content/calendar.html'},
-      {label:'Sprint Calendar', url:'content/calendar.html'},
-      {label:'Posting Strategy', url:'content/posting-strategy.html'},
-      {label:'Filming Days', url:'content/filming.html'},
-      {label:'Get Ahead Plan', url:'content/ahead.html'},
-      {label:'Contingency', url:'content/contingency.html'},
-      {label:'Backup Bank', url:'content/backup.html'},
-      {label:'Analytics', url:'content/analytics.html'},
-      {label:'— Reference —', url:'content/production-playbook.html'},
+    {key:'content', label:'Reference', url:'content/index.html', depth:0, color:'pop6', children:[
+      {label:'Reference index', url:'content/index.html'},
+      {label:'Foundation v1.2', url:'foundation.html'},
       {label:'Production Playbook', url:'content/production-playbook.html'},
-      {label:'Polina Arc', url:'content/polina-arc.html'},
-      {label:'Per-Post Card Spec', url:'content/posts.html'},
-      {label:'Hook Templates', url:'content/scripts.html'},
-      {label:'Discount Trek', url:'content/dt.html'},
-      {label:'Idea Bank', url:'content/ideas.html'},
-      {label:'Trend Log', url:'content/trends.html'},
-      {label:'IG Plays', url:'content/ig-plays.html'}
+      {label:'Format Library', url:'formats/library.html'},
+      {label:'Polina Arc', url:'content/polina-arc.html'}
     ]},
     {key:'money', label:'Money', url:'money/index.html', depth:0, color:'pop', children:[
       {label:'Overview + Quit Math', url:'money/index.html'},
@@ -76,10 +61,7 @@
     ]},
     {key:'formats', label:'Formats', url:'formats/index.html', depth:0, color:'pop4', children:[
       {label:'Method', url:'formats/index.html'},
-      {label:'15-Format Library', url:'formats/library.html'},
-      {label:'D1–D10 Sprint Plan', url:'formats/sprint-plan.html'},
-      {label:'Performance Tracker', url:'formats/tracker.html'},
-      {label:'Day 10 Decision', url:'formats/decision.html'}
+      {label:'15-Format Library', url:'formats/library.html'}
     ]}
   ];
 

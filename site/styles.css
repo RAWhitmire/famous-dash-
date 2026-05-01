@@ -57,17 +57,17 @@
   --text-3xl:2.75rem;
   --text-hero:4rem;            /* 64px display */
 
-  /* Spacing — very generous */
+  /* Spacing — comfortable but not airy */
   --s-1:.25rem;
   --s-2:.5rem;
-  --s-3:.75rem;
-  --s-4:1rem;
-  --s-5:1.5rem;
-  --s-6:2rem;
-  --s-7:3rem;
-  --s-8:4.5rem;
-  --s-9:7rem;
-  --s-10:10rem;
+  --s-3:.625rem;
+  --s-4:.875rem;
+  --s-5:1.25rem;
+  --s-6:1.625rem;
+  --s-7:2.25rem;
+  --s-8:3rem;
+  --s-9:4rem;
+  --s-10:5.5rem;
 
   /* Spacing aliases for legacy markup */
   --space-1:var(--s-1);
@@ -164,7 +164,7 @@ nav.site-nav select.section-jump{border-color:var(--accent)}
 header.hero{
   background:transparent;
   color:var(--ink);
-  padding:var(--s-9) var(--s-5) var(--s-8);
+  padding:var(--s-7) var(--s-5) var(--s-6);
   border-bottom:1px solid var(--rule);
   position:relative;
 }
@@ -175,13 +175,13 @@ header.hero .eyebrow{
   text-transform:uppercase;
   letter-spacing:.18em;
   color:var(--ink-quiet);
-  margin-bottom:var(--s-5);
+  margin-bottom:var(--s-3);
   display:inline-block;
 }
 header.hero h1{
   font-family:var(--font-display);
   font-size:var(--text-hero);
-  margin:0 0 var(--s-5);
+  margin:0 0 var(--s-3);
   font-weight:400;
   letter-spacing:-.025em;
   line-height:1.02;
@@ -210,13 +210,13 @@ header.hero.life::after,header.hero.content::after,header.hero.money::after,head
 main{
   max-width:720px;
   margin:0 auto;
-  padding:var(--s-8) var(--s-5);
+  padding:var(--s-6) var(--s-5);
 }
 main.wide{max-width:980px}
 main.narrow{max-width:600px}
 
 @media (min-width:1024px){
-  main{padding:var(--s-9) var(--s-5)}
+  main{padding:var(--s-7) var(--s-5)}
 }
 
 /* ===== HEADINGS ===== */
@@ -226,7 +226,7 @@ main.narrow{max-width:600px}
   text-transform:uppercase;
   letter-spacing:.16em;
   color:var(--ink-quiet);
-  margin:var(--s-8) 0 var(--s-4);
+  margin:var(--s-6) 0 var(--s-3);
   padding-bottom:var(--s-2);
   border-bottom:1px solid var(--rule);
 }
@@ -498,8 +498,8 @@ footer a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--
   font-weight:400;
   color:var(--ink);
   border:none;
-  padding:var(--s-6) 0;
-  margin:var(--s-7) 0;
+  padding:var(--s-4) 0;
+  margin:var(--s-5) 0;
   max-width:50ch;
   line-height:1.4;
   letter-spacing:-.01em;
@@ -508,14 +508,14 @@ footer a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--
 .pullquote::before{
   content:"";
   display:block;
-  width:48px;
+  width:40px;
   height:2px;
   background:var(--accent);
-  margin-bottom:var(--s-4);
+  margin-bottom:var(--s-3);
 }
 .pullquote cite{
   display:block;
-  margin-top:var(--s-3);
+  margin-top:var(--s-2);
   font-style:normal;
   font-family:var(--font-sans);
   font-size:var(--text-xs);
