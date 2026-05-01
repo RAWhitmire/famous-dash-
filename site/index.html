@@ -4,8 +4,28 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
 <title>Becoming Famous</title>
-<link rel="stylesheet" href="styles.css?v=18" />
+<meta name="description" content="A personal working document for the work, the schedule, and the long arc. By Raquel Whitmire." />
+
+<!-- Favicon (inline SVG, gold square with serif italic B) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23b88f1d'/><text x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='500' font-size='22' fill='%23fbf8f1'>B</text></svg>" />
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23b88f1d'/><text x='90' y='130' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='500' font-size='124' fill='%23fbf8f1'>B</text></svg>" />
+<meta name="theme-color" content="#b88f1d" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Becoming Famous" />
+<meta property="og:description" content="A personal working document. Voice, life rhythm, money plan, the long arc." />
+<meta property="og:url" content="https://rawhitmire.github.io/famous-dash-/" />
+<meta property="og:site_name" content="Becoming Famous" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Becoming Famous" />
+<meta name="twitter:description" content="A personal working document. Voice, life rhythm, money plan, the long arc." />
+
+<link rel="stylesheet" href="styles.css?v=19" />
 <style>
   /* Homepage two-column on desktop */
   .home-grid{
@@ -75,64 +95,6 @@
     .day-overview dt{grid-column:auto;align-self:baseline;margin:0;padding-top:.18rem}
     .day-overview dd{grid-column:auto;margin:0 0 var(--s-3)}
   }
-
-  /* Footer (richer) */
-  footer.site-footer{
-    background:transparent;
-    border-top:1px solid var(--rule);
-    margin-top:var(--s-9);
-    padding:var(--s-7) var(--s-5) var(--s-6);
-    color:var(--ink-muted);
-    font-size:var(--text-sm);
-    text-align:left;
-  }
-  footer.site-footer .ft-inner{max-width:960px;margin:0 auto}
-  footer.site-footer .ft-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:var(--s-5);
-    margin-bottom:var(--s-6);
-  }
-  footer.site-footer h4{
-    font-family:var(--font-sans);
-    font-size:var(--text-xs);
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:.14em;
-    color:var(--ink-quiet);
-    margin:0 0 var(--s-3);
-  }
-  footer.site-footer ul{list-style:none;padding:0;margin:0}
-  footer.site-footer li{margin:var(--s-2) 0}
-  footer.site-footer li a{
-    color:var(--ink);
-    text-decoration:none;
-    font-size:var(--text-sm);
-    transition:color var(--motion-fast) var(--ease-out);
-  }
-  footer.site-footer li a:hover{color:var(--accent)}
-  footer.site-footer .ft-bottom{
-    border-top:1px solid var(--rule);
-    padding-top:var(--s-4);
-    display:flex;
-    flex-wrap:wrap;
-    gap:var(--s-3);
-    justify-content:space-between;
-    align-items:baseline;
-    color:var(--ink-quiet);
-    font-size:var(--text-xs);
-  }
-  footer.site-footer .ft-thesis{
-    font-family:var(--font-display);
-    font-style:italic;
-    font-size:var(--text-md);
-    color:var(--ink);
-    max-width:54ch;
-    line-height:1.5;
-    margin:0 0 var(--s-5);
-    border-left:2px solid var(--accent);
-    padding-left:var(--s-4);
-  }
 </style>
 </head>
 <body>
@@ -148,6 +110,17 @@
 </header>
 
 <main class="wide">
+
+  <!-- GUMBALL — random 3 wins, refresh for more -->
+  <section class="gumball-section" id="gumball-section">
+    <div class="gum-eyebrow">
+      <span class="gum-title"><em>Gumball</em> · three random wins · refresh for more</span>
+      <button class="gum-refresh" onclick="location.reload()" type="button" title="Pull again">↻ pull</button>
+    </div>
+    <div id="gumball">
+      <p class="muted" style="font-size:var(--text-sm);grid-column:1/-1;margin:0">Loading…</p>
+    </div>
+  </section>
 
   <div class="home-grid">
 
@@ -172,56 +145,16 @@
       <span class="col-eyebrow">Sections</span>
       <h2 class="col-h">The <em>working</em> set.</h2>
       <ul class="link-list" style="margin-top:var(--s-3)">
-        <li><a href="now.html">
-          <span class="ll-title">Now</span>
-          <span class="ll-desc">What I'm focused on this month.</span>
-          <span class="ll-arrow">→</span>
-        </a></li>
-        <li><a href="life/index.html">
-          <span class="ll-title">Life</span>
-          <span class="ll-desc">Day-shape, weekly rhythm, meals, sleep, chores, acting.</span>
-          <span class="ll-arrow">→</span>
-        </a></li>
-        <li><a href="content/index.html">
-          <span class="ll-title">Reference</span>
-          <span class="ll-desc">Foundation, hook formulas, format library, Polina arc.</span>
-          <span class="ll-arrow">→</span>
-        </a></li>
-        <li><a href="money/index.html">
-          <span class="ll-title">Money</span>
-          <span class="ll-desc">Nine streams, projections, quit-line math, IP strategy.</span>
-          <span class="ll-arrow">→</span>
-        </a></li>
-        <li><a href="long-arc.html">
-          <span class="ll-title">Long arc</span>
-          <span class="ll-desc">The north star. Why all of this exists.</span>
-          <span class="ll-arrow">→</span>
-        </a></li>
-        <li><a href="wins.html">
-          <span class="ll-title">Wins</span>
-          <span class="ll-desc">Receipts. Reread on hard days.</span>
-          <span class="ll-arrow">→</span>
-        </a></li>
-        <li><a href="lexicon.html">
-          <span class="ll-title">Lexicon</span>
-          <span class="ll-desc">Signature phrases and brand objects, defined.</span>
-          <span class="ll-arrow">→</span>
-        </a></li>
-        <li><a href="inputs.html">
-          <span class="ll-title">Inputs</span>
-          <span class="ll-desc">Books, creators, podcasts feeding the work.</span>
-          <span class="ll-arrow">→</span>
-        </a></li>
-        <li><a href="blog/index.html">
-          <span class="ll-title">Writing</span>
-          <span class="ll-desc">Long-form notes that don't fit in 45 seconds.</span>
-          <span class="ll-arrow">→</span>
-        </a></li>
-        <li><a href="press.html">
-          <span class="ll-title">Press</span>
-          <span class="ll-desc">One-pager: bio, where to find me, working-together.</span>
-          <span class="ll-arrow">→</span>
-        </a></li>
+        <li><a href="now.html"><span class="ll-title">Now</span><span class="ll-desc">What I'm focused on this month.</span><span class="ll-arrow">→</span></a></li>
+        <li><a href="life/index.html"><span class="ll-title">Life</span><span class="ll-desc">Day-shape, weekly rhythm, meals, sleep, chores, acting.</span><span class="ll-arrow">→</span></a></li>
+        <li><a href="content/index.html"><span class="ll-title">Reference</span><span class="ll-desc">Foundation, hook formulas, format library, Polina arc.</span><span class="ll-arrow">→</span></a></li>
+        <li><a href="money/index.html"><span class="ll-title">Money</span><span class="ll-desc">Nine streams, projections, quit-line math, IP strategy.</span><span class="ll-arrow">→</span></a></li>
+        <li><a href="long-arc.html"><span class="ll-title">Long arc</span><span class="ll-desc">The north star. Why all of this exists.</span><span class="ll-arrow">→</span></a></li>
+        <li><a href="wins.html"><span class="ll-title">Wins</span><span class="ll-desc">All the receipts, in order.</span><span class="ll-arrow">→</span></a></li>
+        <li><a href="lexicon.html"><span class="ll-title">Lexicon</span><span class="ll-desc">Signature phrases and brand objects, defined.</span><span class="ll-arrow">→</span></a></li>
+        <li><a href="inputs.html"><span class="ll-title">Inputs</span><span class="ll-desc">Books, creators, podcasts feeding the work.</span><span class="ll-arrow">→</span></a></li>
+        <li><a href="blog/index.html"><span class="ll-title">Writing</span><span class="ll-desc">Long-form notes that don't fit in 45 seconds.</span><span class="ll-arrow">→</span></a></li>
+        <li><a href="press.html"><span class="ll-title">Press</span><span class="ll-desc">One-pager: bio, where to find me, working-together.</span><span class="ll-arrow">→</span></a></li>
       </ul>
     </section>
 
@@ -234,64 +167,9 @@
 
 </main>
 
-<footer class="site-footer">
-  <div class="ft-inner">
+<!-- footer auto-injected by nav.js -->
 
-    <p class="ft-thesis">A personal working document. Static by design — the schedule and the plan get edited by hand when something material changes. No live data, no auto-sync.</p>
-
-    <div class="ft-grid">
-      <div>
-        <h4>Life</h4>
-        <ul>
-          <li><a href="life/index.html">Today + day-shape</a></li>
-          <li><a href="life/rhythm.html">Weekly rhythm</a></li>
-          <li><a href="life/meals.html">Meals</a></li>
-          <li><a href="life/sleep.html">Sleep</a></li>
-          <li><a href="life/chores.html">Chores</a></li>
-          <li><a href="life/acting.html">Acting practice</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Reference</h4>
-        <ul>
-          <li><a href="foundation.html">Foundation</a></li>
-          <li><a href="content/production-playbook.html">Production playbook</a></li>
-          <li><a href="formats/library.html">Format library</a></li>
-          <li><a href="content/polina-arc.html">Polina arc</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Money</h4>
-        <ul>
-          <li><a href="money/index.html">Overview</a></li>
-          <li><a href="money/streams.html">Nine streams</a></li>
-          <li><a href="money/projections.html">Projections</a></li>
-          <li><a href="money/roadmap.html">8-month roadmap</a></li>
-          <li><a href="money/ip.html">DT IP strategy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>More</h4>
-        <ul>
-          <li><a href="now.html">Now</a></li>
-          <li><a href="wins.html">Wins</a></li>
-          <li><a href="lexicon.html">Lexicon</a></li>
-          <li><a href="inputs.html">Inputs</a></li>
-          <li><a href="blog/index.html">Writing</a></li>
-          <li><a href="press.html">Press</a></li>
-          <li><a href="long-arc.html">Long arc</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="ft-bottom">
-      <span>Becoming Famous · @rawhitmire · @discounttrek</span>
-      <span>Last reviewed Apr 30, 2026</span>
-    </div>
-  </div>
-</footer>
-
-<script src="nav.js?v=18"></script>
+<script src="nav.js?v=19"></script>
 <script>
 (function(){
   var today = new Date();

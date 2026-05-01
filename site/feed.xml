@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Becoming Famous · writing</title>
+    <link>https://rawhitmire.github.io/famous-dash-/blog/index.html</link>
+    <description>Long-form notes from the working document. Voice, life rhythm, money plan, the long arc.</description>
+    <language>en-us</language>
+    <atom:link href="https://rawhitmire.github.io/famous-dash-/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Apr 2026 12:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Why this site exists</title>
+      <link>https://rawhitmire.github.io/famous-dash-/blog/2026-04-30-why-this-site-exists.html</link>
+      <guid isPermaLink="true">https://rawhitmire.github.io/famous-dash-/blog/2026-04-30-why-this-site-exists.html</guid>
+      <pubDate>Thu, 30 Apr 2026 12:00:00 +0000</pubDate>
+      <description>The working document, explained. What goes in here, what doesn't, and why I built it instead of using a notes app.</description>
+    </item>
+
+  </channel>
+</rss>

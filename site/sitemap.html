@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Sitemap · Becoming Famous</title>
+<meta name="description" content="The whole site, on one page." />
+<link rel="stylesheet" href="styles.css?v=19" />
+<style>
+  .sm-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:var(--s-7);
+    margin-top:var(--s-6);
+  }
+  @media (min-width:720px){
+    .sm-grid{grid-template-columns:repeat(2,1fr);gap:var(--s-7) var(--s-8)}
+  }
+  .sm-section h2{
+    font-family:var(--font-display);
+    font-size:var(--text-lg);
+    font-weight:500;
+    letter-spacing:-.012em;
+    margin:0 0 var(--s-3);
+    color:var(--ink);
+  }
+  .sm-section h2 em{font-style:italic;color:var(--accent)}
+  .sm-section .sm-eyebrow{
+    font-size:var(--text-xs);
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    color:var(--ink-quiet);
+    display:block;
+    margin-bottom:var(--s-2);
+  }
+  .sm-section ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+  .sm-section li{
+    padding:var(--s-2) 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .sm-section li:last-child{border-bottom:none}
+  .sm-section a{
+    color:var(--ink);
+    text-decoration:none;
+    font-size:var(--text-md);
+  }
+  .sm-section a:hover{color:var(--accent)}
+  .sm-section .sm-desc{
+    color:var(--ink-quiet);
+    font-size:var(--text-sm);
+    display:block;
+    margin-top:.1rem;
+  }
+</style>
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="sitemap" data-page="Sitemap"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Map · everything in one place</span>
+    <h1>Sitemap.</h1>
+    <p class="sub">The whole working document, on one page. For when you forgot what's here.</p>
+  </div>
+</header>
+
+<main>
+  <div class="sm-grid">
+
+    <section class="sm-section">
+      <span class="sm-eyebrow">Top level</span>
+      <h2>The <em>front</em> doors.</h2>
+      <ul>
+        <li><a href="index.html">Home</a><span class="sm-desc">Day overview, gumball, the working set.</span></li>
+        <li><a href="now.html">Now</a><span class="sm-desc">What I'm focused on this month.</span></li>
+        <li><a href="long-arc.html">Long arc</a><span class="sm-desc">The north star.</span></li>
+        <li><a href="wins.html">Wins</a><span class="sm-desc">Receipts, in order.</span></li>
+        <li><a href="lexicon.html">Lexicon</a><span class="sm-desc">Signature phrases.</span></li>
+        <li><a href="inputs.html">Inputs</a><span class="sm-desc">What's feeding the work.</span></li>
+        <li><a href="press.html">Press</a><span class="sm-desc">One-pager · bio · contact.</span></li>
+        <li><a href="random.html">Random</a><span class="sm-desc">Spin the wheel.</span></li>
+      </ul>
+    </section>
+
+    <section class="sm-section">
+      <span class="sm-eyebrow">Life</span>
+      <h2>Owns the <em>time</em>.</h2>
+      <ul>
+        <li><a href="life/index.html">Life · home</a><span class="sm-desc">Day-shape + daily checklist.</span></li>
+        <li><a href="life/rhythm.html">Weekly rhythm</a><span class="sm-desc">M / T / Th / F shop, Wed batch.</span></li>
+        <li><a href="life/meals.html">Meal plan</a><span class="sm-desc">Tier 1 / 2 / 3.</span></li>
+        <li><a href="life/sleep.html">Sleep reset</a><span class="sm-desc">11 PM target, 7 AM wake.</span></li>
+        <li><a href="life/chores.html">Chore wheel</a><span class="sm-desc">Four-week Sunday rotation.</span></li>
+        <li><a href="life/acting.html">Acting practice</a><span class="sm-desc">Restart small.</span></li>
+      </ul>
+    </section>
+
+    <section class="sm-section">
+      <span class="sm-eyebrow">Reference</span>
+      <h2>The <em>strategy</em>.</h2>
+      <ul>
+        <li><a href="content/index.html">Reference · home</a><span class="sm-desc">Foundation, playbook, format library.</span></li>
+        <li><a href="content/production-playbook.html">Production playbook</a><span class="sm-desc">Hook formulas, format library, the long arc.</span></li>
+      </ul>
+    </section>
+
+    <section class="sm-section">
+      <span class="sm-eyebrow">Money</span>
+      <h2>The <em>plan</em>.</h2>
+      <ul>
+        <li><a href="money/index.html">Money · home</a><span class="sm-desc">Nine streams, projections, quit-line math, IP.</span></li>
+      </ul>
+    </section>
+
+    <section class="sm-section">
+      <span class="sm-eyebrow">Writing</span>
+      <h2>Long-form <em>notes</em>.</h2>
+      <ul>
+        <li><a href="blog/index.html">Blog · index</a><span class="sm-desc">Posts that don't fit in 45 seconds.</span></li>
+        <li><a href="blog/2026-04-30-why-this-site-exists.html">Why this site exists</a><span class="sm-desc">Apr 30, 2026.</span></li>
+      </ul>
+    </section>
+
+    <section class="sm-section">
+      <span class="sm-eyebrow">Feeds + machine</span>
+      <h2>For <em>readers</em> + bots.</h2>
+      <ul>
+        <li><a href="feed.xml">RSS feed</a><span class="sm-desc">For your reader of choice.</span></li>
+        <li><a href="feed.json">JSON Feed</a><span class="sm-desc">For modern readers.</span></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<script src="nav.js?v=19"></script>
+</body>
+</html>

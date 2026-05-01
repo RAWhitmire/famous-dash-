@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Random page · Becoming Famous</title>
+<link rel="stylesheet" href="styles.css?v=19" />
+<style>
+  .random-card{
+    text-align:center;
+    margin:var(--s-8) 0;
+  }
+  .random-card .spinner{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:var(--text-3xl);
+    color:var(--accent);
+    margin:var(--s-4) 0;
+  }
+</style>
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="random" data-page="Random"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Stochastic · for restless thumbs</span>
+    <h1>Random.</h1>
+    <p class="sub">Spinning the wheel. Hold on.</p>
+  </div>
+</header>
+
+<main class="narrow">
+  <div class="random-card">
+    <p class="spinner">→ rolling…</p>
+    <p class="muted"><a id="manual" href="index.html">If nothing happens, click here.</a></p>
+  </div>
+</main>
+
+<script src="nav.js?v=19"></script>
+<script>
+(function(){
+  var pages = [
+    'now.html',
+    'life/index.html',
+    'life/rhythm.html',
+    'life/meals.html',
+    'life/sleep.html',
+    'life/chores.html',
+    'life/acting.html',
+    'content/index.html',
+    'content/production-playbook.html',
+    'money/index.html',
+    'long-arc.html',
+    'wins.html',
+    'lexicon.html',
+    'inputs.html',
+    'press.html',
+    'blog/index.html'
+  ];
+  var pick = pages[Math.floor(Math.random() * pages.length)];
+  document.getElementById('manual').setAttribute('href', pick);
+  setTimeout(function(){ window.location.replace(pick); }, 350);
+})();
+</script>
+</body>
+</html>

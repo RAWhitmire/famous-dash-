@@ -1,0 +1,20 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Becoming Famous · writing",
+  "home_page_url": "https://rawhitmire.github.io/famous-dash-/blog/index.html",
+  "feed_url": "https://rawhitmire.github.io/famous-dash-/feed.json",
+  "description": "Long-form notes from the working document. Voice, life rhythm, money plan, the long arc.",
+  "language": "en-US",
+  "authors": [
+    { "name": "Raquel Whitmire" }
+  ],
+  "items": [
+    {
+      "id": "https://rawhitmire.github.io/famous-dash-/blog/2026-04-30-why-this-site-exists.html",
+      "url": "https://rawhitmire.github.io/famous-dash-/blog/2026-04-30-why-this-site-exists.html",
+      "title": "Why this site exists",
+      "summary": "The working document, explained. What goes in here, what doesn't, and why I built it instead of using a notes app.",
+      "date_published": "2026-04-30T12:00:00Z"
+    }
+  ]
+}
