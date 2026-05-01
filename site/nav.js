@@ -23,8 +23,13 @@
   var depth = 0;
   // If current file lives inside a section folder (life/content/money/formats/acting), depth = 1
   var KNOWN_SECTIONS = ['life','content','money','formats','acting','blog'];
-  if (pathParts.length >= 2 && KNOWN_SECTIONS.indexOf(pathParts[pathParts.length - 2]) !== -1) {
-    depth = 1;
+  // Walk the whole path — if ANY segment is a known section, we're inside one.
+  // This handles both /blog/index.html and bare /blog/ URLs.
+  for (var i = 0; i < pathParts.length; i++) {
+    if (KNOWN_SECTIONS.indexOf(pathParts[i]) !== -1) {
+      depth = 1;
+      break;
+    }
   }
   var prefix = depth === 0 ? './' : '../';
 
