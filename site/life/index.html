@@ -5,89 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <title>Life — operating manual</title>
-<link rel="stylesheet" href="../styles.css?v=12" />
+<link rel="stylesheet" href="../styles.css?v=13" />
 <style>
-  /* Life page refinements */
+  /* Day-shape — text-first, no boxes */
   .day-shape{
-    background:var(--surface-raised);
-    border:1px solid var(--border);
-    border-radius:var(--r-xl);
-    padding:var(--space-6);
-    box-shadow:var(--shadow);
-    margin-bottom:var(--space-6);
+    margin:var(--s-6) 0 var(--s-7);
+    padding-bottom:var(--s-6);
+    border-bottom:1px solid var(--rule);
   }
   .day-shape .day-eyebrow{
     font-size:var(--text-xs);
-    font-weight:600;
+    font-weight:500;
     text-transform:uppercase;
-    letter-spacing:.14em;
-    color:var(--accent-deep);
-    margin-bottom:var(--space-2);
+    letter-spacing:.16em;
+    color:var(--ink-quiet);
+    margin-bottom:var(--s-2);
     display:block;
   }
   .day-shape h2{
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
     font-size:var(--text-2xl);
-    margin:0 0 var(--space-2);
+    margin:0 0 var(--s-2);
     font-weight:500;
     letter-spacing:-.018em;
-    line-height:1.2;
+    line-height:1.15;
     color:var(--ink);
   }
-  .day-shape h2 em{font-style:italic;color:var(--accent-deep)}
+  .day-shape h2 em{font-style:italic;color:var(--accent)}
   .day-shape .day-headline{
+    font-family:var(--font-display);
     font-size:var(--text-md);
     color:var(--ink-muted);
-    margin:0 0 var(--space-5);
+    margin:0 0 var(--s-5);
     line-height:1.55;
+    font-style:italic;
   }
-  .day-shape .day-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:var(--space-3);
-  }
-  .day-cell{
-    padding:var(--space-3) var(--space-4);
-    background:var(--surface-sunken);
-    border-radius:var(--r-md);
-  }
-  .day-cell .cell-label{
-    font-size:.7rem;
-    font-weight:600;
+  .day-rows{margin:var(--s-4) 0 0}
+  .day-rows dt{
+    font-size:var(--text-xs);
+    font-weight:500;
     text-transform:uppercase;
-    letter-spacing:.1em;
+    letter-spacing:.14em;
     color:var(--ink-quiet);
-    margin-bottom:var(--space-1);
+    margin-top:var(--s-3);
   }
-  .day-cell .cell-value{font-size:var(--text-sm);color:var(--ink);font-weight:500;line-height:1.5}
+  .day-rows dd{
+    margin:var(--s-1) 0 var(--s-3);
+    font-size:var(--text-md);
+    color:var(--ink);
+    padding:0;
+  }
+  @media (min-width:640px){
+    .day-rows{display:grid;grid-template-columns:repeat(2,1fr);gap:0 var(--s-6)}
+    .day-rows dt:first-of-type,.day-rows dt:nth-of-type(2){margin-top:0}
+  }
 
-  /* Checklist — calmer */
+  /* Checklist — no boxes, just rows */
   .checklist{
-    background:var(--surface-raised);
-    border:1px solid var(--border);
-    border-radius:var(--r-lg);
-    padding:var(--space-5);
+    margin:var(--s-5) 0;
+    padding:0;
+    list-style:none;
+    border-top:1px solid var(--rule);
   }
-  .checklist .check-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:var(--space-2);
-  }
+  .checklist li{border-bottom:1px solid var(--rule)}
   .checklist label{
     display:flex;
     align-items:center;
-    gap:var(--space-3);
-    padding:var(--space-3) var(--space-4);
-    background:var(--surface-sunken);
-    border-radius:var(--r-md);
+    gap:var(--s-3);
+    padding:var(--s-3) 0;
     cursor:pointer;
-    font-size:var(--text-sm);
-    transition:background var(--motion-fast) var(--ease-out);
+    font-size:var(--text-md);
+    color:var(--ink);
+    transition:color var(--motion-fast) var(--ease-out);
   }
-  .checklist label:hover{background:var(--tint-gold)}
+  .checklist label:hover{color:var(--accent)}
   .checklist input[type=checkbox]{
-    width:1.1rem;
-    height:1.1rem;
+    width:1.05rem;
+    height:1.05rem;
     accent-color:var(--accent);
     flex-shrink:0;
   }
@@ -95,71 +89,67 @@
 </head>
 <body>
 
-<div id="site-nav-mount" data-section="life" data-page="Life — Today"></div>
+<div id="site-nav-mount" data-section="life" data-page="Life"></div>
 
 <header class="hero life">
   <div class="hero-inner">
     <span class="eyebrow">Personal · operating manual</span>
     <h1>Life.</h1>
-    <p class="sub">Owns the time. The shape of the day, the rhythm of the week, the meals and sleep and chores that make the rest of it sustainable. Update when something on the rhythm actually shifts.</p>
+    <p class="sub">Owns the time. The shape of the day, the rhythm of the week, the meals and sleep and chores that make the rest of it sustainable.</p>
   </div>
 </header>
 
 <main>
 
-  <!-- TODAY'S DAY-SHAPE — JS widget, free (no fetch) -->
   <div class="day-shape">
     <span class="day-eyebrow"><span id="today-day">—</span> · <span id="today-date">—</span></span>
     <h2 id="today-headline">—</h2>
-    <p class="day-headline" id="today-sub">The standing shape of this day of the week.</p>
-    <div class="day-grid">
-      <div class="day-cell"><div class="cell-label">Wake target</div><div class="cell-value" id="today-wake">—</div></div>
-      <div class="day-cell"><div class="cell-label">Print shop</div><div class="cell-value" id="today-shop">—</div></div>
-      <div class="day-cell"><div class="cell-label">Filming window</div><div class="cell-value" id="today-film">—</div></div>
-      <div class="day-cell"><div class="cell-label">Editing window</div><div class="cell-value" id="today-edit">—</div></div>
-      <div class="day-cell"><div class="cell-label">Posts ship at</div><div class="cell-value" id="today-posts">—</div></div>
-      <div class="day-cell"><div class="cell-label">Meal plan</div><div class="cell-value" id="today-meal">—</div></div>
-      <div class="day-cell"><div class="cell-label">Chore</div><div class="cell-value" id="today-chore">—</div></div>
-      <div class="day-cell"><div class="cell-label">Sleep target</div><div class="cell-value" id="today-sleep">—</div></div>
-      <div class="day-cell"><div class="cell-label">Acting practice</div><div class="cell-value" id="today-acting">—</div></div>
-    </div>
+    <p class="day-headline" id="today-sub">The standing shape of this day.</p>
+    <dl class="day-rows">
+      <dt>Wake target</dt><dd id="today-wake">—</dd>
+      <dt>Print shop</dt><dd id="today-shop">—</dd>
+      <dt>Filming</dt><dd id="today-film">—</dd>
+      <dt>Editing</dt><dd id="today-edit">—</dd>
+      <dt>Posts</dt><dd id="today-posts">—</dd>
+      <dt>Meal plan</dt><dd id="today-meal">—</dd>
+      <dt>Chore</dt><dd id="today-chore">—</dd>
+      <dt>Sleep target</dt><dd id="today-sleep">—</dd>
+      <dt>Acting practice</dt><dd id="today-acting">—</dd>
+    </dl>
   </div>
 
-  <!-- DAILY CHECKLIST -->
-  <div class="section-label">Daily checklist · body & boundaries</div>
-  <div class="checklist">
-    <div class="check-grid">
-      <label><input type="checkbox" /> In bed by 11 PM (1 AM hard cap)</label>
-      <label><input type="checkbox" /> Out of bed within 10 min of alarm</label>
-      <label><input type="checkbox" /> Ate Tier 1 / 2 / 3 — not "I forgot"</label>
-      <label><input type="checkbox" /> Water bottle refilled at least twice</label>
-      <label><input type="checkbox" /> Last caffeine before 2 PM</label>
-      <label><input type="checkbox" /> 5-min litter scoop done</label>
-      <label><input type="checkbox" /> Got outside / off the couch ≥10 min</label>
-      <label><input type="checkbox" /> Showered (or wipe-down minimum)</label>
-      <label><input type="checkbox" /> Phone away from bed at sleep time</label>
-      <label><input type="checkbox" /> Checked in with one person (text counts)</label>
-    </div>
-  </div>
+  <h2 class="page-h" style="margin-top:0">Daily checklist</h2>
+  <p class="lede">Body & boundaries. Reset every morning.</p>
+  <ul class="checklist">
+    <li><label><input type="checkbox" /> In bed by 11 PM (1 AM hard cap)</label></li>
+    <li><label><input type="checkbox" /> Out of bed within 10 min of alarm</label></li>
+    <li><label><input type="checkbox" /> Ate Tier 1 / 2 / 3 — not "I forgot"</label></li>
+    <li><label><input type="checkbox" /> Water bottle refilled at least twice</label></li>
+    <li><label><input type="checkbox" /> Last caffeine before 2 PM</label></li>
+    <li><label><input type="checkbox" /> 5-min litter scoop done</label></li>
+    <li><label><input type="checkbox" /> Got outside or off the couch ≥10 min</label></li>
+    <li><label><input type="checkbox" /> Showered (or wipe-down minimum)</label></li>
+    <li><label><input type="checkbox" /> Phone away from bed at sleep time</label></li>
+    <li><label><input type="checkbox" /> Checked in with one person (text counts)</label></li>
+  </ul>
 
-  <!-- SUB-SECTIONS -->
-  <div class="section-label">The reference</div>
-  <div class="grid-2">
-    <a class="subnav" href="rhythm.html"><h4>Weekly Rhythm</h4><p>The standing M / T / Th / F print-shop pattern, Wed batch day, Sun reset.</p></a>
-    <a class="subnav" href="meals.html"><h4>Meal Plan</h4><p>Tier 1 grab / Tier 2 batch / Tier 3 fallback. Picky-eater compliant.</p></a>
-    <a class="subnav" href="sleep.html"><h4>Sleep Reset</h4><p>The oversleep-cycle fix. 11 PM target, 7 AM wake.</p></a>
-    <a class="subnav" href="chores.html"><h4>Chore Wheel</h4><p>4-week Sunday rotation. Litter daily.</p></a>
-    <a class="subnav" href="acting.html"><h4>Acting Practice</h4><p>Restart small. The long arc lives in the practice block.</p></a>
-  </div>
+  <h2 class="page-h">The reference</h2>
+  <ul class="link-list">
+    <li><a href="rhythm.html"><span class="ll-title">Weekly rhythm</span><span class="ll-desc">The standing M / T / Th / F print-shop pattern, Wed batch, Sun reset.</span><span class="ll-arrow">→</span></a></li>
+    <li><a href="meals.html"><span class="ll-title">Meal plan</span><span class="ll-desc">Tier 1 grab / Tier 2 batch / Tier 3 fallback. Picky-eater compliant.</span><span class="ll-arrow">→</span></a></li>
+    <li><a href="sleep.html"><span class="ll-title">Sleep reset</span><span class="ll-desc">The oversleep-cycle fix. 11 PM target, 7 AM wake.</span><span class="ll-arrow">→</span></a></li>
+    <li><a href="chores.html"><span class="ll-title">Chore wheel</span><span class="ll-desc">Four-week Sunday rotation. Litter daily.</span><span class="ll-arrow">→</span></a></li>
+    <li><a href="acting.html"><span class="ll-title">Acting practice</span><span class="ll-desc">Restart small. The long arc lives in the practice block.</span><span class="ll-arrow">→</span></a></li>
+  </ul>
 
 </main>
 
 <footer>
   <p>Owns the time. Tuesday looks like Tuesday either way.</p>
-  <p class="quiet">For substance — what's filming, what's posting — see <a href="../content/index.html">Strategy →</a></p>
+  <p class="quiet">For substance see <a href="../content/index.html">Strategy</a>.</p>
 </footer>
 
-<script src="../nav.js?v=12"></script>
+<script src="../nav.js?v=13"></script>
 <script>
 (function(){
   var today = new Date();
@@ -171,13 +161,13 @@
 
   var dow = today.getDay();
   var profiles = {
-    0: { headline:"Sunday · <em>recovery & life maintenance</em>", sub:"Day off. Reset for the four-day work block ahead.", wake:"8:00 AM (sleep in)", shop:"Off", film:"3:30–5:00 PM (light VO only)", edit:"7:00–9:00 PM queue Mon–Wed", posts:"Slots 1 + 2 + 3 from queue", meal:"Tier 2 batch if you feel like it", chore:"Sunday chore wheel", sleep:"11 PM (full 8 hr before 4-day block)", acting:"5–6 PM · 1 hr practice block" },
-    1: { headline:"Monday · <em>print shop</em>", sub:"Standing print-shop day. Slot work runs from queue.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Evening only if needed", edit:"7:30–10:00 PM", posts:"Slot 1 (queued AM) · Slot 2 (lunch) · Slot 3 (eve)", meal:"Tier 1 grab-and-go", chore:"5-min litter scoop", sleep:"11 PM (1 AM hard cap)", acting:"Sides only if reactive" },
-    2: { headline:"Tuesday · <em>print shop · no edit eve</em>", sub:"Recovery valve in the work week. No editing tonight.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"None", edit:"None — slot 3 from queue", posts:"All from queue (pre-edited Mon)", meal:"Tier 1", chore:"5-min litter scoop", sleep:"10:30 PM (early)", acting:"Reactive only" },
-    3: { headline:"Wednesday · <em>★ primary batch day</em>", sub:"Day off the shop. Block out filming + editing.", wake:"8:00 AM (sleep in 1 hr)", shop:"Off", film:"9:00 AM – 4:00 PM (Blocks A + B + C + DT)", edit:"4:00–9:30 PM", posts:"Slot 1 from queue · Slots 2 + 3 ship today", meal:"Tier 1 — proper meal at lunch", chore:"Skip — focus on filming", sleep:"10:30 PM (early)", acting:"Skip (filming day)" },
-    4: { headline:"Thursday · <em>print shop</em>", sub:"Standard work day. Slot 1 from Wed queue.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Evening only if needed", edit:"7:30–10:00 PM", posts:"Slot 1 (Wed queue) · 2 · 3", meal:"Tier 1", chore:"5-min litter scoop", sleep:"11 PM (1 AM cap)", acting:"Reactive" },
-    5: { headline:"Friday · <em>print shop · treat eve</em>", sub:"Last weekday of the work block. Treat dinner allowed.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Evening only if needed", edit:"7:30–10:00 PM (light)", posts:"Slot 1 · 2 · 3", meal:"Tier 1 + treat dinner ok", chore:"5-min litter scoop", sleep:"11 PM (treat-night flexible)", acting:"Reactive" },
-    6: { headline:"Saturday · <em>print shop · early start</em>", sub:"Earlier shift. Light editing eve.", wake:"7:00 AM (1 hr earlier)", shop:"9 AM – 5 PM", film:"None", edit:"7–9 PM light", posts:"Slot 1 · 2 · 3 (Slot 3 from queue)", meal:"Tier 1 + treat night", chore:"5-min litter scoop", sleep:"11 PM", acting:"Off" }
+    0:{headline:"Sunday · <em>recovery</em>", sub:"Day off. Reset for the four-day work block ahead.", wake:"8:00 AM", shop:"Off", film:"3:30–5:00 PM (light VO)", edit:"7–9 PM, queue Mon–Wed", posts:"Slots 1 + 2 + 3 from queue", meal:"Tier 2 batch if you feel like it", chore:"Sunday wheel", sleep:"11 PM (full 8 hr)", acting:"5–6 PM · 1 hr practice"},
+    1:{headline:"Monday · <em>print shop</em>", sub:"Standing print-shop day. Slot work runs from queue.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Eve only if needed", edit:"7:30–10 PM", posts:"Slot 1 (queue) · 2 (lunch) · 3 (eve)", meal:"Tier 1", chore:"Litter scoop", sleep:"11 PM", acting:"Sides only if reactive"},
+    2:{headline:"Tuesday · <em>print shop · no edit</em>", sub:"Recovery valve. No editing tonight.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"None", edit:"None — slot 3 from queue", posts:"All from queue", meal:"Tier 1", chore:"Litter scoop", sleep:"10:30 PM (early)", acting:"Reactive only"},
+    3:{headline:"Wednesday · <em>★ batch day</em>", sub:"Day off the shop. Block out filming + editing.", wake:"8:00 AM", shop:"Off", film:"9 AM – 4 PM", edit:"4–9:30 PM", posts:"Slot 1 from queue · 2 + 3 ship today", meal:"Tier 1 — proper meal at lunch", chore:"Skip — focus on filming", sleep:"10:30 PM", acting:"Skip (filming)"},
+    4:{headline:"Thursday · <em>print shop</em>", sub:"Standard work day.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Eve only if needed", edit:"7:30–10 PM", posts:"Slot 1 (Wed queue) · 2 · 3", meal:"Tier 1", chore:"Litter scoop", sleep:"11 PM", acting:"Reactive"},
+    5:{headline:"Friday · <em>print shop · treat eve</em>", sub:"Last weekday of the work block.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Eve only if needed", edit:"7:30–10 PM (light)", posts:"Slot 1 · 2 · 3", meal:"Tier 1 + treat dinner ok", chore:"Litter scoop", sleep:"11 PM (flexible)", acting:"Reactive"},
+    6:{headline:"Saturday · <em>print shop · early</em>", sub:"Earlier shift. Light editing eve.", wake:"7:00 AM", shop:"9 AM – 5 PM", film:"None", edit:"7–9 PM light", posts:"Slot 1 · 2 · 3 (slot 3 queue)", meal:"Tier 1 + treat night", chore:"Litter scoop", sleep:"11 PM", acting:"Off"}
   };
   var p = profiles[dow] || profiles[1];
   document.getElementById('today-headline').innerHTML = p.headline;
