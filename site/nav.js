@@ -22,7 +22,7 @@
   var fileName = pathParts[pathParts.length - 1] || 'index.html';
   var depth = 0;
   // If current file lives inside a section folder (life/content/money/formats/acting), depth = 1
-  var KNOWN_SECTIONS = ['life','content','money','formats','acting'];
+  var KNOWN_SECTIONS = ['life','content','money','formats','acting','blog'];
   if (pathParts.length >= 2 && KNOWN_SECTIONS.indexOf(pathParts[pathParts.length - 2]) !== -1) {
     depth = 1;
   }
