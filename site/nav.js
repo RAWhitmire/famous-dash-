@@ -31,6 +31,12 @@
   // Master site map — single source of truth for all pages.
   var SITE = [
     {key:'home', label:'Home', url:'index.html', depth:0},
+    {key:'now', label:'Now', url:'now.html', depth:0},
+    {key:'wins', label:'Wins', url:'wins.html', depth:0},
+    {key:'lexicon', label:'Lexicon', url:'lexicon.html', depth:0},
+    {key:'inputs', label:'Inputs', url:'inputs.html', depth:0},
+    {key:'blog', label:'Writing', url:'blog/index.html', depth:0},
+    {key:'press', label:'Press', url:'press.html', depth:0},
     {key:'long-arc', label:'Long Arc', url:'long-arc.html', depth:0},
     {key:'life', label:'Life', url:'life/index.html', depth:0, color:'pop5', children:[
       {label:'Today + day-shape', url:'life/index.html'},
@@ -103,6 +109,7 @@
   navHTML += '<div class="selectors">';
   navHTML += sectionHTML;
   navHTML += pageDropdownHTML;
+  navHTML += '<button class="theme-toggle" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>';
   navHTML += '</div>';
   navHTML += '</nav>';
 
@@ -112,6 +119,30 @@
 /* ===========================================================
    SHARED UTILITIES — runs on every page that loads nav.js
    =========================================================== */
+
+// Dark mode — toggle persists in localStorage
+(function(){
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch(e){}
+  if (saved === 'dark') document.documentElement.setAttribute('data-theme','dark');
+
+  function attachToggle(){
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var current = document.documentElement.getAttribute('data-theme');
+      if (current === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('theme','light'); } catch(e){}
+      } else {
+        document.documentElement.setAttribute('data-theme','dark');
+        try { localStorage.setItem('theme','dark'); } catch(e){}
+      }
+    });
+  }
+  // Toggle button is injected by the nav builder above (synchronous), so attach now.
+  attachToggle();
+})();
 
 // Floating scroll-to-top button — auto-injected on every page
 (function(){

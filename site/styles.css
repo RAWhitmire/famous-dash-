@@ -540,6 +540,59 @@ footer a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--
 /* Anchor offset */
 section[id],div[id]{scroll-margin-top:5rem}
 
+/* ===== DARK MODE ===== */
+[data-theme="dark"]{
+  --paper:#15121e;
+  --ink:#f3eee0;
+  --ink-muted:#b5acc6;
+  --ink-quiet:#807a96;
+  --rule:#2d2742;
+  --accent:#e2b956;
+  --accent-soft:rgba(226,185,86,.10);
+  --accent-deep:#b89232;
+  --surface-raised:#1d1828;
+  --surface-sunken:#1a162a;
+}
+[data-theme="dark"] nav.site-nav{background:rgba(21,18,30,.85);border-bottom-color:#2d2742}
+[data-theme="dark"] .card.lift{background:#1d1828}
+[data-theme="dark"] *::selection{background:var(--accent);color:var(--ink)}
+
+/* Theme toggle button */
+.theme-toggle{
+  background:transparent;
+  border:1px solid var(--rule);
+  color:var(--ink);
+  width:2rem;height:2rem;
+  border-radius:50%;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.95rem;
+  padding:0;
+  transition:border-color var(--motion-fast) var(--ease-out),background var(--motion-fast) var(--ease-out);
+  font-family:inherit;
+}
+.theme-toggle:hover{border-color:var(--ink);background:var(--accent-soft)}
+
+/* ===== PRINT ===== */
+@media print {
+  nav.site-nav,#scroll-top-btn,.theme-toggle,footer.site-footer .ft-grid{display:none !important}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.5}
+  header.hero{padding:1rem 0 .5rem;border-bottom:1px solid #999}
+  header.hero h1{font-size:24pt}
+  header.hero .sub{font-size:11pt;color:#333}
+  main,main.wide,main.narrow{max-width:none;padding:.5rem 0}
+  .card,.card.lift{border:1px solid #ccc;box-shadow:none;background:#fff;padding:.6rem;margin:.4rem 0;break-inside:avoid}
+  a{color:#000;text-decoration:underline}
+  .pullquote{border:none;padding:.5rem 0;font-size:13pt}
+  footer{border-top:1px solid #999;padding:.5rem 0;color:#666}
+  .link-list a{padding:.3rem 0}
+  .link-list .ll-arrow{display:none}
+  h2,h3,h4{break-after:avoid}
+  p,li{orphans:3;widows:3}
+}
+
 /* Scroll-to-top */
 #scroll-top-btn{
   position:fixed;

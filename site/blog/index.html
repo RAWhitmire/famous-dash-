@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Blog — long-form</title>
+<link rel="stylesheet" href="../styles.css?v=16" />
+<style>
+  .post-list{list-style:none;padding:0;margin:var(--s-5) 0}
+  .post-list > li{
+    padding:var(--s-5) 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .post-list > li:last-child{border-bottom:none}
+  .post-meta{
+    font-size:var(--text-xs);
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--ink-quiet);
+    font-weight:500;
+    display:block;
+    margin-bottom:var(--s-2);
+  }
+  .post-list h2{
+    font-family:var(--font-display);
+    font-size:var(--text-xl);
+    font-weight:500;
+    letter-spacing:-.012em;
+    margin:0 0 var(--s-2);
+    line-height:1.2;
+  }
+  .post-list h2 em{font-style:italic;color:var(--accent)}
+  .post-list h2 a{color:var(--ink);text-decoration:none}
+  .post-list h2 a:hover{color:var(--accent)}
+  .post-list .post-excerpt{
+    font-size:var(--text-md);
+    color:var(--ink-muted);
+    line-height:1.6;
+    margin:0;
+    max-width:60ch;
+  }
+</style>
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="blog" data-page="Blog"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Blog · long-form · in-progress</span>
+    <h1>Writing.</h1>
+    <p class="sub">Long-form notes that don't fit in a 45-second video. Updated when something material is worth thinking out loud about. Reverse-chronological.</p>
+  </div>
+</header>
+
+<main class="narrow">
+
+  <ul class="post-list">
+
+    <li>
+      <span class="post-meta">April 30, 2026 · 4 min read</span>
+      <h2><a href="2026-04-30-why-this-site-exists.html">Why this site <em>exists</em>.</a></h2>
+      <p class="post-excerpt">A working document for a working project. The site isn't a portfolio and it isn't an audience-building funnel. It's the one place where the rules, the rhythm, and the long arc all live, so I don't have to remember any of it twice.</p>
+    </li>
+
+  </ul>
+
+  <p class="quiet" style="margin-top:var(--s-7);font-size:var(--text-sm);max-width:54ch;font-style:italic;font-family:var(--font-display)">
+    More posts as more things are worth writing about. Not aiming for a schedule — aiming for the post that lands.
+  </p>
+
+</main>
+
+<footer>
+  <p class="quiet">Long-form lives here. Short-form lives on TikTok.</p>
+</footer>
+
+<script src="../nav.js?v=16"></script>
+</body>
+</html>

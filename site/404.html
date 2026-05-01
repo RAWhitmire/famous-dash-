@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 — page not found</title>
+<link rel="stylesheet" href="/famous-dash-/site/styles.css?v=16" />
+<style>
+  body{display:flex;flex-direction:column;min-height:100vh}
+  .err-main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    max-width:680px;
+    margin:0 auto;
+    padding:var(--s-7) var(--s-5);
+  }
+  .err-eyebrow{
+    font-size:var(--text-xs);
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    color:var(--ink-quiet);
+    margin-bottom:var(--s-4);
+  }
+  .err-h{
+    font-family:var(--font-display);
+    font-size:var(--text-hero);
+    font-weight:400;
+    letter-spacing:-.025em;
+    line-height:1.02;
+    margin:0 0 var(--s-5);
+  }
+  .err-h em{font-style:italic;color:var(--accent)}
+  .err-body{
+    font-family:var(--font-display);
+    font-size:var(--text-lg);
+    color:var(--ink-muted);
+    max-width:54ch;
+    line-height:1.5;
+    margin:0 0 var(--s-6);
+  }
+  .err-links{display:flex;gap:var(--s-4);flex-wrap:wrap}
+  .err-links a{
+    color:var(--ink);
+    text-decoration:underline;
+    text-decoration-color:var(--accent);
+    text-underline-offset:4px;
+    font-size:var(--text-md);
+  }
+  .err-links a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<main class="err-main">
+  <span class="err-eyebrow">404 · page not found</span>
+  <h1 class="err-h">I did not <em>audition</em> for this URL.</h1>
+  <p class="err-body">Whatever you were looking for has either moved, been retired, or was never here. The site is intentionally small. Try one of these.</p>
+  <div class="err-links">
+    <a href="/famous-dash-/">Home</a>
+    <a href="/famous-dash-/site/life/index.html">Life</a>
+    <a href="/famous-dash-/site/content/index.html">Reference</a>
+    <a href="/famous-dash-/site/now.html">/now</a>
+    <a href="/famous-dash-/site/wins.html">Wins</a>
+  </div>
+</main>
+
+</body>
+</html>
