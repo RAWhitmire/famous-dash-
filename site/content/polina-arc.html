@@ -3,43 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Content · The Polina Arc · v2.0 retrofitted</title>
-<link rel="stylesheet" href="../styles.css?v=11" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Content · The Polina Arc · reference</title>
+<link rel="stylesheet" href="../styles.css?v=12" />
 <style>
-  .vid{background:var(--surface-raised);border:1px solid var(--border);border-radius:var(--r-md);padding:var(--space-5);margin-bottom:var(--space-5);position:relative}
-  .vid.hero{border-color:var(--accent);border-left:3px solid var(--accent)}
-  .vid.hero::before{content:"⭐ HERO";position:absolute;top:var(--space-3);right:var(--space-4);background:var(--accent);color:var(--ink);padding:.15rem .5rem;border-radius:var(--r-sm);font-size:.65rem;font-weight:700;letter-spacing:.08em}
-  .vid h3{margin:0 0 var(--space-2);font-size:var(--text-lg);font-weight:700;line-height:1.3}
-  .vid .id-strip{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;font-size:.66rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.45rem}
-  .vid .id-strip .pill{padding:.15rem .4rem;border-radius:.25rem}
-  .vid .id-strip .pill.id{background:var(--ink);color:var(--pop3)}
-  .vid .id-strip .pill.fmt{background:var(--pop4);color:#fff}
-  .vid .id-strip .pill.arc{background:var(--pop2);color:#fff}
-  .vid .id-strip .pill.length{background:var(--good);color:#fff}
-  .arc-line{padding:.4rem .55rem;background:var(--soft);border-left:3px solid var(--pop2);border-radius:.35rem;margin-bottom:.5rem;font-size:var(--text-sm);font-style:italic}
-  .arc-line b{color:var(--pop2);text-transform:uppercase;letter-spacing:.04em;font-size:.6rem;font-style:normal;display:block;margin-bottom:.1rem}
-  .beats{display:grid;gap:.35rem;margin-bottom:.5rem}
-  .beat{display:grid;grid-template-columns:auto 1fr;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border:2px solid var(--ink);border-radius:.35rem;font-size:var(--text-sm)}
-  .beat.hook{background:var(--pop3);border-width:3px}
-  .beat.rehook{background:#dcfce7;border-color:var(--good)}
-  .beat.rehook3{background:#fef3c7;border-color:var(--warn);border-width:3px}
-  .beat.climax{background:var(--soft-teal);border-color:var(--pop6);border-width:3px}
-  .beat.loop{background:#fee2e2;border-color:var(--bad)}
-  .beat .time{font-weight:900;color:var(--pop2);min-width:2.7rem;font-size:.66rem;background:#fff;padding:.12rem .25rem;border-radius:.25rem;text-align:center;align-self:start;border:1.5px solid var(--ink)}
-  .beat .what{line-height:1.45}
-  .beat .what > b{color:var(--ink-muted);text-transform:uppercase;letter-spacing:.06em;font-size:.65rem;display:block;margin-bottom:.3rem;font-weight:700}
-  .deliv{display:grid;gap:.3rem;margin-top:.4rem}
-  .deliv-row{padding:.4rem .55rem;border-radius:.35rem;border:2px solid var(--ink);font-size:var(--text-sm)}
-  .deliv-row b{color:var(--pop2);text-transform:uppercase;letter-spacing:.04em;font-size:.6rem;display:block;margin-bottom:.15rem;font-weight:900}
-  .deliv-row.cap{background:var(--pop3)}
-  .deliv-row.cmt{background:var(--soft-teal)}
-  .deliv-row.cta{background:#fef3c7;border-color:var(--warn)}
-  .deliv-row.tags{background:var(--soft);font-family:monospace;font-size:.78rem}
-  .principle{padding:.6rem .8rem;background:var(--soft-teal);border-left:4px solid var(--pop6);border-radius:.4rem;margin:.4rem 0;font-size:var(--text-sm)}
-  .principle b{color:var(--pop4);text-transform:uppercase;letter-spacing:.04em;font-size:.65rem;display:block;margin-bottom:.15rem}
-  .changelog{background:#fef3c7;border:2px solid var(--warn);border-radius:.5rem;padding:.8rem 1rem;margin:1rem 0}
-  .changelog h3{margin:0 0 .4rem;color:var(--ink);font-weight:900;text-transform:uppercase;font-size:.85rem}
-  .changelog ul{margin:.3rem 0;padding-left:1.3rem;font-size:var(--text-sm)}
+  .arc-row{display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-3) var(--space-4);align-items:start;padding:var(--space-3) 0;border-bottom:1px solid var(--border)}
+  .arc-row:last-of-type{border-bottom:none}
+  .arc-row .arc-id{font-family:monospace;font-weight:700;color:var(--accent-2);font-size:var(--text-sm);min-width:5rem}
+  .arc-row .arc-body h4{margin:0 0 .2rem;font-size:var(--text-md);font-weight:700;line-height:1.3}
+  .arc-row .arc-body p{margin:.2rem 0;font-size:var(--text-sm);color:var(--ink-muted);line-height:1.5}
+  .arc-row .arc-day{font-size:var(--text-xs);color:var(--ink-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;text-align:right;min-width:5rem}
+  .principle{padding:var(--space-4);background:var(--tint-teal);border-left:3px solid var(--pop6);border-radius:var(--r-md);margin:var(--space-3) 0}
+  .principle b{color:var(--pop4);text-transform:uppercase;letter-spacing:.06em;font-size:.7rem;display:block;margin-bottom:.2rem;font-weight:700}
 </style>
 </head>
 <body>
@@ -47,146 +22,109 @@
 <div id="site-nav-mount" data-section="content" data-page="🎬 Polina Arc"></div>
 
 <header class="hero content">
-  <h1>The Polina Arc · v2.0 retrofit</h1>
-  <div class="sub">M04 (Day 2 hero) lives here — the moment the Cannes selector publicly told me my hook was generic in front of 67 of my competitors. The arc tracks one shock event through the whole sprint. v2.0 retrofits voice + length + format to current standards (~45–50s, 6-beat, 4-stack hooks, no work refs, no fabrications).</div>
+  <h1>The Polina Arc · reference</h1>
+  <div class="sub">The shock event that anchors the entire sprint: the Cannes selector publicly telling me my hook was generic in front of 67 competitors. This page documents the arc strategy. Filming scripts live in the offline PDFs.</div>
   <div class="badges">
-    <span>📅 May 1 · M04 hero</span>
-    <span>🎬 v2.0 · retrofit</span>
-    <span>⭐ M04 lives here</span>
+    <span>📅 M04 hero · Day 2 · May 1</span>
+    <span>⭐ Arc spans whole sprint</span>
+    <span>📄 Scripts: see Filming Materials</span>
   </div>
 </header>
 
 <main>
 
-<div class="changelog">
-  <h3>What changed in v2.0 (retrofit)</h3>
-  <ul>
-    <li><b>Scrubbed all "print shop" / day-job references</b> from M27 and M92 — protects livelihood per memory rule.</li>
-    <li><b>Removed the fabricated "yoga flyer customer" beat</b> from M27. Replaced with a real noticing moment that doesn't require a workplace setting.</li>
-    <li><b>Pulled M14, M27, M55, M77, M92 out of the Polina arc.</b> Those slot numbers got reassigned to corrected-script content in <a href="phase-1-scripts.html">Phase 1</a> / <a href="phase-2-scripts.html">Phase 2</a> / <a href="phase-3-scripts.html">Phase 3</a>. The Polina arc is now <b>M04 only</b> — one hero post, one shock event, that's the arc.</li>
-    <li><b>M04 retrofitted to 50s + 4-stack hook + dual CTA</b> matching the corrected-script standard.</li>
-    <li><b>Voice pass:</b> cut "the dimming reflex," "the bottleneck," "the heart react animating" abstractions. Replaced with friend-in-a-room voice.</li>
-    <li><b>Age fix:</b> 23 = comeback age, not quit age. Removed any framing that suggested otherwise.</li>
-    <li><b>Family frame:</b> never name parents/grandma as villain. The audience is the audience.</li>
-  </ul>
-</div>
-
-<!-- ===== PRINCIPLES ===== -->
-<div class="card lift" style="background:var(--soft)">
-  <h3>Polina arc · principles (unchanged)</h3>
-  <div class="principle"><b>Principle 1 · Standalone</b>M04 plays cleanly to a first-time viewer. Open with stakes that reset. Don't assume they've seen anything else.</div>
-  <div class="principle"><b>Principle 2 · Real artifacts</b>The phone screen, the group chat, the "your hook is generic" message, the 67 competitors watching — all real. No staged reactions. No invented numbers Raquel didn't actually receive.</div>
-  <div class="principle"><b>Principle 3 · Polina as character</b>She's a phone screen, but she has weight. Her message in a specific font/timestamp. A presence, not a cartoon villain.</div>
-  <div class="principle"><b>Principle 4 · Friend-in-a-room voice</b>Specific weird details, not abstract diagnostics. "I had three minutes to reply" not "the dimming reflex activated." Concrete moments, not psychology.</div>
-  <div class="principle"><b>Principle 5 · No work refs</b>The day job stays internal-only. The Polina arc is about a creative event — not a workplace event. Even M27 (originally print-shop framed) is now reframed around what was real about the noticing.</div>
-  <div class="principle"><b>Principle 6 · Already past the struggle</b>Raquel narrates from authority — she figured it out, she's looking back. Not modeling beginner anxiety in real time.</div>
-</div>
-
-<!-- ===== M04 HERO ===== -->
-<h2 style="margin-top:2rem">The hero · M04 · Day 2 · Fri May 1</h2>
-
-<div class="vid hero" id="M04">
-  <div class="id-strip">
-    <span class="pill id">M04 · Slot 1 · ⭐ HERO</span>
-    <span class="pill fmt">F04 Storytime · H07 Cold-open</span>
-    <span class="pill arc">POLINA · 3 WORDS · 3 MINUTES</span>
-    <span class="pill length">~50s</span>
+  <div class="card lift">
+    <h3>The originating event</h3>
+    <p style="font-size:var(--text-md);margin:.4rem 0">Group chat. 67 sprint participants visible. Polina (Cannes selector) responds publicly to my submitted hook: <i>"Your hook is generic."</i> Three minutes to reply. Three minutes to either fold or use it as the engine.</p>
+    <p style="font-size:var(--text-sm);margin:.4rem 0;color:var(--ink-muted)">The pulverization is the gift — public, witnessed by the people who came up with you, and impossible to spin. Either you let it kill the sprint or you mount it as the spine. The arc is the second one.</p>
   </div>
-  <h3>"Polina pulverized me. 67 people watched. I had three minutes to reply."</h3>
-  <div class="arc-line"><b>Arc</b>The shock event. A Cannes selector publicly critiqued my hook in a group chat with 67 of my competitors. Real screenshots. Real reply. Real receipt. Lands on: the hook I sent back is the line that broke open the rest of the sprint.</div>
-  <div class="beats">
-    <div class="beat hook"><div class="time">0–3s</div><div class="what"><b>Hook · 4-stack</b>
-      <div>VO: "Three words arrived in a group chat at 11:59 PM with 67 of my competitors watching: \"Your hook is generic.\""</div>
-      <div>Visual: phone close-up. Group chat thread visible. We see "Polina" typing dots animating. Three words appear on screen, then settle.</div>
-      <div>On-screen: <b>3 WORDS · 67 WATCHING</b></div>
-      <div>Audio cue: notification chime real on the message land.</div>
-    </div></div>
-    <div class="beat rehook"><div class="time">3–13s</div><div class="what"><b>Rehook 1 · Stakes flash</b>
-      <div>VO: "Polina is a Cannes selector. The chat was a hook-feedback round. Mine had, in fact, just been pulverized in public. I had three minutes to reply or look like I, regrettably, couldn't take it."</div>
-      <div>Visual: cut to face — caught off guard, mid-thought. Quick.</div>
-      <div>On-screen: <b>POLINA · CANNES SELECTOR</b></div>
-      <div>Pattern: hard cut on the word "pulverized."</div>
-    </div></div>
-    <div class="beat rehook"><div class="time">13–25s</div><div class="what"><b>Rehook 2 · The clock</b>
-      <div>VO: "Three minutes is, regrettably, not enough time to figure out who you want to be. Three minutes is enough time to type one sentence. The sentence was either going to be defensive, or, in fact, an actual rewrite."</div>
-      <div>Visual: cut back to phone. Reactions appearing in real time around the message — typing-bubbles, a 🔥, a 👀, silence from most.</div>
-      <div>On-screen: <b>3 MINUTES · 1 SENTENCE</b></div>
-      <div>Audio cue: ambient room sound. Music dips on "actual rewrite."</div>
-    </div></div>
-    <div class="beat rehook3"><div class="time">25–35s</div><div class="what"><b>Rehook 3 · The reply</b>
-      <div>VO: "I sent: \"same hook, different verb. 'I sprinted out of acting' instead of 'I tried to leave acting.'\" Hit send. Polina, regrettably, sent back a heart react. The heart react was, in fact, the entire receipt."</div>
-      <div>Visual: cut to the actual reply on screen — line typed live. Send button. Heart react animates in.</div>
-      <div>On-screen: <b>SAME HOOK · DIFFERENT VERB</b></div>
-      <div>Pattern: hold on the heart react 0.5s longer than feels natural.</div>
-    </div></div>
-    <div class="beat climax"><div class="time">35–45s</div><div class="what"><b>Climax · Signature</b>
-      <div>VO: "If you, in fact, get pulverized in public — three minutes is, regrettably, all you need. The defense is the role you're already playing. The rewrite is, in fact, the role you, regrettably, came to find. I did not audition for the role of someone who, in fact, defended a generic hook."</div>
-      <div>Visual: cut to face — slight smile, eyes a little watery. Quiet.</div>
-      <div>On-screen: <b>I DID NOT AUDITION FOR THIS</b></div>
-      <div>Audio cue: music swells half-step on "the rewrite."</div>
-    </div></div>
-    <div class="beat loop"><div class="time">45–50s</div><div class="what"><b>Loop + CTA · Save + Follow</b>
-      <div>VO: "Save this for the next time someone pulverizes a hook of yours. Follow if you want to see what the rewrite, in fact, did to the rest of the sprint."</div>
-      <div>Visual: cut to next morning. Same hook, applied to a totally different topic. Number ticks up. Cut to black.</div>
-      <div>On-screen: <b>3 WORDS · MAY 1 ↑</b></div>
-      <div>Pattern: last frame holds 0.3s longer than feels natural — primes a re-watch.</div>
-    </div></div>
+
+  <div class="section-label mt-2">How the arc threads through the sprint</div>
+  <div class="card">
+    <div class="arc-row">
+      <div class="arc-id">M04 ⭐</div>
+      <div class="arc-body">
+        <h4>The pulverization moment (hero)</h4>
+        <p>The actual story. 68 watching. Three minutes. The line. Lands as: I am no longer making the version of work that gets that note.</p>
+      </div>
+      <div class="arc-day">Day 2 · May 1</div>
+    </div>
+    <div class="arc-row">
+      <div class="arc-id">M14</div>
+      <div class="arc-body">
+        <h4>What "generic" actually means (decoded)</h4>
+        <p>Not "bad." It means: it could have come from anyone. Specificity is the moat. The arc keeps drawing the line back to specifics.</p>
+      </div>
+      <div class="arc-day">Day 6 · May 5</div>
+    </div>
+    <div class="arc-row">
+      <div class="arc-id">M27</div>
+      <div class="arc-body">
+        <h4>The receipt — what changed in the work</h4>
+        <p>Three weeks of post-Polina rebuild. Side-by-side: pre-Polina hook vs post-Polina hook. Same idea, different specificity gradient.</p>
+      </div>
+      <div class="arc-day">Day 8 · May 7</div>
+    </div>
+    <div class="arc-row">
+      <div class="arc-id">M55</div>
+      <div class="arc-body">
+        <h4>Bridge phase — what the note still teaches</h4>
+        <p>Mid-sprint reflection. The note keeps applying. It's not a one-time fix; it's a posture.</p>
+      </div>
+      <div class="arc-day">Day 17 · May 16</div>
+    </div>
+    <div class="arc-row">
+      <div class="arc-id">M77</div>
+      <div class="arc-body">
+        <h4>Phase 3 callback — applying the note to the prize attempt</h4>
+        <p>Final stretch. The Polina note is now part of the operating system, not a wound to revisit. Used as a tool.</p>
+      </div>
+      <div class="arc-day">Day 25 · May 24</div>
+    </div>
+    <div class="arc-row">
+      <div class="arc-id">M92</div>
+      <div class="arc-body">
+        <h4>Finale callback — Day 30/31</h4>
+        <p>The arc closes. Whatever the prize result is, the work is no longer generic. Polina's note ended up being the thing that bought the whole thirty days.</p>
+      </div>
+      <div class="arc-day">Day 30 · May 29</div>
+    </div>
   </div>
-  <div class="deliv">
-    <div class="deliv-row cta"><b>📣 In-video CTA · CTA02 SAVE + CTA01 FOLLOW (hero earns dual)</b>"Save this for the next time someone pulverizes a hook of yours. Follow if you want to see what the rewrite did to the rest of the sprint."</div>
-    <div class="deliv-row cap"><b>📲 Caption</b>Polina is a Cannes selector. She typed three words to 67 of us. I had three minutes to reply. Watch what I sent back at second 25. 💔 → 🩷</div>
-    <div class="deliv-row cmt"><b>💬 First comment (pin)</b>If your hook just got pulverized — DM me PASSENGER. The worksheet has the question that turned mine into the rewrite. 📩</div>
-    <div class="deliv-row tags"><b>🏷 Hashtags</b>#scriptshift #castyourself #cannes #actorlife #hookcraft #fyp</div>
+
+  <div class="section-label mt-2">Operating principles the arc enforces</div>
+  <div class="principle">
+    <b>Principle 1 — specificity is the moat</b>
+    "Generic" = "could have come from anyone." If a line could come from any creator in your lane, it's not yours. Anchor every hook in something that only you would say.
   </div>
-</div>
+  <div class="principle">
+    <b>Principle 2 — the public note is the gift</b>
+    Private feedback is suggestion. Public feedback in front of your peer group is leverage — you have to act, and the audience gets to watch you act. That's the brand.
+  </div>
+  <div class="principle">
+    <b>Principle 3 — the note becomes the OS, not the wound</b>
+    The arc isn't "I cried about this for 30 days." It's "I rebuilt the work to honor the note, and you're watching me do it." The wound becomes the spec.
+  </div>
+  <div class="principle">
+    <b>Principle 4 — never make Polina the villain</b>
+    She did her job. The note is correct. The brand respects the source. Anything that frames her as cruel = wrong frame.
+  </div>
 
-<!-- ===== 3 HOOK VARIANTS ===== -->
-<div class="card lift mt-2" style="background:var(--card)">
-  <h3>M04 · 3 hook variants (pick A or film all three)</h3>
-  <p style="font-size:var(--text-sm);margin:.2rem 0 .6rem">Same format, same H07 cold-open formula — three different phrasings of the opener. Body of the video stays identical. Pick A in the moment OR film all three at the same setup (~30s extra each) and choose strongest in edit.</p>
-  <p style="font-size:var(--text-sm);margin:.2rem 0"><b>A:</b> "Three words arrived in a group chat at 11:59 PM with 67 of my competitors watching: 'Your hook is generic.'"</p>
-  <p style="font-size:var(--text-sm);margin:.2rem 0"><b>B:</b> "Polina pulverized me. 67 people watched. I had three minutes to reply."</p>
-  <p style="font-size:var(--text-sm);margin:.2rem 0"><b>C:</b> "Storytime: a Cannes selector publicly told me my hook was generic. In a group chat with 67 of my competitors. I had three minutes."</p>
-</div>
-
-<!-- ===== WHERE THE OTHER POLINA SLOTS WENT ===== -->
-<h2 style="margin-top:2rem">Where the rest of the arc went</h2>
-
-<div class="card lift" style="background:var(--soft)">
-  <h3>M14 · M27 · M55 · M77 · M92 · reassigned</h3>
-  <p style="font-size:var(--text-sm);margin:.4rem 0">v1 of the Polina arc tried to spread the story across six videos. The voice + length + voice-fabrication review found that approach was forcing the same beat to do six different things — and a couple of the slots required workplace settings that violate the no-work rule.</p>
-  <p style="font-size:var(--text-sm);margin:.4rem 0"><b>v2 decision:</b> M04 holds the entire Polina arc. The other slots got reassigned to corrected-script content that lands on its own emotional ground:</p>
-  <table class="tbl" style="font-size:var(--text-sm);margin-top:.5rem">
-    <thead><tr><th>Slot</th><th>v1 (Polina arc)</th><th>v2 (current)</th><th>Where</th></tr></thead>
-    <tbody>
-      <tr><td>M14</td><td>"4 hooks since Polina"</td><td>F09 Sketch · two versions of me arguing</td><td><a href="phase-1-scripts.html#M14">Phase 1 · Day 5</a></td></tr>
-      <tr><td>M27</td><td>"I became Polina at the print shop" <span style="color:var(--bad)">(violated no-work rule)</span></td><td>F09 Sketch · DT Salt Vampire teaser cliffhanger (only Phase 1 follow CTA)</td><td><a href="phase-1-scripts.html#M27">Phase 1 · Day 9</a></td></tr>
-      <tr><td>M55</td><td>"3 weeks of Polina's note"</td><td>F13 Q&amp;A · "what about your day job" (runway frame)</td><td><a href="phase-2-scripts.html#M55">Phase 2 · Day 19</a></td></tr>
-      <tr><td>M77</td><td>"I sent Polina the receipt"</td><td>F04 Storytime · the thing I almost cut from the deliverable</td><td><a href="phase-3-scripts.html#M77">Phase 3 · Day 26</a></td></tr>
-      <tr><td>M92</td><td>"Polina, if you're watching" <span style="color:var(--bad)">(referenced print shop bathroom)</span></td><td>F08 Process · the day-of receipt, hour after pressing send</td><td><a href="phase-3-scripts.html#M92">Phase 3 · Day 31</a></td></tr>
-    </tbody>
-  </table>
-  <p style="font-size:var(--text-sm);margin:.6rem 0 0"><i>Why:</i> The Polina event is real, sharp, one-shot. It earns one hero post (M04). Everything else was forcing a longer arc on a story that lands hardest as a single shock — and two of the original videos required a workplace-setting that's a livelihood-level risk while Raquel is still pre-quit.</p>
-</div>
-
-<!-- ===== WHAT'S LEFT TO DECIDE ===== -->
-<div class="card lift mt-2" style="background:var(--ink);color:var(--pop3)">
-  <h3 style="color:var(--pop3)">Open questions for Raquel</h3>
-  <ol style="font-size:var(--text-sm);padding-left:1.4rem">
-    <li><b>"Polina" name</b> — is it her real name (in which case we're careful with screenshots) or a composite character? <b>[NEEDS RAQUEL INPUT]</b></li>
-    <li><b>The exact sentence Polina sent</b> — "Your hook is generic" is the placeholder. If the real message was different, swap it in. The video lands either way as long as the actual three words are real. <b>[NEEDS RAQUEL INPUT]</b></li>
-    <li><b>The reply line</b> — "Same hook, different verb. 'I sprinted out of acting' instead of 'I tried to leave acting.'" is the current line. Swap to the actual reply you sent if different. <b>[NEEDS RAQUEL INPUT]</b></li>
-    <li><b>Number of competitors</b> — 67 is real per the previous draft. If the actual number is different (66, 68, etc.) update the script + caption. <b>[NEEDS RAQUEL INPUT]</b></li>
-  </ol>
-  <p style="font-size:var(--text-sm);margin-top:.5rem">Once you confirm these, M04 is filming-ready as written. The rest of the arc has been reassigned and lives in the phase script files.</p>
-</div>
+  <div class="section-label mt-2">Where the actual scripts live</div>
+  <div class="card">
+    <h3>Filming material is offline now</h3>
+    <p style="font-size:var(--text-sm);margin:.3rem 0">M04 hero, M14, M27, M55, M77, M92 — full beat-by-beat scripts with 4-stack hooks live in the corrected markdown / PDF files in the project root. This page is reference only.</p>
+    <p style="margin:.6rem 0">
+      <a class="btn gold" href="phase-1-scripts.html">→ Filming Materials Index</a>
+    </p>
+    <p style="font-size:var(--text-xs);color:var(--ink-muted);margin:.4rem 0">M04 = <code>CORRECTED_SCRIPTS_DAYS_1-4.md</code> · M14 = Days 5-11 · M27 = Days 5-11 · M55 = Days 12-21 · M77 = Days 22-31 · M92 = Days 22-31.</p>
+  </div>
 
 </main>
 
 <footer>
-  <p>Polina Arc v2.0 · M04 hero only · M14/M27/M55/M77/M92 reassigned to phase scripts</p>
-  <p>Reference: <a href="phase-1-scripts.html">Phase 1</a> · <a href="phase-2-scripts.html">Phase 2</a> · <a href="phase-3-scripts.html">Phase 3</a> · <a href="../foundation.html">Foundation</a></p>
+  <p>The arc is the spec. The scripts are downstream. Both true.</p>
 </footer>
-<script src="../nav.js?v=11"></script>
+
+<script src="../nav.js?v=12"></script>
 </body>
 </html>

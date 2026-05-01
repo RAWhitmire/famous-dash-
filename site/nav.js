@@ -30,36 +30,39 @@
 
   // Master site map — single source of truth for all pages.
   var SITE = [
-    {key:'home', label:'🏠 Home', url:'index.html', depth:0},
-    {key:'long-arc', label:'⭐ Long Arc', url:'long-arc.html', depth:0},
-    {key:'life', label:'📅 Life', url:'life/index.html', depth:0, color:'pop5', children:[
-      {label:'Today', url:'life/index.html'},
+    {key:'home', label:'Home', url:'index.html', depth:0},
+    {key:'long-arc', label:'Long Arc', url:'long-arc.html', depth:0},
+    {key:'life', label:'Life', url:'life/index.html', depth:0, color:'pop5', children:[
+      {label:'Today + day-shape', url:'life/index.html'},
       {label:'Weekly Rhythm', url:'life/rhythm.html'},
       {label:'Meals', url:'life/meals.html'},
       {label:'Sleep', url:'life/sleep.html'},
       {label:'Chores', url:'life/chores.html'},
       {label:'Acting Practice', url:'life/acting.html'}
     ]},
-    {key:'content', label:'🎬 Content', url:'content/index.html', depth:0, color:'pop6', children:[
-      {label:'Today + KPIs', url:'content/index.html'},
+    {key:'content', label:'Strategy', url:'content/index.html', depth:0, color:'pop6', children:[
+      {label:'📍 Today + KPIs', url:'content/index.html'},
+      {label:'— Filming —', url:'content/phase-1-scripts.html'},
+      {label:'📄 Filming Materials Index', url:'content/phase-1-scripts.html'},
+      {label:'— Scheduling —', url:'content/calendar.html'},
       {label:'Sprint Calendar', url:'content/calendar.html'},
-      {label:'Per-Post Cards', url:'content/posts.html'},
-      {label:'Discount Trek', url:'content/dt.html'},
-      {label:'Scripts', url:'content/scripts.html'},
-      {label:'IG Plays', url:'content/ig-plays.html'},
-      {label:'Get Ahead Plan', url:'content/ahead.html'},
+      {label:'Posting Strategy', url:'content/posting-strategy.html'},
       {label:'Filming Days', url:'content/filming.html'},
+      {label:'Get Ahead Plan', url:'content/ahead.html'},
       {label:'Contingency', url:'content/contingency.html'},
-      {label:'Idea Bank', url:'content/ideas.html'},
-      {label:'Trend Log', url:'content/trends.html'},
       {label:'Backup Bank', url:'content/backup.html'},
       {label:'Analytics', url:'content/analytics.html'},
-      {label:'⭐ Polina Arc Rebuild', url:'content/polina-arc.html'},
-      {label:'⭐ Phase 1 Scripts', url:'content/phase-1-scripts.html'},
-      {label:'⭐ Production Playbook', url:'content/production-playbook.html'},
-      {label:'⭐ Posting Strategy', url:'content/posting-strategy.html'}
+      {label:'— Reference —', url:'content/production-playbook.html'},
+      {label:'Production Playbook', url:'content/production-playbook.html'},
+      {label:'Polina Arc', url:'content/polina-arc.html'},
+      {label:'Per-Post Card Spec', url:'content/posts.html'},
+      {label:'Hook Templates', url:'content/scripts.html'},
+      {label:'Discount Trek', url:'content/dt.html'},
+      {label:'Idea Bank', url:'content/ideas.html'},
+      {label:'Trend Log', url:'content/trends.html'},
+      {label:'IG Plays', url:'content/ig-plays.html'}
     ]},
-    {key:'money', label:'💰 Money', url:'money/index.html', depth:0, color:'pop', children:[
+    {key:'money', label:'Money', url:'money/index.html', depth:0, color:'pop', children:[
       {label:'Overview + Quit Math', url:'money/index.html'},
       {label:'9 Streams', url:'money/streams.html'},
       {label:'Projections', url:'money/projections.html'},
@@ -71,7 +74,7 @@
       {label:'Tax + Expenses', url:'money/tax.html'},
       {label:'Media Kit', url:'money/media-kit.html'}
     ]},
-    {key:'formats', label:'⚡ Formats', url:'formats/index.html', depth:0, color:'pop4', children:[
+    {key:'formats', label:'Formats', url:'formats/index.html', depth:0, color:'pop4', children:[
       {label:'Method', url:'formats/index.html'},
       {label:'15-Format Library', url:'formats/library.html'},
       {label:'D1–D10 Sprint Plan', url:'formats/sprint-plan.html'},
@@ -114,7 +117,7 @@
 
   // Build full nav
   var navHTML = '<nav class="site-nav">';
-  navHTML += '<a href="' + prefix + 'index.html" class="brand">⭐ BECOMING FAMOUS</a>';
+  navHTML += '<a href="' + prefix + 'index.html" class="brand">Becoming&nbsp;Famous</a>';
   navHTML += '<div class="selectors">';
   navHTML += sectionHTML;
   navHTML += pageDropdownHTML;

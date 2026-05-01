@@ -3,70 +3,163 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Life · Today</title>
-<link rel="stylesheet" href="../styles.css?v=11" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Life — operating manual</title>
+<link rel="stylesheet" href="../styles.css?v=12" />
+<style>
+  /* Life page refinements */
+  .day-shape{
+    background:var(--surface-raised);
+    border:1px solid var(--border);
+    border-radius:var(--r-xl);
+    padding:var(--space-6);
+    box-shadow:var(--shadow);
+    margin-bottom:var(--space-6);
+  }
+  .day-shape .day-eyebrow{
+    font-size:var(--text-xs);
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--accent-deep);
+    margin-bottom:var(--space-2);
+    display:block;
+  }
+  .day-shape h2{
+    font-family:var(--font-serif);
+    font-size:var(--text-2xl);
+    margin:0 0 var(--space-2);
+    font-weight:500;
+    letter-spacing:-.018em;
+    line-height:1.2;
+    color:var(--ink);
+  }
+  .day-shape h2 em{font-style:italic;color:var(--accent-deep)}
+  .day-shape .day-headline{
+    font-size:var(--text-md);
+    color:var(--ink-muted);
+    margin:0 0 var(--space-5);
+    line-height:1.55;
+  }
+  .day-shape .day-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:var(--space-3);
+  }
+  .day-cell{
+    padding:var(--space-3) var(--space-4);
+    background:var(--surface-sunken);
+    border-radius:var(--r-md);
+  }
+  .day-cell .cell-label{
+    font-size:.7rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--ink-quiet);
+    margin-bottom:var(--space-1);
+  }
+  .day-cell .cell-value{font-size:var(--text-sm);color:var(--ink);font-weight:500;line-height:1.5}
+
+  /* Checklist — calmer */
+  .checklist{
+    background:var(--surface-raised);
+    border:1px solid var(--border);
+    border-radius:var(--r-lg);
+    padding:var(--space-5);
+  }
+  .checklist .check-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:var(--space-2);
+  }
+  .checklist label{
+    display:flex;
+    align-items:center;
+    gap:var(--space-3);
+    padding:var(--space-3) var(--space-4);
+    background:var(--surface-sunken);
+    border-radius:var(--r-md);
+    cursor:pointer;
+    font-size:var(--text-sm);
+    transition:background var(--motion-fast) var(--ease-out);
+  }
+  .checklist label:hover{background:var(--tint-gold)}
+  .checklist input[type=checkbox]{
+    width:1.1rem;
+    height:1.1rem;
+    accent-color:var(--accent);
+    flex-shrink:0;
+  }
+</style>
 </head>
 <body>
 
-<div id="site-nav-mount" data-section="life" data-page="📅 Life — Today"></div>
+<div id="site-nav-mount" data-section="life" data-page="Life — Today"></div>
 
 <header class="hero life">
-  <h1>Life · Today</h1>
-  <div class="sub">Owns the time. High-level day-shape. For post substance, jump to the Content section.</div>
+  <div class="hero-inner">
+    <span class="eyebrow">Personal · operating manual</span>
+    <h1>Life.</h1>
+    <p class="sub">Owns the time. The shape of the day, the rhythm of the week, the meals and sleep and chores that make the rest of it sustainable. Update when something on the rhythm actually shifts.</p>
+  </div>
 </header>
 
 <main>
-  <div class="card lift">
-    <div class="label">Today</div>
-    <h2 class="page-h flex between">
-      <span><span id="today-day">—</span> <span class="tag pop3" id="today-date">—</span></span>
-    </h2>
-    <p class="muted mt-0" id="today-headline" style="margin:.2rem 0 .8rem;font-weight:700;color:var(--pop4);font-size:1.05rem">—</p>
-    <div class="grid-quick">
-      <div class="quick-item"><small>☀️ Wake target</small><b id="today-wake">—</b></div>
-      <div class="quick-item"><small>💼 Print shop</small><b id="today-shop">—</b></div>
-      <div class="quick-item"><small>🎬 Filming window</small><b id="today-film">—</b></div>
-      <div class="quick-item"><small>✂️ Editing window</small><b id="today-edit">—</b></div>
-      <div class="quick-item"><small>📲 Posts ship at</small><b id="today-posts">—</b></div>
-      <div class="quick-item"><small>🍱 Meal plan</small><b id="today-meal">—</b></div>
-      <div class="quick-item"><small>🧺 Today's chore</small><b id="today-chore">—</b></div>
-      <div class="quick-item"><small>🛌 Sleep target tonight</small><b id="today-sleep">—</b></div>
-      <div class="quick-item"><small>🎭 Acting practice</small><b id="today-acting">—</b></div>
+
+  <!-- TODAY'S DAY-SHAPE — JS widget, free (no fetch) -->
+  <div class="day-shape">
+    <span class="day-eyebrow"><span id="today-day">—</span> · <span id="today-date">—</span></span>
+    <h2 id="today-headline">—</h2>
+    <p class="day-headline" id="today-sub">The standing shape of this day of the week.</p>
+    <div class="day-grid">
+      <div class="day-cell"><div class="cell-label">Wake target</div><div class="cell-value" id="today-wake">—</div></div>
+      <div class="day-cell"><div class="cell-label">Print shop</div><div class="cell-value" id="today-shop">—</div></div>
+      <div class="day-cell"><div class="cell-label">Filming window</div><div class="cell-value" id="today-film">—</div></div>
+      <div class="day-cell"><div class="cell-label">Editing window</div><div class="cell-value" id="today-edit">—</div></div>
+      <div class="day-cell"><div class="cell-label">Posts ship at</div><div class="cell-value" id="today-posts">—</div></div>
+      <div class="day-cell"><div class="cell-label">Meal plan</div><div class="cell-value" id="today-meal">—</div></div>
+      <div class="day-cell"><div class="cell-label">Chore</div><div class="cell-value" id="today-chore">—</div></div>
+      <div class="day-cell"><div class="cell-label">Sleep target</div><div class="cell-value" id="today-sleep">—</div></div>
+      <div class="day-cell"><div class="cell-label">Acting practice</div><div class="cell-value" id="today-acting">—</div></div>
     </div>
   </div>
 
-  <div class="section-label mt-2">Daily Checklist <span class="tag pop3" style="margin-left:.5rem">body + boundaries</span></div>
-  <div class="card">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.4rem">
-      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 🛌 In bed by 11 PM (1 AM hard cap)</label>
-      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> ☀️ Out of bed within 10 min of alarm</label>
-      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 🍱 Ate Tier 1 / 2 / 3 — not "I forgot"</label>
-      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 💧 Water bottle refilled at least twice</label>
-      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> ☕ Last caffeine before 2 PM</label>
-      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 🧺 5-min litter scoop done</label>
-      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 🚶 Got outside / off the couch ≥10 min</label>
-      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 🛁 Showered (or wipe-down minimum)</label>
-      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> 📵 Phone away from bed at sleep time</label>
-      <label style="display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;background:var(--soft);border-radius:.4rem;cursor:pointer"><input type="checkbox" style="width:1.2rem;height:1.2rem;accent-color:var(--pop)" /> ❤️ Checked in with one person (text counts)</label>
+  <!-- DAILY CHECKLIST -->
+  <div class="section-label">Daily checklist · body & boundaries</div>
+  <div class="checklist">
+    <div class="check-grid">
+      <label><input type="checkbox" /> In bed by 11 PM (1 AM hard cap)</label>
+      <label><input type="checkbox" /> Out of bed within 10 min of alarm</label>
+      <label><input type="checkbox" /> Ate Tier 1 / 2 / 3 — not "I forgot"</label>
+      <label><input type="checkbox" /> Water bottle refilled at least twice</label>
+      <label><input type="checkbox" /> Last caffeine before 2 PM</label>
+      <label><input type="checkbox" /> 5-min litter scoop done</label>
+      <label><input type="checkbox" /> Got outside / off the couch ≥10 min</label>
+      <label><input type="checkbox" /> Showered (or wipe-down minimum)</label>
+      <label><input type="checkbox" /> Phone away from bed at sleep time</label>
+      <label><input type="checkbox" /> Checked in with one person (text counts)</label>
     </div>
   </div>
 
-  <div class="section-label mt-2">Quick Jumps</div>
-  <div class="subnav-grid">
-    <a class="subnav" href="rhythm.html"><h4>Weekly Rhythm</h4><p>The standing M/T/Th/F + Wed batch + Sun pattern</p></a>
-    <a class="subnav" href="meals.html"><h4>Meal Plan</h4><p>Tier 1 buy / Tier 2 batch / Tier 3 fallback</p></a>
-    <a class="subnav" href="sleep.html"><h4>Sleep Reset</h4><p>Fixing the oversleep cycle — 11pm/7am target</p></a>
-    <a class="subnav" href="chores.html"><h4>Chore Wheel</h4><p>4-week Sunday rotation</p></a>
-    <a class="subnav" href="acting.html"><h4>Acting Practice</h4><p>Restart small. The long arc lives here.</p></a>
+  <!-- SUB-SECTIONS -->
+  <div class="section-label">The reference</div>
+  <div class="grid-2">
+    <a class="subnav" href="rhythm.html"><h4>Weekly Rhythm</h4><p>The standing M / T / Th / F print-shop pattern, Wed batch day, Sun reset.</p></a>
+    <a class="subnav" href="meals.html"><h4>Meal Plan</h4><p>Tier 1 grab / Tier 2 batch / Tier 3 fallback. Picky-eater compliant.</p></a>
+    <a class="subnav" href="sleep.html"><h4>Sleep Reset</h4><p>The oversleep-cycle fix. 11 PM target, 7 AM wake.</p></a>
+    <a class="subnav" href="chores.html"><h4>Chore Wheel</h4><p>4-week Sunday rotation. Litter daily.</p></a>
+    <a class="subnav" href="acting.html"><h4>Acting Practice</h4><p>Restart small. The long arc lives in the practice block.</p></a>
   </div>
+
 </main>
 
 <footer>
   <p>Owns the time. Tuesday looks like Tuesday either way.</p>
-  <p>For substance — what's filming, what's posting, see <a href="../content/index.html">Content →</a></p>
+  <p class="quiet">For substance — what's filming, what's posting — see <a href="../content/index.html">Strategy →</a></p>
 </footer>
 
-<script src="../nav.js?v=11"></script>
+<script src="../nav.js?v=12"></script>
 <script>
 (function(){
   var today = new Date();
@@ -78,16 +171,17 @@
 
   var dow = today.getDay();
   var profiles = {
-    0: { headline:"Sun OFF · Recovery + life maintenance", wake:"8:00 AM (sleep in)", shop:"OFF", film:"3:30–5:00 PM (light, voiceover only)", edit:"7:00–9:00 PM queue Mon-Wed", posts:"Slot 1 + 2 + 3 from queue", meal:"Tier 2 batch IF you feel like it", chore:"Sunday chore wheel — see Chores", sleep:"11 PM (full 8hr before 4-day work block)", acting:"5–6 PM · 1 hr practice block" },
-    1: { headline:"Mon · Print shop day", wake:"7:00 AM", shop:"10–6 PM (1hr commute each way)", film:"Eve only if needed", edit:"7:30–10:00 PM", posts:"Slot 1 (queued AM) · Slot 2 (lunch) · Slot 3 (eve)", meal:"Tier 1 grab-and-go all day", chore:"5-min litter scoop", sleep:"11 PM (1 AM hard cap)", acting:"Sides only if reactive" },
-    2: { headline:"Tue · Print shop day · 🛌 NO EDIT EVE (recovery valve)", wake:"7:00 AM", shop:"10–6 PM", film:"None", edit:"None — slot 3 from queue", posts:"All from queue (pre-edited Mon)", meal:"Tier 1", chore:"5-min litter scoop", sleep:"10:30 PM (early)", acting:"Reactive only" },
-    3: { headline:"Wed OFF · ★ PRIMARY BATCH DAY", wake:"8:00 AM (sleep in 1 hr)", shop:"OFF", film:"9:00–4:00 PM (Block A + B + C + DT)", edit:"4:00–9:30 PM", posts:"Slot 1 from queue · Slot 2 + 3 ship today", meal:"Tier 1 — proper meal at lunch break, body needs it", chore:"Off — focus on filming", sleep:"10:30 PM (early — 4-day block ahead)", acting:"Off (filming day)" },
-    4: { headline:"Thu · Print shop day", wake:"7:00 AM", shop:"10–6 PM", film:"Eve only if needed", edit:"7:30–10:00 PM", posts:"Slot 1 · 2 · 3 (slot 1 from Wed queue)", meal:"Tier 1", chore:"5-min litter scoop", sleep:"11 PM (1 AM cap)", acting:"Reactive" },
-    5: { headline:"Fri · Print shop day · treat eve allowed", wake:"7:00 AM", shop:"10–6 PM", film:"Eve only if needed", edit:"7:30–10:00 PM (light)", posts:"Slot 1 · 2 · 3", meal:"Tier 1 + 🎉 treat dinner ok", chore:"5-min litter scoop", sleep:"11 PM (treat night flexible)", acting:"Reactive" },
-    6: { headline:"Sat · Print shop 9–5 (early start)", wake:"7:00 AM (1hr earlier)", shop:"9–5 PM", film:"None", edit:"7–9 PM light", posts:"Slot 1 · 2 · 3 (slot 3 from queue)", meal:"Tier 1 + 🎉 treat night", chore:"5-min litter scoop", sleep:"11 PM", acting:"Off" }
+    0: { headline:"Sunday · <em>recovery & life maintenance</em>", sub:"Day off. Reset for the four-day work block ahead.", wake:"8:00 AM (sleep in)", shop:"Off", film:"3:30–5:00 PM (light VO only)", edit:"7:00–9:00 PM queue Mon–Wed", posts:"Slots 1 + 2 + 3 from queue", meal:"Tier 2 batch if you feel like it", chore:"Sunday chore wheel", sleep:"11 PM (full 8 hr before 4-day block)", acting:"5–6 PM · 1 hr practice block" },
+    1: { headline:"Monday · <em>print shop</em>", sub:"Standing print-shop day. Slot work runs from queue.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Evening only if needed", edit:"7:30–10:00 PM", posts:"Slot 1 (queued AM) · Slot 2 (lunch) · Slot 3 (eve)", meal:"Tier 1 grab-and-go", chore:"5-min litter scoop", sleep:"11 PM (1 AM hard cap)", acting:"Sides only if reactive" },
+    2: { headline:"Tuesday · <em>print shop · no edit eve</em>", sub:"Recovery valve in the work week. No editing tonight.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"None", edit:"None — slot 3 from queue", posts:"All from queue (pre-edited Mon)", meal:"Tier 1", chore:"5-min litter scoop", sleep:"10:30 PM (early)", acting:"Reactive only" },
+    3: { headline:"Wednesday · <em>★ primary batch day</em>", sub:"Day off the shop. Block out filming + editing.", wake:"8:00 AM (sleep in 1 hr)", shop:"Off", film:"9:00 AM – 4:00 PM (Blocks A + B + C + DT)", edit:"4:00–9:30 PM", posts:"Slot 1 from queue · Slots 2 + 3 ship today", meal:"Tier 1 — proper meal at lunch", chore:"Skip — focus on filming", sleep:"10:30 PM (early)", acting:"Skip (filming day)" },
+    4: { headline:"Thursday · <em>print shop</em>", sub:"Standard work day. Slot 1 from Wed queue.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Evening only if needed", edit:"7:30–10:00 PM", posts:"Slot 1 (Wed queue) · 2 · 3", meal:"Tier 1", chore:"5-min litter scoop", sleep:"11 PM (1 AM cap)", acting:"Reactive" },
+    5: { headline:"Friday · <em>print shop · treat eve</em>", sub:"Last weekday of the work block. Treat dinner allowed.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Evening only if needed", edit:"7:30–10:00 PM (light)", posts:"Slot 1 · 2 · 3", meal:"Tier 1 + treat dinner ok", chore:"5-min litter scoop", sleep:"11 PM (treat-night flexible)", acting:"Reactive" },
+    6: { headline:"Saturday · <em>print shop · early start</em>", sub:"Earlier shift. Light editing eve.", wake:"7:00 AM (1 hr earlier)", shop:"9 AM – 5 PM", film:"None", edit:"7–9 PM light", posts:"Slot 1 · 2 · 3 (Slot 3 from queue)", meal:"Tier 1 + treat night", chore:"5-min litter scoop", sleep:"11 PM", acting:"Off" }
   };
   var p = profiles[dow] || profiles[1];
-  document.getElementById('today-headline').textContent = p.headline;
+  document.getElementById('today-headline').innerHTML = p.headline;
+  document.getElementById('today-sub').textContent = p.sub;
   document.getElementById('today-wake').textContent = p.wake;
   document.getElementById('today-shop').textContent = p.shop;
   document.getElementById('today-film').textContent = p.film;
@@ -99,6 +193,5 @@
   document.getElementById('today-acting').textContent = p.acting;
 })();
 </script>
-
 </body>
 </html>

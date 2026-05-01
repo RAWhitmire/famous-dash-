@@ -3,74 +3,84 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Content · Per-Post Cards</title>
-<link rel="stylesheet" href="../styles.css?v=11" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Content · Per-Post Cards (reference)</title>
+<link rel="stylesheet" href="../styles.css?v=12" />
 </head>
 <body>
 
 <div id="site-nav-mount" data-section="content" data-page="🎬 Per-Post Cards"></div>
 
 <header class="hero content">
-  <h1>Per-Post Production Cards</h1>
-  <div class="sub">Sprint card index. The current source-of-truth is <a href="phase-1-scripts.html" style="color:var(--accent)"><b>Phase 1 Scripts</b></a> — that page has the full beat-by-beat scripts with stacked hooks, CTAs, and Week-1 no-DT compliance.</div>
+  <h1>Per-Post Card Spec · reference</h1>
+  <div class="sub">What every script-card has on it. The actual filled-in cards live in the offline filming PDFs — this page documents the schema only.</div>
 </header>
 
 <main>
-  <div class="card lift" style="background:var(--accent);border-color:var(--ink)">
-    <h3 style="color:var(--ink)">→ Live source: Phase 1 Scripts</h3>
-    <p style="font-size:var(--text-sm);margin:.3rem 0;color:var(--ink)"><b>The megadoc (CONTENT_DASHBOARD.html) is now stale.</b> It still contains old "quit at 23," DT-in-week-1, and "follow if that hit" defaults. Do not film from it.</p>
-    <p style="font-size:var(--text-sm);margin:.3rem 0;color:var(--ink)">Filming source = Phase 1 Scripts. That page has: 4-stack hooks per beat, no DT in Week 1, no work refs anywhere, varied CTAs, "came back at 23" framing.</p>
+
+  <div class="card lift">
+    <h3>Where the actual scripts are</h3>
+    <p style="font-size:var(--text-sm);margin:.3rem 0">Filming materials moved offline. The website is reference + scheduling. Each script's full beat-by-beat lives in <code>CORRECTED_SCRIPTS_DAYS_*.md</code> in the project root.</p>
     <p style="margin:.6rem 0">
-      <a class="btn ghost" style="background:var(--ink);color:var(--accent);border-color:var(--ink)" href="phase-1-scripts.html">→ Phase 1 Scripts (LIVE source)</a>
+      <a class="btn gold" href="phase-1-scripts.html">→ Filming Materials Index</a>
+      <a class="btn ghost" href="calendar.html">→ Calendar</a>
     </p>
   </div>
 
-  <div class="card mt-2" style="background:var(--tint-purple);border-left:3px solid var(--accent-2)">
-    <h3>Week 1 visual rule (Days 1-4)</h3>
-    <p style="font-size:var(--text-sm);margin:.3rem 0">Zero DT B-roll. No cardboard, comm badges, faux-uniforms, bridge sketches, Captain props — even passively in the background. Allowed visual anchors Days 1-4: notebook, sticky-note wall, glitter (general), sugar bowl, kettle, hot glue (as craft tool only).</p>
-    <p style="font-size:var(--text-sm);margin:.3rem 0">DT props can re-enter frame from <b>Day 5 (Mon May 4)</b>.</p>
-  </div>
-
-  <div class="section-label mt-2">Card structure (what each post specifies)</div>
+  <div class="section-label mt-2">Card structure — what every post specifies</div>
   <div class="grid-2">
     <div class="card">
-      <h3>Always defined</h3>
-      <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem">
-        <li><b>ID</b> — M01–M93 (main) or DT-01–DT-32</li>
+      <h3>Always defined per script</h3>
+      <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem;line-height:1.6">
+        <li><b>ID</b> — M01–M93 (main) or DT-01–DT-25</li>
         <li><b>Day + slot</b> — when it ships</li>
         <li><b>Title</b> — working name</li>
-        <li><b>Topic</b> — what the post is about</li>
-        <li><b>Verbal hook</b> — first 1.5 sec script</li>
-        <li><b>Visual hook (frame 1)</b> — what we SEE first</li>
-        <li><b>CTA</b> — what we ask the viewer to do</li>
-        <li><b>Ending mechanic</b> — loop / cliffhanger / abrupt cut</li>
+        <li><b>Format</b> — F01–F15 (tags to <a href="../formats/library.html">Format Library</a>)</li>
+        <li><b>Pillar</b> — P1–P5 (per <a href="../foundation.html">Foundation</a>)</li>
+        <li><b>4-stack hook per beat</b> — VO / Visual / On-screen text / Audio cue or Pattern interrupt</li>
+        <li><b>6-beat structure</b> — Hook · Rehook 1 · Rehook 2 · Rehook 3 · Climax · Loop</li>
+        <li><b>CTA</b> — CTA01–05, varied per video</li>
+        <li><b>Caption</b> — for the post</li>
+        <li><b>First comment</b> — pinned, often with PASSENGER lead-magnet line</li>
+        <li><b>Hashtags</b> — 3 pillar-coded + 2 evergreen</li>
       </ul>
     </div>
     <div class="card">
       <h3>Tracked after posting</h3>
-      <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem">
+      <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem;line-height:1.6">
         <li><b>Views</b> at 24h / 7d</li>
-        <li><b>Completion %</b></li>
+        <li><b>Completion %</b> (target: 70% = ~31s on a 45s vid)</li>
         <li><b>Comments / saves / shares</b></li>
         <li><b>Followers gained from this post</b></li>
-        <li><b>Format used</b> (tags to <a href="../formats/library.html">F01–F15</a>)</li>
-        <li><b>Format Score</b> (auto-calculated)</li>
+        <li><b>Format Score</b> — calculated for the format-test methodology</li>
+        <li>Live tracking happens in the <a href="analytics.html">Analytics</a> page</li>
       </ul>
     </div>
   </div>
 
-  <div class="section-label mt-2">Quick filter</div>
+  <div class="section-label mt-2">Sprint totals</div>
   <div class="card">
-    <p style="font-size:var(--text-sm);margin:.3rem 0">From the megadoc you can filter by:</p>
-    <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem">
-      <li>All (125) · Main (93) · Discount Trek (32)</li>
-      <li>Heroes · Priority 6</li>
-      <li>Phase 1 (Cannes) · Phase 2 (Bridge) · Phase 3 (Prize)</li>
+    <p style="font-size:var(--text-sm);margin:.3rem 0"><b>121 total scripts across 31 days:</b> 96 main + 25 DT.</p>
+    <ul style="font-size:var(--text-sm);margin:.3rem 0;padding-left:1.1rem;line-height:1.6">
+      <li>Days 1–4: 15 main · 0 DT (DT account dark in week 1)</li>
+      <li>Days 5–11: 21 main · 9 DT (Cannes push, DT goes live Day 5)</li>
+      <li>Days 12–21: 30 main · 12 DT (Bridge phase, outcome-agnostic)</li>
+      <li>Days 22–31: 30 main · 4 DT (Prize phase, finale Day 31)</li>
     </ul>
+    <p style="font-size:var(--text-sm);margin:.3rem 0">Heroes: M01, M04 (Polina), M07, M10, M19, M31 (Cannes), M34, M60, M79, M91 (Finale).</p>
   </div>
+
+  <div class="section-label mt-2">Reference pages</div>
+  <div class="grid-2">
+    <a class="subnav" href="../foundation.html"><h4>Foundation v1.2</h4><p>Voice, audience, pillars, signature phrases.</p></a>
+    <a class="subnav" href="production-playbook.html"><h4>Production Playbook</h4><p>Retention beats, hook formulas, CTAs.</p></a>
+    <a class="subnav" href="../formats/library.html"><h4>Format Library</h4><p>F01-F15 definitions.</p></a>
+    <a class="subnav" href="posting-strategy.html"><h4>Posting Strategy</h4><p>Slot mechanics, audience journey.</p></a>
+  </div>
+
 </main>
 
-<footer><p>Cards are the substance. Schedule is the shape. <a href="calendar.html">→ Calendar</a> · <a href="../../CONTENT_DASHBOARD.html#posts">→ Megadoc grid</a></p></footer>
-<script src="../nav.js?v=11"></script>
+<footer><p>Cards are the substance. Calendar is the shape. Both are reference, not the script itself.</p></footer>
+<script src="../nav.js?v=12"></script>
 </body>
 </html>
