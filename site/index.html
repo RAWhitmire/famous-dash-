@@ -5,7 +5,135 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <title>Becoming Famous</title>
-<link rel="stylesheet" href="styles.css?v=14" />
+<link rel="stylesheet" href="styles.css?v=15" />
+<style>
+  /* Homepage two-column on desktop */
+  .home-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:var(--s-7);
+    margin-top:var(--s-5);
+  }
+  @media (min-width:880px){
+    .home-grid{
+      grid-template-columns:1.2fr 1fr;
+      gap:var(--s-8);
+      align-items:start;
+    }
+  }
+  .home-grid h2.col-h{
+    font-family:var(--font-display);
+    font-size:var(--text-xl);
+    font-weight:500;
+    letter-spacing:-.012em;
+    margin:0 0 var(--s-3);
+    color:var(--ink);
+  }
+  .home-grid h2.col-h em{font-style:italic;color:var(--accent)}
+  .home-grid .col-eyebrow{
+    font-size:var(--text-xs);
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    color:var(--ink-quiet);
+    display:block;
+    margin-bottom:var(--s-2);
+  }
+
+  /* Day overview */
+  .day-overview .day-headline{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:var(--text-md);
+    color:var(--ink-muted);
+    line-height:1.5;
+    margin:0 0 var(--s-4);
+  }
+  .day-overview dl{
+    margin:0;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:var(--s-3) var(--s-5);
+  }
+  .day-overview dt{
+    font-size:var(--text-xs);
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--ink-quiet);
+    margin:0 0 var(--s-1);
+    grid-column:1/-1;
+  }
+  .day-overview dd{
+    margin:0 0 var(--s-3);
+    font-size:var(--text-md);
+    color:var(--ink);
+    grid-column:1/-1;
+  }
+  @media (min-width:560px){
+    .day-overview dl{grid-template-columns:auto 1fr;column-gap:var(--s-5)}
+    .day-overview dt{grid-column:auto;align-self:baseline;margin:0;padding-top:.18rem}
+    .day-overview dd{grid-column:auto;margin:0 0 var(--s-3)}
+  }
+
+  /* Footer (richer) */
+  footer.site-footer{
+    background:transparent;
+    border-top:1px solid var(--rule);
+    margin-top:var(--s-9);
+    padding:var(--s-7) var(--s-5) var(--s-6);
+    color:var(--ink-muted);
+    font-size:var(--text-sm);
+    text-align:left;
+  }
+  footer.site-footer .ft-inner{max-width:960px;margin:0 auto}
+  footer.site-footer .ft-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:var(--s-5);
+    margin-bottom:var(--s-6);
+  }
+  footer.site-footer h4{
+    font-family:var(--font-sans);
+    font-size:var(--text-xs);
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--ink-quiet);
+    margin:0 0 var(--s-3);
+  }
+  footer.site-footer ul{list-style:none;padding:0;margin:0}
+  footer.site-footer li{margin:var(--s-2) 0}
+  footer.site-footer li a{
+    color:var(--ink);
+    text-decoration:none;
+    font-size:var(--text-sm);
+    transition:color var(--motion-fast) var(--ease-out);
+  }
+  footer.site-footer li a:hover{color:var(--accent)}
+  footer.site-footer .ft-bottom{
+    border-top:1px solid var(--rule);
+    padding-top:var(--s-4);
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--s-3);
+    justify-content:space-between;
+    align-items:baseline;
+    color:var(--ink-quiet);
+    font-size:var(--text-xs);
+  }
+  footer.site-footer .ft-thesis{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:var(--text-md);
+    color:var(--ink);
+    max-width:54ch;
+    line-height:1.5;
+    margin:0 0 var(--s-5);
+    border-left:2px solid var(--accent);
+    padding-left:var(--s-4);
+  }
+</style>
 </head>
 <body>
 
@@ -15,34 +143,59 @@
   <div class="hero-inner">
     <span class="eyebrow">A working document</span>
     <h1>Becoming <em>Famous</em>.</h1>
-    <p class="sub">Personal reference. Voice, life rhythm, money plan, the long arc — the things worth keeping in one place. Filming and content calendar live elsewhere.</p>
+    <p class="sub">Personal reference. Voice, life rhythm, money plan, the long arc — the things worth keeping in one place.</p>
   </div>
 </header>
 
-<main>
+<main class="wide">
 
-  <ul class="link-list">
-    <li><a href="life/index.html">
-      <span class="ll-title">Life</span>
-      <span class="ll-desc">Day-shape, weekly rhythm, meals, sleep, chores, acting practice.</span>
-      <span class="ll-arrow">→</span>
-    </a></li>
-    <li><a href="content/index.html">
-      <span class="ll-title">Reference</span>
-      <span class="ll-desc">Foundation, voice, hook formulas, format library, Polina arc.</span>
-      <span class="ll-arrow">→</span>
-    </a></li>
-    <li><a href="money/index.html">
-      <span class="ll-title">Money</span>
-      <span class="ll-desc">Nine streams, projections, quit-line math, IP strategy.</span>
-      <span class="ll-arrow">→</span>
-    </a></li>
-    <li><a href="long-arc.html">
-      <span class="ll-title">Long arc</span>
-      <span class="ll-desc">The north star. Why all of this exists.</span>
-      <span class="ll-arrow">→</span>
-    </a></li>
-  </ul>
+  <div class="home-grid">
+
+    <!-- Left: Today's day overview -->
+    <section class="day-overview">
+      <span class="col-eyebrow"><span id="today-day">—</span> · <span id="today-date">—</span></span>
+      <h2 class="col-h" id="today-headline">—</h2>
+      <p class="day-headline" id="today-sub">—</p>
+      <dl>
+        <dt>Wake</dt><dd id="d-wake">—</dd>
+        <dt>Work</dt><dd id="d-shop">—</dd>
+        <dt>Filming</dt><dd id="d-film">—</dd>
+        <dt>Editing</dt><dd id="d-edit">—</dd>
+        <dt>Posts</dt><dd id="d-posts">—</dd>
+        <dt>Sleep</dt><dd id="d-sleep">—</dd>
+        <dt>Practice</dt><dd id="d-acting">—</dd>
+      </dl>
+    </section>
+
+    <!-- Right: Sections -->
+    <section>
+      <span class="col-eyebrow">Sections</span>
+      <h2 class="col-h">The <em>working</em> set.</h2>
+      <ul class="link-list" style="margin-top:var(--s-3)">
+        <li><a href="life/index.html">
+          <span class="ll-title">Life</span>
+          <span class="ll-desc">Day-shape, weekly rhythm, meals, sleep, chores, acting.</span>
+          <span class="ll-arrow">→</span>
+        </a></li>
+        <li><a href="content/index.html">
+          <span class="ll-title">Reference</span>
+          <span class="ll-desc">Foundation, hook formulas, format library, Polina arc.</span>
+          <span class="ll-arrow">→</span>
+        </a></li>
+        <li><a href="money/index.html">
+          <span class="ll-title">Money</span>
+          <span class="ll-desc">Nine streams, projections, quit-line math, IP strategy.</span>
+          <span class="ll-arrow">→</span>
+        </a></li>
+        <li><a href="long-arc.html">
+          <span class="ll-title">Long arc</span>
+          <span class="ll-desc">The north star. Why all of this exists.</span>
+          <span class="ll-arrow">→</span>
+        </a></li>
+      </ul>
+    </section>
+
+  </div>
 
   <p class="pullquote">
     The audience is the leverage. The auditions are the use. The acting career is the real point — everything else is the runway.
@@ -51,11 +204,89 @@
 
 </main>
 
-<footer>
-  <p>A working document for becoming famous. Static by design.</p>
-  <p class="quiet">@rawhitmire · @discounttrek</p>
+<footer class="site-footer">
+  <div class="ft-inner">
+
+    <p class="ft-thesis">A personal working document. Static by design — the schedule and the plan get edited by hand when something material changes. No live data, no auto-sync.</p>
+
+    <div class="ft-grid">
+      <div>
+        <h4>Life</h4>
+        <ul>
+          <li><a href="life/index.html">Today + day-shape</a></li>
+          <li><a href="life/rhythm.html">Weekly rhythm</a></li>
+          <li><a href="life/meals.html">Meals</a></li>
+          <li><a href="life/sleep.html">Sleep</a></li>
+          <li><a href="life/chores.html">Chores</a></li>
+          <li><a href="life/acting.html">Acting practice</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul>
+          <li><a href="foundation.html">Foundation</a></li>
+          <li><a href="content/production-playbook.html">Production playbook</a></li>
+          <li><a href="formats/library.html">Format library</a></li>
+          <li><a href="content/polina-arc.html">Polina arc</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Money</h4>
+        <ul>
+          <li><a href="money/index.html">Overview</a></li>
+          <li><a href="money/streams.html">Nine streams</a></li>
+          <li><a href="money/projections.html">Projections</a></li>
+          <li><a href="money/roadmap.html">8-month roadmap</a></li>
+          <li><a href="money/ip.html">DT IP strategy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Vision</h4>
+        <ul>
+          <li><a href="long-arc.html">The long arc</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ft-bottom">
+      <span>Becoming Famous · @rawhitmire · @discounttrek</span>
+      <span>Last reviewed Apr 30, 2026</span>
+    </div>
+  </div>
 </footer>
 
-<script src="nav.js?v=14"></script>
+<script src="nav.js?v=15"></script>
+<script>
+(function(){
+  var today = new Date();
+  today.setHours(0,0,0,0);
+  var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('today-day').textContent = dayNames[today.getDay()];
+  document.getElementById('today-date').textContent = monthNames[today.getMonth()] + ' ' + today.getDate();
+
+  var dow = today.getDay();
+  var profiles = {
+    0:{headline:"Sunday · <em>recovery</em>", sub:"Day off. Reset for the four-day work block ahead.", wake:"8:00 AM", shop:"Off", film:"3:30–5:00 PM (light VO)", edit:"7–9 PM, queue Mon–Wed", posts:"Slots 1 + 2 + 3 from queue", sleep:"11 PM (full 8 hr)", acting:"5–6 PM · 1 hr"},
+    1:{headline:"Monday · <em>print shop</em>", sub:"Standing print-shop day. Slot work runs from queue.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Eve only if needed", edit:"7:30–10 PM", posts:"Slot 1 (queue) · 2 (lunch) · 3 (eve)", sleep:"11 PM", acting:"Sides only if reactive"},
+    2:{headline:"Tuesday · <em>print shop · no edit</em>", sub:"Recovery valve. No editing tonight.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"None", edit:"None — slot 3 from queue", posts:"All from queue", sleep:"10:30 PM", acting:"Reactive only"},
+    3:{headline:"Wednesday · <em>★ batch day</em>", sub:"Day off the shop. Block out filming + editing.", wake:"8:00 AM", shop:"Off", film:"9 AM – 4 PM", edit:"4–9:30 PM", posts:"Slot 1 from queue · 2 + 3 ship today", sleep:"10:30 PM", acting:"Skip (filming)"},
+    4:{headline:"Thursday · <em>print shop</em>", sub:"Standard work day.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Eve only if needed", edit:"7:30–10 PM", posts:"Slot 1 (Wed queue) · 2 · 3", sleep:"11 PM", acting:"Reactive"},
+    5:{headline:"Friday · <em>print shop · treat eve</em>", sub:"Last weekday of the work block.", wake:"7:00 AM", shop:"10 AM – 6 PM", film:"Eve only if needed", edit:"7:30–10 PM (light)", posts:"Slot 1 · 2 · 3", sleep:"11 PM (flexible)", acting:"Reactive"},
+    6:{headline:"Saturday · <em>print shop · early</em>", sub:"Earlier shift. Light editing eve.", wake:"7:00 AM", shop:"9 AM – 5 PM", film:"None", edit:"7–9 PM light", posts:"Slot 1 · 2 · 3 (slot 3 queue)", sleep:"11 PM", acting:"Off"}
+  };
+  var p = profiles[dow] || profiles[1];
+  document.getElementById('today-headline').innerHTML = p.headline;
+  document.getElementById('today-sub').textContent = p.sub;
+  document.getElementById('d-wake').textContent = p.wake;
+  document.getElementById('d-shop').textContent = p.shop;
+  document.getElementById('d-film').textContent = p.film;
+  document.getElementById('d-edit').textContent = p.edit;
+  document.getElementById('d-posts').textContent = p.posts;
+  document.getElementById('d-sleep').textContent = p.sleep;
+  document.getElementById('d-acting').textContent = p.acting;
+})();
+</script>
 </body>
 </html>
