@@ -690,7 +690,10 @@ footer.site-footer .ft-bottom{
   font-size:var(--text-xs);
 }
 
-/* ===== DARK MODE ===== */
+/* ===== DARK MODE =====
+   Inverts ink + paper. Buttons, pills, scroll-top etc. assume "ink-on-paper"
+   with #fff text on dark ink; in dark mode that flips, so we rebind --on-ink
+   to be paper-colored to keep text readable. */
 [data-theme="dark"]{
   --paper:#15121e;
   --ink:#f3eee0;
@@ -702,10 +705,71 @@ footer.site-footer .ft-bottom{
   --accent-deep:#b89232;
   --surface-raised:#1d1828;
   --surface-sunken:#1a162a;
+  --tint-gold:#3d2f0f;
+  --on-ink:#15121e;       /* text color when bg is var(--ink) */
+  --on-accent:#15121e;    /* text color when bg is var(--accent) */
+  --bg:var(--paper);
+  --surface:var(--paper);
+  --card:var(--surface-raised);
+  --border:var(--rule);
 }
-[data-theme="dark"] nav.site-nav{background:rgba(21,18,30,.85);border-bottom-color:#2d2742}
-[data-theme="dark"] .card.lift{background:#1d1828}
-[data-theme="dark"] *::selection{background:var(--accent);color:var(--ink)}
+:root{ --on-ink:#fff; --on-accent:#fff; }
+
+[data-theme="dark"] body{background:var(--paper);color:var(--ink)}
+[data-theme="dark"] nav.site-nav{background:rgba(21,18,30,.85);border-bottom-color:var(--rule)}
+[data-theme="dark"] .card.lift{background:var(--surface-raised)}
+[data-theme="dark"] *::selection{background:var(--accent);color:var(--on-accent)}
+
+/* Inputs — fix the white-box-on-dark issue */
+[data-theme="dark"] input[type=text],
+[data-theme="dark"] input[type=number],
+[data-theme="dark"] input[type=date],
+[data-theme="dark"] input[type=email],
+[data-theme="dark"] textarea,
+[data-theme="dark"] select{
+  background:var(--surface-raised);
+  color:var(--ink);
+  border-color:var(--rule);
+}
+
+/* Buttons — text needs to flip when bg is now cream-colored ink */
+[data-theme="dark"] button.btn,
+[data-theme="dark"] .btn{ color:var(--on-ink); }
+[data-theme="dark"] button.btn:hover,
+[data-theme="dark"] .btn:hover{ background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+[data-theme="dark"] .btn.gold,
+[data-theme="dark"] button.btn.gold{ color:var(--on-accent); }
+[data-theme="dark"] .btn.ghost,
+[data-theme="dark"] button.btn.ghost{ color:var(--ink); border-color:var(--ink); }
+[data-theme="dark"] .btn.ghost:hover,
+[data-theme="dark"] button.btn.ghost:hover{ background:var(--ink); color:var(--on-ink); }
+
+/* Tags + pills — same fix */
+[data-theme="dark"] .tag.pop2{ background:var(--ink); color:var(--on-ink); border-color:var(--ink); }
+[data-theme="dark"] .tag.pop{ color:var(--on-accent); }
+[data-theme="dark"] .pill.hot{ color:var(--on-accent); }
+
+/* Week-day urgent / today — bg flips to cream, text needs to flip too */
+[data-theme="dark"] .week-day.is-today{ background:var(--surface-raised); border-color:var(--ink); }
+[data-theme="dark"] .week-day.urgent{ background:var(--ink); border-color:var(--ink); }
+[data-theme="dark"] .week-day.urgent .day-tag{ color:var(--accent); }
+[data-theme="dark"] .week-day.urgent .day-action{ color:var(--on-ink); }
+
+/* Scroll-to-top button — the loud one */
+[data-theme="dark"] #scroll-top-btn{ background:var(--ink); color:var(--on-ink); }
+[data-theme="dark"] #scroll-top-btn:hover{ background:var(--accent); color:var(--on-accent); }
+
+/* Surface-raised overrides everywhere it appears */
+[data-theme="dark"] .gumball-section{ background:var(--surface-raised); }
+
+/* Card.lift legacy fallback */
+[data-theme="dark"] .card.lift{ background:var(--surface-raised); border-color:var(--rule); }
+
+/* Hero — paper-colored bg under sticky nav still readable */
+[data-theme="dark"] header.hero{ background:transparent; }
+
+/* Theme color meta — best-effort hint to mobile chrome */
+[data-theme="dark"] .theme-toggle{ color:var(--ink); }
 
 /* Theme toggle button */
 .theme-toggle{

@@ -73,7 +73,9 @@
     {key:'formats', label:'Formats', url:'formats/index.html', depth:0, color:'pop4', children:[
       {label:'Method', url:'formats/index.html'},
       {label:'15-Format Library', url:'formats/library.html'}
-    ]}
+    ]},
+    {key:'sitemap', label:'Sitemap', url:'sitemap.html', depth:0},
+    {key:'random', label:'Random page →', url:'random.html', depth:0}
   ];
 
   // Determine current section from data attribute on mount point
@@ -222,11 +224,12 @@
         '<li><a href="' + prefix + 'press.html">Press</a></li>' +
         '<li><a href="' + prefix + 'long-arc.html">Long arc</a></li>' +
         '<li><a href="' + prefix + 'random.html">Random page →</a></li>' +
+        '<li><a href="' + prefix + 'sitemap.html">Sitemap</a></li>' +
       '</ul></div>' +
     '</div>' +
     '<div class="ft-bottom">' +
       '<span>Becoming Famous · @rawhitmire · @discounttrek</span>' +
-      '<span>Last reviewed Apr 30, 2026</span>' +
+      '<span><a href="' + prefix + 'sitemap.html">Sitemap</a> · Last reviewed Apr 30, 2026</span>' +
     '</div>' +
   '</div></footer>';
 
