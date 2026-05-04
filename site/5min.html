@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Five min · Becoming Famous</title>
+<meta name="description" content="The lie is the feature. Pull a task, give it five minutes, see what happens." />
+<link rel="stylesheet" href="styles.css?v=22" />
+<style>
+  /* Pull card — the random task display */
+  .pull-section{
+    margin:var(--s-6) 0 var(--s-7);
+    padding:var(--s-6) var(--s-5);
+    border:1px solid var(--rule);
+    border-radius:var(--r-lg);
+    background:var(--surface-raised);
+    text-align:center;
+  }
+  .pull-section .pull-eyebrow{
+    font-size:var(--text-xs);
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    color:var(--ink-quiet);
+    display:block;
+    margin-bottom:var(--s-3);
+  }
+  .pull-section .pull-task{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:var(--text-2xl);
+    font-weight:500;
+    letter-spacing:-.018em;
+    color:var(--ink);
+    line-height:1.2;
+    margin:var(--s-3) 0 var(--s-4);
+    min-height:2.4em;
+  }
+  .pull-section .pull-task em{font-style:italic;color:var(--accent)}
+  .pull-section .pull-cat{
+    font-size:var(--text-xs);
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--accent);
+    display:block;
+    margin-top:var(--s-2);
+  }
+  .pull-section .pull-actions{
+    display:flex;
+    gap:var(--s-3);
+    justify-content:center;
+    margin-top:var(--s-5);
+    flex-wrap:wrap;
+  }
+  .pull-section .pull-btn{
+    background:var(--ink);
+    color:#fff;
+    border:1px solid var(--ink);
+    border-radius:var(--r-sm);
+    padding:.7rem 1.4rem;
+    font-weight:500;
+    font-size:var(--text-sm);
+    font-family:inherit;
+    cursor:pointer;
+    text-transform:none;
+    letter-spacing:.005em;
+    transition:background var(--motion-fast) var(--ease-out);
+  }
+  .pull-section .pull-btn:hover{background:var(--accent);border-color:var(--accent)}
+  .pull-section .pull-btn.ghost{background:transparent;color:var(--ink)}
+  .pull-section .pull-btn.ghost:hover{background:var(--ink);color:#fff}
+  [data-theme="dark"] .pull-section .pull-btn{color:var(--on-ink)}
+  [data-theme="dark"] .pull-section .pull-btn:hover{color:var(--on-accent)}
+  [data-theme="dark"] .pull-section .pull-btn.ghost{color:var(--ink)}
+  [data-theme="dark"] .pull-section .pull-btn.ghost:hover{color:var(--on-ink)}
+
+  /* Category sections */
+  .cat-section{
+    margin-top:var(--s-7);
+  }
+  .cat-section .cat-eyebrow{
+    font-size:var(--text-xs);
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    color:var(--ink-quiet);
+    display:block;
+    margin-bottom:var(--s-2);
+  }
+  .cat-section h2{
+    font-family:var(--font-display);
+    font-size:var(--text-xl);
+    font-weight:500;
+    letter-spacing:-.012em;
+    margin:0 0 var(--s-3);
+    color:var(--ink);
+  }
+  .cat-section h2 em{font-style:italic;color:var(--accent)}
+  .cat-section ul{
+    list-style:none;
+    padding:0;
+    margin:var(--s-3) 0 0;
+  }
+  .cat-section li{
+    padding:var(--s-3) 0;
+    border-bottom:1px solid var(--rule);
+    font-size:var(--text-md);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  .cat-section li:first-child{border-top:1px solid var(--rule)}
+</style>
+</head>
+<body>
+
+<div id="site-nav-mount" data-section="5min" data-page="Five min"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Operating system · activation hack</span>
+    <h1>Five <em>min</em>.</h1>
+    <p class="sub">Lie to yourself. Tell yourself it's five minutes. Start. Once you start, the rest takes care of itself. The lie is the feature.</p>
+  </div>
+</header>
+
+<main>
+
+  <p class="lede">
+    Discovered the night the litter box finally got cleaned. The trick: don't think about the litter box. Think about <em>five minutes of scooping</em>. Once the scoop is in your hand, you keep going. You always do. The five-minute lie is the activation energy. The actual time doesn't matter — what matters is that you started. Three buckets only: the room, the laundry, the people. Add more when you find them.
+  </p>
+
+  <section class="pull-section">
+    <span class="pull-eyebrow">Pull a task · spend five minutes on it · close the tab</span>
+    <p class="pull-task" id="pull-task">→ Click pull to start.</p>
+    <span class="pull-cat" id="pull-cat"></span>
+    <div class="pull-actions">
+      <button class="pull-btn" id="pull-btn" type="button">Pull a task</button>
+      <button class="pull-btn ghost" id="pull-again" type="button" style="display:none">Pull again</button>
+    </div>
+  </section>
+
+  <section class="cat-section">
+    <span class="cat-eyebrow">Category 1</span>
+    <h2>Room <em>reset</em>.</h2>
+    <p class="muted">The litter genre. Things that compound when ignored.</p>
+    <ul>
+      <li>Scoop the litter box</li>
+      <li>Pick the clothes off the floor</li>
+      <li>Clear one surface in the room</li>
+      <li>Throw out one round of room trash</li>
+      <li>Make the bed</li>
+      <li>Put one stack of stuff away</li>
+    </ul>
+  </section>
+
+  <section class="cat-section">
+    <span class="cat-eyebrow">Category 2</span>
+    <h2><em>Laundry</em>.</h2>
+    <p class="muted">It's its own thing. Five minutes is one move.</p>
+    <ul>
+      <li>Throw a load in the washer</li>
+      <li>Move the wet load to the dryer</li>
+      <li>Fold one basket (or just the shirts)</li>
+      <li>Put the folded clothes away</li>
+      <li>Strip the sheets</li>
+    </ul>
+  </section>
+
+  <section class="cat-section">
+    <span class="cat-eyebrow">Category 3</span>
+    <h2><em>People</em>.</h2>
+    <p class="muted">A five-minute call counts. Most do.</p>
+    <ul>
+      <li>Call one family member. Five minutes.</li>
+      <li>Text one family member back</li>
+      <li>Send a "thinking of you" text to whoever popped into your head</li>
+    </ul>
+  </section>
+
+  <p class="pullquote" style="margin-top:var(--s-8)">
+    The litter got scooped. The system was discovered. Tomorrow it's the dishes. The system never changes.
+    <cite>five-min thesis · May 2026</cite>
+  </p>
+
+</main>
+
+<script src="nav.js?v=22"></script>
+<script>
+(function(){
+  var TASKS = [
+    // Room reset
+    {t:'Scoop the litter box.', c:'Room reset'},
+    {t:'Pick the clothes off the floor.', c:'Room reset'},
+    {t:'Clear one surface in your room.', c:'Room reset'},
+    {t:'Throw out one round of room trash.', c:'Room reset'},
+    {t:'Make the bed.', c:'Room reset'},
+    {t:'Put one stack of stuff away.', c:'Room reset'},
+    // Laundry
+    {t:'Throw a load in the washer.', c:'Laundry'},
+    {t:'Move the wet load to the dryer.', c:'Laundry'},
+    {t:'Fold one basket. Or just the shirts.', c:'Laundry'},
+    {t:'Put the folded clothes away.', c:'Laundry'},
+    {t:'Strip the sheets.', c:'Laundry'},
+    // People
+    {t:'Call one family member. Five minutes.', c:'People'},
+    {t:'Text one family member back.', c:'People'},
+    {t:'Send a "thinking of you" text to whoever just popped into your head.', c:'People'}
+  ];
+
+  var lastIdx = -1;
+  function pull(){
+    var idx;
+    do { idx = Math.floor(Math.random() * TASKS.length); } while (idx === lastIdx && TASKS.length > 1);
+    lastIdx = idx;
+    var task = TASKS[idx];
+    document.getElementById('pull-task').innerHTML = '<em>“</em>' + task.t + '<em>”</em>';
+    document.getElementById('pull-cat').textContent = task.c;
+    document.getElementById('pull-again').style.display = 'inline-flex';
+    document.getElementById('pull-btn').textContent = 'Did it · pull next';
+  }
+  document.getElementById('pull-btn').addEventListener('click', pull);
+  document.getElementById('pull-again').addEventListener('click', pull);
+})();
+</script>
+</body>
+</html>

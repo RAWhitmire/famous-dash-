@@ -74,6 +74,7 @@
       {label:'Method', url:'formats/index.html'},
       {label:'15-Format Library', url:'formats/library.html'}
     ]},
+    {key:'5min', label:'Five min', url:'5min.html', depth:0},
     {key:'sitemap', label:'Sitemap', url:'sitemap.html', depth:0},
     {key:'random', label:'Random page →', url:'random.html', depth:0}
   ];
@@ -217,6 +218,7 @@
       '</ul></div>' +
       '<div><h4>More</h4><ul>' +
         '<li><a href="' + prefix + 'now.html">Now</a></li>' +
+        '<li><a href="' + prefix + '5min.html">Five min ⏱</a></li>' +
         '<li><a href="' + prefix + 'wins.html">Wins</a></li>' +
         '<li><a href="' + prefix + 'lexicon.html">Lexicon</a></li>' +
         '<li><a href="' + prefix + 'inputs.html">Inputs</a></li>' +
